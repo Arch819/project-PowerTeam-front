@@ -11,6 +11,7 @@ import ProductsPage from 'page/ProductsPage';
 import ExercisesPage from 'page/ExercisesPage';
 import ExercisesListPage from 'page/ExercisesListPage';
 import ProfilePage from 'page/ProfilePage';
+import ExerciseItemPage from 'page/ExerciseItemPage';
 
 const LoginPage = lazy(() => import('page/SignInPage'));
 const RegistrationPage = lazy(() => import('page/SignUpPage'));
@@ -64,12 +65,12 @@ export const App = () => {
             <PrivateRoute redirectTo="/" component={<ExercisesListPage />} />
           }
         />
-        {/* <Route
-          path="/exercises/:update"
+        <Route
+          path="/exercises/:exId"
           element={
-            <PrivateRoute redirectTo="/login" component={<UpdateProfile />} />
+            <PrivateRoute redirectTo="/" component={<ExerciseItemPage />} />
           }
-        /> */}
+        />
         <Route
           path="/profile"
           element={<PrivateRoute redirectTo="/" component={<ProfilePage />} />}
