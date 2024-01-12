@@ -1,0 +1,84 @@
+@import-normalize;
+
+/* bring in normalize.css styles */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #003530;
+  color: #909090;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+main {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+
+}
+
+button {
+  display: block;
+  cursor: pointer;
+  background: transparent;
+  border: transparent;
+  outline: transparent;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  width: 180px;
+  display: block;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  margin-top: 4px;
+  padding: 4px 6px;
+  background: #999;
+}
+
+input:is(:hover, :focus) {
+  border-color: transparent;
+  box-shadow: inset 0 0 6px 1px #003530;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+label span {
+  margin-left: 2px;
+  color: #955;
+}
