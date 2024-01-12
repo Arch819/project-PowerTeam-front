@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/project-PowerTeam-front/static/css/main.402466c2.css",
+    "main.js": "/project-PowerTeam-front/static/js/main.44a279bf.js",
+    "static/js/163.0fade363.chunk.js": "/project-PowerTeam-front/static/js/163.0fade363.chunk.js",
+    "static/js/948.4372b193.chunk.js": "/project-PowerTeam-front/static/js/948.4372b193.chunk.js",
+    "index.html": "/project-PowerTeam-front/index.html",
+    "main.402466c2.css.map": "/project-PowerTeam-front/static/css/main.402466c2.css.map",
+    "main.44a279bf.js.map": "/project-PowerTeam-front/static/js/main.44a279bf.js.map",
+    "163.0fade363.chunk.js.map": "/project-PowerTeam-front/static/js/163.0fade363.chunk.js.map",
+    "948.4372b193.chunk.js.map": "/project-PowerTeam-front/static/js/948.4372b193.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.402466c2.css",
+    "static/js/main.44a279bf.js"
+  ]
+}
