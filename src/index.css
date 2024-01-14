@@ -1,5 +1,25 @@
 @import-normalize;
 
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src:
+    local("Inter"),
+    url("./fonts/regular/Roboto-Regular.woff2") format("woff2"),
+    url("./fonts/regular/Roboto-Regular.woff") format("woff"),
+    url("./fonts/regular/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 700;
+  src:
+    local("Inter"),
+    url("./fonts/bold/Roboto-Bold.woff2") format("woff2"),
+    url("./fonts/bold/Roboto-Bold.woff") format("woff"),
+    url("./fonts/bold/Roboto-Bold.ttf") format("truetype");
+}
+
 /* bring in normalize.css styles */
 *,
 ::before,
@@ -42,4 +62,15 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+button {
+  display: block;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  line-height: 0;
+  height: auto;
 }
