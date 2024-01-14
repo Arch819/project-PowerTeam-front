@@ -2,8 +2,12 @@
 
 import React from 'react';
 
-function ExercisesList() {
-  return <div></div>;
+function ExercisesList({ exerciseName, activeFilter }) {
+  return (
+    <div>
+      <ul></ul>
+    </div>
+  );
 }
 
 export default ExercisesList;

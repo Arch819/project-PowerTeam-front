@@ -1,9 +1,24 @@
-// ExercisesSubcategoriesList містить список всіх підкатегорій ExercisesSubcategoriesItem, отриманих з backendу. У разі наявності в категорії великої кількості підкатегорій - список необхідно реалізувати у вигляді слайдеру по 10-9-10 підкатегорій на сторінці, в залежності від розміру viewportу користувача
-
 import React from 'react';
 
-function ExercisesSubcategoriesList() {
-  return <div></div>;
-}
+import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem';
+
+const ExercisesSubcategoriesList = ({ handleExerciseName, subCategories }) => {
+  return (
+    <div>
+      <ul>
+        {subCategories.map(({ _id, filter, name, imgURL }) => (
+          <ExercisesSubcategoriesItem
+            key={_id}
+            filter={filter}
+            name={name}
+            imgURL={imgURL}
+            id={_id}
+            handleExerciseName={handleExerciseName}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default ExercisesSubcategoriesList;

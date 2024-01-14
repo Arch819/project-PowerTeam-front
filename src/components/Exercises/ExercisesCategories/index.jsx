@@ -1,11 +1,41 @@
-// ExercisesCategories містить 3 категорії вправ:
-//  - Body parts (обрана по замовчуванню)
-//  - Muscles
-//  - Equipment
-// Перелік підкатегорій має бути отриманий за запитом на backend.
+import React from 'react';
+import {
+  ExercisesItem,
+  ExercisesList,
+  LinkButton,
+} from './ExercisesCategories.styled';
 
-function ExercisesCategories() {
-  return <div></div>;
-}
+const ExercisesCategories = ({ activeFilter, handleActiveFilter }) => {
+  return (
+    <div>
+      <ExercisesList>
+        <ExercisesItem>
+          <LinkButton
+            className={activeFilter === 'bodyparts' ? 'active' : ''}
+            onClick={() => handleActiveFilter('bodyparts')}
+          >
+            Body parts
+          </LinkButton>
+        </ExercisesItem>
+        <ExercisesItem>
+          <LinkButton
+            className={activeFilter === 'muscles' ? 'active' : ''}
+            onClick={() => handleActiveFilter('muscles')}
+          >
+            Muscles
+          </LinkButton>
+        </ExercisesItem>
+        <ExercisesItem>
+          <LinkButton
+            className={activeFilter === 'equipment' ? 'active' : ''}
+            onClick={() => handleActiveFilter('equipment')}
+          >
+            Equipment
+          </LinkButton>
+        </ExercisesItem>
+      </ExercisesList>
+    </div>
+  );
+};
 
 export default ExercisesCategories;

@@ -1,14 +1,26 @@
-// ExercisesSubcategoriesItem містить:
-//  - назву підкатегорії
-//  - назву категорії
-//  - зображення, що передає сенс підкатегорії
+import React from 'react';
 
-// У разі обрання користувачем окремої підкатегорії по clickу на ExercisesSubcategoriesItem має додатись кнопка Back, TitlePage має змінитись на назву підкатегорії, а ExercisesSubcategoriesList замінитись на ExercisesList.
+const ExercisesSubcategoriesItem = ({
+  filter,
+  name,
+  imgURL,
+  handleExerciseName,
+  id,
+}) => {
+  const capitalizeFirstLeter = string => {
+    const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
+    return newString;
+  };
 
-// Кнопка Back(типу "button") - повертає користувача до ExercisesSubcategoriesList з відповідною зміною TitlePage та прихованням кнопки Back.
-
-function ExercisesSubcategoriesItem() {
-  return <div></div>;
-}
+  return (
+    <li onClick={() => handleExerciseName(name)}>
+      <img src={imgURL} alt="name" width={200}></img>
+      <div>
+        <h3>{capitalizeFirstLeter(name)}</h3>
+        <p>{filter}</p>
+      </div>
+    </li>
+  );
+};
 
 export default ExercisesSubcategoriesItem;
