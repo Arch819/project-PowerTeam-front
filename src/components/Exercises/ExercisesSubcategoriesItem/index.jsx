@@ -1,25 +1,24 @@
 import React from 'react';
+import {
+  Image,
+  SubExercisesLi,
+  TextContainer,
+} from './ExercisesSubCategoriesItem.styled';
 
-const ExercisesSubcategoriesItem = ({
-  filter,
-  name,
-  imgURL,
-  handleExerciseName,
-  id,
-}) => {
-  const capitalizeFirstLeter = string => {
-    const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
-    return newString;
-  };
-
+const ExercisesSubcategoriesItem = () => {
   return (
-    <li onClick={() => handleExerciseName(name)}>
-      <img src={imgURL} alt="name" width={200}></img>
-      <div>
-        <h3>{capitalizeFirstLeter(name)}</h3>
-        <p>{filter}</p>
-      </div>
-    </li>
+    <SubExercisesLi>
+      <Image src="#" alt="name"></Image>
+      <TextContainer
+        style={{
+          background:
+            'linear-gradient(0deg, rgba(4, 4, 4, 0.50) 0%, rgba(4, 4, 4, 0.50) 100%)',
+        }}
+      >
+        <h3>test</h3>
+        <p>test</p>
+      </TextContainer>
+    </SubExercisesLi>
   );
 };
 

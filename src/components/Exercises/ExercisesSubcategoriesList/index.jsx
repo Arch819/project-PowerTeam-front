@@ -1,22 +1,14 @@
 import React from 'react';
 
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem';
+import { SubCategoriesList } from './ExercisesSubcategoriesList.styled';
 
-const ExercisesSubcategoriesList = ({ handleExerciseName, subCategories }) => {
+const ExercisesSubcategoriesList = () => {
   return (
     <div>
-      <ul>
-        {subCategories.map(({ _id, filter, name, imgURL }) => (
-          <ExercisesSubcategoriesItem
-            key={_id}
-            filter={filter}
-            name={name}
-            imgURL={imgURL}
-            id={_id}
-            handleExerciseName={handleExerciseName}
-          />
-        ))}
-      </ul>
+      <SubCategoriesList>
+        <ExercisesSubcategoriesItem />
+      </SubCategoriesList>
     </div>
   );
 };

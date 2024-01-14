@@ -5,33 +5,18 @@ import {
   LinkButton,
 } from './ExercisesCategories.styled';
 
-const ExercisesCategories = ({ activeFilter, handleActiveFilter }) => {
+const ExercisesCategories = () => {
   return (
     <div>
       <ExercisesList>
         <ExercisesItem>
-          <LinkButton
-            className={activeFilter === 'bodyparts' ? 'active' : ''}
-            onClick={() => handleActiveFilter('bodyparts')}
-          >
-            Body parts
-          </LinkButton>
+          <LinkButton className="active">Body parts</LinkButton>
         </ExercisesItem>
         <ExercisesItem>
-          <LinkButton
-            className={activeFilter === 'muscles' ? 'active' : ''}
-            onClick={() => handleActiveFilter('muscles')}
-          >
-            Muscles
-          </LinkButton>
+          <LinkButton>Muscles</LinkButton>
         </ExercisesItem>
         <ExercisesItem>
-          <LinkButton
-            className={activeFilter === 'equipment' ? 'active' : ''}
-            onClick={() => handleActiveFilter('equipment')}
-          >
-            Equipment
-          </LinkButton>
+          <LinkButton>Equipment</LinkButton>
         </ExercisesItem>
       </ExercisesList>
     </div>
