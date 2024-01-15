@@ -127,11 +127,10 @@ img {
   }
 }
 
-/* @media screen and (max-width: 1139px) {} */
+/* @media screen and (max-width: 1439px) {} */
 
 @media screen and (min-width: 1440px) {
   .container {
     width: 1376px;
     padding: 0 64px;
   }
-}
