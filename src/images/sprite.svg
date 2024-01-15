@@ -76,5 +76,14 @@
 <symbol id="icon-pagination-2" viewBox="0 0 32 32">
 <path d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
 </symbol>
+<symbol id="icon-bubble" viewBox="0 0 32 32">
+<path d="M20.793 16.346c3.778 0 6.84-3.062 6.84-6.84s-3.062-6.84-6.84-6.84c-3.778 0-6.84 3.062-6.84 6.84s3.062 6.84 6.84 6.84z"></path>
+<path d="M8.476 25.919c2.268 0 4.107-1.839 4.107-4.107s-1.839-4.107-4.107-4.107c-2.268 0-4.107 1.839-4.107 4.107s1.839 4.107 4.107 4.107z"></path>
+<path d="M22.151 29.332c1.885 0 3.413-1.528 3.413-3.413s-1.528-3.413-3.413-3.413c-1.885 0-3.413 1.528-3.413 3.413s1.528 3.413 3.413 3.413z"></path>
+</symbol>
+<symbol id="icon-warning" viewBox="-2 -2 36 36">
+<path fill="#efa082" style="fill: var(--color1, #efa082)" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+<path fill="none" stroke="#efede8" style="stroke: var(--color2, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 25.333v0.013M16 20v-13.333"></path>
+</symbol>
 </defs>
 </svg>

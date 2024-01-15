@@ -1,22 +1,11 @@
 import { createGlobalStyle, styled } from 'styled-components';
 
-// export const DataBtn = styled.div`
-//   padding: 6px 12px;
-//   color: #ffffff;
-//   background: #3e85f3;
-//   border-radius: 8px;
-//   font-weight: 700;
-//   font-size: 14px;
-//   line-height: 18px;
-//   text-align: center;
-//   text-transform: uppercase;
-//   @media screen and (min-width: 768px) {
-//     margin-top: 33px;
-//     margin-bottom: 33px;
-//     padding: 8px 12px;
-//     font-size: 16px;
-//   }
-// `;
+export const IconSvg = styled.svg`
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  stroke: #ef8964;
+`;
 
 export const CalendarGlobalStyles = createGlobalStyle`
  .react-datepicker__wrapper {

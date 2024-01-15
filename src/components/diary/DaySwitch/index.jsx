@@ -10,8 +10,13 @@
 import { forwardRef, useState } from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
-import { CalendarGlobalStyles, TitleWrapper } from './DaySwitch.styled';
+import {
+  CalendarGlobalStyles,
+  IconSvg,
+  TitleWrapper,
+} from './DaySwitch.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import sprite from '../../../images/sprite.svg';
 
 const DaySwitch = () => {
   const [selectedDate, setSelectedDate] = useState(Date.now());
@@ -25,7 +30,10 @@ const DaySwitch = () => {
   });
 
   return (
-    <>
+    <div style={{ position: 'relative' }}>
+      <IconSvg width="18" height="18">
+        <use href={`${sprite}#icon-calendar`}></use>
+      </IconSvg>
       <DatePicker
         selected={selectedDate}
         onChange={date => {
@@ -37,7 +45,7 @@ const DaySwitch = () => {
         formatWeekDay={day => day.substr(0, 1)}
       />
       <CalendarGlobalStyles />
-    </>
+    </div>
   );
 };
 
