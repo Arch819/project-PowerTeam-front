@@ -1,5 +1,36 @@
 @import-normalize;
 
+:root {
+  /* background */
+  --bg-body: #040404;
+  --bg-btn: #E6533C;
+
+  /* text */
+  --color-text-primary: #EFEDE8;
+  --color-text-pr80: #EFEDE8CC;
+  --color-text-pr65: #EFEDE8A6;
+  --color-text-pr60: #EFEDE899;
+  --color-text-pr50: #EFEDE880;
+  --color-text-pr40: #EFEDE866;
+  --color-text-pr30: #EFEDE84D;
+  --color-text-secondaryV1: #EF8964;
+  --color-text-caloriesV2: #E6533C;
+  --color-text-white: #ffffff;
+
+  --color-btn-primary: #EFEDE8;
+  --color-btn-secondary: #E6533C;
+
+  /* border */
+  --border-20: 1px solid#EFEDE833;
+  --border-30: 1px solid #EFEDE84D;
+  --border-positive: 1px solid #3CBF61;
+  --border-negative: 1px solid #E9101D;
+
+
+  /* transition */
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @font-face {
   font-family: "Roboto";
   font-weight: 400;
@@ -74,3 +105,13 @@ img {
   line-height: 0;
   height: auto;
 }
+
+/* @media screen and (min-width: 375px) {} */
+
+/* @media screen and (max-width: 767px) {} */
+
+/* @media screen and (min-width: 768px) {} */
+
+/* @media screen and (max-width: 1139px) {} */
+
+/* @media screen and (min-width: 1140px) {} */
