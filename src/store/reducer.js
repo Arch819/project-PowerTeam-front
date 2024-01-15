@@ -1,7 +1,7 @@
 // import persistReducer from 'redux-persist/es/persistReducer';
 // import storage from 'redux-persist/lib/storage';
 import { appReducer } from './appState/slice';
-import { diaryReducer } from './diary/diarySlice';
+// import { diaryReducer } from './diary/diarySlice';
 import { statisticReducer } from './statistic/statisticSlice';
 
 // const persistConfig = {
