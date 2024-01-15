@@ -6,8 +6,16 @@
 // обраної користувачем категорії
 //   - компоненту ExercisesList, що містить перелік вправ і відображається у разі обрання певної ExercisesSubcategoriesItem
 
+import DayDashboard from 'components/diary/DayDashboard';
+import DaySwitch from 'components/diary/DaySwitch';
+
 function ExercisesPage() {
-  return <h2>Exercises</h2>;
+  return (
+    <>
+      <DaySwitch />
+      <DayDashboard />
+    </>
+  );
 }
 
 export default ExercisesPage;

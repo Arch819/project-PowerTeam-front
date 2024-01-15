@@ -7,6 +7,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 // import { PersistGate } from 'redux-persist/integration/react';
 // import { Loader } from 'components/Loader';
+import 'react-datepicker/dist/react-datepicker.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
