@@ -106,12 +106,32 @@ img {
   height: auto;
 }
 
-/* @media screen and (min-width: 375px) {} */
+.container {
+  margin: 0 auto;
+}
 
-/* @media screen and (max-width: 767px) {} */
+/* @media screen and (min-width: 375px) {
+} */
 
-/* @media screen and (min-width: 768px) {} */
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: 335px;
+    padding: 0 20px;
+  }
+}
 
-/* @media screen and (max-width: 1139px) {} */
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding: 0 32px;
+  }
+}
 
-/* @media screen and (min-width: 1140px) {} */
+/* @media screen and (max-width: 1439px) {} */
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1376px;
+    padding: 0 64px;
+  }
+}
