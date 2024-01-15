@@ -5,8 +5,22 @@
 
 // Незалежно від відповіді backenda, користувача слід деавторизувати "на клієнті", очистивши при цьому redux store  та localStorage.
 
+import sprite from '../../images/sprite.svg';
+import { IconLogoutStyled, LogoutStyled } from './LogOutBtn.styled';
+
+// Треба зробити dispatch для logoutUser, const handleLogOut та додати на onClick у LogoutStyled.
+
 function LogOutBtn() {
-  return <div></div>;
+  return (
+    <>
+      <LogoutStyled to="/welcome">
+        <span>Logout</span>
+        <IconLogoutStyled>
+          <use href={`${sprite}#icon-logout`} />
+        </IconLogoutStyled>
+      </LogoutStyled>
+    </>
+  );
 }
 
 export default LogOutBtn;
