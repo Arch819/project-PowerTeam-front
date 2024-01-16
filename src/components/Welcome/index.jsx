@@ -22,10 +22,10 @@ function Welcome() {
       </WelcomeTitleBoxStyled>
       <WelcomeLinkList>
         <li>
-          <WelcomeLinkSingUpStyled to="singUp">Sign Up</WelcomeLinkSingUpStyled>
+          <WelcomeLinkSingUpStyled to="singup">Sign Up</WelcomeLinkSingUpStyled>
         </li>
         <li>
-          <WelcomeLinkSingInStyled to="singIn">Sign In</WelcomeLinkSingInStyled>
+          <WelcomeLinkSingInStyled to="singin">Sign In</WelcomeLinkSingInStyled>
         </li>
       </WelcomeLinkList>
     </WelcomeWrapStyled>
