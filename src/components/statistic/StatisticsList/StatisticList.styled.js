@@ -11,7 +11,7 @@ export const StatisticListStyle = styled('ul')({
   },
 
   '@media screen and (min-width: 768px)': {
-    gap: '20px',
+    gap: '14px',
     '& svg': {
       width: '20px',
       height: '20px',
