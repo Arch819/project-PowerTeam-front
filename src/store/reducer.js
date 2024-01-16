@@ -12,7 +12,7 @@ import { statisticReducer } from './statistic/statisticSlice';
 // const userPersistReducer = persistReducer(persistConfig, );
 
 export const reducer = {
-  // diary: diaryReducer,
+  diary: diaryReducer,
   statistic: statisticReducer,
   appState: appReducer,
 };
