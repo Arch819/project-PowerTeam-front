@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
-import { BasicWindow, Modal, ButtonClouse, SvgClouse } from "./index.styled";
+import { BasicWindow, Modal, BtnClose, SvgClose } from "./index.styled";
 
 import symbolDefs from "../../../src/images/sprite.svg";
 
@@ -32,11 +32,11 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   const modal = (
     <BasicWindow onClick={handleClickBackground}>
       <Modal>
-        <ButtonClouse onClick={() => isOpenModalToggle()}>
-          <SvgClouse >
+        <BtnClose onClick={() => isOpenModalToggle()}>
+          <SvgClose >
             <use href={symbolDefs + "#icon-x"}></use>
-          </SvgClouse>
-        </ButtonClouse>
+          </SvgClose>
+        </BtnClose>
 
         {children}
       </Modal>

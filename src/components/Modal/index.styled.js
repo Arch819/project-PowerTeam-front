@@ -18,7 +18,7 @@ export const Modal = styled.div`
   background: #10100f;
   position: relative;
 `;
-export const ButtonClouse = styled.button`
+export const BtnClose = styled.button`
   width: 22px;
   height: 22px;
 
@@ -34,7 +34,7 @@ export const ButtonClouse = styled.button`
   }
 `;
 
-export const SvgClouse = styled.svg`
+export const SvgClose = styled.svg`
   width: 20px;
   height: 20px;
 
