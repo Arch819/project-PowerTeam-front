@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-PowerTeam-front/static/css/main.37289131.css",
-    "main.js": "/project-PowerTeam-front/static/js/main.3dc7b81f.js",
+    "main.js": "/project-PowerTeam-front/static/js/main.bd069171.js",
     "static/js/163.0fade363.chunk.js": "/project-PowerTeam-front/static/js/163.0fade363.chunk.js",
     "static/js/948.4372b193.chunk.js": "/project-PowerTeam-front/static/js/948.4372b193.chunk.js",
     "static/media/Roboto-Regular.ttf": "/project-PowerTeam-front/static/media/Roboto-Regular.25e40da956314b12d333.ttf",
@@ -13,12 +13,12 @@
     "static/media/sprite.svg": "/project-PowerTeam-front/static/media/sprite.e263101a6f4ef0324c09d1ebc59f1a6f.svg",
     "index.html": "/project-PowerTeam-front/index.html",
     "main.37289131.css.map": "/project-PowerTeam-front/static/css/main.37289131.css.map",
-    "main.3dc7b81f.js.map": "/project-PowerTeam-front/static/js/main.3dc7b81f.js.map",
+    "main.bd069171.js.map": "/project-PowerTeam-front/static/js/main.bd069171.js.map",
     "163.0fade363.chunk.js.map": "/project-PowerTeam-front/static/js/163.0fade363.chunk.js.map",
     "948.4372b193.chunk.js.map": "/project-PowerTeam-front/static/js/948.4372b193.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.37289131.css",
-    "static/js/main.3dc7b81f.js"
+    "static/js/main.bd069171.js"
   ]
 }
