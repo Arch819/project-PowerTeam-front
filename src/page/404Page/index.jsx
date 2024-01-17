@@ -5,7 +5,7 @@ import Section from 'components/Section';
 
 function NotFoundPage() {
   return (
-    <Section use={true}>
+    <Section use={'first'}>
       <NotFoundContainerStyled className="container">
         <NotFound />
       </NotFoundContainerStyled>
