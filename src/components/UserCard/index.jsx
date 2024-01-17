@@ -60,14 +60,14 @@ function UserCard() {
           border="1px solid rgba(239, 237, 232, 0.2)"
           iconId="icon-food-24"
           text="Daily calorie intake"
-          value="user.bmr"
+          value="2200"
         />
         <DailyBlock
           color="#E6533C"
           border="1px solid rgba(239, 237, 232, 0.2)"
           iconId="icon-dumbbell"
           text="Daily physical activity"
-          value="0 min"
+          value="110 min"
         />
       </WrapperDaily>
       <WarningMessage />
