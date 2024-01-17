@@ -7,8 +7,16 @@
 //  - компоненту DayDashboard, що містить зведену інформацію за день по результатах спожитих користувачем продуктів та викона-
 // них ним вправ
 
+import Section from 'components/Section';
+
 function DiaryPage() {
-  return <h2>Diary</h2>;
+  return (
+    <Section>
+      <div className="container">
+        <h2>Diary</h2>
+      </div>
+    </Section>
+  );
 }
 
 export default DiaryPage;

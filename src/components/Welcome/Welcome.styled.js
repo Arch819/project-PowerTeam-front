@@ -59,11 +59,12 @@ export const WelcomeLinkList = styled('ul')({
     display: 'inline-block',
     padding: '12px 40px',
     borderRadius: '12px',
-    textDecoration: 'none',
+
+    color: 'var(--color-btn-primary)',
     fontSize: '16px',
     fontWeight: '500',
     lineHeight: '1.12',
-    color: 'var(--color-btn-primary)',
+    textDecoration: 'none',
   },
   '@media screen and (min-width: 768px)': {
     gap: '14px',
