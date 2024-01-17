@@ -5,18 +5,33 @@ import {
   LinkButton,
 } from './ExercisesCategories.styled';
 
-const ExercisesCategories = () => {
+const ExercisesCategories = ({ activeCategory, handleCategory }) => {
   return (
     <div>
       <ExercisesList>
         <ExercisesItem>
-          <LinkButton className="active">Body parts</LinkButton>
+          <LinkButton
+            className={activeCategory === 'Body parts' ? 'active' : ''}
+            onClick={e => handleCategory('Body parts')}
+          >
+            Body parts
+          </LinkButton>
         </ExercisesItem>
         <ExercisesItem>
-          <LinkButton>Muscles</LinkButton>
+          <LinkButton
+            className={activeCategory === 'Muscles' ? 'active' : ''}
+            onClick={e => handleCategory('Muscles')}
+          >
+            Muscles
+          </LinkButton>
         </ExercisesItem>
         <ExercisesItem>
-          <LinkButton>Equipment</LinkButton>
+          <LinkButton
+            className={activeCategory === 'Equipment' ? 'active' : ''}
+            onClick={e => handleCategory('Equipment')}
+          >
+            Equipment
+          </LinkButton>
         </ExercisesItem>
       </ExercisesList>
     </div>

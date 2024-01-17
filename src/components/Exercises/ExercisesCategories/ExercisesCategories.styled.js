@@ -3,8 +3,11 @@ import styled from 'styled-components';
 export const ExercisesList = styled.ul`
   display: flex;
   gap: 28px;
-  margin-top: 20px;
-  margin-bottom: 48px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
 
   @media screen and (min-width: 768px) {
     gap: 32px;
