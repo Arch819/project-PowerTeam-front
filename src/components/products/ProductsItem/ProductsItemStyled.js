@@ -62,16 +62,30 @@ const ProductsItemStyled = styled.li`
       display: flex;
       align-items: center;
       gap: 8px;
+      background: transparent;
+      border: none;
+      color: var(--color-text-caloriesV2);
+      fill: var(--color-text-caloriesV2);
+      stroke: var(--color-text-caloriesV2);
+
       .btn-text {
-        color: var(--color-text-caloriesV2);
         font-size: 14px;
         line-height: 128.571%;
       }
+
       .btn-svg {
         width: 16px;
         height: 16px;
-        fill: #e6533c;
-        stroke: #e6533c;
+      }
+      &:hover {
+        color: var(--color-text-white);
+        fill: var(--color-text-white);
+        stroke: var(--color-text-white);
+      }
+      &:focus {
+        color: var(--color-text-white);
+        fill: var(--color-text-white);
+        stroke: var(--color-text-white);
       }
     }
   }

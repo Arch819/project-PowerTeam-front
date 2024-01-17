@@ -12,8 +12,7 @@ import BasicModalWindow from '../../Modal';
 
 function ProductsItem({ productData }) {
   const [modal, setModal] = useState(false);
-  const { productId, title, category, calories, weight, recommend } =
-    productData;
+  const { title, category, calories, weight, recommend } = productData;
 
   const openModal = () => {
     setModal(preModal => {
@@ -33,12 +32,12 @@ function ProductsItem({ productData }) {
             {recommend ? 'Recommended' : 'Not recommended'}
           </p>
         </div>
-        <div className="btn-box" onClick={openModal}>
+        <button className="btn-box" onClick={openModal}>
           <p className="btn-text">Add</p>
           <svg className="btn-svg">
             <use href={`${sprite}#icon-next`} />
           </svg>
-        </div>
+        </button>
       </div>
       <div className="title-box">
         <div className="title-svg-route">

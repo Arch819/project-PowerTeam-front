@@ -29,23 +29,35 @@ const ExercisesItemStyled = styled.li`
     position: absolute;
     top: 16px;
     right: 16px;
-    width: 55px;
-    height: 18px;
+    background: transparent;
+    border: none;
+    color: var(--color-text-caloriesV2);
+    fill: var(--color-text-caloriesV2);
+    stroke: var(--color-text-caloriesV2);
 
     display: flex;
     align-items: center;
     gap: 8px;
 
     .btn-text {
-      color: var(--color-text-caloriesV2);
       font-size: 14px;
       line-height: 128.571%;
     }
-    .btn-svg 
+
+    .btn-svg {
       width: 16px;
       height: 16px;
-      fill: #E6533C;
-      stroke: #E6533C;
+    }
+
+    &:hover {
+      color: var(--color-text-white);
+      fill: var(--color-text-white);
+      stroke: var(--color-text-white);
+    }
+    &:focus {
+      color: var(--color-text-white);
+      fill: var(--color-text-white);
+      stroke: var(--color-text-white);
     }
   }
 
@@ -115,9 +127,6 @@ const ExercisesItemStyled = styled.li`
     }
 
     .btn-box {
-      width: 59px;
-      height: 24px;
-
       .btn-text {
         font-size: 16px;
         line-height: 150%;
@@ -145,8 +154,8 @@ const ExercisesItemStyled = styled.li`
 
     .btn-box {
       .btn-text {
-        font-size: 14px;
-        line-height: 128.571%;
+        font-size: 16px;
+        line-height: 150%;
       }
     }
 
