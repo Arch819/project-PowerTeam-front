@@ -25,7 +25,7 @@ export const AvatarFrame = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media screen (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 150px;
     height: 150px;
   }
