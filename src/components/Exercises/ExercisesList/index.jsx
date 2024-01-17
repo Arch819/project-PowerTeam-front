@@ -1,12 +1,18 @@
 // ExercisesList містить список всіх вправ ExercisesItem, отриманих з backendу за відповідною підкатегорією.
 
 import React from 'react';
+import ExercisesItem from '../ExercisesItem';
+import ExercisesListStyled from './ExercisesListStyled';
 
-function ExercisesList({ exerciseName, activeFilter }) {
+function ExercisesList({ exercisesArray }) {
   return (
-    <div>
-      <ul></ul>
-    </div>
+    <ExercisesListStyled>
+      {exercisesArray.map(exercise => {
+        return (
+          <ExercisesItem exerciseData={exercise} key={exercise.idExercise} />
+        );
+      })}
+    </ExercisesListStyled>
   );
 }
 

@@ -5,8 +5,16 @@
 // залежності рекомендовано цей продукт йому або ні
 //  - компоненту ProductsList, що містить перелік продуктів
 
+import Section from 'components/Section';
+
 function ProductsPage() {
-  return <h2>Products</h2>;
+  return (
+    <Section use={'secondary'}>
+      <div className="container">
+        <h2>Products</h2>
+      </div>
+    </Section>
+  );
 }
 
 export default ProductsPage;

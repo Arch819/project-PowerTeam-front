@@ -6,8 +6,16 @@
 // обраної користувачем категорії
 //   - компоненту ExercisesList, що містить перелік вправ і відображається у разі обрання певної ExercisesSubcategoriesItem
 
+import Section from 'components/Section';
+
 function ExercisesPage() {
-  return <h2>Exercises</h2>;
+  return (
+    <Section>
+      <div className="container">
+        <h2>Exercises</h2>
+      </div>
+    </Section>
+  );
 }
 
 export default ExercisesPage;
