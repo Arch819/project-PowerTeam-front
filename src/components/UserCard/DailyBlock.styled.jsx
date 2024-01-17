@@ -37,7 +37,7 @@ export const WrapperBlock = styled.div`
 export const SvgBlock = styled.svg`
   width: 20px;
   height: 14px;
-  fill: #EF8964;
+  fill: #ef8964;
 `;
 
 export const TextBlock = styled.p`
@@ -53,13 +53,14 @@ export const TextBlock = styled.p`
 `;
 
 export const ValueBlock = styled.p`
-  color: #EFEDE8;
+  color: #efede8;
   font-family: 'Roboto';
   font-weight: Bold;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 18px;
+  line-height: 20px;
 
-  @media screen and (min-width: 375px) and (max-width: 767px) {
-    font-size: 18px;
+  @media screen and (min-width: 768px) and (max-width: 14470px) {
+    font-size: 24px;
+    line-height: 32px;
   }
 `;
