@@ -3,6 +3,7 @@
 :root {
   /* background */
   --bg-body: #040404;
+  --bg-container: #E6533C;
   --bg-btn: #E6533C;
   --bg-btn-hover: #EF8964;
   --bg-btn-sec: #EF8964;
@@ -31,6 +32,7 @@
   --border-positive: 1px solid #3CBF61;
   --border-negative: 1px solid #E9101D;
   --border-color-btn-hover: #E6533C;
+  --border-color-link-hover: #EFEDE8;
 
 
   /* transition */
@@ -56,6 +58,8 @@
     url("./fonts/bold/Roboto-Bold.woff") format("woff"),
     url("./fonts/bold/Roboto-Bold.ttf") format("truetype");
 }
+
+
 
 /* bring in normalize.css styles */
 *,
@@ -123,7 +127,7 @@ img {
 
 @media screen and (max-width: 767px) {
   .container {
-    width: 335px;
+    width: 375px;
     padding: 0 20px;
   }
 }
@@ -139,7 +143,7 @@ img {
 
 @media screen and (min-width: 1440px) {
   .container {
-    width: 1376px;
-    padding: 0 64px;
+    width: 1440px;
+    padding: 0 96px;
   }
 }

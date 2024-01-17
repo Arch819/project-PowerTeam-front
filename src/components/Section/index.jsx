@@ -1,7 +1,7 @@
-import React from 'react';
+import { SectionStyled } from './Section.styled';
 
-function Section({ children }) {
-  return <section>{children}</section>;
+function Section({ children, use }) {
+  return <SectionStyled use={use}>{children}</SectionStyled>;
 }
 
 export default Section;
