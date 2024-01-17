@@ -5,7 +5,7 @@ import Section from 'components/Section';
 
 function WelcomePage() {
   return (
-    <Section use={true}>
+    <Section use={'first'}>
       <WelcomePageBoxStyled className="container">
         <Welcome />
         <StatisticsList />

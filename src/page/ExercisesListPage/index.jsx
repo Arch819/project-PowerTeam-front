@@ -1,7 +1,13 @@
-import React from 'react';
+import Section from 'components/Section';
 
 function ExercisesListPage() {
-  return <h2>Waist</h2>;
+  return (
+    <Section use={'first'}>
+      <div className="container">
+        <h2>Waist</h2>
+      </div>
+    </Section>
+  );
 }
 
 export default ExercisesListPage;

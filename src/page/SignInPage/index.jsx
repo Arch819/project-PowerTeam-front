@@ -5,7 +5,7 @@ import Section from 'components/Section';
 
 const SignInPage = () => {
   return (
-    <Section use={true}>
+    <Section use={'first'}>
       <div className="container">
         <h2>Sign In</h2>
       </div>
