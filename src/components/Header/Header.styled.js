@@ -2,17 +2,21 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-export const HeaderContainer = styled.div`
-  border-bottom: 1px solid rgba(239, 237, 232, 0.2);
-  padding: 12px 20px;
+export const HeaderContainer = styled.header`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  border-bottom: var(--border-20);
+  padding: 12px 0;
 
-  @media (min-width: 768px) and (max-width: 1439px) {
-    padding: 19px 32px;
+  @media screen and (min-width: 768px) {
+    padding: 19px 0;
   }
 
-  @media (min-width: 1440px) {
-    padding: 19px 96px;
-  }
+  /* @media (min-width: 1440px) {
+    padding: 19px 0;
+  } */
 `;
 
 export const NavStyled = styled.nav`
@@ -25,20 +29,20 @@ export const NavLinkStyled = styled(NavLink)`
   font-size: 16px;
   line-height: calc(24 / 16);
   padding: 10px 27px;
-  color: #efede8;
+  color: var(--color-text-primary);
   background-color: transparent;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.2);
-  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: var(--border-20);
+  transition: background-color var(--transition);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    background-color: #e6533c;
+    background-color: var(--bg-btn);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   &.active {
-    background-color: #e6533c;
+    background-color: var(--bg-btn);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 `;
@@ -64,10 +68,10 @@ export const LinkSettingsStyled = styled(Link)`
   align-items: center;
   gap: 14px;
   stroke: ${props => props.color || 'rgba(239, 237, 232, 0.3)'};
-  transition: stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: stroke var(--transition);
 
   &:hover {
-    stroke: #e6533c;
+    stroke: var(--bg-btn);
   }
 `;
 
@@ -75,14 +79,14 @@ export const IconBurgerMenuStyled = styled.svg`
   width: ${props => props.size || '24px'};
   height: ${props => props.size || '24px'};
   fill: ${props => props.color || 'none'};
-  stroke: ${props => props.color || '#E6533C'};
-  transition: stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: ${props => props.color || 'var(--bg-btn)'};
+  transition: stroke var(--transition);
   display: block;
   cursor: pointer;
 
   &:hover,
   &:focus {
-    stroke: #ef8964;
+    stroke: var(--color-text-secondaryV1);
   }
 
   @media screen and (min-width: 768px) {

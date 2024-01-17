@@ -19,9 +19,9 @@ export const IconUser = styled.svg`
   stroke: ${props => props.color || 'none'};
   display: block;
   position: absolute;
-  transform: translate(50%, 50%);
   bottom: 50%;
   right: 50%;
+  transform: translate(50%, 50%);
 
   @media screen and (min-width: 768px) {
     width: ${props => props.size || '24px'};
@@ -30,12 +30,12 @@ export const IconUser = styled.svg`
 `;
 
 export const IconUserWrapper = styled.div`
-  border: 1px solid #e6533c;
-  border-radius: 50%;
+  position: relative;
   width: 37px;
   height: 37px;
-  position: relative;
-  
+  border: 1px solid var(--bg-btn);
+  border-radius: 50%;
+
   @media screen and (min-width: 768px) {
     width: 46px;
     height: 46px;
