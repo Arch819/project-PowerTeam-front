@@ -24,9 +24,9 @@ import LogOutBtn from 'components/LogOutBtn';
 import WarningMessage from './WarningMessage';
 
 function UserCard() {
-  //const avatar = 'https://www.gravatar.com/avatar/12621825cc13ae051332f9275187e605?s=250'
+  //const avatar = 'https://res.cloudinary.com/dwkvsznn0/image/upload/v1705494709/avatars/65a79759eb56ba0d32793cf3.jpg'
   const avatar = '';
-  const avatarUser = <UserPhoto src={avatar} alt="UserPhoto" width="70%" />;
+  const avatarUser = <UserPhoto src={avatar} alt="UserPhoto" width="100%" />;
   const avatarSvg = (
     <UserSvg>
       <use href={`${sprite}#icon-user`}></use>
