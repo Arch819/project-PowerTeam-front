@@ -31,7 +31,7 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={<Navigate to="/welcome" replace />} />
+        <Route index element={<Navigate to="/welcome" replace />} />
         <Route
           path="/welcome"
           element={
