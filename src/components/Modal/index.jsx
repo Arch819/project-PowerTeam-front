@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 
 import { BasicWindow, Modal, BtnClose, SvgClose } from "./index.styled";
 
-import symbolDefs from "../../../src/images/sprite.svg";
+import sprite from "../../images/sprite.svg";
 
 
 
@@ -34,7 +34,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
       <Modal>
         <BtnClose onClick={() => isOpenModalToggle()}>
           <SvgClose >
-            <use href={symbolDefs + "#icon-close"}></use>
+            <use href={`${sprite}#icon-close`}></use>
           </SvgClose>
         </BtnClose>
 
