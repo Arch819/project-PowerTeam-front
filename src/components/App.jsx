@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { lazy, useEffect } from 'react';
 import { selectIsRefreshing } from 'store/auth/selector';
@@ -31,8 +31,9 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Navigate to="/welcome" replace />} />
         <Route
-          index
+          path="/welcome"
           element={
             <RestrictedRoute redirectTo="/diary" component={<WelcomePage />} />
           }
