@@ -34,7 +34,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
       <Modal>
         <BtnClose onClick={() => isOpenModalToggle()}>
           <SvgClose >
-            <use href={symbolDefs + "#icon-x"}></use>
+            <use href={symbolDefs + "#icon-close"}></use>
           </SvgClose>
         </BtnClose>
 
