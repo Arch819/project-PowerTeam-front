@@ -36,41 +36,43 @@ function Header() {
 
   return (
     <HeaderContainer>
-      <NavStyled>
-        <Link to="/">
-          <Logo />
-        </Link>
+      <div className="container">
+        <NavStyled>
+          <Link to="/">
+            <Logo />
+          </Link>
 
-        <NavWrapper>
-          <MediaQuery minWidth={1440}>
-            <WrapperNavLinkStyled>
-              <NavLinkStyled to="/diary">Diary</NavLinkStyled>
-              <NavLinkStyled to="/products">Products</NavLinkStyled>
-              <NavLinkStyled to="/exercises">Exercises</NavLinkStyled>
-            </WrapperNavLinkStyled>
-          </MediaQuery>
-
-          <WrapperNavLinkStyled>
-            <LinkSettingsStyled to="/profile">
-              <UserBar />
-            </LinkSettingsStyled>
-
+          <NavWrapper>
             <MediaQuery minWidth={1440}>
-              <LogOutBtn />
+              <WrapperNavLinkStyled>
+                <NavLinkStyled to="/diary">Diary</NavLinkStyled>
+                <NavLinkStyled to="/products">Products</NavLinkStyled>
+                <NavLinkStyled to="/exercises">Exercises</NavLinkStyled>
+              </WrapperNavLinkStyled>
             </MediaQuery>
 
-            <MediaQuery maxWidth={1439}>
-              <IconBurgerMenuStyled onClick={toggleMenu}>
-                <use href={`${sprite}#icon-burger-menu`} />
-              </IconBurgerMenuStyled>
-            </MediaQuery>
-          </WrapperNavLinkStyled>
-        </NavWrapper>
-      </NavStyled>
+            <WrapperNavLinkStyled>
+              <LinkSettingsStyled to="/profile">
+                <UserBar />
+              </LinkSettingsStyled>
 
-      <MediaQuery maxWidth={1439}>
-        {isMenuOpen && <BurgerMenu onClose={toggleMenu} />}
-      </MediaQuery>
+              <MediaQuery minWidth={1440}>
+                <LogOutBtn />
+              </MediaQuery>
+
+              <MediaQuery maxWidth={1439}>
+                <IconBurgerMenuStyled onClick={toggleMenu}>
+                  <use href={`${sprite}#icon-burger-menu`} />
+                </IconBurgerMenuStyled>
+              </MediaQuery>
+            </WrapperNavLinkStyled>
+          </NavWrapper>
+        </NavStyled>
+
+        <MediaQuery maxWidth={1439}>
+          {isMenuOpen && <BurgerMenu onClose={toggleMenu} />}
+        </MediaQuery>
+      </div>
     </HeaderContainer>
   );
 }

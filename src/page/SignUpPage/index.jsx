@@ -6,7 +6,9 @@ import Section from 'components/Section';
 const SignUpPage = () => {
   return (
     <Section use={'first'}>
-      <h2>Sign Up</h2>
+      <div className="container">
+        <h2>Sign Up</h2>
+      </div>
     </Section>
   );
 };
