@@ -17,67 +17,77 @@
 // Якщо backend повернув помилку - необхідно її опрацювати і відобразити користувачеві у вигляді вспливаючого віконечка-notification.
 
 import { Formik } from 'formik';
-import validationSchema from './UserFormsComponents/ValidateSchema';
-import PersonalInfoFields from './UserFormsComponents/PersonalInfoFields';
-import BloodGenderFields from './UserFormsComponents/BloodGenderFields';
-import NameEmailFields from './UserFormsComponents/NameEmailField';
-import ActivitiLevelFields from './UserFormsComponents/ActivitiLevelFields';
+import validationSchema from './UserFormComponents/ValidateSchema';
+import PersonalInfoFields from './UserFormComponents/PersonalInfoFields';
+import BloodGenderFields from './UserFormComponents/BloodGenderFields';
+import NameEmailFields from './UserFormComponents/NameEmailField';
+import ActivitiLevelFields from './UserFormComponents/ActivitiLevelFields';
 import { StyledForm, SubmitButton } from './UserForm.styled';
+import { useState } from 'react';
 
 function UserForm() {
-  const initState = {
+  const [initState, setInitState] = useState({
     name: 'Antonio Banderas',
     email: 'banderas@mail.com',
-    height: 190,
-    currentWeight: '',
-    desiredWeight: '',
-    dateOfBirth: '',
-    blood: '2',
-    gender: 'male',
-    activitiLevel: '4',
+    height: '0',
+    currentWeight: '0',
+    desiredWeight: '0',
+    dateOfBirth: null,
+    blood: '',
+    gender: '',
+    activitiLevel: '',
+  });
+
+  const handleDateChange = date => {
+    setInitState(prevState => ({
+      ...prevState,
+      dateOfBirth: date,
+    }));
   };
 
   return (
-    <div>
-      <Formik
-        initialValues={initState}
-        onSubmit={values => {
-          validationSchema
-            .validate(values, { abortEarly: false })
-            .then(() => {
-              console.log('Форма валідна, відправляємо:', values);
-            })
-            .catch(error => {
-              console.log('Validation errors:', error.errors);
-            });
-        }}
-      >
-        {() => (
-          <StyledForm>
-            {/* {Ім'я та пошта} */}
-            <NameEmailFields name={initState.name} email={initState.email} />
+    <Formik
+      initialValues={initState}
+      onSubmit={values => {
+        validationSchema
+          .validate(values, { abortEarly: false })
+          .then(() => {
+            console.log('Success:', values);
+          })
+          .catch(error => {
+            console.log('Validation errors:', error.errors);
+          });
+      }}
+    >
+      {({ setFieldValue }) => (
+        <StyledForm>
+          {/* {Ім'я та пошта} */}
+          <NameEmailFields name={initState.name} email={initState.email} />
 
-            {/* Зріст, Вага, Бажана вага, Дата народження */}
-            <PersonalInfoFields
-              height={initState.height}
-              currentWeight={initState.currentWeight}
-              desiredWeight={initState.desiredWeight}
-              dateOfBirth={initState.dateOfBirth}
-            />
+          {/* Зріст, Вага, Бажана вага, Дата народження */}
+          <PersonalInfoFields
+            height={initState.height}
+            currentWeight={initState.currentWeight}
+            desiredWeight={initState.desiredWeight}
+            dateOfBirth={initState.dateOfBirth}
+            onChange={date => {
+              handleDateChange(date);
+              setFieldValue('dateOfBirth', date);
+            }}
+          />
 
-            {/* Група крові + гендер */}
-            <BloodGenderFields
-              blood={initState.blood}
-              gender={initState.gender}
-            />
+          {/* Група крові + гендер */}
+          <BloodGenderFields
+            blood={initState.blood}
+            gender={initState.gender}
+          />
 
-            {/* {Рівень фізичної активності} */}
-            <ActivitiLevelFields activitiLevel={initState.activitiLevel} />
-            <SubmitButton type="submit">Submit</SubmitButton>
-          </StyledForm>
-        )}
-      </Formik>
-    </div>
+          {/* {Рівень фізичної активності} */}
+          <ActivitiLevelFields activitiLevel={initState.activitiLevel} />
+          <SubmitButton type="submit">Save</SubmitButton>
+        </StyledForm>
+      )}
+    </Formik>
   );
 }
 

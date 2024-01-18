@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
   dateOfBirth: Yup.string()
     .required('Date of birth is required')
     .test('is-date', 'Invalid date format', value => {
-      const regExp = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.\d{4}$/;
+      const regExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
       return regExp.test(value);
     }),
   blood: Yup.number()

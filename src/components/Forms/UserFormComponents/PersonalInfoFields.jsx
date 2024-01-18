@@ -5,12 +5,14 @@ import {
   Input,
   PersonalInfoItems,
 } from '../UserForm.styled';
+import ProfileDatepicker from './ProfileDatepicker';
 
-const PersonlInfoFields = ({
+const PersonalInfoFields = ({
   height,
   currentWeight,
   desiredWeight,
   dateOfBirth,
+  onChange,
 }) => {
   return (
     <PersonalInfo>
@@ -46,16 +48,10 @@ const PersonlInfoFields = ({
       </PersonalInfoItems>
       <PersonalInfoItems>
         <Label htmlFor="dateOfBirth">Date of birth</Label>
-        <Input
-          type="text"
-          id="dateOfBirth"
-          name="dateOfBirth"
-          placeholder={dateOfBirth}
-          required
-        />
+        <ProfileDatepicker value={dateOfBirth} onChange={onChange} />
       </PersonalInfoItems>
     </PersonalInfo>
   );
 };
 
-export default PersonlInfoFields;
+export default PersonalInfoFields;

@@ -6,6 +6,15 @@ import { Radio } from '@mui/material';
 const StyledForm = styled(Form)`
   margin: 0 auto;
   max-width: 335px;
+  @media (min-width: 768px) {
+    max-width: 734px;
+  }
+  @media (min-width: 1440px) {
+    border-right: solid 1px rgba(239, 237, 232, 0.2);
+    max-width: 856px;
+    padding-right: 64px;
+    margin: 0;
+  }
 `;
 
 const MainInfo = styled.div`
@@ -14,6 +23,9 @@ const MainInfo = styled.div`
   align-items: center;
   gap: 14px;
   margin-bottom: 14px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const MainInfoContainer = styled.div`
@@ -26,11 +38,17 @@ const PersonalInfo = styled.div`
   justify-content: center;
   gap: 14px;
   margin-bottom: 14px;
+  @media (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 const PersonalInfoItems = styled.div`
   flex-basis: calc(50% - 7px);
   max-width: 160px;
+  @media (min-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const Label = styled.label`
@@ -42,6 +60,9 @@ const Label = styled.label`
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const LabelGender = styled.label`
@@ -53,6 +74,10 @@ const LabelGender = styled.label`
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 const RadioLabel = styled.label`
@@ -64,6 +89,10 @@ const RadioLabel = styled.label`
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 const Input = styled(Field)`
@@ -79,14 +108,23 @@ const Input = styled(Field)`
   color: #efede8;
   background-color: inherit;
   border: 1px solid rgba(239, 237, 232, 0.3);
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 const BloodGenderThumb = styled.div`
   display: flex;
   gap: 21px;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 32px;
+  @media (min-width: 768px) {
+    justify-content: start;
+    gap: 32px;
+  }
 `;
 
 const BloodThumb = styled.div`
@@ -109,16 +147,9 @@ const OrangeRadio = muiStyled(Radio)({
     color: '#Ef8964',
     padding: '0',
   },
-  '& + .MuiFormControlLabel-label': {
-    color: '#EFEDE8',
-
-    fontFamily: 'Roboto',
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '24px',
-    margin: '0 9px 0 0',
-    padding: 0,
+  '@media(min-width: 768px)': {
+    width: '24px',
+    height: '24px',
   },
 });
 
@@ -127,18 +158,24 @@ const LevelActivitiThumb = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-bottom: 40px;
+  @media (min-width: 768px) {
+    margin-bottom: 38px;
+  }
 `;
 
 const ActivitiLabel = styled.label`
   display: flex;
   align-items: center;
-  gap: 9px;
   color: #efede8;
   font-family: 'Roboto';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 const SubmitButton = muiStyled('button')({
@@ -149,10 +186,16 @@ const SubmitButton = muiStyled('button')({
   fontWeight: '500',
   lineHeight: '18px',
   padding: '12px 40px',
+  border: 'transparent',
   borderRadius: '12px',
   backgroundColor: '#e6533c',
   '&:hover': {
     backgroundColor: '#EF8964',
+  },
+  '@media(min-width: 768px)': {
+    fontSize: '20px',
+    lineHeight: '24px',
+    padding: '16px 50px',
   },
 });
 

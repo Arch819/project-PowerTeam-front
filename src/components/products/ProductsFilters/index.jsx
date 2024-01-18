@@ -8,8 +8,11 @@
 import sprite from '../../../images/sprite.svg';
 import Select from 'react-select';
 import { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import { useDispatch } from 'react-redux';
+import {
+  getResponsiveFontSize,
+  capitalizeFirstLetter,
+} from './utilityFunctions';
+import getCustomStyles from './customStyles';
 
 import {
   ProductsFilterLabel,
@@ -22,6 +25,7 @@ import {
   SelectWrapperRec,
   ProductsFilterList,
   CategoryAll,
+  ProductsContainer,
 } from './index.styled';
 
 const optionsRec = [
@@ -51,40 +55,12 @@ const categories = [
   'soft drinks',
   'vegetables and herbs',
 ];
-// const useFetchCategories = url => {
-//   const [categories, setCategories] = useState([]);
-//   const [isLoading, setIsLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     axios
-//       .get('https://powerpulse-backend-heie.onrender.com/products/categories')
-//       .then(response => {
-//         setCategories(response.data);
-//       })
-//       .catch(error => {
-//         setError(error);
-//       })
-//       .finally(() => {
-//         setIsLoading(false);
-//       });
-//   }, [url]);
-
-//   return { categories, isLoading, error };
-// };
 
 const ProductsFilters = () => {
-  //function for responsive font sizes in placeholder:
-
-  const getResponsiveFontSize = () => {
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 768) {
-      return '16px';
-    } else {
-      return '14px';
-    }
-  };
+  
   const [fontSize, setFontSize] = useState(getResponsiveFontSize());
+  const [inputValue, setInputValue] = useState('');
+
   useEffect(() => {
     const handleResize = () => {
       setFontSize(getResponsiveFontSize());
@@ -96,153 +72,98 @@ const ProductsFilters = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  // const { categories, isLoading, error } = useFetchCategories(
-  //   'https://powerpulse-backend-heie.onrender.com/products/categories'
-  // );
-
-  const capitalizeFirstLetter = string => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  const customStyles = getCustomStyles(fontSize);
 
   const categoriesList = categories.map(category => ({
     value: category,
     label: capitalizeFirstLetter(category),
   }));
 
-  // if (isLoading) return <div>Loading categories...</div>;
-  // if (error) return <div>Error fetching categories: {error.message}</div>;
-
-  const customStyles = {
-    //control wrapper that surrounds the actual input field
-    control: provided => ({
-      ...provided,
-      backgroundColor: 'transparent',
-      appearance: 'none', // Removes the default browser appearance
-      WebkitAppearance: 'none', // Removes the default browser appearance
-      MozAppearance: 'none', // Removes the default browser appearance
-      padding: '6px 10px',
-      cursor: 'pointer',
-    }),
-    //options within the dropdown menu
-    option: (provided, { isFocused, isSelected }) => ({
-      ...provided,
-      backgroundColor: isSelected
-        ? 'rgba(28, 28, 28, 1)'
-        : isFocused
-        ? 'rgba(28, 28, 28, 1)'
-        : 'rgba(28, 28, 28, 1)',
-      color: isSelected ? '#E6533C' : '#EFEDE8',
-      padding: '8px',
-    }),
-    menu: provided => ({
-      ...provided,
-      backgroundColor: 'rgba(28, 28, 28, 1)',
-    }),
-    singleValue: provided => ({
-      ...provided,
-      color: '#EFEDE8', // color of active placeholder
-    }),
-
-    dropdownIndicator: provided => ({
-      ...provided,
-      color: '#EFEDE8',
-    }),
-    container: provided => ({
-      ...provided,
-      border: '1px solid rgba(239, 237, 232, 0.30)',
-      borderRadius: '12px',
-      outline: 'none',
-    }),
-    valueContainer: provided => ({
-      ...provided,
-      padding: '0', // Override padding inside the value container if necessary
-    }),
-    placeholder: provided => ({
-      ...provided,
-      fontSize,
-    }),
-    menuList: base => ({
-      ...base,
-      borderRadius: '12px', // border of dropdown menu
-
-      // '::-webkit-scrollbar': {
-      //   display: 'none',
-      // },
-      overflowY: 'scroll',
-    }),
+  const handleSearchChange = event => {
+    setInputValue(event.target.value);
+  };
+  const clearSearch = () => {
+    setInputValue('');
   };
 
   return (
-    <div>
-      <ProductsFilterList>
+    <ProductsFilterList>
+      <ProductsContainer>
         <li>
           <ProductsFilterLabel>
             <ProductsFilterSearch
               name="productSearch"
               type="text"
               placeholder="Search"
+              value={inputValue}
+              onChange={handleSearchChange}
             />
-            <ProductsBtnClose type="button">
+          </ProductsFilterLabel>
+          {inputValue && (
+            <ProductsBtnClose
+              type="button"
+              onClick={clearSearch}
+              isVisible={inputValue.length > 0}
+            >
               <ProductsSvgClose>
                 <use href={`${sprite}#icon-close`}></use>
               </ProductsSvgClose>
             </ProductsBtnClose>
-            <ProductsBtnSearch type="button">
-              <ProductsSvgSearch>
-                <use href={`${sprite}#icon-search`}></use>
-              </ProductsSvgSearch>
-            </ProductsBtnSearch>
-          </ProductsFilterLabel>
+          )}
+          <ProductsBtnSearch type="button">
+            <ProductsSvgSearch>
+              <use href={`${sprite}#icon-search`}></use>
+            </ProductsSvgSearch>
+          </ProductsBtnSearch>
         </li>
-        <CategoryAll>
-          <li>
-            <SelectWrapperCategory>
-              <Select
-                styles={customStyles}
-                placeholder="Categories"
-                options={categoriesList || []}
-                theme={theme => ({
-                  ...theme,
-                  colors: {
-                    ...theme.colors,
-                    primary50: 'rgba(255, 255, 255, 0.10)', // bg color in menu
-                    primary: 'transparent',
-                    neutral40: '#EFEDE8', // hover on dropdown sign
-                    neutral20: 'transparent', // border default
-                    neutral30: 'transparent', // hover border default
-                    neutral50: 'rgba(239, 237, 232, 1)', // placeholder color
-                    neutral80: 'rgba(239, 237, 232, 1)',
-                  },
-                })}
-              />
-            </SelectWrapperCategory>
-          </li>
-          <li>
-            <SelectWrapperRec>
-              <Select
-                options={optionsRec}
-                styles={customStyles}
-                placeholder="All"
-                theme={theme => ({
-                  ...theme,
-                  colors: {
-                    ...theme.colors,
-                    primary50: 'rgba(255, 255, 255, 0.10)',
-                    primary: 'transparent',
-                    neutral40: '#EFEDE8',
-                    neutral20: 'transparent',
-                    neutral30: 'transparent',
-                    neutral50: 'rgba(239, 237, 232, 1)',
-                    neutral80: 'rgba(239, 237, 232, 1)',
-                  },
-                })}
-              />
-            </SelectWrapperRec>
-          </li>
-        </CategoryAll>
-      </ProductsFilterList>
-    </div>
+      </ProductsContainer>
+      <CategoryAll>
+        <li>
+          <SelectWrapperCategory>
+            <Select
+              styles={customStyles}
+              placeholder="Categories"
+              options={categoriesList || []}
+              theme={theme => ({
+                ...theme,
+                colors: {
+                  ...theme.colors,
+                  primary50: 'rgba(255, 255, 255, 0.10)', // bg color in menu
+                  primary: 'transparent',
+                  neutral40: '#EFEDE8', // hover on dropdown sign
+                  neutral20: 'transparent', // border default
+                  neutral30: 'transparent', // hover border default
+                  neutral50: 'rgba(239, 237, 232, 1)', // placeholder color
+                  neutral80: 'rgba(239, 237, 232, 1)',
+                },
+              })}
+            />
+          </SelectWrapperCategory>
+        </li>
+        <li>
+          <SelectWrapperRec>
+            <Select
+              options={optionsRec}
+              styles={customStyles}
+              placeholder="All"
+              theme={theme => ({
+                ...theme,
+                colors: {
+                  ...theme.colors,
+                  primary50: 'rgba(255, 255, 255, 0.10)',
+                  primary: 'transparent',
+                  neutral40: '#EFEDE8',
+                  neutral20: 'transparent',
+                  neutral30: 'transparent',
+                  neutral50: 'rgba(239, 237, 232, 1)',
+                  neutral80: 'rgba(239, 237, 232, 1)',
+                },
+              })}
+            />
+          </SelectWrapperRec>
+        </li>
+      </CategoryAll>
+    </ProductsFilterList>
   );
 };
 
