@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const ExercisesList = styled.ul`
@@ -25,16 +26,18 @@ export const ExercisesItem = styled.li`
   }
 `;
 
-export const LinkButton = styled.button`
-  border: none;
-  padding: 0;
+export const StyledLink = styled(Link)`
+  //padding: 0;
+  outline: none;
+  text-decoration: none;
+
   color: rgba(239, 237, 232, 0.4);
   font-family: inherit;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
 
-  background-color: transparent;
+  //background-color: transparent;
 
   &.active::after {
     content: '';

@@ -1,31 +1,20 @@
-import ExercisesCategories from 'components/Exercises/ExercisesCategories';
-import ExercisesSubcategoriesList from 'components/Exercises/ExercisesSubcategoriesList';
-import TitlePage from 'components/TitlePage';
-import { NavBox } from './ExercisesPage.styled';
-import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+// Exercises page "/exercises"
+// Складається з:
+//  - компоненту TitlePage (опис компонента деталізовано у Diary page)
+//  - компоненту ExercisesCategories, що дозволяє користувачу обрати категорію вправ, за якою він буде фільтрувати вправи
+//  - компоненту ExercisesSubcategoriesList, що містить перелік підкатегорій вправ ExercisesSubcategoriesItem, в залежності від
+// обраної користувачем категорії
+//   - компоненту ExercisesList, що містить перелік вправ і відображається у разі обрання певної ExercisesSubcategoriesItem
+
+import Section from 'components/Section';
 
 function ExercisesPage() {
-  const location = useLocation();
-  const [activeCategory, setActiveCategory] = useState('Body parts');
-
-  const handleCategory = category => {
-    setActiveCategory(category);
-  };
-
   return (
-    <div className="container">
-      <NavBox>
-        {/*  <TitlePage title={'Exercises'} /> */}
-        <h3>Exercises</h3>
-        <ExercisesCategories
-          activeCategory={activeCategory}
-          handleCategory={handleCategory}
-        />
-      </NavBox>
-
-      <ExercisesSubcategoriesList />
-    </div>
+    <Section>
+      <div className="container">
+        <h2>Exercises</h2>
+      </div>
+    </Section>
   );
 }
 

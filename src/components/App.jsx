@@ -54,19 +54,25 @@ export const App = () => {
           element={<PrivateRoute redirectTo="/" component={<ProductsPage />} />}
         />
         <Route
-          path="/exercises"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ExercisesPage />} />
-          }
-        />
-        <Route
           path="/exercises/:category"
           element={
-            <PrivateRoute redirectTo="/" component={<ExercisesListPage />} />
+            <RestrictedRoute
+              redirectTo="/exercises"
+              component={<ExercisesPage />}
+            />
           }
         />
         <Route
-          path="/exercises/:exId"
+          path="/exercises/:category/:subCategory"
+          element={
+            <RestrictedRoute
+              redirectTo="/exercises/:category/:subCategory"
+              component={<ExercisesListPage />}
+            />
+          }
+        />
+        <Route
+          path="/exercises/:category/:subCategory/:exId"
           element={
             <PrivateRoute redirectTo="/" component={<ExerciseItemPage />} />
           }

@@ -2,36 +2,36 @@ import React from 'react';
 import {
   ExercisesItem,
   ExercisesList,
-  LinkButton,
+  StyledLink,
 } from './ExercisesCategories.styled';
 
-const ExercisesCategories = ({ activeCategory, handleCategory }) => {
+const ExercisesCategories = ({ activeCategory }) => {
   return (
     <div>
       <ExercisesList>
         <ExercisesItem>
-          <LinkButton
-            className={activeCategory === 'Body parts' ? 'active' : ''}
-            onClick={e => handleCategory('Body parts')}
+          <StyledLink
+            to="/exercises/bodyParts"
+            className={activeCategory === 'bodyParts' ? 'active' : ''}
           >
             Body parts
-          </LinkButton>
+          </StyledLink>
         </ExercisesItem>
         <ExercisesItem>
-          <LinkButton
-            className={activeCategory === 'Muscles' ? 'active' : ''}
-            onClick={e => handleCategory('Muscles')}
+          <StyledLink
+            to="/exercises/muscles"
+            className={activeCategory === 'muscles' ? 'active' : ''}
           >
             Muscles
-          </LinkButton>
+          </StyledLink>
         </ExercisesItem>
         <ExercisesItem>
-          <LinkButton
-            className={activeCategory === 'Equipment' ? 'active' : ''}
-            onClick={e => handleCategory('Equipment')}
+          <StyledLink
+            to="/exercises/equipment"
+            className={activeCategory === 'equipment' ? 'active' : ''}
           >
             Equipment
-          </LinkButton>
+          </StyledLink>
         </ExercisesItem>
       </ExercisesList>
     </div>
