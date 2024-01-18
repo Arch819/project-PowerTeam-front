@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { lazy } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { lazy, useEffect } from 'react';
 import { selectIsRefreshing } from 'store/auth/selector';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
@@ -14,12 +14,18 @@ import ExercisesPage from 'page/ExercisesPage';
 import ExercisesListPage from 'page/ExercisesListPage';
 import ProfilePage from 'page/ProfilePage';
 import ExerciseItemPage from 'page/ExerciseItemPage';
+import { fetchCurrentUser } from 'store/auth/operations';
 
 const LoginPage = lazy(() => import('page/SignInPage'));
 const RegistrationPage = lazy(() => import('page/SignUpPage'));
 
 export const App = () => {
-  const isRefresh = useSelector(selectIsRefreshing());
+  const dispatch = useDispatch();
+  const isRefresh = useSelector(selectIsRefreshing);
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return isRefresh ? (
     <Loader />
   ) : (
