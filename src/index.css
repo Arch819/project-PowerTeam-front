@@ -116,6 +116,10 @@ img {
   height: auto;
 }
 
+main {
+  padding-top: 61px;
+}
+
 .container {
   margin: 0 auto;
 }
@@ -126,6 +130,10 @@ img {
 } */
 
 @media screen and (max-width: 767px) {
+  main {
+    padding-top: 84px;
+  }
+
   .container {
     width: 375px;
     padding: 0 20px;

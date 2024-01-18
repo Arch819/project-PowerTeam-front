@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { lazy } from 'react';
-import Layout from './Layout';
-import { Loader } from './Loader';
+import { selectIsRefreshing } from 'store/auth/selector';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
+import Layout from './Layout';
+import { Loader } from './Loader';
 import WelcomePage from 'page/WelcomePage';
 import DiaryPage from 'page/DiaryPage';
 import NotFoundPage from 'page/404Page';
@@ -16,9 +18,8 @@ import ExerciseItemPage from 'page/ExerciseItemPage';
 const LoginPage = lazy(() => import('page/SignInPage'));
 const RegistrationPage = lazy(() => import('page/SignUpPage'));
 
-const isRefresh = false;
-
 export const App = () => {
+  const isRefresh = useSelector(selectIsRefreshing());
   return isRefresh ? (
     <Loader />
   ) : (
@@ -54,19 +55,19 @@ export const App = () => {
           element={<PrivateRoute redirectTo="/" component={<ProductsPage />} />}
         />
         <Route
-          path="/exercises"
+          path="/exercises/:category"
           element={
             <PrivateRoute redirectTo="/login" component={<ExercisesPage />} />
           }
         />
         <Route
-          path="/exercises/:category"
+          path="/exercises/:category/:subcategory"
           element={
             <PrivateRoute redirectTo="/" component={<ExercisesListPage />} />
           }
         />
         <Route
-          path="/exercises/:exId"
+          path="/exercises/:category/:subcategory/:exId"
           element={
             <PrivateRoute redirectTo="/" component={<ExerciseItemPage />} />
           }
