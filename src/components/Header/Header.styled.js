@@ -13,10 +13,6 @@ export const HeaderContainer = styled.header`
   @media screen and (min-width: 768px) {
     padding: 19px 0;
   }
-
-  /* @media (min-width: 1440px) {
-    padding: 19px 0;
-  } */
 `;
 
 export const NavStyled = styled.nav`

@@ -9,7 +9,7 @@ export const getAllExercises = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const state = getState();
-      const persistedToken = state.auth.setToken;
+      const persistedToken = state.auth.token;
       setToken.set(persistedToken);
 
       const { data } = await getExercises();
@@ -26,7 +26,7 @@ export const getExercisesFilters = createAsyncThunk(
   async (paramsExercises, { rejectWithValue, getState }) => {
     try {
       const state = getState();
-      const persistedToken = state.auth.setToken;
+      const persistedToken = state.auth.token;
       setToken.set(persistedToken);
 
       const { data } = await getExercisesByFilters(paramsExercises);

@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-export const register = async () => {
-  const { data } = await axios.post('users/register');
+export const register = async (body) => {
+  const { data } = await axios.post('users/register', body);
   return data;
 };
 
 export const login = async body => {
-  const { data } = await axios.post(`users/login${body}`);
+  const { data } = await axios.post('users/login', body);
   return data;
 };
 
@@ -21,7 +21,7 @@ export const currentUser = async () => {
 };
 
 export const avatar = async date => {
-  const { data } = await axios.patch('users/avatars', date);
+  const { data } = await axios.patch('users/avatar', date);
   return data;
 };
 

@@ -44,7 +44,7 @@ export const logOutUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await logOut();
-      setToken.unset(data.token);
+      setToken.unset();
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -77,8 +77,10 @@ export const updateAvatar = createAsyncThunk(
     try {
       const formData = new FormData();
       formData.append('avatar', file);
-      const { data } = await avatar(formData);
-      return data;
+      const { data } = await avatar(formData, {
+        headers: { 'content-type': 'multipart/form-data' },
+      });
+      return data.avatarURL;
     } catch (error) {
       return rejectWithValue(error.message);
     }

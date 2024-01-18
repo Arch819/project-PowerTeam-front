@@ -3,7 +3,7 @@ export const initialState = {
     name: null,
     email: null,
     avatarURL: null,
-    bodyData: true,
+    bodyData: false,
   },
   userParams: {
     height: null,
@@ -16,7 +16,6 @@ export const initialState = {
     bmr: null,
   },
   token: null,
-  authorization: false,
   isLoggedIn: false,
   isRefreshing: false,
 };
