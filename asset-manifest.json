@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-PowerTeam-front/static/css/main.6e8770d1.css",
-    "main.js": "/project-PowerTeam-front/static/js/main.edb0c8ee.js",
+    "main.js": "/project-PowerTeam-front/static/js/main.e608511d.js",
     "static/js/163.9bba5d2f.chunk.js": "/project-PowerTeam-front/static/js/163.9bba5d2f.chunk.js",
     "static/js/948.6ae38da1.chunk.js": "/project-PowerTeam-front/static/js/948.6ae38da1.chunk.js",
     "static/media/background-1-mobile@2x.jpg": "/project-PowerTeam-front/static/media/background-1-mobile@2x.87c01507cadde944a79c.jpg",
@@ -21,12 +21,12 @@
     "static/media/background-1-tablet.jpg": "/project-PowerTeam-front/static/media/background-1-tablet.1bae9f11a2c31cf1e521.jpg",
     "index.html": "/project-PowerTeam-front/index.html",
     "main.6e8770d1.css.map": "/project-PowerTeam-front/static/css/main.6e8770d1.css.map",
-    "main.edb0c8ee.js.map": "/project-PowerTeam-front/static/js/main.edb0c8ee.js.map",
+    "main.e608511d.js.map": "/project-PowerTeam-front/static/js/main.e608511d.js.map",
     "163.9bba5d2f.chunk.js.map": "/project-PowerTeam-front/static/js/163.9bba5d2f.chunk.js.map",
     "948.6ae38da1.chunk.js.map": "/project-PowerTeam-front/static/js/948.6ae38da1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6e8770d1.css",
-    "static/js/main.edb0c8ee.js"
+    "static/js/main.e608511d.js"
   ]
 }
