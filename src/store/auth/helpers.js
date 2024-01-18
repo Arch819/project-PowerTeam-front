@@ -33,6 +33,6 @@ export const handleFetchCurrentUserFulfilled = (state, { payload }) => {
 };
 
 export const handleUpdateAvatarFulfilled = (state, { payload }) => {
-  state.userData.avatarURL = payload.avatarURL;
+  state.user.avatarURL = payload.avatarURL;
   state.isRefreshing = false;
 };
