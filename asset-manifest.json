@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/project-PowerTeam-front/static/css/main.240fa95f.css",
-    "main.js": "/project-PowerTeam-front/static/js/main.4c999072.js",
-    "static/js/163.576db5ae.chunk.js": "/project-PowerTeam-front/static/js/163.576db5ae.chunk.js",
-    "static/js/948.3584e4ee.chunk.js": "/project-PowerTeam-front/static/js/948.3584e4ee.chunk.js",
+    "main.js": "/project-PowerTeam-front/static/js/main.ba2b1dde.js",
+    "static/js/881.48fd85b3.chunk.js": "/project-PowerTeam-front/static/js/881.48fd85b3.chunk.js",
+    "static/js/161.4662d787.chunk.js": "/project-PowerTeam-front/static/js/161.4662d787.chunk.js",
     "static/media/background-1-mobile@2x.jpg": "/project-PowerTeam-front/static/media/background-1-mobile@2x.87c01507cadde944a79c.jpg",
     "static/media/Roboto-Regular.ttf": "/project-PowerTeam-front/static/media/Roboto-Regular.25e40da956314b12d333.ttf",
     "static/media/Roboto-Bold.ttf": "/project-PowerTeam-front/static/media/Roboto-Bold.5e9f6556d3c0bf6230f0.ttf",
@@ -15,18 +15,18 @@
     "static/media/Roboto-Regular.woff2": "/project-PowerTeam-front/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
     "static/media/background-2-des@2x.jpg": "/project-PowerTeam-front/static/media/background-2-des@2x.6e4e2375c2204080dab5.jpg",
     "static/media/background-1-tablet@2x.jpg": "/project-PowerTeam-front/static/media/background-1-tablet@2x.513d4c44d769927c88c9.jpg",
-    "static/media/sprite.svg": "/project-PowerTeam-front/static/media/sprite.e263101a6f4ef0324c09d1ebc59f1a6f.svg",
+    "static/media/sprite.svg": "/project-PowerTeam-front/static/media/sprite.facacc83fe12b1c82c8ceadb9c074165.svg",
     "static/media/background-1-des.jpg": "/project-PowerTeam-front/static/media/background-1-des.930667ea66724d5608af.jpg",
     "static/media/background-2-des.jpg": "/project-PowerTeam-front/static/media/background-2-des.d54f7b5608be85ca682f.jpg",
     "static/media/background-1-tablet.jpg": "/project-PowerTeam-front/static/media/background-1-tablet.1bae9f11a2c31cf1e521.jpg",
     "index.html": "/project-PowerTeam-front/index.html",
     "main.240fa95f.css.map": "/project-PowerTeam-front/static/css/main.240fa95f.css.map",
-    "main.4c999072.js.map": "/project-PowerTeam-front/static/js/main.4c999072.js.map",
-    "163.576db5ae.chunk.js.map": "/project-PowerTeam-front/static/js/163.576db5ae.chunk.js.map",
-    "948.3584e4ee.chunk.js.map": "/project-PowerTeam-front/static/js/948.3584e4ee.chunk.js.map"
+    "main.ba2b1dde.js.map": "/project-PowerTeam-front/static/js/main.ba2b1dde.js.map",
+    "881.48fd85b3.chunk.js.map": "/project-PowerTeam-front/static/js/881.48fd85b3.chunk.js.map",
+    "161.4662d787.chunk.js.map": "/project-PowerTeam-front/static/js/161.4662d787.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.240fa95f.css",
-    "static/js/main.4c999072.js"
+    "static/js/main.ba2b1dde.js"
   ]
 }

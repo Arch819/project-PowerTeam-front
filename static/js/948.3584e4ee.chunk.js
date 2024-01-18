@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkproject_powerteam_front=self.webpackChunkproject_powerteam_front||[]).push([[948],{7948:function(e,r,n){n.r(r);var t=n(2166),c=n(184);r.default=function(){return(0,c.jsx)(t.Z,{use:"first",children:(0,c.jsx)("div",{className:"container",children:(0,c.jsx)("h2",{children:"Sign Up"})})})}}}]);
-//# sourceMappingURL=948.3584e4ee.chunk.js.map
