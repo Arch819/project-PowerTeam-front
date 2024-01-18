@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   }
 
   @media (min-width: 1440px) {
-    margin-top: 64px;
+    margin-top: 27px;
   }
 `;
 
@@ -25,7 +25,7 @@ export const AvatarFrame = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media screen (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 150px;
     height: 150px;
   }
@@ -99,6 +99,9 @@ export const WrapperDaily = styled.div`
   align-items: center;
   gap: 14px;
   margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
 `;
 
 export const WrapperLogOut = styled.div`

@@ -23,12 +23,12 @@ function ExercisesItem({ exerciseData }) {
   return (
     <ExercisesItemStyled>
       <p className="workout">WORKOUT</p>
-      <div className="btn-box" onClick={openModal}>
+      <button className="btn-box" onClick={openModal}>
         <p className="btn-text">Start</p>
         <svg className="btn-svg">
           <use href={`${sprite}#icon-next`} />
         </svg>
-      </div>
+      </button>
       <div className="title-box">
         <div className="title-svg-route">
           <svg className="title-svg-person">

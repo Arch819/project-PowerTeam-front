@@ -3,7 +3,6 @@
 :root {
   /* background */
   --bg-body: #040404;
-  --bg-container: #e6533c;
   --bg-btn: #e6533c;
   --bg-btn-hover: #ef8964;
   --bg-btn-sec: #ef8964;
@@ -31,7 +30,6 @@
   --border-positive: 1px solid #3cbf61;
   --border-negative: 1px solid #e9101d;
   --border-color-btn-hover: #e6533c;
-  --border-color-link-hover: #efede8;
 
   /* transition */
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);

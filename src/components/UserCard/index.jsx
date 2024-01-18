@@ -24,9 +24,9 @@ import LogOutBtn from 'components/LogOutBtn';
 import WarningMessage from './WarningMessage';
 
 function UserCard() {
-  //const avatar = 'https://www.gravatar.com/avatar/12621825cc13ae051332f9275187e605?s=250'
+  //const avatar = 'https://res.cloudinary.com/dwkvsznn0/image/upload/v1705494709/avatars/65a79759eb56ba0d32793cf3.jpg'
   const avatar = '';
-  const avatarUser = <UserPhoto src={avatar} alt="UserPhoto" width="70%" />;
+  const avatarUser = <UserPhoto src={avatar} alt="UserPhoto" width="100%" />;
   const avatarSvg = (
     <UserSvg>
       <use href={`${sprite}#icon-user`}></use>
@@ -60,14 +60,14 @@ function UserCard() {
           border="1px solid rgba(239, 237, 232, 0.2)"
           iconId="icon-food-24"
           text="Daily calorie intake"
-          value="user.bmr"
+          value="2200"
         />
         <DailyBlock
           color="#E6533C"
           border="1px solid rgba(239, 237, 232, 0.2)"
           iconId="icon-dumbbell"
           text="Daily physical activity"
-          value="0 min"
+          value="110 min"
         />
       </WrapperDaily>
       <WarningMessage />

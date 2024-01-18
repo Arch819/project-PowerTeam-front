@@ -1,5 +1,11 @@
+import Section from 'components/Section';
+
 function ExerciseItemPage() {
-  return <div></div>;
+  return (
+    <Section>
+      <div className="container"></div>
+    </Section>
+  );
 }
 
 export default ExerciseItemPage;
