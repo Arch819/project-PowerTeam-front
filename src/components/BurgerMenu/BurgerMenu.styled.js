@@ -10,9 +10,9 @@ export const BackdropBurgerMenuStyled = styled.div`
   bottom: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 9999;
 
-  background-color: #04040466;
+  background-color: rgba(4, 4, 4, 0.4);
 `;
 
 export const ContainerBurgerMenuStyled = styled.div`
@@ -23,8 +23,8 @@ export const ContainerBurgerMenuStyled = styled.div`
   padding: 20px;
   width: 50%;
   height: 100%;
-  z-index: 1000;
-  background-color: #e6533c;
+  z-index: 10000;
+  background-color: var(--bg-btn);
 
   @media (min-width: 769px) and (max-width: 1440px) {
     padding: 26px 32px 32px 32px;
@@ -51,7 +51,7 @@ export const ContainerIconCloseStyled = styled.div`
 export const IconCloseMenu = styled.svg`
   width: 24px;
   height: 24px;
-  fill: #efede8;
+  fill: var(--color-btn-primary);
   cursor: pointer;
 
   &:hover,
@@ -77,20 +77,20 @@ export const NavContainerStyled = styled.div`
 export const BurgerMenuNavLinkStyled = styled(NavLink)`
   color: #efede8;
   padding: 10px 27px;
-  border: 1px solid rgba(239, 237, 232, 0.2);
+  border: var(--border-20);
   border-radius: 12px;
   font-size: 14px;
   line-height: calc(18 / 14);
-  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color var(--transition);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    border-color: #efede8;
+    border-color: var( --color-text-primary);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   &.active {
-    border-color: #efede8;
+    border-color: var( --color-text-primary);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
@@ -106,7 +106,7 @@ export const BurgerMenuLogOutStyled = styled(Link)`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #efede8;
+  color: var( --color-text-primary);
   font-size: 14px;
   line-height: calc(18 / 14);
   text-decoration: none;
@@ -119,7 +119,7 @@ export const BurgerMenuLogOutStyled = styled(Link)`
 
 export const BurgerMenuIconLogoutStyled = styled.svg`
   fill: transparent;
-  stroke: #efede8;
+  stroke: var( --color-text-primary);
   width: 20px;
   height: 20px;
   cursor: pointer;
