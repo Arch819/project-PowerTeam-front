@@ -7,15 +7,18 @@
 
 import UserForm from 'components/Forms/UserForm';
 import { PageProfileContainer } from './PageProfile.styled';
+import Section from 'components/Section';
 
 // Містить заоголовок сторінки та має бути реалізований, як універсальний компонент, що можна використати на інших сторінках застосунку
 
 const ProfilePage = () => {
   return (
-    <PageProfileContainer className="container">
-      <h2>Profile Settings</h2>
-      <UserForm />
-    </PageProfileContainer>
+    <Section>
+      <PageProfileContainer className="container">
+        <h2>Profile Settings</h2>
+        <UserForm />
+      </PageProfileContainer>
+    </Section>
   );
 };
 

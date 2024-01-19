@@ -1,7 +1,11 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { lazy, useEffect } from 'react';
-import { selectIsRefreshing } from 'store/auth/selector';
+import {
+  selectIsLoggedIn,
+  selectIsRefreshing,
+  selectUser,
+} from 'store/auth/selector';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import Layout from './Layout';
@@ -21,9 +25,15 @@ const RegistrationPage = lazy(() => import('page/SignUpPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isRefresh = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { bodyData } = useSelector(selectUser);
   useEffect(() => {
     dispatch(fetchCurrentUser());
+    if (isLoggedIn && !bodyData) {
+      navigate('/');
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return isRefresh ? (
@@ -62,7 +72,7 @@ export const App = () => {
           element={<PrivateRoute redirectTo="/" component={<ProductsPage />} />}
         />
         <Route
-          path="/exercises/:category"
+          path="/exercises"
           element={
             <PrivateRoute redirectTo="/login" component={<ExercisesPage />} />
           }
