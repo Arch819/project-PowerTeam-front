@@ -49,27 +49,27 @@ function UserForm() {
           });
       }}
     >
-      {({ setFieldValue, dirty }) => (
+      {({ values, setFieldValue, dirty }) => (
         <StyledForm>
           {/* {Ім'я та пошта} */}
-          <NameEmailFields name={initState.name} email={initState.email} />
+          <NameEmailFields name={values.name} email={values.email} />
 
           {/* Зріст, Вага, Бажана вага, Дата народження */}
           <PersonalInfoFields
-            height={initState.height}
-            currentWeight={initState.currentWeight}
-            desiredWeight={initState.desiredWeight}
-            dateOfBirth={initState.dateOfBirth}
+            height={values.height}
+            currentWeight={values.currentWeight}
+            desiredWeight={values.desiredWeight}
+            dateOfBirth={values.dateOfBirth}
             onChange={date => {
               setFieldValue('birthday', date);
             }}
           />
 
           {/* Група крові + гендер */}
-          <BloodGenderFields blood={initState.blood} sex={initState.sex} />
+          <BloodGenderFields blood={values.blood} sex={values.sex} />
 
           {/* {Рівень фізичної активності} */}
-          <ActivitiLevelFields levelActivity={initState.levelActivity} />
+          <ActivitiLevelFields levelActivity={values.levelActivity} />
           <SubmitButton type="submit" disabled={!dirty}>
             Save
           </SubmitButton>

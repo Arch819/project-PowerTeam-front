@@ -5,15 +5,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 40px;
-
-  @media (min-width: 768px) and (max-width: 1439px) {
-    margin-top: 64px;
-  }
-
-  @media (min-width: 1440px) {
-    margin-top: 27px;
-  }
 `;
 
 export const AvatarFrame = styled.div`
@@ -102,6 +93,7 @@ export const WrapperDaily = styled.div`
 
   @media screen and (min-width: 768px) {
     margin-top: 32px;
+  }
 `;
 
 export const WrapperLogOut = styled.div`
