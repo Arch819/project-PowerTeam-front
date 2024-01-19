@@ -8,7 +8,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Oval } from 'react-loader-spinner';
 
-axios.defaults.baseURL = 'https://powerpulse-backend-heie.onrender.com/';
+//axios.defaults.baseURL = 'https://powerpulse-backend-heie.onrender.com/';
 
 function ExercisesListPage() {
   const [exercisesArray, setExercisesArray] = useState([]);

@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectExercisesFilters } from 'store/exercises/exercisesSelector';
 import { selectError, selectIsLoading } from 'store/appState/selectors';
 import { getExercisesFilters } from 'store/exercises/exercisesOperations';
-axios.defaults.baseURL = 'https://powerpulse-backend-heie.onrender.com/';
+// axios.defaults.baseURL = 'https://powerpulse-backend-heie.onrender.com/';
 
 function ExercisesPage() {
   const exercisesFilters = useSelector(selectExercisesFilters);
