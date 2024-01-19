@@ -8,6 +8,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const ExercisesSubcategoriesItem = ({ id, filter, name, imgURL, category }) => {
   const location = useLocation();
+  const validName = encodeURIComponent(name);
 
   const capitalizedWord = word => {
     return word.substring(0, 1).toUpperCase() + word.substring(1);
@@ -16,7 +17,7 @@ const ExercisesSubcategoriesItem = ({ id, filter, name, imgURL, category }) => {
   return (
     <SubExercisesLi key={id}>
       <Link
-        to={`/exercises/${category}/${name.replaceAll(' ', '')}`}
+        to={`/exercises/${category}/${validName}`}
         state={{ from: location }}
       >
         <Image src={imgURL} alt="name"></Image>

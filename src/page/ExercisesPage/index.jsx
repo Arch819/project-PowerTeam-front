@@ -38,8 +38,8 @@ function ExercisesPage() {
         const response = await axios.get('/exercises/filters');
 
         const filterValid = {
-          bodyParts: 'Body parts',
-          muscles: 'Muscles',
+          bodyPart: 'Body parts',
+          target: 'Muscles',
           equipment: 'Equipment',
         };
         const subCategoriesToRender = response.data.filter(

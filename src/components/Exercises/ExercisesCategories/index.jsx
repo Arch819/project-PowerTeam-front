@@ -11,16 +11,16 @@ const ExercisesCategories = ({ activeCategory }) => {
       <ExercisesList>
         <ExercisesItem>
           <StyledLink
-            to="/exercises/bodyParts"
-            className={activeCategory === 'bodyParts' ? 'active' : ''}
+            to="/exercises/bodyPart"
+            className={activeCategory === 'bodyPart' ? 'active' : ''}
           >
             Body parts
           </StyledLink>
         </ExercisesItem>
         <ExercisesItem>
           <StyledLink
-            to="/exercises/muscles"
-            className={activeCategory === 'muscles' ? 'active' : ''}
+            to="/exercises/target"
+            className={activeCategory === 'target' ? 'active' : ''}
           >
             Muscles
           </StyledLink>

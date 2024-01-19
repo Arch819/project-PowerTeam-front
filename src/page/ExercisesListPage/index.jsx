@@ -24,17 +24,18 @@ function ExercisesListPage() {
     try {
       // запит на бек
       setLoading(true);
+
       const response = await axios.get('/exercises');
 
-      const filterValid = {
-        bodyParts: 'bodyPart',
-        muscles: 'target',
-        equipment: 'equipment',
-      };
-      const categoryValid = filterValid[category];
+      // const filterValid = {
+      //   bodyParts: 'bodyPart',
+      //   muscles: 'target',
+      //   equipment: 'equipment',
+      // };
+      // const categoryValid = filterValid[category];
 
       const arrayToRender = response.data.filter(
-        item => item[categoryValid].replaceAll(' ', '') === subcategory
+        item => item[category].replaceAll(' ', '') === subcategory
       );
       setExercisesArray(arrayToRender);
     } catch (error) {
@@ -49,7 +50,7 @@ function ExercisesListPage() {
   }, [getExercisesArray]);
 
   return (
-    <Section use={'first'}>
+    <Section className="exercises-bg" use={'first'}>
       <div className="container">
         <LinkBack to={ref.current}>
           <Icon>
