@@ -11,23 +11,23 @@ export const handleLoginFulfilled = (state, { payload }) => {
 
 export const handleLogOutPending = state => {
   state.user = {
-    name: null,
-    email: null,
-    avatarURL: null,
+    name: '',
+    email: '',
+    avatarURL: '',
     bodyData: false,
   };
-  state.token = null;
+  state.token = '';
   state.isLoggedIn = false;
 };
 
 export const handleLogOutFulfilled = state => {
   state.user = {
-    name: null,
-    email: null,
-    avatarURL: null,
+    name: '',
+    email: '',
+    avatarURL: '',
     bodyData: false,
   };
-  state.token = null;
+  state.token = '';
   state.isLoggedIn = false;
 };
 
@@ -50,6 +50,5 @@ export const handleUpdateAvatarFulfilled = (state, { payload }) => {
 export const handleUpdateProfileFulfilled = (state, { payload }) => {
   state.user = payload.user;
   state.userParams = payload.userParams;
-  state.isLoggedIn = true;
   state.isRefreshing = false;
 };
