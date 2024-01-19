@@ -10,7 +10,7 @@ const StyledForm = styled(Form)`
     max-width: 734px;
   }
   @media (min-width: 1440px) {
-    border-right: solid 1px rgba(239, 237, 232, 0.2);
+    border-right: var(--border-20);
     max-width: 856px;
     padding-right: 64px;
     margin: 0;
@@ -54,7 +54,7 @@ const PersonalInfoItems = styled.div`
 const Label = styled.label`
   display: block;
   margin-bottom: 8px;
-  color: rgba(239, 237, 232, 0.5);
+  color: var(--color-text-pr50);
   font-family: 'Roboto';
   font-size: 12px;
   font-style: normal;
@@ -68,7 +68,7 @@ const Label = styled.label`
 const LabelGender = styled.label`
   display: flex;
   align-items: center;
-  color: #efede8;
+  color: var(--color-text-primary);
   font-family: 'Roboto';
   font-size: 14px;
   font-style: normal;
@@ -83,7 +83,7 @@ const LabelGender = styled.label`
 const RadioLabel = styled.label`
   display: inline-flex;
   align-items: center;
-  color: #efede8;
+  color: var(--color-text-primary);
   font-family: 'Roboto';
   font-size: 12px;
   font-style: normal;
@@ -96,6 +96,7 @@ const RadioLabel = styled.label`
 `;
 
 const Input = styled(Field)`
+  color: var(--color-text-primary);
   font-family: 'Roboto';
   font-size: 14px;
   font-style: normal;
@@ -105,9 +106,14 @@ const Input = styled(Field)`
   width: 100%;
   border-radius: 12px;
   padding: 14px;
-  color: #efede8;
   background-color: inherit;
-  border: 1px solid rgba(239, 237, 232, 0.3);
+  border: var(--border-30);
+
+  &::placeholder {
+    color: var(--color-text-primary);
+    opacity: 1;
+  }
+
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 24px;
@@ -144,7 +150,7 @@ const OrangeRadio = muiStyled(Radio)({
   width: '20px',
   height: '20px',
   '&.Mui-checked': {
-    color: '#Ef8964',
+    color: 'var(--bg-btn-hover)',
     padding: '0',
   },
   '@media(min-width: 768px)': {
@@ -166,7 +172,7 @@ const LevelActivitiThumb = styled.div`
 const ActivitiLabel = styled.label`
   display: flex;
   align-items: center;
-  color: #efede8;
+  color: var(--color-text-primary);
   font-family: 'Roboto';
   font-size: 14px;
   font-style: normal;
@@ -179,7 +185,7 @@ const ActivitiLabel = styled.label`
 `;
 
 const SubmitButton = muiStyled('button')({
-  color: '#EFEDE8',
+  color: 'var(--color-text-primary)',
   fontFamily: 'Roboto',
   fontSize: '16px',
   fontStyle: 'normal',
@@ -188,9 +194,12 @@ const SubmitButton = muiStyled('button')({
   padding: '12px 40px',
   border: 'transparent',
   borderRadius: '12px',
-  backgroundColor: '#e6533c',
+  backgroundColor: 'var(--bg-container)',
   '&:hover': {
-    backgroundColor: '#EF8964',
+    backgroundColor: 'var(--bg-btn-hover)',
+  },
+  '&:disabled': {
+    backgroundColor: 'var(--bg-btn-hover)',
   },
   '@media(min-width: 768px)': {
     fontSize: '20px',
