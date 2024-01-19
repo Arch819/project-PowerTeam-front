@@ -1,5 +1,7 @@
+import Notiflix from 'notiflix';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import {
   Form,
   StyledInputContainer,
@@ -13,10 +15,19 @@ import {
   SvgPasswordIcon,
   SubmitButton,
 } from './SignForm.styled';
-import sprite from '../../images/sprite.svg';
-import { useState } from 'react';
+import sprite from 'images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { registerUser } from 'store/auth/operations';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required('Please enter your name'),
+  email: Yup.string()
+    .matches(emailPattern, 'Doesn`t look like a valid email')
+    .required('Please enter your email address'),
+  password: Yup.string().min(6).required('Please enter your password'),
+});
 
 const ValidationIcon = ({ error, touched, successText, errorText }) => {
   return (
@@ -32,22 +43,38 @@ const ValidationIcon = ({ error, touched, successText, errorText }) => {
 };
 
 const SignUpForm = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       name: '',
       email: '',
       password: '',
     },
-    onSubmit: values => {
-      console.log('submit', values);
+    onSubmit: (values, actions) => {
+      validationSchema
+        .validate(values, { abortEarly: false })
+        .then(() => {
+          dispatch(registerUser(values));
+          actions.resetForm();
+          Notiflix.Notify.Success(
+            'You have been successfully registered! Press Sign in button and enter your email and password, please.'
+          );
+        })
+        .catch(errors => {
+          if (errors.inner) {
+            errors.inner.forEach(error => {
+              actions.setFieldError(error.path, error.message);
+            });
+          } else {
+            Notiflix.Notify.Success('All fields are validated successfully!');
+          }
+          Notiflix.Notify.Failure(
+            'Validation failed. Please check the fields.'
+          );
+        });
     },
-    validationSchema: Yup.object().shape({
-      name: Yup.string().required('Please enter your name'),
-      email: Yup.string()
-        .matches(emailPattern, 'Doesn`t look like a valid email')
-        .required('Please enter your email address'),
-      password: Yup.string().min(6).required('Please enter your password'),
-    }),
+    validationSchema: validationSchema,
   });
 
   const [showPassword, setShowPassword] = useState(false);
