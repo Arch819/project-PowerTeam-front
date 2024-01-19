@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import Notiflix from 'notiflix';
 import { useFormik } from 'formik';
 import {
   Form,
@@ -15,8 +16,20 @@ import {
 } from './SignForm.styled';
 import sprite from 'images/sprite.svg';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from 'store/auth/operations';
+import { useNavigate } from 'react-router-dom';
+// import { selectToken } from 'store/auth/selector';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required('Please enter your name'),
+  email: Yup.string()
+    .matches(emailPattern, 'Doesn`t look like a valid email')
+    .required('Please enter your email address'),
+  password: Yup.string().min(6).required('Please enter your password'),
+});
 
 const ValidationIcon = ({ error, touched, successText, errorText }) => {
   return (
@@ -32,20 +45,55 @@ const ValidationIcon = ({ error, touched, successText, errorText }) => {
 };
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  //   const token = useSelector(selectToken);
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
-    onSubmit: values => {
-      console.log('submit', values);
+    onSubmit: (values, actions) => {
+      validationSchema
+        .validate(values, { abortEarly: false })
+        .then(() => {
+          dispatch(loginUser(values))
+            .then(response => {
+              if (response.token) {
+                // Если успешно получен токен от бэкэнда
+                // Проверяем наличие информации о пользователе на бэкенде
+                if (response) {
+                  navigate('/diary'); // Перенаправляем на страницу дневника
+                } else {
+                  navigate('/profile'); // Перенаправляем на страницу профиля
+                }
+                Notiflix.Notify.success(
+                  'You have been successfully logged in! Your session is now active.'
+                );
+              } else {
+                Notiflix.Notify.Failure(
+                  'Token was not returned from the backend'
+                );
+              }
+            })
+            .catch(error => {
+              actions.setFieldError('form', error.message);
+              Notiflix.Notify.Failure(
+                'An error occurred during login: ' + error.message
+              );
+            });
+        })
+        .catch(errors => {
+          errors.inner.forEach(error => {
+            actions.setFieldError(error.path, error.message);
+          });
+          Notiflix.Notify.Failure(
+            'Login validation failed. Please check the fields.'
+          );
+        });
     },
-    validationSchema: Yup.object().shape({
-      email: Yup.string()
-        .matches(emailPattern, 'Doesn`t look like a valid email')
-        .required('Please enter your email address'),
-      password: Yup.string().min(6).required('Please enter your password'),
-    }),
+    validationSchema: validationSchema,
   });
 
   const [showPassword, setShowPassword] = useState(false);

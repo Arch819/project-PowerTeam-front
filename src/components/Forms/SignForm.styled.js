@@ -86,7 +86,7 @@ export const StyledInput = styled.input`
     height: 52px;
 
     &:last-child {
-      margin-bottom: ${props => (props.error ? '0' : '25px')};
+      margin-bottom: ${props => (props.error ? '0' : '28px')};
     }
   }
 `;

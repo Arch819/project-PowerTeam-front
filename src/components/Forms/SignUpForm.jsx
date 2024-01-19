@@ -16,8 +16,11 @@ import {
   SubmitButton,
 } from './SignForm.styled';
 import sprite from 'images/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from 'store/auth/operations';
+import { selectToken } from 'store/auth/selector';
+import { Navigate } from 'react-router';
+// import { useHistory } from 'react-router-dom';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -44,6 +47,7 @@ const ValidationIcon = ({ error, touched, successText, errorText }) => {
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
 
   const formik = useFormik({
     initialValues: {
@@ -55,22 +59,34 @@ const SignUpForm = () => {
       validationSchema
         .validate(values, { abortEarly: false })
         .then(() => {
-          dispatch(registerUser(values));
-          actions.resetForm();
-          Notiflix.Notify.Success(
-            'You have been successfully registered! Press Sign in button and enter your email and password, please.'
-          );
+          dispatch(registerUser(values))
+            .then(response => {
+              if (response.token) {
+                if (token) {
+                  Navigate('/profile');
+                  Notiflix.Notify.success(
+                    'You have been successfully registered and logged in! Your session is now active.'
+                  );
+                } else {
+                  Notiflix.Notify.failure(
+                    'Token was not returned from the backend'
+                  );
+                }
+              }
+              actions.resetForm();
+            })
+            .catch(error => {
+              Notiflix.Notify.failure(
+                'An error occurred during registration: ' + error.message
+              );
+            });
         })
         .catch(errors => {
-          if (errors.inner) {
-            errors.inner.forEach(error => {
-              actions.setFieldError(error.path, error.message);
-            });
-          } else {
-            Notiflix.Notify.Success('All fields are validated successfully!');
-          }
-          Notiflix.Notify.Failure(
-            'Validation failed. Please check the fields.'
+          errors.inner.forEach(error => {
+            actions.setFieldError(error.path, error.message);
+          });
+          Notiflix.Notify.failure(
+            'Registration validation failed. Please check the fields.'
           );
         });
     },
