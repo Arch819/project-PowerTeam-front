@@ -30,13 +30,8 @@ import { useState } from 'react';
 function UserCard() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser)
-  console.log(user);
-  //const avatar = 'https://res.cloudinary.com/dwkvsznn0/image/upload/v1705494709/avatars/65a79759eb56ba0d32793cf3.jpg'
-  //const  avatar = '';
-  //const avatar = user.avatarURL;
   const [avatar, setAvatar] = useState(user.avatarURL);
-  const [file, setFile] = useState(null);
-  
+    
   const avatarUser = <UserPhoto src={avatar} alt="UserPhoto" width="100%" />;
   const avatarSvg = (
     <UserSvg>
@@ -45,16 +40,13 @@ function UserCard() {
   );
 
   const handleAvatarChange = e => {
-    //const file = e.target.files[0];
-    setFile(e.target.files[0]);
+    const file = e.target.files[0];
     setAvatar(e.target.files[0]);
     
     console.log('file',file);
     if (file) {
       const blob = new Blob([file]);
-      console.log('blob',blob);
       const objectURL = URL.createObjectURL(blob);
-      console.log('objectURL',objectURL);
       setAvatar(objectURL);
     }
 
