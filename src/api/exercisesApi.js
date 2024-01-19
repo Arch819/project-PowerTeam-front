@@ -1,11 +1,13 @@
 import axios from 'axios';
 
-export const getExercises = async () => {
-  const { data } = await axios.get('exercises');
+export const getExercises = async paramsExercises => {
+  const { data } = await axios.get('exercises', {
+    params: { ...paramsExercises },
+  });
   return data;
 };
 
-export const getExercisesByFilters = async paramsExercises => {
-  const { data } = await axios.get('exercises/filters', paramsExercises);
+export const getExercisesByFilters = async () => {
+  const { data } = await axios.get('exercises/filters');
   return data;
 };

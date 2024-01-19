@@ -17,11 +17,11 @@ export const registerUser = createAsyncThunk(
   'auth/registerUser',
   async (body, { rejectWithValue }) => {
     try {
-      const { data } = await register(body);
+      const data = await register(body);
       setToken.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -30,11 +30,11 @@ export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (body, { rejectWithValue }) => {
     try {
-      const { data } = await login(body);
+      const data = await login(body);
       setToken.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -43,11 +43,11 @@ export const logOutUser = createAsyncThunk(
   'auth/logOut',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await logOut();
+      const data = await logOut();
       setToken.unset();
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -62,11 +62,11 @@ export const fetchCurrentUser = createAsyncThunk(
     }
     try {
       setToken.set(token);
-      const { data } = await currentUser();
+      const data = await currentUser();
       return data;
     } catch (error) {
       setToken.unset();
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -77,12 +77,12 @@ export const updateAvatar = createAsyncThunk(
     try {
       const formData = new FormData();
       formData.append('avatar', file);
-      const { data } = await avatar(formData, {
+      const data = await avatar(formData, {
         headers: { 'content-type': 'multipart/form-data' },
       });
       return data.avatarURL;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -91,10 +91,10 @@ export const updateProfile = createAsyncThunk(
   'auth/updateProfile',
   async (newUserData, { rejectWithValue }) => {
     try {
-      const { data } = await profile(newUserData);
+      const data = await profile(newUserData);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
