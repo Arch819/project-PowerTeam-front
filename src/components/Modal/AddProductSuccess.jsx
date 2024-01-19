@@ -16,7 +16,7 @@ import {
   SuccessModalWindowSpan,
   SuccessModalWindowBtn,
   ArrowIcon,
-} from './AddProductSuccess.styles';
+} from './AddProductSuccess.styled';
 
 export const AddProductSuccess = ({ calories, closeModal }) => {
   return (
