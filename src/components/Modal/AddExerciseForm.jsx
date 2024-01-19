@@ -13,7 +13,7 @@ import Timer from '../Timer/Timer';
 import { fetchCurrentUser } from '../../store/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 import { getAddExerciseThunk } from '../../store/diary/diaryThunk';
 
 const formatDate = date => {
@@ -60,7 +60,7 @@ export const AddExerciseForm = ({ data, onClick, closeModal }) => {
 
   const handleAddToDiary = () => {
     if (!amount) {
-      toast.error('Must be greater than 0');
+      Notiflix.Report.failure('Error', 'Must be greater than 0', 'OK');
       return;
     }
 

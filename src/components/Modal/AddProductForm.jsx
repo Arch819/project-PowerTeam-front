@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAddProductThunk } from '../../store/diary/diaryThunk';
-import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 import { fetchCurrentUser } from '../../store/auth/operations';
 import { selectUser } from '../../store/auth/selector';
 import {
@@ -45,7 +45,7 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
 
   const handleAddToDiary = () => {
     if (!amount) {
-      toast.error('Must be greater than 0');
+      Notiflix.Report.failure('Error', 'Must be greater than 0', 'OK');
       return;
     }
     console.log('formattedDate', formattedDate);
@@ -65,7 +65,7 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
         onClick(amount);
       })
       .catch(error => {
-        toast(error.message);
+        Notiflix.Report.failure('Error', error.message, 'OK');
       });
   };
 
