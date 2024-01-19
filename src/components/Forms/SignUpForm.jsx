@@ -1,7 +1,11 @@
+import { Navigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useFormik } from 'formik';
+import { selectToken } from 'store/auth/selector';
+import { registerUser } from 'store/auth/operations';
 import Notiflix from 'notiflix';
 import * as Yup from 'yup';
-import { useFormik } from 'formik';
-import { useState } from 'react';
 import {
   Form,
   StyledInputContainer,
@@ -16,11 +20,6 @@ import {
   SubmitButton,
 } from './SignForm.styled';
 import sprite from 'images/sprite.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from 'store/auth/operations';
-import { selectToken } from 'store/auth/selector';
-import { Navigate } from 'react-router';
-// import { useHistory } from 'react-router-dom';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
