@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
   desiredWeight: Yup.number()
     .min(35, 'Minimum weight is 35 kg')
     .required('Desired weight is required'),
-  dateOfBirth: Yup.string()
+  birthday: Yup.string()
     .required('Date of birth is required')
     .test('is-date', 'Invalid date format', value => {
       const regExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
@@ -22,10 +22,10 @@ const validationSchema = Yup.object().shape({
   blood: Yup.number()
     .oneOf([1, 2, 3, 4], 'Invalid blood group')
     .required('Blood group is required'),
-  gender: Yup.string()
+  sex: Yup.string()
     .oneOf(['male', 'female'], 'Invalid gender')
     .required('Gender is required'),
-  activitiLevel: Yup.number()
+  levelActivity: Yup.number()
     .oneOf([1, 2, 3, 4, 5], 'Invalid activity level')
     .required('Activity level is required'),
 });

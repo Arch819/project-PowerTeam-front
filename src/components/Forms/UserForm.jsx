@@ -23,27 +23,15 @@ import BloodGenderFields from './UserFormComponents/BloodGenderFields';
 import NameEmailFields from './UserFormComponents/NameEmailField';
 import ActivitiLevelFields from './UserFormComponents/ActivitiLevelFields';
 import { StyledForm, SubmitButton } from './UserForm.styled';
-import { useState } from 'react';
+import { selectUser, selectUserParams } from 'store/auth/selector';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateProfile } from 'store/auth/operations';
 
 function UserForm() {
-  const [initState, setInitState] = useState({
-    name: 'Antonio Banderas',
-    email: 'banderas@mail.com',
-    height: '0',
-    currentWeight: '0',
-    desiredWeight: '0',
-    dateOfBirth: null,
-    blood: '',
-    gender: '',
-    activitiLevel: '',
-  });
-
-  const handleDateChange = date => {
-    setInitState(prevState => ({
-      ...prevState,
-      dateOfBirth: date,
-    }));
-  };
+  const user = useSelector(selectUser);
+  const userData = useSelector(selectUserParams);
+  const initState = { ...user, ...userData };
+  const dispatch = useDispatch();
 
   return (
     <Formik
@@ -52,6 +40,8 @@ function UserForm() {
         validationSchema
           .validate(values, { abortEarly: false })
           .then(() => {
+            values.bodyData = true;
+            dispatch(updateProfile(values));
             console.log('Success:', values);
           })
           .catch(error => {
@@ -59,7 +49,7 @@ function UserForm() {
           });
       }}
     >
-      {({ setFieldValue }) => (
+      {({ setFieldValue, dirty }) => (
         <StyledForm>
           {/* {Ім'я та пошта} */}
           <NameEmailFields name={initState.name} email={initState.email} />
@@ -71,20 +61,18 @@ function UserForm() {
             desiredWeight={initState.desiredWeight}
             dateOfBirth={initState.dateOfBirth}
             onChange={date => {
-              handleDateChange(date);
-              setFieldValue('dateOfBirth', date);
+              setFieldValue('birthday', date);
             }}
           />
 
           {/* Група крові + гендер */}
-          <BloodGenderFields
-            blood={initState.blood}
-            gender={initState.gender}
-          />
+          <BloodGenderFields blood={initState.blood} sex={initState.sex} />
 
           {/* {Рівень фізичної активності} */}
-          <ActivitiLevelFields activitiLevel={initState.activitiLevel} />
-          <SubmitButton type="submit">Save</SubmitButton>
+          <ActivitiLevelFields levelActivity={initState.levelActivity} />
+          <SubmitButton type="submit" disabled={!dirty}>
+            Save
+          </SubmitButton>
         </StyledForm>
       )}
     </Formik>
