@@ -7,9 +7,11 @@ import Section from 'components/Section';
 const SignInPage = () => {
   return (
     <Section use={'first'}>
-      <div className="container">
+      <div style={{ marginTop: '100px' }} className="container">
         <h2>Sign In</h2>
-        <SignInForm />
+        <div style={{ marginTop: '50px' }}>
+          <SignInForm />
+        </div>
       </div>
     </Section>
   );
