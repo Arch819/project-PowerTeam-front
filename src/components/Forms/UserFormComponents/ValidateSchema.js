@@ -9,9 +9,11 @@ const validationSchema = Yup.object().shape({
     .required('Height is required'),
   currentWeight: Yup.number()
     .min(35, 'Minimum weight is 35 kg')
+    .max(250, 'Maximum weight is 250 kg')
     .required('Current weight is required'),
   desiredWeight: Yup.number()
     .min(35, 'Minimum weight is 35 kg')
+    .max(250, 'Maximum weight is 250 kg')
     .required('Desired weight is required'),
   birthday: Yup.string()
     .required('Date of birth is required')

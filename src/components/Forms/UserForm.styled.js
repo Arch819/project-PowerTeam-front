@@ -5,13 +5,16 @@ import { Radio } from '@mui/material';
 
 const StyledForm = styled(Form)`
   margin: 0 auto;
+  padding-top: 20px;
   max-width: 335px;
   @media (min-width: 768px) {
     max-width: 734px;
+    padding-top: 40px;
   }
   @media (min-width: 1440px) {
     border-right: var(--border-20);
-    max-width: 856px;
+    max-width: 740px;
+    padding-top: 0;
     padding-right: 64px;
     margin: 0;
   }

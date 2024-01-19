@@ -22,7 +22,8 @@ const PersonalInfoFields = ({
           type="text"
           id="height"
           name="height"
-          placeholder={height || '0'}
+          value={height}
+          placeholder="0"
           required
         />
       </PersonalInfoItems>
@@ -32,7 +33,8 @@ const PersonalInfoFields = ({
           type="text"
           id="currentWeight"
           name="currentWeight"
-          placeholder={currentWeight || '0'}
+          value={currentWeight}
+          placeholder="0"
           required
         />
       </PersonalInfoItems>
@@ -42,7 +44,8 @@ const PersonalInfoFields = ({
           type="text"
           id="desiredWeight"
           name="desiredWeight"
-          placeholder={desiredWeight || '0'}
+          value={desiredWeight}
+          placeholder="0"
           required
         />
       </PersonalInfoItems>

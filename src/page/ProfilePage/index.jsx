@@ -6,7 +6,12 @@
 // Увімкнути програму зчитування з екрана
 
 import UserForm from 'components/Forms/UserForm';
-import { PageProfileContainer } from './PageProfile.styled';
+import UserCard from 'components/UserCard';
+import {
+  PageProfileContainer,
+  PageProfileThumb,
+  ProfileTitle,
+} from './PageProfile.styled';
 import Section from 'components/Section';
 
 // Містить заоголовок сторінки та має бути реалізований, як універсальний компонент, що можна використати на інших сторінках застосунку
@@ -15,8 +20,11 @@ const ProfilePage = () => {
   return (
     <Section>
       <PageProfileContainer className="container">
-        <h2>Profile Settings</h2>
-        <UserForm />
+        <ProfileTitle>Profile Settings</ProfileTitle>
+        <PageProfileThumb>
+          <UserCard />
+          <UserForm />
+        </PageProfileThumb>
       </PageProfileContainer>
     </Section>
   );
