@@ -17,67 +17,65 @@
 // Якщо backend повернув помилку - необхідно її опрацювати і відобразити користувачеві у вигляді вспливаючого віконечка-notification.
 
 import { Formik } from 'formik';
-import validationSchema from './UserFormsComponents/ValidateSchema';
-import PersonalInfoFields from './UserFormsComponents/PersonalInfoFields';
-import BloodGenderFields from './UserFormsComponents/BloodGenderFields';
-import NameEmailFields from './UserFormsComponents/NameEmailField';
-import ActivitiLevelFields from './UserFormsComponents/ActivitiLevelFields';
+import validationSchema from './UserFormComponents/ValidateSchema';
+import PersonalInfoFields from './UserFormComponents/PersonalInfoFields';
+import BloodGenderFields from './UserFormComponents/BloodGenderFields';
+import NameEmailFields from './UserFormComponents/NameEmailField';
+import ActivitiLevelFields from './UserFormComponents/ActivitiLevelFields';
 import { StyledForm, SubmitButton } from './UserForm.styled';
+import { selectUser, selectUserParams } from 'store/auth/selector';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateProfile } from 'store/auth/operations';
 
 function UserForm() {
-  const initState = {
-    name: 'Antonio Banderas',
-    email: 'banderas@mail.com',
-    height: 190,
-    currentWeight: '',
-    desiredWeight: '',
-    dateOfBirth: '',
-    blood: '2',
-    gender: 'male',
-    activitiLevel: '4',
-  };
+  const user = useSelector(selectUser);
+  const userData = useSelector(selectUserParams);
+  const initState = { ...user, ...userData };
+  const dispatch = useDispatch();
 
   return (
-    <div>
-      <Formik
-        initialValues={initState}
-        onSubmit={values => {
-          validationSchema
-            .validate(values, { abortEarly: false })
-            .then(() => {
-              console.log('Форма валідна, відправляємо:', values);
-            })
-            .catch(error => {
-              console.log('Validation errors:', error.errors);
-            });
-        }}
-      >
-        {() => (
-          <StyledForm>
-            {/* {Ім'я та пошта} */}
-            <NameEmailFields name={initState.name} email={initState.email} />
+    <Formik
+      initialValues={initState}
+      onSubmit={values => {
+        validationSchema
+          .validate(values, { abortEarly: false })
+          .then(() => {
+            values.bodyData = true;
+            dispatch(updateProfile(values));
+            console.log('Success:', values);
+          })
+          .catch(error => {
+            console.log('Validation errors:', error.errors);
+          });
+      }}
+    >
+      {({ setFieldValue, dirty }) => (
+        <StyledForm>
+          {/* {Ім'я та пошта} */}
+          <NameEmailFields name={initState.name} email={initState.email} />
 
-            {/* Зріст, Вага, Бажана вага, Дата народження */}
-            <PersonalInfoFields
-              height={initState.height}
-              currentWeight={initState.currentWeight}
-              desiredWeight={initState.desiredWeight}
-              dateOfBirth={initState.dateOfBirth}
-            />
+          {/* Зріст, Вага, Бажана вага, Дата народження */}
+          <PersonalInfoFields
+            height={initState.height}
+            currentWeight={initState.currentWeight}
+            desiredWeight={initState.desiredWeight}
+            dateOfBirth={initState.dateOfBirth}
+            onChange={date => {
+              setFieldValue('birthday', date);
+            }}
+          />
 
-            {/* Група крові + гендер */}
-            <BloodGenderFields
-              blood={initState.blood}
-              gender={initState.gender}
-            />
+          {/* Група крові + гендер */}
+          <BloodGenderFields blood={initState.blood} sex={initState.sex} />
 
-            {/* {Рівень фізичної активності} */}
-            <ActivitiLevelFields activitiLevel={initState.activitiLevel} />
-            <SubmitButton type="submit">Submit</SubmitButton>
-          </StyledForm>
-        )}
-      </Formik>
-    </div>
+          {/* {Рівень фізичної активності} */}
+          <ActivitiLevelFields levelActivity={initState.levelActivity} />
+          <SubmitButton type="submit" disabled={!dirty}>
+            Save
+          </SubmitButton>
+        </StyledForm>
+      )}
+    </Formik>
   );
 }
 

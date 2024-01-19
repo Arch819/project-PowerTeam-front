@@ -23,55 +23,71 @@ import {
   NavStyled,
   NavWrapper,
   WrapperNavLinkStyled,
+  AllWrapper,
 } from './Header.styled';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn, selectUser } from 'store/auth/selector';
 
 // Треба зробити useSelector для profile(данні у profile) взяти данні зі state.
 // Зробити перевірку для NavWrapper, якщо profile === null ? null, якщо ні то повертає NavWrapper.
 
 function Header() {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  const { bodyData } = useSelector(selectUser);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(prevState => !prevState);
   };
 
   return (
-    <HeaderContainer>
+    <HeaderContainer position={isLoggedIn}>
       <div className="container">
-        <NavStyled>
-          <Link to="/">
-            <Logo />
-          </Link>
+        <AllWrapper>
+          <nav>
+            <Link to="/">
+              <Logo />
+            </Link>
+          </nav>
+          {isLoggedIn && (
+            <>
+              <NavStyled>
+                <NavWrapper>
+                  <MediaQuery minWidth={1440}>
+                    {bodyData && (
+                      <WrapperNavLinkStyled>
+                        <NavLinkStyled to="/diary">Diary</NavLinkStyled>
+                        <NavLinkStyled to="/products">Products</NavLinkStyled>
+                        <NavLinkStyled to="/exercises">Exercises</NavLinkStyled>
+                      </WrapperNavLinkStyled>
+                    )}
+                  </MediaQuery>
 
-          <NavWrapper>
-            <MediaQuery minWidth={1440}>
-              <WrapperNavLinkStyled>
-                <NavLinkStyled to="/diary">Diary</NavLinkStyled>
-                <NavLinkStyled to="/products">Products</NavLinkStyled>
-                <NavLinkStyled to="/exercises">Exercises</NavLinkStyled>
-              </WrapperNavLinkStyled>
-            </MediaQuery>
+                  <WrapperNavLinkStyled>
+                    <LinkSettingsStyled to="/profile">
+                      <UserBar />
+                    </LinkSettingsStyled>
 
-            <WrapperNavLinkStyled>
-              <LinkSettingsStyled to="/profile">
-                <UserBar />
-              </LinkSettingsStyled>
+                    <MediaQuery minWidth={1440}>
+                      <LogOutBtn />
+                    </MediaQuery>
 
-              <MediaQuery minWidth={1440}>
-                <LogOutBtn />
-              </MediaQuery>
+                    <MediaQuery maxWidth={1439}>
+                      <IconBurgerMenuStyled onClick={toggleMenu}>
+                        <use href={`${sprite}#icon-burger-menu`} />
+                      </IconBurgerMenuStyled>
+                    </MediaQuery>
+                  </WrapperNavLinkStyled>
+                </NavWrapper>
+              </NavStyled>
 
               <MediaQuery maxWidth={1439}>
-                <IconBurgerMenuStyled onClick={toggleMenu}>
-                  <use href={`${sprite}#icon-burger-menu`} />
-                </IconBurgerMenuStyled>
+                {isMenuOpen && <BurgerMenu onClick={toggleMenu} />}
               </MediaQuery>
-            </WrapperNavLinkStyled>
-          </NavWrapper>
-        </NavStyled>
-
-        <MediaQuery maxWidth={1439}>
-          {isMenuOpen && <BurgerMenu onClose={toggleMenu} />}
-        </MediaQuery>
+            </>
+          )}
+        </AllWrapper>
       </div>
     </HeaderContainer>
   );

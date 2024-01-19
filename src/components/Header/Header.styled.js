@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.header`
-  position: fixed;
+  position: ${props => (props.position ? 'relative' : 'fixed')};
   left: 0;
   top: 0;
   right: 0;
@@ -13,6 +13,12 @@ export const HeaderContainer = styled.header`
   @media screen and (min-width: 768px) {
     padding: 19px 0;
   }
+`;
+
+export const AllWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const NavStyled = styled.nav`

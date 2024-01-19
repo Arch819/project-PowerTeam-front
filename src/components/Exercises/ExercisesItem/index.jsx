@@ -14,6 +14,12 @@ function ExercisesItem({ exerciseData }) {
   const [modal, setModal] = useState(false);
   const { bodyPart, name, target, burnedCalories } = exerciseData;
 
+  const upFirst = string => {
+    if (!string) return string;
+
+    return string[0].toUpperCase() + string.slice(1);
+  };
+
   const openModal = () => {
     setModal(preModal => {
       return !preModal;
@@ -24,7 +30,7 @@ function ExercisesItem({ exerciseData }) {
     <ExercisesItemStyled>
       <p className="workout">WORKOUT</p>
       <button className="btn-box" onClick={openModal}>
-        <p className="btn-text">Start</p>
+        <span className="btn-text">Start</span>
         <svg className="btn-svg">
           <use href={`${sprite}#icon-next`} />
         </svg>
@@ -35,20 +41,20 @@ function ExercisesItem({ exerciseData }) {
             <use href={`${sprite}#icon-running-stick-figure`} />
           </svg>
         </div>
-        <h3 className="title-exercise">{name}</h3>
+        <h3 className="title-exercise">{upFirst(name)}</h3>
       </div>
       <ul className="categories-list">
         <li className="categories-item">
           <p className="category-name">Burned calories:</p>
-          <span className="category-data">{burnedCalories}</span>
+          <span className="category-data">{upFirst(burnedCalories)}</span>
         </li>
         <li className="categories-item">
           <p className="category-name">Body part:</p>
-          <span className="category-data">{bodyPart}</span>
+          <span className="category-data">{upFirst(bodyPart)}</span>
         </li>
         <li className="categories-item">
           <p className="category-name">Target:</p>
-          <span className="category-data">{target}</span>
+          <span className="category-data">{upFirst(target)}</span>
         </li>
       </ul>
       {modal && <BasicModalWindow exerciseData={exerciseData} />}

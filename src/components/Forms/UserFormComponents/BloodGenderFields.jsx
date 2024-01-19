@@ -10,7 +10,7 @@ import {
   LabelGender,
 } from '../UserForm.styled';
 
-const BloodGenderFields = ({ blood, gender }) => {
+const BloodGenderFields = ({ blood, sex }) => {
   return (
     <BloodGenderThumb>
       <div role="group" aria-labelledby="demo-row-radio-buttons-group-label">
@@ -36,11 +36,11 @@ const BloodGenderFields = ({ blood, gender }) => {
         aria-labelledby="demo-row-radio-buttons-group-label"
       >
         <LabelGender>
-          <Field as={OrangeRadio} type="radio" name="gender" value="male" />
+          <Field as={OrangeRadio} type="radio" name="sex" value="male" />
           Male
         </LabelGender>
         <LabelGender>
-          <Field as={OrangeRadio} type="radio" name="gender" value="female" />
+          <Field as={OrangeRadio} type="radio" name="sex" value="female" />
           Female
         </LabelGender>
       </GenderThumb>

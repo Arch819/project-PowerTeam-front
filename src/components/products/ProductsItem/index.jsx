@@ -14,6 +14,12 @@ function ProductsItem({ productData }) {
   const [modal, setModal] = useState(false);
   const { title, category, calories, weight, recommend } = productData;
 
+  const upFirst = string => {
+    if (!string) return string;
+
+    return string[0].toUpperCase() + string.slice(1);
+  };
+
   const openModal = () => {
     setModal(preModal => {
       return !preModal;
@@ -33,7 +39,7 @@ function ProductsItem({ productData }) {
           </p>
         </div>
         <button className="btn-box" onClick={openModal}>
-          <p className="btn-text">Add</p>
+          <span className="btn-text">Add</span>
           <svg className="btn-svg">
             <use href={`${sprite}#icon-next`} />
           </svg>
@@ -45,7 +51,7 @@ function ProductsItem({ productData }) {
             <use href={`${sprite}#icon-running-stick-figure`} />
           </svg>
         </div>
-        <h3 className="title-exercise">{title}</h3>
+        <h3 className="title-exercise">{upFirst(title)}</h3>
       </div>
       <ul className="categories-list">
         <li className="categories-item">
@@ -54,7 +60,7 @@ function ProductsItem({ productData }) {
         </li>
         <li className="categories-item">
           <p className="category-name">Category:</p>
-          <span className="category-data">{category}</span>
+          <span className="category-data">{upFirst(category)}</span>
         </li>
         <li className="categories-item">
           <p className="category-name">Weight:</p>

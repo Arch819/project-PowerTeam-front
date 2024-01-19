@@ -5,12 +5,14 @@ import {
   Input,
   PersonalInfoItems,
 } from '../UserForm.styled';
+import ProfileDatepicker from './ProfileDatepicker';
 
-const PersonlInfoFields = ({
+const PersonalInfoFields = ({
   height,
   currentWeight,
   desiredWeight,
-  dateOfBirth,
+  birthday,
+  onChange,
 }) => {
   return (
     <PersonalInfo>
@@ -20,7 +22,7 @@ const PersonlInfoFields = ({
           type="text"
           id="height"
           name="height"
-          placeholder={height}
+          placeholder={height || '0'}
           required
         />
       </PersonalInfoItems>
@@ -30,7 +32,7 @@ const PersonlInfoFields = ({
           type="text"
           id="currentWeight"
           name="currentWeight"
-          placeholder={currentWeight}
+          placeholder={currentWeight || '0'}
           required
         />
       </PersonalInfoItems>
@@ -40,22 +42,16 @@ const PersonlInfoFields = ({
           type="text"
           id="desiredWeight"
           name="desiredWeight"
-          placeholder={desiredWeight}
+          placeholder={desiredWeight || '0'}
           required
         />
       </PersonalInfoItems>
       <PersonalInfoItems>
-        <Label htmlFor="dateOfBirth">Date of birth</Label>
-        <Input
-          type="text"
-          id="dateOfBirth"
-          name="dateOfBirth"
-          placeholder={dateOfBirth}
-          required
-        />
+        <Label htmlFor="birthday">Date of birth</Label>
+        <ProfileDatepicker value={birthday} onChange={onChange} />
       </PersonalInfoItems>
     </PersonalInfo>
   );
 };
 
-export default PersonlInfoFields;
+export default PersonalInfoFields;

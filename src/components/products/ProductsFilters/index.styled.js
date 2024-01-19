@@ -42,6 +42,8 @@ export const ProductsFilterSearch = styled.input`
 `;
 
 export const ProductsBtnClose = styled.button`
+  visibility: ${props => (props.isVisible ? 'visible' : 'hidden')};
+  position: absolute;
   background: transparent;
   position: absolute;
   top: calc(48% - 16px / 2);
@@ -50,6 +52,7 @@ export const ProductsBtnClose = styled.button`
   cursor: pointer;
 `;
 export const ProductsBtnSearch = styled.button`
+  position: absolute;
   background: transparent;
   position: absolute;
   top: calc(50% - 16px / 2);
@@ -136,4 +139,7 @@ export const TitleFilter = styled.div`
     display: flex;
     justify-content: space-between;
   }
+`;
+export const ProductsContainer = styled.div`
+  position: relative;
 `;
