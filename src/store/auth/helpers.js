@@ -1,6 +1,7 @@
 export const handleRegisterUserFulfilled = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
+  state.isLoggedIn = true;
 };
 
 export const handleLoginFulfilled = (state, { payload }) => {
