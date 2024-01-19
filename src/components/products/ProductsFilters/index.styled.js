@@ -26,7 +26,8 @@ export const ProductsFilterSearch = styled.input`
     flex-grow: 1;
 
     &::placeholder {
-      color: var(--color-text-white);
+      color: rgba(239, 237, 232, 1);
+      opacity: 1;
     }
     &:hover,
     &:focus {
