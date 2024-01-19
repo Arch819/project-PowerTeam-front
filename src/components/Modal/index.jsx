@@ -6,8 +6,6 @@ import { BasicWindow, Modal, BtnClose, SvgClose } from "./index.styled";
 
 import sprite from "../../images/sprite.svg";
 
-
-
 const BasicModalWindow = ({ children, isOpenModalToggle }) => {
   
 
@@ -43,7 +41,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
     </BasicWindow>
   );
 
-  return createPortal(modal, document.querySelector("#root_modal"));
+  return createPortal(modal, document.body);
 };
 
 export default BasicModalWindow;
