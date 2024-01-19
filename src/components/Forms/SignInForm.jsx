@@ -1,5 +1,8 @@
-import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { loginUser } from 'store/auth/operations';
 import {
   Form,
   StyledInputContainer,
@@ -14,7 +17,6 @@ import {
   SubmitButton,
 } from './SignForm.styled';
 import sprite from 'images/sprite.svg';
-import { useState } from 'react';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -32,14 +34,17 @@ const ValidationIcon = ({ error, touched, successText, errorText }) => {
 };
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit: values => {
-      console.log('submit', values);
+      dispatch(loginUser(values));
     },
+
     validationSchema: Yup.object().shape({
       email: Yup.string()
         .matches(emailPattern, 'Doesn`t look like a valid email')
