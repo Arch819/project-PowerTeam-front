@@ -78,6 +78,12 @@ export const App = () => {
           }
         />
         <Route
+          path="/exercises/:category"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ExercisesPage />} />
+          }
+        />
+        <Route
           path="/exercises/:category/:subcategory"
           element={
             <PrivateRoute redirectTo="/" component={<ExercisesListPage />} />
