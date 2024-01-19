@@ -4,16 +4,23 @@ import ExercisesSubcategoriesList from 'components/Exercises/ExercisesSubcategor
 import TitlePage from 'components/TitlePage';
 import { NavBox } from './ExercisesPage.styled';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectExercisesFilters } from 'store/exercises/exercisesSelector';
+import { selectError, selectIsLoading } from 'store/appState/selectors';
+import { getExercisesFilters } from 'store/exercises/exercisesOperations';
 axios.defaults.baseURL = 'https://powerpulse-backend-heie.onrender.com/';
 
 function ExercisesPage() {
+  const exercisesFilters = useSelector(selectExercisesFilters);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+
   const [subcategoriesList, setSubcategoriesList] = useState([]);
-  const [limit, setLimit] = useState(0);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { category } = useParams();
 
   // const handleResize = () => {
@@ -31,35 +38,22 @@ function ExercisesPage() {
 
   // window.addEventListener('resize', handleResize);
 
-  const getSubcategoriesList = useCallback(async category => {
-    try {
-      setLoading(true);
-      // запрос на бек
-      const response = await axios.get('/exercises/filters');
-
-      const filterValid = {
-        bodyPart: 'Body parts',
-        target: 'Muscles',
-        equipment: 'Equipment',
-      };
-      const subCategoriesToRender = response.data.filter(
-        item => item.filter === filterValid[category]
-      );
-      setSubcategoriesList(subCategoriesToRender);
-    } catch (error) {
-      console.log(error.message);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
     if (!category) {
       navigate('/exercises/bodyPart', { replace: true });
       return;
     }
-    getSubcategoriesList(category);
-  }, [getSubcategoriesList, category, navigate]);
+    dispatch(getExercisesFilters());
+    const filterValid = {
+      bodyPart: 'Body parts',
+      target: 'Muscles',
+      equipment: 'Equipment',
+    };
+    const subCategoriesToRender = exercisesFilters.filter(
+      item => item.filter === filterValid[category]
+    );
+    setSubcategoriesList(subCategoriesToRender);
+  }, [category, dispatch, exercisesFilters, navigate]);
 
   return (
     <Section>
@@ -70,7 +64,7 @@ function ExercisesPage() {
           <ExercisesCategories activeCategory={category} />
         </NavBox>
 
-        {loading ? (
+        {isLoading && !error ? (
           <Oval
             visible={true}
             height="80"
