@@ -18,12 +18,12 @@ export const Modal = styled.div`
   background: #10100f;
   position: relative;
 `;
-export const ButtonClouse = styled.button`
+export const BtnClose = styled.button`
   width: 22px;
   height: 22px;
 
   border: none;
-  background: inherit;
+  background: transparent;
   position: absolute;
   top: 14px;
   right: 14px;
@@ -32,11 +32,20 @@ export const ButtonClouse = styled.button`
     width: 26px;
     height: 26px;
   }
+
+    &:hover,
+    &focus {
+    transform: scale(1.2);
+  }
 `;
 
-export const SvgClouse = styled.svg`
+export const SvgClose = styled.svg`
   width: 20px;
   height: 20px;
+  stroke: #efede8;
 
-  stroke: var(--white-color);
+  &:hover,
+  &:focus {
+    stroke: #ffffff;
+  }
 `;

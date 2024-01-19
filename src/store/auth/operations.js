@@ -21,7 +21,7 @@ export const registerUser = createAsyncThunk(
       setToken.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -34,7 +34,7 @@ export const loginUser = createAsyncThunk(
       setToken.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -47,7 +47,7 @@ export const logOutUser = createAsyncThunk(
       setToken.unset();
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -66,7 +66,7 @@ export const fetchCurrentUser = createAsyncThunk(
       return data;
     } catch (error) {
       setToken.unset();
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -82,7 +82,7 @@ export const updateAvatar = createAsyncThunk(
       });
       return data.avatarURL;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -94,7 +94,7 @@ export const updateProfile = createAsyncThunk(
       const { data } = await profile(newUserData);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

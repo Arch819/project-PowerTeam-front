@@ -1,39 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import api from 'api';
-import { setToken } from '../auth/operations';
 
 const { getExercises, getExercisesByFilters } = api.exercisesApi;
 
 export const getAllExercises = createAsyncThunk(
   'exercises/getExercises',
-  async (_, { rejectWithValue, getState }) => {
+  async (paramsExercises, { rejectWithValue }) => {
     try {
-      const state = getState();
-      const persistedToken = state.auth.token;
-      setToken.set(persistedToken);
-
-      const { data } = await getExercises();
-
+      const queryString = new URLSearchParams(paramsExercises).toString();
+      const { data } = await getExercises(queryString);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
 
 export const getExercisesFilters = createAsyncThunk(
   'exercises/getExercisesFilters',
-  async (paramsExercises, { rejectWithValue, getState }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const state = getState();
-      const persistedToken = state.auth.token;
-      setToken.set(persistedToken);
-
-      const { data } = await getExercisesByFilters(paramsExercises);
-
+      const { data } = await getExercisesByFilters();
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

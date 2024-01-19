@@ -21,12 +21,12 @@ export const getAllProducts = createAsyncThunk(
         queryParams.push(`query=${query}`);
       }
 
-      const queryString = queryParams.join('&');      
+      const queryString = queryParams.join('&');
 
       const { data } = await getProducts(queryString);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -38,7 +38,7 @@ export const getProductsCategories = createAsyncThunk(
       const { data } = await getProductsByCategories();
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

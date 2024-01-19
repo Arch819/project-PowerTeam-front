@@ -10,10 +10,13 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import sprite from '../../../images/sprite.svg';
 
 const ProfileDatepicker = ({ value, onChange }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date(value));
-  const [status, setStatus] = useState(value ? true : false);
   const isAdult = new Date();
   isAdult.setFullYear(isAdult.getFullYear() - 18);
+
+  const [selectedDate, setSelectedDate] = useState(
+    value ? new Date(value) : isAdult
+  );
+  const [status, setStatus] = useState(value ? true : false);
 
   const submitDate = date => {
     const formattedDate = format(date, 'yyyy-MM-dd');
@@ -21,7 +24,6 @@ const ProfileDatepicker = ({ value, onChange }) => {
     setSelectedDate(date);
     onChange(formattedDate);
   };
-
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
       <TitleWrapper type="button" onClick={onClick} ref={ref}>

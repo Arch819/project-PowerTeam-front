@@ -1,8 +1,8 @@
 export const initialState = {
   user: {
-    name: null,
-    email: null,
-    avatarURL: null,
+    name: '',
+    email: '',
+    avatarURL: '',
     bodyData: false,
   },
   userParams: {
@@ -15,7 +15,7 @@ export const initialState = {
     levelActivity: null,
     bmr: null,
   },
-  token: null,
+  token: '',
   isLoggedIn: false,
   isRefreshing: false,
 };
