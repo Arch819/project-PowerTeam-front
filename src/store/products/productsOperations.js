@@ -23,7 +23,7 @@ export const getAllProducts = createAsyncThunk(
 
       const queryString = queryParams.join('&');
 
-      const { data } = await getProducts(queryString);
+      const data = await getProducts(queryString);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -35,7 +35,7 @@ export const getProductsCategories = createAsyncThunk(
   'products/getCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await getProductsByCategories();
+      const data = await getProductsByCategories();
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
