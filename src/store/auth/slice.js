@@ -6,6 +6,7 @@ import {
   loginUser,
   registerUser,
   updateAvatar,
+  updateProfile,
 } from './operations';
 import {
   handleFetchCurrentUserFulfilled,
@@ -15,6 +16,7 @@ import {
   handleLoginFulfilled,
   handleRegisterUserFulfilled,
   handleUpdateAvatarFulfilled,
+  handleUpdateProfileFulfilled,
 } from './helpers';
 
 export const authSlice = createSlice({
@@ -29,6 +31,7 @@ export const authSlice = createSlice({
       .addCase(fetchCurrentUser.pending, handleFetchCurrentUserPending)
       .addCase(fetchCurrentUser.fulfilled, handleFetchCurrentUserFulfilled)
       .addCase(updateAvatar.fulfilled, handleUpdateAvatarFulfilled)
+      .addCase(updateProfile.fulfilled, handleUpdateProfileFulfilled)
       .addMatcher(
         action => action.type.endsWith('/rejected'),
         state => {

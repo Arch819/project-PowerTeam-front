@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import sprite from '../../images/sprite.svg';
 import {
   BackdropBurgerMenuStyled,
@@ -11,28 +12,39 @@ import {
   NavContainerStyled,
 } from './BurgerMenu.styled';
 
-function BurgerMenu({ onClose }) {
+import { logOutUser } from 'store/auth/operations';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'store/auth/selector';
+
+function BurgerMenu({ onClick }) {
   // Треба зробити dispatch для logoutUser, const handleLogOut та додати на onClick у BurgerMenuLogOutStyled, та зробити logoutUser у redux/auth/operations.
+
+  const { bodyData } = useSelector(selectUser);
+
+  const dispatch = useDispatch();
+  const handleLogOutUser = () => {
+    dispatch(logOutUser());
+  };
 
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
-        onClose();
+        onClick();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+  }, [onClick]);
 
   const handleCloseClick = () => {
-    onClose();
+    onClick();
   };
 
   const handleBackdropClick = ({ currentTarget, target }) => {
     if (currentTarget === target) {
-      onClose();
+      onClick();
     }
   };
 
@@ -45,23 +57,25 @@ function BurgerMenu({ onClose }) {
               <use href={`${sprite}#icon-close`} />
             </IconCloseMenu>
           </ContainerIconCloseStyled>
-          <NavContainerStyled>
-            <BurgerMenuNavLinkStyled to="/diary">Diary</BurgerMenuNavLinkStyled>
-            <BurgerMenuNavLinkStyled to="/products">
-              Products
-            </BurgerMenuNavLinkStyled>
-            <BurgerMenuNavLinkStyled to="/exercises">
-              Exercises
-            </BurgerMenuNavLinkStyled>
-          </NavContainerStyled>
-
-          <BurgerMenuLogOutStyled to="/welcome">
+          {bodyData && (
+            <NavContainerStyled>
+              <BurgerMenuNavLinkStyled to="/diary">
+                Diary
+              </BurgerMenuNavLinkStyled>
+              <BurgerMenuNavLinkStyled to="/products">
+                Products
+              </BurgerMenuNavLinkStyled>
+              <BurgerMenuNavLinkStyled to="/exercises">
+                Exercises
+              </BurgerMenuNavLinkStyled>
+            </NavContainerStyled>
+          )}
+          <BurgerMenuLogOutStyled onClick={handleLogOutUser}>
             <span>Logout</span>
             <BurgerMenuIconLogoutStyled>
               <use href={`${sprite}#icon-logout`} />
             </BurgerMenuIconLogoutStyled>
           </BurgerMenuLogOutStyled>
-          
         </ContainerBurgerMenuStyled>
       </BackdropBurgerMenuStyled>
     </>
