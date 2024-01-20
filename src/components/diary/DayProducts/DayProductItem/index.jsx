@@ -12,21 +12,22 @@ import { getDeleteProductThunk } from 'store/diary/diaryThunk';
 
 const DayProductItem = ({ products }) => {
   const dispatch = useDispatch();
+  // console.log(products);
   return products.map(
-    ({ productId, title, category, calories, amount, recommend }) => (
-      <tr key={productId}>
+    ({ idProduct, title, category, calories, amount, recommended }) => (
+      <tr key={idProduct}>
         <TableText>{title}</TableText>
         <TableTextSecond>{category}</TableTextSecond>
         <TableTextNext>{calories}</TableTextNext>
         <TableTextNext>{amount}</TableTextNext>
         <TableTextLast>
-          <IsRecommend $recommend={recommend} />
-          {recommend ? 'Yes' : 'No'}
+          <IsRecommend $recommend={recommended} />
+          {recommended ? 'Yes' : 'No'}
         </TableTextLast>
         <td>
           <DeleteButton
             type="button"
-            onClick={() => dispatch(getDeleteProductThunk(productId))}
+            onClick={() => dispatch(getDeleteProductThunk(idProduct))}
           >
             <svg width="20px" height="20px">
               <use href={`${sprite}#icon-trash`}></use>

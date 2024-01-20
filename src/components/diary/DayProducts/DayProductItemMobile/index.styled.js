@@ -38,7 +38,7 @@ export const ProductsTextRecommend = styled(ProductsText)`
   gap: 8px;
 `;
 
-export const IsRecommend = styled.div`
+export const IsRecommend = styled.span`
   background-color: ${({ $recommend }) => ($recommend ? '#419B09' : '#E9101D')};
   width: 14px;
   height: 14px;

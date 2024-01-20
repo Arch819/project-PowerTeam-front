@@ -14,33 +14,40 @@ export const TableText = styled.td`
     padding: 8px 14px;
     height: 40px;
     max-width: 204px;
+    width: 204px;
   }
   @media (min-width: 1440px) {
     max-width: 212px;
+    width: 212px;
   }
 `;
 
 export const TableTextSecond = styled(TableText)`
   @media (min-width: 768px) {
     max-width: 128px;
+    width: 128px;
   }
   @media (min-width: 1440px) {
     max-width: 166px;
+    width: 166px;
   }
 `;
 
 export const TableTextNext = styled(TableText)`
   @media (min-width: 768px) {
     min-width: 90px;
+    width: 90px;
   }
   @media (min-width: 1440px) {
     min-width: 105px;
+    width: 105px;
   }
 `;
 
 export const TableTextLast = styled(TableText)`
   @media (min-width: 768px) {
     max-width: 80px;
+    width: 80px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -51,7 +58,7 @@ export const TableTextLast = styled(TableText)`
   }
 `;
 
-export const IsRecommend = styled.div`
+export const IsRecommend = styled.span`
   @media (min-width: 768px) {
     background-color: ${({ $recommend }) =>
       $recommend ? '#419B09' : '#E9101D'};

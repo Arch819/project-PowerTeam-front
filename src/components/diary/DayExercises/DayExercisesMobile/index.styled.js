@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const DayExercisesContainer = styled.div`
   width: 335px;
-  height: 1064px;
+  height: ${({ $exercises }) => ($exercises ? '1064px;' : '335px')};
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 80px;
