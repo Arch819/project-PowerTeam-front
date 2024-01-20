@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 export const Box = styled.div`
   max-width: 335px;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     max-width: 704px;
+    margin-bottom: 0;
   }
 
   @media screen and (min-width: 1440px) {
