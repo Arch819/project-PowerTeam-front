@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
   TableText,
   TableTextCalories,
@@ -14,16 +13,6 @@ import { getDeleteExerciseThunk } from 'store/diary/diaryThunk';
 
 const DayExerciseItem = ({ exercises }) => {
   const dispatch = useDispatch();
-  // const deleteExercise = id => {
-  //   try {
-  //     const data = dispatch(getDeleteExerciseThunk());
-  //     if (data.error.message !== 'Rejected') {
-  //       Notify.success('Exercise was successful delete');
-  //     }
-  //   } catch (error) {
-  //     Notify.failure('Ooops, something went wrong. Try again later');
-  //   }
-  // };
   return exercises.map(
     ({
       idExercise,
@@ -41,7 +30,7 @@ const DayExerciseItem = ({ exercises }) => {
         <td>
           <DeleteButton
             type="button"
-            onClick={() => dispatch(getDeleteExerciseThunk())}
+            onClick={() => dispatch(getDeleteExerciseThunk(idExercise))}
           >
             <svg width="20px" height="20px">
               <use href={`${sprite}#icon-trash`}></use>

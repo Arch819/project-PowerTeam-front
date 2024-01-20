@@ -12,7 +12,6 @@ import { getDeleteProductThunk } from 'store/diary/diaryThunk';
 
 const DayProductItem = ({ products }) => {
   const dispatch = useDispatch();
-  // console.log(products);
   return products.map(
     ({ idProduct, title, category, calories, amount, recommended }) => (
       <tr key={idProduct}>
