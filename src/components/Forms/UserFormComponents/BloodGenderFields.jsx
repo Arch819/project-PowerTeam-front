@@ -17,16 +17,44 @@ const BloodGenderFields = ({ blood, sex }) => {
         <Label id="demo-row-radio-buttons-group-label">Blood</Label>
         <BloodThumb role="group" aria-labelledby="my-radio-group">
           <RadioLabel>
-            <Field as={OrangeRadio} type="radio" name="blood" value="1" />1
+            <Field
+              as={OrangeRadio}
+              type="radio"
+              name="blood"
+              value="1"
+              checked={blood.toString() === '1'}
+            />
+            1
           </RadioLabel>
           <RadioLabel>
-            <Field as={OrangeRadio} type="radio" name="blood" value="2" />2
+            <Field
+              as={OrangeRadio}
+              type="radio"
+              name="blood"
+              value="2"
+              checked={blood.toString() === '2'}
+            />
+            2
           </RadioLabel>
           <RadioLabel>
-            <Field as={OrangeRadio} type="radio" name="blood" value="3" />3
+            <Field
+              as={OrangeRadio}
+              type="radio"
+              name="blood"
+              value="3"
+              checked={blood.toString() === '3'}
+            />
+            3
           </RadioLabel>
           <RadioLabel>
-            <Field as={OrangeRadio} type="radio" name="blood" value="4" />4
+            <Field
+              as={OrangeRadio}
+              type="radio"
+              name="blood"
+              value="4"
+              checked={blood.toString() === '4'}
+            />
+            4
           </RadioLabel>
         </BloodThumb>
       </div>
