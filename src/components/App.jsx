@@ -45,20 +45,20 @@ export const App = () => {
         <Route
           path="/welcome"
           element={
-            <RestrictedRoute redirectTo="/diary" component={<WelcomePage />} />
+            <RestrictedRoute redirectTo="/profile" component={<WelcomePage />} />
           }
         />
         <Route
           path="/signin"
           element={
-            <RestrictedRoute redirectTo="/diary" component={<LoginPage />} />
+            <RestrictedRoute redirectTo="/profile" component={<LoginPage />} />
           }
         />
         <Route
           path="/signup"
           element={
             <RestrictedRoute
-              redirectTo="/diary"
+              redirectTo="/profile"
               component={<RegistrationPage />}
             />
           }
@@ -74,13 +74,13 @@ export const App = () => {
         <Route
           path="/exercises"
           element={
-            <PrivateRoute redirectTo="/login" component={<ExercisesPage />} />
+            <PrivateRoute redirectTo="/" component={<ExercisesPage />} />
           }
         />
         <Route
           path="/exercises/:category"
           element={
-            <PrivateRoute redirectTo="/login" component={<ExercisesPage />} />
+            <PrivateRoute redirectTo="/" component={<ExercisesPage />} />
           }
         />
         <Route
