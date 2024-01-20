@@ -30,8 +30,7 @@ export const netliflixConfirmLogout = () => {
         resolve();
       },
       () => {
-        Notify.success('Thank you.');
-        resolve();
+        reject();
       }
     );
   });
