@@ -3,13 +3,15 @@
 
 import SignUpForm from 'components/Forms/SignUpForm';
 import Section from 'components/Section';
+import { StyledSignUpTitle, StyledParagraf } from './SignUpPage.styled';
 
 const SignUpPage = () => {
   return (
     <Section use={'first'}>
       <div style={{ marginTop: '100px' }} className="container">
-        <h2>Sign Up</h2>
+        <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
         <div style={{ marginTop: '50px' }}>
+          <StyledParagraf></StyledParagraf>
           <SignUpForm />
         </div>
       </div>
