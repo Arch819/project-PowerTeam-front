@@ -2,17 +2,16 @@ import styled from 'styled-components';
 
 export const SubExercisesLi = styled.li`
   position: relative;
-
   cursor: pointer;
   overflow: hidden;
   border-radius: 12px;
+  max-width: 334px;
 
   border: 1px solid rgba(239, 237, 232, 0.2);
 
   @media screen and (max-width: 767px) {
     margin-left: auto;
     margin-right: auto;
-    max-width: 335px;
     margin-bottom: 20px;
   }
 `;
@@ -20,20 +19,20 @@ export const SubExercisesLi = styled.li`
 export const Image = styled.img`
   object-fit: cover;
   height: auto;
-  max-width: 335px;
+  max-width: 334px;
 
   @media screen and (min-width: 375px) {
-    width: 335px;
+    width: 334px;
     height: 206px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 224px;
+    width: 221px;
     height: 206px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 237px;
+    width: 234px;
     height: 206px;
   }
 `;
