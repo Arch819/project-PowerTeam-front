@@ -1,6 +1,6 @@
 export const getDiaryFulfilled = (state, { payload }) => {
-  state.products = payload.dairyProducts;
-  state.exercises = payload.dairyExercises;
+  state.products = payload.diaryProducts;
+  state.exercises = payload.diaryExercises;
 };
 export const addDiaryProductFulfilled = (state, { payload }) => {
   state.products.push(payload);
