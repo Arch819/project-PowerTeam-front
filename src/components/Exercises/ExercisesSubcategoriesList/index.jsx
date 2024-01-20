@@ -1,8 +1,5 @@
-import React from 'react';
-
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem';
 import { SubCategoriesList } from './ExercisesSubcategoriesList.styled';
-import { Link } from '@mui/material';
 
 const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
   return (

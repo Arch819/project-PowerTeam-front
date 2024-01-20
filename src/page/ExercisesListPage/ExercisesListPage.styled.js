@@ -1,15 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Section = styled.section`
-  background-image: linear-gradient(
-      to right,
-      rgba(46, 47, 66, 0.7),
-      rgba(46, 47, 66, 0.7)
-    ),
-    url('../images/people-office-mobile.jpg');
-`;
-
 export const LinkBack = styled(Link)`
   display: flex;
   text-decoration: none;

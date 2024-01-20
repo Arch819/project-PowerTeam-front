@@ -4,14 +4,12 @@ import ExercisesSubcategoriesList from 'components/Exercises/ExercisesSubcategor
 import TitlePage from 'components/TitlePage';
 import { NavBox } from './ExercisesPage.styled';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExercisesFilters } from 'store/exercises/exercisesSelector';
 import { selectError, selectIsLoading } from 'store/appState/selectors';
 import { getExercisesFilters } from 'store/exercises/exercisesOperations';
-// axios.defaults.baseURL = 'https://powerpulse-backend-heie.onrender.com/';
 
 function ExercisesPage() {
   const exercisesFilters = useSelector(selectExercisesFilters);
@@ -23,27 +21,14 @@ function ExercisesPage() {
   const dispatch = useDispatch();
   const { category } = useParams();
 
-  // const handleResize = () => {
-  //   const windowWidth = window.innerWidth;
-  //   if (windowWidth >= 1440 || windowWidth < 768) {
-  //     setLimit(10);
-  //   } else {
-  //     setLimit(9);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   handleResize();
-  // }, []);
-
-  // window.addEventListener('resize', handleResize);
-
   useEffect(() => {
     if (!category) {
       navigate('/exercises/bodyPart', { replace: true });
-      return;
     }
     dispatch(getExercisesFilters());
+  }, [category, dispatch, navigate]);
+
+  const gedListByFilter = useCallback(() => {
     const filterValid = {
       bodyPart: 'Body parts',
       target: 'Muscles',
@@ -53,18 +38,21 @@ function ExercisesPage() {
       item => item.filter === filterValid[category]
     );
     setSubcategoriesList(subCategoriesToRender);
-  }, [category, dispatch, exercisesFilters, navigate]);
+  }, [category, exercisesFilters]);
+
+  useEffect(() => {
+    gedListByFilter();
+  }, [gedListByFilter, exercisesFilters]);
 
   return (
     <Section>
       <div className="container">
         <NavBox>
-          {/*  <TitlePage title={'Exercises'} /> */}
-          <h3>Exercises</h3>
+          <TitlePage title={'Exercises'} />
           <ExercisesCategories activeCategory={category} />
         </NavBox>
 
-        {isLoading && !error ? (
+        {isLoading && !error && (
           <Oval
             visible={true}
             height="80"
@@ -78,7 +66,8 @@ function ExercisesPage() {
             }}
             wrapperClass=""
           />
-        ) : (
+        )}
+        {subcategoriesList.length > 0 && (
           <ExercisesSubcategoriesList
             subcategoriesList={subcategoriesList}
             category={category}
