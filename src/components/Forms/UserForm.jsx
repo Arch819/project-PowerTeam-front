@@ -26,6 +26,8 @@ import { StyledForm, SubmitButton } from './UserForm.styled';
 import { selectUser, selectUserParams } from 'store/auth/selector';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProfile } from 'store/auth/operations';
+import { bmr } from './UserFormComponents/bmr';
+import { notiflixMessage } from 'helpers/notiflixMessage';
 
 function UserForm() {
   const user = useSelector(selectUser);
@@ -40,12 +42,25 @@ function UserForm() {
         validationSchema
           .validate(values, { abortEarly: false })
           .then(() => {
-            values.bodyData = true;
+            values = {
+              ...values,
+              height: Number(values.height),
+              currentWeight: Number(values.currentWeight),
+              desiredWeight: Number(values.desiredWeight),
+              blood: Number(values.blood),
+              levelActivity: Number(values.levelActivity),
+            };
+            values.bmr = bmr(values);
             dispatch(updateProfile(values));
-            console.log('Success:', values);
+
+            if (values.bodyData) {
+              notiflixMessage('ok', 'Data changed successfully.');
+            } else {
+              notiflixMessage('ok', 'Data added successfully.');
+            }
           })
           .catch(error => {
-            console.log('Validation errors:', error.errors);
+            notiflixMessage('error', `Validation errors: ${error.errors}`);
           });
       }}
     >
@@ -59,7 +74,7 @@ function UserForm() {
             height={values.height}
             currentWeight={values.currentWeight}
             desiredWeight={values.desiredWeight}
-            dateOfBirth={values.dateOfBirth}
+            birthday={values.birthday}
             onChange={date => {
               setFieldValue('birthday', date);
             }}

@@ -1,9 +1,9 @@
 import { createGlobalStyle, styled } from 'styled-components';
 
 export const IconSvg = styled.svg`
-  position: absolute;
-  bottom: 10px;
-  left: 14px;
+  /* position: absolute; */
+  /* bottom: 10px; */
+  /* left: 14px; */
   stroke: #ef8964;
 `;
 
@@ -150,20 +150,44 @@ export const CalendarGlobalStyles = createGlobalStyle`
 `;
 
 export const TitleWrapper = styled.button`
-  width: 195px;
-  color: #ffffff;
-  background: transparent;
-  border: none;
-  color: #efede8;
+  display: flex;
+  gap: 8px;
+  /* width: 183px; */
 
+  color: #efede8;
   font-family: Roboto;
   font-size: 18px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
-  text-transform: uppercase;
+  line-height: calc(20 / 18);
+
+  /* width: 195px; */
+  /* color: #ffffff; */
+  background: transparent;
+  border: none;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: calc(32 / 24);
+  }
+  /* text-align: center; */
+  /* text-transform: uppercase; */
   padding: 8px 12px;
-  justify-content: space-around;
+  /* justify-content: center; */
   align-items: center;
+  margin-right: 20px;
+`;
+
+export const CalendarWrapper = styled.div`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`;
+
+export const IconChevron = styled.svg`
+  stroke: var(--color-text-pr30);
+  fill: transparent;
+  cursor: pointer;
+  transition: stroke 0.3s var(--transition);
+  &:hover {
+    stroke: var(--color-text-primary);
+  }
 `;

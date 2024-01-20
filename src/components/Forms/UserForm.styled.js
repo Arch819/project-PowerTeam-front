@@ -112,11 +112,6 @@ const Input = styled(Field)`
   background-color: inherit;
   border: var(--border-30);
 
-  &::placeholder {
-    color: var(--color-text-primary);
-    opacity: 1;
-  }
-
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 24px;

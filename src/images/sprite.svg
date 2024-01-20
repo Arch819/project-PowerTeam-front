@@ -112,5 +112,21 @@
 <path fill="none" stroke="#efede8" style="stroke: var(--color1, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.88" d="M1.333 16c0 0 5.333-10.667 14.667-10.667s14.667 10.667 14.667 10.667-5.333 10.667-14.667 10.667c-9.333 0-14.667-10.667-14.667-10.667z"></path>
 <path fill="none" stroke="#efede8" style="stroke: var(--color1, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.88" d="M16 20c2.209 0 4-1.791 4-4s-1.791-4-4-4c-2.209 0-4 1.791-4 4s1.791 4 4 4z"></path>
 </symbol>
+<symbol id="icon-trash" viewBox="0 0 32 32">
+<path fill="none" stroke="#ef8964" style="stroke: var(--color1, #ef8964)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M12 4h8M13.333 14v6.667M18.667 14v6.667"></path>
+<path fill="none" stroke="#ef8964" style="stroke: var(--color1, #ef8964)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M4 8h24M25.333 8l-0.935 14.026c-0.14 2.104-0.21 3.156-0.665 3.954-0.4 0.702-1.004 1.267-1.731 1.62-0.826 0.4-1.881 0.4-3.99 0.4h-4.025c-2.109 0-3.163 0-3.99-0.4-0.727-0.352-1.331-0.917-1.731-1.62-0.455-0.798-0.525-1.85-0.665-3.954l-0.935-14.026"></path>
+</symbol>
+<symbol id="icon-arrow" viewBox="0 0 32 32">
+<path fill="none" stroke="#e6533c" style="stroke: var(--color1, #e6533c)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M15 28l13-13M28 15l-13-13M28 15h-26"></path>
+</symbol>
+<symbol id="icon-back" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M17 28l-13-13M4 15l13-13M4 15h26"></path>
+</symbol>
+<symbol id="icon-calendar-left" viewBox="0 0 19 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M16 28.8l-12.8-12.8 12.8-12.8"></path>
+</symbol>
+<symbol id="icon-calendar-right" viewBox="0 0 19 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M3.2 3.2l12.8 12.8-12.8 12.8"></path>
+</symbol>
 </defs>
 </svg>

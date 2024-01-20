@@ -8,13 +8,25 @@
 
 // Якщо даний функціонал не реалізовано - відобразити статичну інформацію, наведену на макеті
 
+import { useDispatch, useSelector } from 'react-redux';
 import StatisticItemL from '../StatisticItemL';
 import StatisticItemR from '../StatisticItemR';
 import { StatisticListStyle } from './StatisticList.styled';
+import { selectStatistic } from 'store/statistic/statisticSelector';
+import { useEffect } from 'react';
+import { getStatisticThunk } from 'store/statistic/statisticThunk';
 
-function StatisticsList({ statistics }) {
+function StatisticsList() {
+  const dispatch = useDispatch();
+  const statistics = useSelector(selectStatistic);
+
+  useEffect(() => {
+    if (!Object.keys(statistics).length) {
+      dispatch(getStatisticThunk());
+    }
+  }, [dispatch, statistics]);
   const {
-    totalVideoExercises = '250+',
+    totalVideoExercises = '250',
     totalBurnedCalories = '500',
     totalUsers = '50',
     totalTime = '1000',
@@ -24,7 +36,7 @@ function StatisticsList({ statistics }) {
     <StatisticListStyle>
       <StatisticItemL
         icon="icon-play"
-        title={totalVideoExercises}
+        title={`${totalVideoExercises}+`}
         desc="Video tutorial"
       />
       <StatisticItemR
