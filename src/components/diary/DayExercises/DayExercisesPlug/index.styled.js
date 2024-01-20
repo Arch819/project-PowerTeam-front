@@ -4,6 +4,7 @@ export const PlugContainer = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
+  height: 162px;
 `;
 
 export const PlugText = styled.p`

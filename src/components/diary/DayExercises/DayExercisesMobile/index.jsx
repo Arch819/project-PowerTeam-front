@@ -1,4 +1,4 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import DayExerciseItemMobile from '../DayExerciseItemMobile';
 import sprite from '../../../../images/sprite.svg';
 import {
@@ -9,50 +9,12 @@ import {
   ExercisesTitle,
 } from './index.styled';
 import DayExercisesPlug from '../DayExercisesPlug';
-// import { selectExercises } from 'store/diary/diarySelectors';
+import { selectExercises } from 'store/diary/diarySelectors';
 
 const DayExercisesMobile = () => {
-  // const exercises = useSelector(selectExercises);
-  const exercises = [
-    {
-      exerciseId: '64f2458d6f67bdddddc34bae4f802',
-      time: 1,
-      burnedCalories: 100,
-      bodyPart: 'upper legs',
-      equipment: 'body weight',
-      name: 'balance board',
-      target: 'quads',
-    },
-    {
-      exerciseId: '64f2458d6f67bcddggggg34bae4f802',
-      time: 1,
-      burnedCalories: 100,
-      bodyPart: 'upper legs',
-      equipment: 'body weight',
-      name: 'balance board',
-      target: 'quads',
-    },
-    {
-      exerciseId: '64f2458d6f67fcvbc34bae4f802',
-      time: 1,
-      burnedCalories: 100,
-      bodyPart: 'upper legs',
-      equipment: 'body weight',
-      name: 'balance board',
-      target: 'quads',
-    },
-    {
-      exerciseId: '64f2458d6f67fcvbc34bafffe4f802',
-      time: 1,
-      burnedCalories: 100,
-      bodyPart: 'upper legs',
-      equipment: 'body weight',
-      name: 'balance board',
-      target: 'quads',
-    },
-  ];
+  const exercises = useSelector(selectExercises);
   return (
-    <DayExercisesContainer>
+    <DayExercisesContainer $exercises={exercises}>
       <DayExercisesHeader>
         <ExercisesTitle>Exercises</ExercisesTitle>
         <AddExerciseButton to="/exercises">
@@ -63,7 +25,7 @@ const DayExercisesMobile = () => {
         </AddExerciseButton>
       </DayExercisesHeader>
       <ExerciseList>
-        {exercises.length > 0 ? (
+        {exercises ? (
           <DayExerciseItemMobile exercises={exercises} />
         ) : (
           <DayExercisesPlug />

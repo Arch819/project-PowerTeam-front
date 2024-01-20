@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const ProductsContainer = styled.div`
   width: 335px;
-  height: 824px;
+  height: ${({ $products }) => ($products ? '824px;' : '335px')};
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 40px;
@@ -34,6 +34,7 @@ export const AddProductButton = styled(Link)`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
+  text-decoration: none;
 `;
 
 export const ProductList = styled.ul`

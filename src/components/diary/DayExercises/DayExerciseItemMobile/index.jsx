@@ -18,15 +18,12 @@ const DayExerciseItemMobile = ({ exercises }) => {
   const dispatch = useDispatch();
   return exercises.map(
     ({
-      exerciseId,
-      name,
-      bodyPart,
-      equipment,
+      idExercise,
+      exercise: { name, bodyPart, equipment, target },
       time,
       burnedCalories,
-      target,
     }) => (
-      <DayExerciseItem key={exerciseId}>
+      <DayExerciseItem key={idExercise}>
         <ExercisesTitle>Body Part</ExercisesTitle>
         <ExercisesText>{bodyPart}</ExercisesText>
         <ExercisesTitle>Equipment</ExercisesTitle>
@@ -48,7 +45,7 @@ const DayExerciseItemMobile = ({ exercises }) => {
           </div>
           <DeleteButton
             type="button"
-            onClick={() => dispatch(getDeleteExerciseThunk(exerciseId))}
+            onClick={() => dispatch(getDeleteExerciseThunk(idExercise))}
           >
             <svg width="20px" height="20px">
               <use href={`${sprite}#icon-trash`}></use>

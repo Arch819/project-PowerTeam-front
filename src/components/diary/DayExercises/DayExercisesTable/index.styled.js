@@ -90,4 +90,5 @@ export const TableTitle = styled.th`
 
 export const TableTitleCalories = styled(TableTitle)`
   max-width: 78px;
+  /* width: 78px; */
 `;
