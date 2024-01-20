@@ -18,14 +18,7 @@ const PersonalInfoFields = ({
     <PersonalInfo>
       <PersonalInfoItems>
         <Label htmlFor="height">Height</Label>
-        <Input
-          type="text"
-          id="height"
-          name="height"
-          value={height}
-          placeholder="0"
-          required
-        />
+        <Input type="text" id="height" name="height" value={height} required />
       </PersonalInfoItems>
       <PersonalInfoItems>
         <Label htmlFor="currentWeight">Current Weight</Label>
@@ -34,7 +27,6 @@ const PersonalInfoFields = ({
           id="currentWeight"
           name="currentWeight"
           value={currentWeight}
-          placeholder="0"
           required
         />
       </PersonalInfoItems>
@@ -45,7 +37,6 @@ const PersonalInfoFields = ({
           id="desiredWeight"
           name="desiredWeight"
           value={desiredWeight}
-          placeholder="0"
           required
         />
       </PersonalInfoItems>

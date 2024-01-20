@@ -26,6 +26,7 @@ import { StyledForm, SubmitButton } from './UserForm.styled';
 import { selectUser, selectUserParams } from 'store/auth/selector';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProfile } from 'store/auth/operations';
+import { bmr } from './UserFormComponents/bmr';
 
 function UserForm() {
   const user = useSelector(selectUser);
@@ -40,7 +41,15 @@ function UserForm() {
         validationSchema
           .validate(values, { abortEarly: false })
           .then(() => {
-            values.bodyData = true;
+            values = {
+              ...values,
+              height: Number(values.height),
+              currentWeight: Number(values.currentWeight),
+              desiredWeight: Number(values.desiredWeight),
+              blood: Number(values.blood),
+              levelActivity: Number(values.levelActivity),
+            };
+            values.bmr = bmr(values);
             dispatch(updateProfile(values));
             console.log('Success:', values);
           })
@@ -59,7 +68,7 @@ function UserForm() {
             height={values.height}
             currentWeight={values.currentWeight}
             desiredWeight={values.desiredWeight}
-            dateOfBirth={values.dateOfBirth}
+            birthday={values.birthday}
             onChange={date => {
               setFieldValue('birthday', date);
             }}

@@ -9,3 +9,8 @@ export const getProductsByCategories = async () => {
   const { data } = await axios.get('products/categories');
   return data;
 };
+
+export const getProductsById = async productsId => {
+  const { data } = await axios.get(`products/${productsId}`);
+  return data;
+};

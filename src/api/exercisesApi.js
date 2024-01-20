@@ -11,3 +11,8 @@ export const getExercisesByFilters = async () => {
   const { data } = await axios.get('exercises/filters');
   return data;
 };
+
+export const getExercisesById = async exercisesId => {
+  const { data } = await axios.get(`exercises/${exercisesId}`);
+  return data;
+};
