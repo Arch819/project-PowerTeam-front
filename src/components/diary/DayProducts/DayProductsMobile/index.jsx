@@ -14,7 +14,7 @@ import { selectProducts } from 'store/diary/diarySelectors';
 const DayProductsMobile = () => {
   const products = useSelector(selectProducts);
   return (
-    <ProductsContainer $products={products.length}>
+    <ProductsContainer $products={products}>
       <ProductsHeader>
         <ProductsTitle>Products</ProductsTitle>
         <AddProductButton to="/products">
