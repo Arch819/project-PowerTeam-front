@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-PowerTeam-front/static/css/main.240fa95f.css",
-    "main.js": "/project-PowerTeam-front/static/js/main.4c80ec88.js",
+    "main.js": "/project-PowerTeam-front/static/js/main.866e3a69.js",
     "static/js/881.b8ebed3f.chunk.js": "/project-PowerTeam-front/static/js/881.b8ebed3f.chunk.js",
     "static/js/161.b71d717a.chunk.js": "/project-PowerTeam-front/static/js/161.b71d717a.chunk.js",
     "static/media/background-1-mobile@2x.jpg": "/project-PowerTeam-front/static/media/background-1-mobile@2x.87c01507cadde944a79c.jpg",
@@ -15,18 +15,18 @@
     "static/media/Roboto-Regular.woff2": "/project-PowerTeam-front/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
     "static/media/background-2-des@2x.jpg": "/project-PowerTeam-front/static/media/background-2-des@2x.6e4e2375c2204080dab5.jpg",
     "static/media/background-1-tablet@2x.jpg": "/project-PowerTeam-front/static/media/background-1-tablet@2x.513d4c44d769927c88c9.jpg",
-    "static/media/sprite.svg": "/project-PowerTeam-front/static/media/sprite.fbdfdca782156161e94de689c023e7e2.svg",
+    "static/media/sprite.svg": "/project-PowerTeam-front/static/media/sprite.9804486cc193e1b2f2f70fb6818a4b6d.svg",
     "static/media/background-1-des.jpg": "/project-PowerTeam-front/static/media/background-1-des.930667ea66724d5608af.jpg",
     "static/media/background-2-des.jpg": "/project-PowerTeam-front/static/media/background-2-des.d54f7b5608be85ca682f.jpg",
     "static/media/background-1-tablet.jpg": "/project-PowerTeam-front/static/media/background-1-tablet.1bae9f11a2c31cf1e521.jpg",
     "index.html": "/project-PowerTeam-front/index.html",
     "main.240fa95f.css.map": "/project-PowerTeam-front/static/css/main.240fa95f.css.map",
-    "main.4c80ec88.js.map": "/project-PowerTeam-front/static/js/main.4c80ec88.js.map",
+    "main.866e3a69.js.map": "/project-PowerTeam-front/static/js/main.866e3a69.js.map",
     "881.b8ebed3f.chunk.js.map": "/project-PowerTeam-front/static/js/881.b8ebed3f.chunk.js.map",
     "161.b71d717a.chunk.js.map": "/project-PowerTeam-front/static/js/161.b71d717a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.240fa95f.css",
-    "static/js/main.4c80ec88.js"
+    "static/js/main.866e3a69.js"
   ]
 }
