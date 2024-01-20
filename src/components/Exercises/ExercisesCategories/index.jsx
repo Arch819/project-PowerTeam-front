@@ -1,22 +1,36 @@
-import React from 'react';
 import {
   ExercisesItem,
   ExercisesList,
-  LinkButton,
+  StyledLink,
 } from './ExercisesCategories.styled';
 
-const ExercisesCategories = () => {
+const ExercisesCategories = ({ activeCategory }) => {
   return (
     <div>
       <ExercisesList>
         <ExercisesItem>
-          <LinkButton className="active">Body parts</LinkButton>
+          <StyledLink
+            to="/exercises/bodyPart"
+            className={activeCategory === 'bodyPart' ? 'active' : ''}
+          >
+            Body parts
+          </StyledLink>
         </ExercisesItem>
         <ExercisesItem>
-          <LinkButton>Muscles</LinkButton>
+          <StyledLink
+            to="/exercises/target"
+            className={activeCategory === 'target' ? 'active' : ''}
+          >
+            Muscles
+          </StyledLink>
         </ExercisesItem>
         <ExercisesItem>
-          <LinkButton>Equipment</LinkButton>
+          <StyledLink
+            to="/exercises/equipment"
+            className={activeCategory === 'equipment' ? 'active' : ''}
+          >
+            Equipment
+          </StyledLink>
         </ExercisesItem>
       </ExercisesList>
     </div>
