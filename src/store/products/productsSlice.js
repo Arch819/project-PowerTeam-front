@@ -1,7 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './productsInitialState';
-import { getAllProducts, getProductsCategories } from './productsOperations';
-import { handleGetAllProductsFulfilled, handleGetProductsCategoriesFulfilled } from './productsHelpers';
+import {
+  getAllProducts,
+  getProductsCategories,
+  getProductsId,
+} from './productsOperations';
+import {
+  handleGetAllProductsFulfilled,
+  handleGetProductsCategoriesFulfilled,
+  handleGetProductsIdFulfilled,
+} from './productsHelpers';
 
 export const productsSlice = createSlice({
   name: 'products',
@@ -9,7 +17,11 @@ export const productsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getAllProducts.fulfilled, handleGetAllProductsFulfilled)
-      .addCase(getProductsCategories.fulfilled, handleGetProductsCategoriesFulfilled);
+      .addCase(
+        getProductsCategories.fulfilled,
+        handleGetProductsCategoriesFulfilled
+      )
+      .addCase(getProductsId.fulfilled, handleGetProductsIdFulfilled);
   },
 });
 
