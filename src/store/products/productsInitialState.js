@@ -1,5 +1,5 @@
 export const initialState = {
   products: [],
   categories: [],
-  productsById: {},
+  productsById: null,
 };

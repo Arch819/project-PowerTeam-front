@@ -32,7 +32,7 @@ export const getExercisesId = createAsyncThunk(
   'exercises/getExercisesId',
   async (exercisesId, { rejectWithValue }) => {
     try {
-      const data = await getExercisesById(`${exercisesId}`);
+      const data = await getExercisesById(exercisesId);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
