@@ -68,7 +68,7 @@ function UserForm() {
             height={values.height}
             currentWeight={values.currentWeight}
             desiredWeight={values.desiredWeight}
-            dateOfBirth={values.dateOfBirth}
+            birthday={values.birthday}
             onChange={date => {
               setFieldValue('birthday', date);
             }}
