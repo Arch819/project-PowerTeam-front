@@ -60,7 +60,7 @@ function UserForm() {
             }
           })
           .catch(error => {
-            notiflixMessage('error', `Validation errors:, ${error.errors}`);
+            notiflixMessage('error', `Validation errors: ${error.errors}`);
           });
       }}
     >
