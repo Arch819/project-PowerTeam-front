@@ -27,6 +27,7 @@ import { selectUser, selectUserParams } from 'store/auth/selector';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProfile } from 'store/auth/operations';
 import { bmr } from './UserFormComponents/bmr';
+import { notiflixMessage } from 'helpers/notiflixMessage';
 
 function UserForm() {
   const user = useSelector(selectUser);
@@ -51,10 +52,15 @@ function UserForm() {
             };
             values.bmr = bmr(values);
             dispatch(updateProfile(values));
-            console.log('Success:', values);
+
+            if (values.bodyData) {
+              notiflixMessage('ok', 'Data changed successfully.');
+            } else {
+              notiflixMessage('ok', 'Data added successfully.');
+            }
           })
           .catch(error => {
-            console.log('Validation errors:', error.errors);
+            notiflixMessage('error', `Validation errors: ${error.errors}`);
           });
       }}
     >
