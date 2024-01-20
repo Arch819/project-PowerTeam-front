@@ -28,7 +28,7 @@ export const StyledLabel = styled.label`
   ${props =>
     props.active &&
     `
-    top: -8px;
+    top: -6px;
     transform: scale(0.7) translateY(-100%);
     left: 0;
     font-size: 16px;
@@ -76,7 +76,7 @@ export const StyledInput = styled.input`
   }
 
   &:last-child {
-    margin-bottom: ${props => (props.error ? '0' : '18px')};
+    margin-bottom: ${props => (props.error ? '0' : '25px')};
   }
 
   @media screen and (min-width: 768px) {
@@ -86,7 +86,7 @@ export const StyledInput = styled.input`
     height: 52px;
 
     &:last-child {
-      margin-bottom: ${props => (props.error ? '0' : '20px')};
+      margin-bottom: ${props => (props.error ? '0' : '28px')};
     }
   }
 `;
@@ -131,7 +131,7 @@ export const StyledPasswordInputContainer = styled.div`
   position: relative;
 `;
 
-export const IconPasswordWrapper = styled.button`
+export const IconPasswordWrapper = styled.span`
   position: absolute;
   display: flex;
   align-items: center;
@@ -147,12 +147,12 @@ export const IconPasswordWrapper = styled.button`
 
   @media screen and (min-width: 375px) and (max-width: 768px) {
     right: 0;
-    left: 300px;
+    left: 298px;
   }
 
   @media screen and (min-width: 768px) {
     right: 0;
-    left: 328px;
+    left: 325px;
   }
 `;
 

@@ -7,9 +7,11 @@ import Section from 'components/Section';
 const SignUpPage = () => {
   return (
     <Section use={'first'}>
-      <div className="container">
+      <div style={{ marginTop: '100px' }} className="container">
         <h2>Sign Up</h2>
-        <SignUpForm />
+        <div style={{ marginTop: '50px' }}>
+          <SignUpForm />
+        </div>
       </div>
     </Section>
   );
