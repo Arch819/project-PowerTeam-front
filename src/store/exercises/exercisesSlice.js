@@ -1,9 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './exercisesInitialState';
-import { getAllExercises, getExercisesFilters } from './exercisesOperations';
+import {
+  getAllExercises,
+  getExercisesFilters,
+  getExercisesId,
+} from './exercisesOperations';
 import {
   handleGetAllExercisesFulfilled,
   handleGetExercisesFiltersFulfilled,
+  handleGetExercisesIdFulfilled,
 } from './exercisesHelpers';
 
 export const exercisesSlice = createSlice({
@@ -15,7 +20,8 @@ export const exercisesSlice = createSlice({
       .addCase(
         getExercisesFilters.fulfilled,
         handleGetExercisesFiltersFulfilled
-      );
+      )
+      .addCase(getExercisesId.fulfilled, handleGetExercisesIdFulfilled);
   },
 });
 

@@ -44,7 +44,7 @@ export const handleFetchCurrentUserFulfilled = (state, { payload }) => {
 };
 
 export const handleUpdateAvatarFulfilled = (state, { payload }) => {
-  state.user.avatarURL = payload.avatarURL;
+  state.user.avatarURL = payload;
   state.isRefreshing = false;
 };
 
