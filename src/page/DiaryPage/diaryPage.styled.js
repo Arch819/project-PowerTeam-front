@@ -1,6 +1,6 @@
 const { styled } = require('styled-components');
 
-export const CalendarContainer = styled.div`
+export const CalendarMainContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +21,7 @@ export const MainContentContainer = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
+    display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
   }

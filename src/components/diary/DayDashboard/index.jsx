@@ -25,19 +25,15 @@ function DayDashboard() {
   const diaryProducts = useSelector(selectProducts);
   const diaryExercises = useSelector(selectExercises);
   const dailyBMR = useSelector(selectUserParams);
-  console.log(dailyBMR.bmr);
-  //  - Daily calorie intake відображає добову норму калорій для авторизованого користувача
+
   const dailyCalorieIntake = dailyBMR.bmr;
-  //  - Daily norm of sports - добову норму часу для занять спортом (в хвилинах)
   const dailyNormOfSports = 110;
-  //  - Сalories consumed - кількість спожитих калорій
   let caloriesConsumed = 0;
   if (diaryProducts) {
     caloriesConsumed = diaryProducts.reduce((prev, number) => {
       return prev + number.calories;
     }, 0);
   }
-  //  - Сalories burned - кількість спалених калорій під час занять спортом
   let caloriesBurned = 0;
   let totalSportTime = 0;
   if (diaryExercises) {
@@ -48,9 +44,7 @@ function DayDashboard() {
       return prev + number.time;
     }, 0);
   }
-  //  - The rest of the calories - кількість калорій, яку залишилось спожити користувачеві в межах добової норми. У разі перевищення добової норми калорій, блок необхідно попереджуючи підсвітити.
   const restOfCalories = dailyCalorieIntake - caloriesConsumed + caloriesBurned;
-  //  - The rest of sports -  кількістт часу, яку необхідно приділити спорту в межах добової норми часу для занять спортом. У разі перевищення добової норми калорій, блок необхідно заохочуючи підсвітити.
   const restOfSport = dailyNormOfSports - totalSportTime;
 
   return (
@@ -71,13 +65,13 @@ function DayDashboard() {
         <DayDashboardItem
           color={''}
           icon={'icon-food-apple'}
-          title={'Сalories consumed'}
+          title={'Calories consumed'}
           data={caloriesConsumed}
         />
         <DayDashboardItem
           color={''}
           icon={'icon-fire'}
-          title={'Сalories burned'}
+          title={'Calories burned'}
           data={caloriesBurned}
         />
         <DayDashboardItem
