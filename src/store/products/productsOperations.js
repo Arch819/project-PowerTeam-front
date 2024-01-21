@@ -20,8 +20,6 @@ export const getAllProducts = createAsyncThunk(
                filterType: transformedRecommended,
                category,
                title: query,
-              
-               blood: 1,
              });
 
              return data;

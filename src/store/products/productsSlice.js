@@ -23,10 +23,10 @@ export const productsSlice = createSlice({
     builder
       .addCase(getAllProducts.fulfilled, handleGetAllProductsFulfilled)
 
-      .addCase(getProductsCategories.fulfilled,handleGetProductsCategoriesFulfilled);
+      .addCase(getProductsCategories.fulfilled, handleGetProductsCategoriesFulfilled)
 
-      .addCase(getProductsId.fulfilled, handleGetProductsIdFulfilled);
-  },
+      .addCase(getProductsId.fulfilled, handleGetProductsIdFulfilled)
+}
 });
 export const { handleUpdateFilters } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;

@@ -51,8 +51,10 @@ const ProductsFilters = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    dispatch(getProductsCategories());
-  }, [dispatch]);
+    if (!category.length) {
+      dispatch(getProductsCategories());
+    }
+  }, [category,dispatch]);
 
   useEffect(() => {
     const handleResize = () => {

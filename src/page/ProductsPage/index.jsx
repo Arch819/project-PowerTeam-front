@@ -14,7 +14,7 @@ function ProductsPage() {
   return (
     <Section use={'secondary'}>
       <div className="container">
-        <TitlePage />
+        <TitlePage title={'Products'} />
         <ProductsFilters />
         <ProductsList />
       </div>
