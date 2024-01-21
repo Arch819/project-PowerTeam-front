@@ -38,7 +38,7 @@ function UserForm() {
   return (
     <Formik
       initialValues={initState}
-      onSubmit={values => {
+      onSubmit={(values) => {
         validationSchema
           .validate(values, { abortEarly: false })
           .then(() => {

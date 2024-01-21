@@ -7,11 +7,8 @@
 
 import UserForm from 'components/Forms/UserForm';
 import UserCard from 'components/UserCard';
-import {
-  PageProfileContainer,
-  PageProfileThumb,
-  ProfileTitle,
-} from './PageProfile.styled';
+import TitlePage from 'components/TitlePage';
+import { PageProfileContainer, PageProfileThumb } from './PageProfile.styled';
 import Section from 'components/Section';
 
 // Містить заоголовок сторінки та має бути реалізований, як універсальний компонент, що можна використати на інших сторінках застосунку
@@ -20,7 +17,7 @@ const ProfilePage = () => {
   return (
     <Section>
       <PageProfileContainer className="container">
-        <ProfileTitle>Profile Settings</ProfileTitle>
+        <TitlePage title={'Profile Settings'} />
         <PageProfileThumb>
           <UserCard />
           <UserForm />

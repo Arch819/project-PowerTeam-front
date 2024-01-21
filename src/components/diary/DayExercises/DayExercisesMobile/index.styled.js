@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const DayExercisesContainer = styled.div`
   width: 335px;
-  height: ${({ $exercises }) => ($exercises ? '1064px;' : '335px')};
+  max-height: ${({ $exercises }) => ($exercises ? '1064px;' : '335px')};
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 80px;
@@ -25,7 +25,7 @@ export const ExercisesTitle = styled.p`
 `;
 
 export const AddExerciseButton = styled(Link)`
-  color: #e6533c;
+  color: var(--color-btn-secondary);
   background-color: transparent;
   border: none;
   display: flex;
