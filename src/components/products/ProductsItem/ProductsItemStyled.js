@@ -67,6 +67,8 @@ const ProductsItemStyled = styled.li`
       color: var(--color-text-caloriesV2);
       fill: var(--color-text-caloriesV2);
       stroke: var(--color-text-caloriesV2);
+      transition: color var(--transition), fill var(--transition),
+        stroke var(--transition);
 
       .btn-text {
         font-size: 14px;

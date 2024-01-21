@@ -7,7 +7,7 @@ function ProductsList({ productsArray }) {
   return (
     <ProductsListStyled>
       {productsArray.map(product => {
-        return <ProductsItem productData={product} key={product.productId} />;
+        return <ProductsItem productData={product} key={product.idProduct} />;
       })}{' '}
     </ProductsListStyled>
   );
