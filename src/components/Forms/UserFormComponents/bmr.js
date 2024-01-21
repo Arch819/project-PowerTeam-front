@@ -2,7 +2,7 @@ export const bmr = data => {
   const date = new Date(data.birthday);
   const age = new Date().getFullYear() - date.getFullYear();
   const weightMod = 10 * data.currentWeight;
-  const heightMod = 10 * data.height;
+  const heightMod = 6.25 * data.height;
   const ageModMale = 5 * age + 5;
   const ageModFemale = 5 * age - 161;
   let value = 0;
