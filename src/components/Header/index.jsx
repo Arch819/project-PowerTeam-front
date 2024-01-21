@@ -39,7 +39,7 @@ function Header() {
   };
 
   return (
-    <HeaderContainer position={isLoggedIn} border={isLoggedIn}>
+    <HeaderContainer current={isLoggedIn} >
       <div className="container">
         <AllWrapper>
           <nav>

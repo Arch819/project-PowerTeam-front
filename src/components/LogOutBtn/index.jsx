@@ -8,13 +8,13 @@ import { useDispatch } from 'react-redux';
 import sprite from '../../images/sprite.svg';
 import { IconLogoutStyled, LogoutStyled } from './LogOutBtn.styled';
 import { logOutUser } from 'store/auth/operations';
-import { netliflixConfirmLogout } from 'helpers/notiflixMessage';
+import { notiflixConfirmLogout } from 'helpers/notiflixMessage';
 
 function LogOutBtn() {
   const dispatch = useDispatch();
 
   const handleLogOut = async () => {
-    await netliflixConfirmLogout('logout');
+    await notiflixConfirmLogout('logout');
     dispatch(logOutUser());
   };
 
