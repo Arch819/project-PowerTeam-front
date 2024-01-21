@@ -20,14 +20,6 @@ import sprite from 'images/sprite.svg';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
-// const validationSchema = Yup.object().shape({
-//   name: Yup.string().required('Please enter your name'),
-//   email: Yup.string()
-//     .matches(emailPattern, 'Doesn`t look like a valid email')
-//     .required('Please enter your email address'),
-//   password: Yup.string().min(6).required('Please enter your password'),
-// });
-
 const ValidationIcon = ({ error, touched, successText, errorText }) => {
   return (
     <IconWrapper>
