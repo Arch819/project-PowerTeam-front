@@ -6,12 +6,17 @@
 //  - компоненту ProductsList, що містить перелік продуктів
 
 import Section from 'components/Section';
+import TitlePage from 'components/TitlePage';
+import ProductsFilters from 'components/products/ProductsFilters';
+import ProductsList from 'components/products/ProductsList';
 
 function ProductsPage() {
   return (
     <Section use={'secondary'}>
       <div className="container">
-        <h2>Products</h2>
+        <TitlePage />
+        <ProductsFilters />
+        <ProductsList />
       </div>
     </Section>
   );

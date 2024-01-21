@@ -27,39 +27,32 @@ import {
   CategoryAll,
   ProductsContainer,
 } from './index.styled';
+import {
+  selectCategoriesProducts,
+  selectCategoryFilter,
+  selectRecommendedFilter,
+} from 'store/products/productsSelector';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsCategories } from 'store/products/productsOperations';
+import { handleUpdateFilters } from 'store/products/productsSlice';
 
-const optionsRec = [
+export const optionsRec = [
   { value: 'all', label: 'All' },
   { value: 'recommended', label: 'Recommended ' },
   { value: 'notRecommended', label: 'Not recommended' },
 ];
 
-const categories = [
-  'alcoholic drinks',
-  'berries',
-  'cereals',
-  'dairy',
-  'dried fruits',
-  'eggs',
-  'fish',
-  'flour',
-  'fruits',
-  'meat',
-  'mushrooms',
-  'nuts',
-  'oils and fats',
-  'poppy',
-  'sausage',
-  'seeds',
-  'sesame',
-  'soft drinks',
-  'vegetables and herbs',
-];
-
 const ProductsFilters = () => {
-  
   const [fontSize, setFontSize] = useState(getResponsiveFontSize());
   const [inputValue, setInputValue] = useState('');
+  const category = useSelector(selectCategoryFilter);
+  const recommended = useSelector(selectRecommendedFilter);
+  const categories = useSelector(selectCategoriesProducts);
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(getProductsCategories());
+  }, [dispatch]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -72,18 +65,43 @@ const ProductsFilters = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  const customStyles = getCustomStyles(fontSize);
 
+  const customStyles = getCustomStyles(fontSize);
   const categoriesList = categories.map(category => ({
     value: category,
     label: capitalizeFirstLetter(category),
   }));
 
   const handleSearchChange = event => {
-    setInputValue(event.target.value);
+    const element = event.target.value;
+    setInputValue(element);
   };
+
   const clearSearch = () => {
+    dispatch(
+      handleUpdateFilters({
+        query: '',
+      })
+    );
     setInputValue('');
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    dispatch(
+      handleUpdateFilters({
+        query: inputValue,
+      })
+    );
+  };
+
+  const handleCategoriesChange = selectedOption => {
+    dispatch(handleUpdateFilters({ category: selectedOption }));
+  };
+
+  const handleRecomendedChange = selectedOption => {
+    dispatch(handleUpdateFilters({ recommended: selectedOption }));
   };
 
   return (
@@ -103,14 +121,14 @@ const ProductsFilters = () => {
             <ProductsBtnClose
               type="button"
               onClick={clearSearch}
-              isVisible={inputValue.length > 0}
+              $isVisible={inputValue.length === 0}
             >
               <ProductsSvgClose>
                 <use href={`${sprite}#icon-close`}></use>
               </ProductsSvgClose>
             </ProductsBtnClose>
           )}
-          <ProductsBtnSearch type="button">
+          <ProductsBtnSearch type="button" onClick={handleSubmit}>
             <ProductsSvgSearch>
               <use href={`${sprite}#icon-search`}></use>
             </ProductsSvgSearch>
@@ -121,19 +139,21 @@ const ProductsFilters = () => {
         <li>
           <SelectWrapperCategory>
             <Select
+              onChange={handleCategoriesChange}
               styles={customStyles}
               placeholder="Categories"
               options={categoriesList || []}
+              value={category}
               theme={theme => ({
                 ...theme,
                 colors: {
                   ...theme.colors,
-                  primary50: 'rgba(255, 255, 255, 0.10)', // bg color in menu
+                  primary50: 'rgba(255, 255, 255, 0.10)',
                   primary: 'transparent',
-                  neutral40: '#EFEDE8', // hover on dropdown sign
-                  neutral20: 'transparent', // border default
-                  neutral30: 'transparent', // hover border default
-                  neutral50: 'rgba(239, 237, 232, 1)', // placeholder color
+                  neutral40: '#EFEDE8',
+                  neutral20: 'transparent',
+                  neutral30: 'transparent',
+                  neutral50: 'rgba(239, 237, 232, 1)',
                   neutral80: 'rgba(239, 237, 232, 1)',
                 },
               })}
@@ -143,8 +163,10 @@ const ProductsFilters = () => {
         <li>
           <SelectWrapperRec>
             <Select
+              onChange={handleRecomendedChange}
               options={optionsRec}
               styles={customStyles}
+              value={recommended}
               placeholder="All"
               theme={theme => ({
                 ...theme,

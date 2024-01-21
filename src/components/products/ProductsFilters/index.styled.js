@@ -43,7 +43,7 @@ export const ProductsFilterSearch = styled.input`
 `;
 
 export const ProductsBtnClose = styled.button`
-  visibility: ${props => (props.isVisible ? 'visible' : 'hidden')};
+  visibility: ${props => (props.$isVisible ? 'hidden' : 'visible')};
   position: absolute;
   background: transparent;
   position: absolute;
