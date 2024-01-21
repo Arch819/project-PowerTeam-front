@@ -28,9 +28,6 @@ import {
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn, selectUser } from 'store/auth/selector';
 
-// Треба зробити useSelector для profile(данні у profile) взяти данні зі state.
-// Зробити перевірку для NavWrapper, якщо profile === null ? null, якщо ні то повертає NavWrapper.
-
 function Header() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -42,7 +39,7 @@ function Header() {
   };
 
   return (
-    <HeaderContainer position={isLoggedIn}>
+    <HeaderContainer current={isLoggedIn} >
       <div className="container">
         <AllWrapper>
           <nav>

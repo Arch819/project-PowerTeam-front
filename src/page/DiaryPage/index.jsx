@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getDiaryByDateThunk } from 'store/diary/diaryThunk.js';
 import {
-  CalendarContainer,
+  CalendarMainContainer,
   ItemsContainer,
   MainContentContainer,
 } from './diaryPage.styled';
@@ -28,7 +28,6 @@ function DiaryPage() {
 
   const [startDate, setStartDate] = useState(format(new Date(), 'yyyy-MM-dd'));
 
-  console.log(startDate, 'diary');
   const handleChangeDate = date => {
     const newDate = date.toISOString();
     setStartDate(newDate);
@@ -41,12 +40,10 @@ function DiaryPage() {
   return (
     <Section>
       <div className="container">
-        {/* заголовок помістити в компонетнт тайтл пейдж */}
-        <CalendarContainer>
-          <h2>Diary</h2>
-          <TitlePage></TitlePage>
+        <CalendarMainContainer>
+          <TitlePage title={'Diary'}></TitlePage>
           <DaySwitch onChangeDate={handleChangeDate}></DaySwitch>
-        </CalendarContainer>
+        </CalendarMainContainer>
         <MainContentContainer>
           <DayDashboard></DayDashboard>
           <ItemsContainer>

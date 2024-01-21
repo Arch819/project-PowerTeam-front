@@ -6,6 +6,7 @@ export const handleRegisterUserFulfilled = (state, { payload }) => {
 
 export const handleLoginFulfilled = (state, { payload }) => {
   state.user = payload.user;
+  state.userParams = payload.userParams;
   state.token = payload.token;
   state.isLoggedIn = true;
 };
@@ -27,6 +28,16 @@ export const handleLogOutFulfilled = state => {
     email: '',
     avatarURL: '',
     bodyData: false,
+  };
+  state.userParams = {
+    height: 0,
+    currentWeight: 0,
+    desiredWeight: 0,
+    birthday: '',
+    blood: 0,
+    sex: '',
+    levelActivity: 0,
+    bmr: 0,
   };
   state.token = '';
   state.isLoggedIn = false;
