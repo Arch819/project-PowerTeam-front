@@ -13,13 +13,13 @@ import {
 } from './index.styled';
 import sprite from '../../../../images/sprite.svg';
 import { getDeleteProductThunk } from 'store/diary/diaryThunk';
-import { netliflixConfirmLogout } from 'helpers/notiflixMessage';
+import { notiflixConfirmLogout } from 'helpers/notiflixMessage';
 
 const DayProductsItemMobile = ({ products }) => {
   const dispatch = useDispatch();
   const deleteProduct = async id => {
     try {
-      await netliflixConfirmLogout('delete');
+      await notiflixConfirmLogout('delete');
       dispatch(getDeleteProductThunk(id));
     } catch (error) {
       return;

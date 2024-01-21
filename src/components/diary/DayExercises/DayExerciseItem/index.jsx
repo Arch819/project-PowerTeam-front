@@ -10,13 +10,13 @@ import {
 } from './index.styled';
 import sprite from '../../../../images/sprite.svg';
 import { getDeleteExerciseThunk } from 'store/diary/diaryThunk';
-import { netliflixConfirmLogout } from 'helpers/notiflixMessage';
+import { notiflixConfirmLogout } from 'helpers/notiflixMessage';
 
 const DayExerciseItem = ({ exercises }) => {
   const dispatch = useDispatch();
   const deleteExercise = async id => {
     try {
-      await netliflixConfirmLogout('delete');
+      await notiflixConfirmLogout('delete');
       dispatch(getDeleteExerciseThunk(id));
     } catch (error) {
       return;
