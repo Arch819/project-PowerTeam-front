@@ -46,7 +46,7 @@ export const IconWarning = styled.svg`
   width: 24px;
   height: 24px;
   fill: none;
-  stroke: #efede8;
+  stroke: var(--bg-alert);
 `;
 
 export const TextWarning = styled.p`

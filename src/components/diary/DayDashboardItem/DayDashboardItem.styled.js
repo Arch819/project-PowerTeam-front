@@ -19,15 +19,15 @@ export const Item = styled.li`
   }
 
   &.accent {
-    background-color: #e6533c;
+    background-color: var(--bg-container);
   }
 
   &.success {
-    border: 1px solid #3cbf61;
+    border: var(--border-positive);
   }
 
   &.warning {
-    border: 1px solid #e9101d;
+    border: var(--border-negative);
   }
 `;
 
@@ -47,7 +47,7 @@ export const Title = styled.h4`
 `;
 
 export const Text = styled.p`
-  color: #efede8;
+  color: var(--color-text-primary);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.11;
@@ -56,7 +56,7 @@ export const Text = styled.p`
 export const Icon = styled.svg`
   width: 20px;
   height: 20px;
-  fill: #ef8964;
-  stroke: #ef8964;
+  fill: var(--bg-l-icon);
+  stroke: var(--bg-l-icon);
   display: inline-block;
 `;

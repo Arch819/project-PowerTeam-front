@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.h1`
-  color: #efede8;
+  color: var(--color-text-primary);
   font-size: 24px;
   font-style: normal;
   line-height: 1.17;
