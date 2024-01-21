@@ -18,9 +18,9 @@ export const getAllExercises = createAsyncThunk(
 
 export const getExercisesFilters = createAsyncThunk(
   'exercises/getExercisesFilters',
-  async (_, { rejectWithValue }) => {
+  async (paramsExercisesByFilter, { rejectWithValue }) => {
     try {
-      const data = await getExercisesByFilters();
+      const data = await getExercisesByFilters(paramsExercisesByFilter);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
