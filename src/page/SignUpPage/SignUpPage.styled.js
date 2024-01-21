@@ -22,7 +22,7 @@ export const StyledWrapperTemplate = styled.div`
 export const StyledSignUpTitle = styled.h2`
   font-size: 24px;
   line-height: 1.16;
-  color: #efede8;
+  color: var(--color-text-primary);
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
@@ -58,6 +58,6 @@ export const StyledTextRedirection = styled.p`
 
 export const StyledNavLink = styled(NavLink)`
   line-height: 1.5;
-  color: #efede8;
+  color: var(--color-text-primary);
   text-decoration: underline;
 `;
