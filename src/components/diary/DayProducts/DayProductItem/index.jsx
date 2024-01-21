@@ -9,9 +9,18 @@ import {
 } from './index.styled';
 import sprite from '../../../../images/sprite.svg';
 import { getDeleteProductThunk } from 'store/diary/diaryThunk';
+import { netliflixConfirmLogout } from 'helpers/notiflixMessage';
 
 const DayProductItem = ({ products }) => {
   const dispatch = useDispatch();
+  const deleteProduct = async id => {
+    try {
+      await netliflixConfirmLogout('delete');
+      dispatch(getDeleteProductThunk(id));
+    } catch (error) {
+      return;
+    }
+  };
   return products.map(
     ({ idProduct, title, category, calories, amount, recommended }) => (
       <tr key={idProduct}>
@@ -24,10 +33,7 @@ const DayProductItem = ({ products }) => {
           {recommended ? 'Yes' : 'No'}
         </TableTextLast>
         <td>
-          <DeleteButton
-            type="button"
-            onClick={() => dispatch(getDeleteProductThunk(idProduct))}
-          >
+          <DeleteButton type="button" onClick={() => deleteProduct(idProduct)}>
             <svg width="20px" height="20px">
               <use href={`${sprite}#icon-trash`}></use>
             </svg>

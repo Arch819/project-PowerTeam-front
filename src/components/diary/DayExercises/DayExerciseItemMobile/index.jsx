@@ -13,9 +13,18 @@ import {
 } from './index.styled';
 import sprite from '../../../../images/sprite.svg';
 import { getDeleteExerciseThunk } from 'store/diary/diaryThunk';
+import { netliflixConfirmLogout } from 'helpers/notiflixMessage';
 
 const DayExerciseItemMobile = ({ exercises }) => {
   const dispatch = useDispatch();
+  const deleteExercise = async id => {
+    try {
+      await netliflixConfirmLogout('delete');
+      dispatch(getDeleteExerciseThunk(id));
+    } catch (error) {
+      return;
+    }
+  };
   return exercises.map(
     ({
       idExercise,
@@ -45,7 +54,7 @@ const DayExerciseItemMobile = ({ exercises }) => {
           </div>
           <DeleteButton
             type="button"
-            onClick={() => dispatch(getDeleteExerciseThunk(idExercise))}
+            onClick={() => deleteExercise(idExercise)}
           >
             <svg width="20px" height="20px">
               <use href={`${sprite}#icon-trash`}></use>
