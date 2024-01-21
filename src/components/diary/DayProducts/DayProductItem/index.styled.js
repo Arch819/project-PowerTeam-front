@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const TableText = styled.td`
   @media (min-width: 768px) {
-    color: #efede8;
+    color: var(--color-text-primary);
     font-weight: 400;
     border: 1px solid rgba(239, 237, 232, 0.3);
     overflow: hidden;
