@@ -1,17 +1,21 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const StyledContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 export const StyledWrapperTemplate = styled.div`
   display: flex;
   flex-direction: column;
   padding: 127px 20px 0;
 
   @media screen and (min-width: 768px) {
-    padding-top: 140px;
+    padding: 189px 240px 0 32px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding-top: 151px;
+    padding: 200px 178px 0 96px;
   }
 `;
 

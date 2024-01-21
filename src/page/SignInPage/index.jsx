@@ -1,18 +1,32 @@
-// SignIn page "/signin"
-// Складається з SignInForm та посилання на сторінку SignUp page
-
 import SignInForm from 'components/Forms/SignInForm';
 import Section from 'components/Section';
+import StatisticsList from 'components/statistic/StatisticsList';
+import {
+  StyledContainer,
+  StyledNavLink,
+  StyledParagraf,
+  StyledSignUpTitle,
+  StyledTextRedirection,
+  StyledWrapperTemplate,
+} from 'page/SignUpPage/SignUpPage.styled';
 
 const SignInPage = () => {
   return (
     <Section use={'first'}>
-      <div style={{ marginTop: '100px' }} className="container">
-        <h2>Sign In</h2>
-        <div style={{ marginTop: '50px' }}>
+      <StyledContainer>
+        <StyledWrapperTemplate>
+          <StyledSignUpTitle>Sign In</StyledSignUpTitle>
+          <StyledParagraf>
+            Welcome! Please enter your credentials to login to the platform:
+          </StyledParagraf>
           <SignInForm />
-        </div>
-      </div>
+          <StyledTextRedirection>
+            Don’t have an account?{' '}
+            <StyledNavLink to="/signup">Sign Up</StyledNavLink>
+          </StyledTextRedirection>
+        </StyledWrapperTemplate>
+        <StatisticsList />
+      </StyledContainer>
     </Section>
   );
 };
