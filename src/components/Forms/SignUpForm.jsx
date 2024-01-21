@@ -81,7 +81,6 @@ const SignUpForm = () => {
             'REJECT',
             'An error occurred during registration: ' + error.message
           );
-          console.log(error.message);
         }
       }
     },
