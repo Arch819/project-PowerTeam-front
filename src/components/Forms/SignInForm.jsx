@@ -17,7 +17,7 @@ import {
   SubmitButton,
 } from './SignForm.styled';
 import sprite from 'images/sprite.svg';
-import { notiflixMessage, statusArray } from 'helpers/notiflixMessage';
+import { notiflixMessage } from 'helpers/notiflixMessage';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -46,12 +46,12 @@ const SignInForm = () => {
       try {
         await dispatch(loginUser(values));
         notiflixMessage(
-          statusArray.OK,
+          'OK',
           'You have been successfully logged in! Your session is now active.'
         );
       } catch (error) {
         notiflixMessage(
-          statusArray.REJECT,
+          'REJECT',
           'An error occurred during login: ' + error.message
         );
       }

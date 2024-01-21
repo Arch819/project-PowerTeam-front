@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import { registerUser } from 'store/auth/operations';
-import { notiflixMessage, statusArray } from 'helpers/notiflixMessage';
+import { notiflixMessage } from 'helpers/notiflixMessage';
 import * as Yup from 'yup';
 import {
   Form,
@@ -60,28 +60,25 @@ const SignUpForm = () => {
         if (response.payload.token) {
           Navigate('/profile');
           notiflixMessage(
-            statusArray.OK,
+            'OK',
             'You have been successfully registered and logged in! Your session is now active.'
           );
           actions.resetForm();
         } else {
-          notiflixMessage(
-            statusArray.REJECT,
-            'Token was not returned from the backend'
-          );
+          notiflixMessage('REJECT', 'Token was not returned from the backend');
         }
       } catch (error) {
         if (error.name === 'ValidationError') {
           error.inner.forEach(err => {
             actions.setFieldError(err.path, err.message);
             notiflixMessage(
-              statusArray.REJECT,
+              'REJECT',
               `Registration validation failed for ${err.path}: ${err.message}`
             );
           });
         } else {
           notiflixMessage(
-            statusArray.REJECT,
+            'REJECT',
             'An error occurred during registration: ' + error.message
           );
           console.log(error.message);
