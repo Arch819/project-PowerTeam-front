@@ -16,33 +16,40 @@ function ExercisesPage() {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  const [subcategoriesList, setSubcategoriesList] = useState([]);
+  // const [subcategoriesList, setSubcategoriesList] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { category } = useParams();
+
+  const categoryValid = {
+    bodyPart: 'Body parts',
+    target: 'Muscles',
+    equipment: 'Equipment',
+  };
+  const filter = encodeURIComponent(categoryValid[category]);
 
   useEffect(() => {
     if (!category) {
       navigate('/exercises/bodyPart', { replace: true });
     }
-    dispatch(getExercisesFilters());
-  }, [category, dispatch, navigate]);
+    dispatch(getExercisesFilters(filter));
+  }, [category, dispatch, filter, navigate]);
 
-  const gedListByFilter = useCallback(() => {
-    const filterValid = {
-      bodyPart: 'Body parts',
-      target: 'Muscles',
-      equipment: 'Equipment',
-    };
-    const subCategoriesToRender = exercisesFilters.filter(
-      item => item.filter === filterValid[category]
-    );
-    setSubcategoriesList(subCategoriesToRender);
-  }, [category, exercisesFilters]);
+  // const gedListByFilter = useCallback(() => {
+  //   const filterValid = {
+  //     bodyPart: 'Body parts',
+  //     target: 'Muscles',
+  //     equipment: 'Equipment',
+  //   };
+  //   const subCategoriesToRender = exercisesFilters.filter(
+  //     item => item.filter === filterValid[category]
+  //   );
+  //   setSubcategoriesList(subCategoriesToRender);
+  // }, [category, exercisesFilters]);
 
-  useEffect(() => {
-    gedListByFilter();
-  }, [gedListByFilter, exercisesFilters]);
+  // useEffect(() => {
+  //   gedListByFilter();
+  // }, [gedListByFilter, exercisesFilters]);
 
   return (
     <Section>
@@ -67,9 +74,9 @@ function ExercisesPage() {
             wrapperClass=""
           />
         )}
-        {subcategoriesList.length > 0 && (
+        {exercisesFilters.length > 0 && (
           <ExercisesSubcategoriesList
-            subcategoriesList={subcategoriesList}
+            subcategoriesList={exercisesFilters}
             category={category}
           />
         )}
