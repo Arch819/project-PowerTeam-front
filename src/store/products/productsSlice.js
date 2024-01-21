@@ -30,4 +30,6 @@ export const productsSlice = createSlice({
   },
 });
 
+export const { handleUpdateFilters } = productsSlice.actions;
+
 export const productsReducer = productsSlice.reducer;

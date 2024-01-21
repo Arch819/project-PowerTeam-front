@@ -14,9 +14,9 @@ const Layout = () => {
   });
   return (
     <>
-      {loading && <Loader />}
       <Header />
       <main>
+        {loading && <Loader />}
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
