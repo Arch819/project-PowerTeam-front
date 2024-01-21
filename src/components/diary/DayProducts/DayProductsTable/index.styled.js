@@ -7,7 +7,7 @@ export const ProductsSection = styled.section`
     border: 1px solid rgba(239, 237, 232, 0.2);
     background: rgba(239, 237, 232, 0.05);
     margin-bottom: 32px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     width: 704px;
     height: 234px;
     padding: 16px 8px;

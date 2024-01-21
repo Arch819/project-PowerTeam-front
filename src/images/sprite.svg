@@ -122,5 +122,11 @@
 <symbol id="icon-back" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M17 28l-13-13M4 15l13-13M4 15h26"></path>
 </symbol>
+<symbol id="icon-calendar-left" viewBox="0 0 19 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M16 28.8l-12.8-12.8 12.8-12.8"></path>
+</symbol>
+<symbol id="icon-calendar-right" viewBox="0 0 19 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.8" d="M3.2 3.2l12.8 12.8-12.8 12.8"></path>
+</symbol>
 </defs>
 </svg>
