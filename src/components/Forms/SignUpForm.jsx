@@ -1,9 +1,7 @@
-import { Navigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import { registerUser } from 'store/auth/operations';
-import { notiflixMessage } from 'helpers/notiflixMessage';
 import * as Yup from 'yup';
 import {
   Form,
@@ -22,13 +20,13 @@ import sprite from 'images/sprite.svg';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Please enter your name'),
-  email: Yup.string()
-    .matches(emailPattern, 'Doesn`t look like a valid email')
-    .required('Please enter your email address'),
-  password: Yup.string().min(6).required('Please enter your password'),
-});
+// const validationSchema = Yup.object().shape({
+//   name: Yup.string().required('Please enter your name'),
+//   email: Yup.string()
+//     .matches(emailPattern, 'Doesn`t look like a valid email')
+//     .required('Please enter your email address'),
+//   password: Yup.string().min(6).required('Please enter your password'),
+// });
 
 const ValidationIcon = ({ error, touched, successText, errorText }) => {
   return (
@@ -52,26 +50,16 @@ const SignUpForm = () => {
       email: '',
       password: '',
     },
-    validationSchema: validationSchema,
-    onSubmit: async (values, actions) => {
-      try {
-        await validationSchema.validate(values, { abortEarly: false });
-        const response = await dispatch(registerUser(values));
-        if (response.payload.token) {
-          Navigate('/profile');
-          notiflixMessage(
-            'OK',
-            'You have been successfully registered and logged in! Your session is now active.'
-          );
-          actions.resetForm();
-        }
-      } catch (error) {
-        notiflixMessage(
-          'REJECT',
-          'An error occurred during registration: ' + error.message
-        );
-      }
+    onSubmit: values => {
+      dispatch(registerUser(values));
     },
+    validationSchema: Yup.object().shape({
+      name: Yup.string().required('Please enter your name'),
+      email: Yup.string()
+        .matches(emailPattern, 'Doesn`t look like a valid email')
+        .required('Please enter your email address'),
+      password: Yup.string().min(6).required('Please enter your password'),
+    }),
   });
 
   const [showPassword, setShowPassword] = useState(false);
