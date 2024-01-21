@@ -7,9 +7,9 @@ export const getExercises = async paramsExercises => {
   return data;
 };
 
-export const getExercisesByFilters = async paramsExercisesByFilter => {
+export const getExercisesByFilters = async filter => {
   const { data } = await axios.get('exercises/filters', {
-    params: { paramsExercisesByFilter },
+    params: { filter },
   });
   return data;
 };

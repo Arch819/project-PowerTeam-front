@@ -38,7 +38,7 @@ function UserForm() {
   return (
     <Formik
       initialValues={initState}
-      onSubmit={values => {
+      onSubmit={(values, { resetForm }) => {
         validationSchema
           .validate(values, { abortEarly: false })
           .then(() => {
@@ -58,6 +58,7 @@ function UserForm() {
             } else {
               notiflixMessage('ok', 'Data added successfully.');
             }
+            resetForm();
           })
           .catch(error => {
             notiflixMessage('error', `Validation errors: ${error.errors}`);

@@ -14,6 +14,7 @@ export const Loader = () => {
         alignItems: 'center',
         height: '100vh',
         width: '100vw',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
       }}
       wrapperClass=""
       visible={true}
