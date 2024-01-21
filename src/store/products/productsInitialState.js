@@ -1,4 +1,8 @@
-import { optionsRec } from 'components/products/ProductsFilters';
+export const optionsRec = [
+  { value: 'all', label: 'All' },
+  { value: 'recommended', label: 'Recommended ' },
+  { value: 'notRecommended', label: 'Not recommended' },
+];
 
 export const initialState = {
   products: [],
@@ -9,6 +13,4 @@ export const initialState = {
     category: { value: 'all', label: 'All categories' },
     recommended: optionsRec[0],
   },
-  loading: false,
-  error: null,
 };

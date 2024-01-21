@@ -9,21 +9,25 @@ export const getAllProducts = createAsyncThunk(
   async ({ recommended, category, query }, { rejectWithValue }) => {
     
     try {
-      const transformedRecommended =
-        recommended === 'recommended'
-          ? true
-          : recommended === 'notRecommended'
-          ? false
-          : 'none';
-     
-             const data = await getProducts({
-               filterType: transformedRecommended,
-               category,
-               title: query,
-             });
+      const queryParams = [];
 
-             return data;
+      if (recommended && recommended !== 'all') {
+        queryParams.push(`recommended=${recommended}`);
+      }
+
+      if (category && category !== 'all') {
+        queryParams.push(`category_id=${category}`);
+      }
+
+      if (query && query.trim() !== '') {
+        queryParams.push(`query=${query}`);
+      }
+
+      const queryString = queryParams.join('&');
+
+      const data = await getProducts(queryString);
       
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }

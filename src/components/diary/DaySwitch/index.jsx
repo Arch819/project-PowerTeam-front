@@ -16,6 +16,7 @@ import {
   IconSvg,
   TitleWrapper,
   IconChevron,
+  CalendarContainer,
 } from './DaySwitch.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import sprite from '../../../images/sprite.svg';
@@ -37,18 +38,10 @@ const DaySwitch = ({ onChangeDate }) => {
             <use href={`${sprite}#icon-calendar`}></use>
           </IconSvg>
         </TitleWrapper>
-        <IconChevron
-          width="16"
-          height="16"
-          onClick={() => handleDateChange(subDays(selectedDate, 1))}
-        >
+        <IconChevron onClick={() => handleDateChange(subDays(selectedDate, 1))}>
           <use href={`${sprite}#icon-calendar-left`}></use>
         </IconChevron>
-        <IconChevron
-          width="16"
-          height="16"
-          onClick={() => handleDateChange(addDays(selectedDate, 1))}
-        >
+        <IconChevron onClick={() => handleDateChange(addDays(selectedDate, 1))}>
           <use href={`${sprite}#icon-calendar-right`}></use>
         </IconChevron>
       </CalendarWrapper>
@@ -56,8 +49,7 @@ const DaySwitch = ({ onChangeDate }) => {
   });
 
   return (
-    // style={{ position: 'relative' }}
-    <>
+    <CalendarContainer>
       <DatePicker
         selected={selectedDate}
         onChange={date => {
@@ -70,7 +62,7 @@ const DaySwitch = ({ onChangeDate }) => {
         formatWeekDay={day => day.substr(0, 1)}
       />
       <CalendarGlobalStyles />
-    </>
+    </CalendarContainer>
   );
 };
 

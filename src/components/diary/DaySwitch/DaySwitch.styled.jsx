@@ -1,9 +1,10 @@
 import { createGlobalStyle, styled } from 'styled-components';
 
+export const CalendarContainer = styled.div`
+  position: relative;
+`;
+
 export const IconSvg = styled.svg`
-  /* position: absolute; */
-  /* bottom: 10px; */
-  /* left: 14px; */
   stroke: #ef8964;
 `;
 
@@ -152,7 +153,10 @@ export const CalendarGlobalStyles = createGlobalStyle`
 export const TitleWrapper = styled.button`
   display: flex;
   gap: 8px;
-  /* width: 183px; */
+  align-items: center;
+  margin-right: 20px;
+  background: transparent;
+  border: none;
 
   color: #efede8;
   font-family: Roboto;
@@ -160,20 +164,10 @@ export const TitleWrapper = styled.button`
   font-weight: 700;
   line-height: calc(20 / 18);
 
-  /* width: 195px; */
-  /* color: #ffffff; */
-  background: transparent;
-  border: none;
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: calc(32 / 24);
   }
-  /* text-align: center; */
-  /* text-transform: uppercase; */
-  padding: 8px 12px;
-  /* justify-content: center; */
-  align-items: center;
-  margin-right: 20px;
 `;
 
 export const CalendarWrapper = styled.div`
@@ -183,6 +177,8 @@ export const CalendarWrapper = styled.div`
 `;
 
 export const IconChevron = styled.svg`
+  width: 16px;
+  height: 16px;
   stroke: var(--color-text-pr30);
   fill: transparent;
   cursor: pointer;
