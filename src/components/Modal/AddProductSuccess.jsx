@@ -4,7 +4,7 @@
 //  - посилання To the diary, по clickу на яке користувача має бути переадресовано на Diary page
 
 import { Link } from 'react-router-dom';
-import avocado from '../../images/avocado-2x.png';
+import avocado from '../../images/ModalImg/avocado-2x.png';
 import sprite from '../../images/sprite.svg';
 import {
   SuccessModalWindow,

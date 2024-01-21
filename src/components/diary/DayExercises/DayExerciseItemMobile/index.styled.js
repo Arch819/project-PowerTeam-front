@@ -5,7 +5,7 @@ export const DayExerciseItem = styled.li`
 `;
 
 export const ExercisesTitle = styled.p`
-  color: #ef8964;
+  color: var(--color-text-secondaryV1);
   font-size: 12px;
   line-height: 1.5;
   margin-bottom: 8px;
@@ -16,7 +16,7 @@ export const ExercisesTitle = styled.p`
 `;
 
 export const ExercisesText = styled.p`
-  color: #efede8;
+  color: var(--color-text-primary);
   font-size: 14px;
   line-height: 1.3;
   padding: 10px 14px;
@@ -60,8 +60,3 @@ export const Container = styled.div`
 export const ExerciseItemContainer = styled.div`
   margin-right: 16px;
 `;
-
-// export const ScrollbarContainer = styled.div`
-//   overflow-y: scroll;
-//   height: 158px;
-// `;

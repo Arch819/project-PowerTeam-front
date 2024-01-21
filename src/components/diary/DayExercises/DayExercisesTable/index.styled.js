@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const ExercisesSection = styled.section`
+export const ExercisesSection = styled.div`
   @media (min-width: 768px) {
     width: 335px;
     height: 824px;
@@ -40,7 +40,7 @@ export const ExercisesTitle = styled.p`
 
 export const AddExerciseButton = styled(Link)`
   @media (min-width: 768px) {
-    color: #e6533c;
+    color: var(--color-btn-secondary);
     background-color: transparent;
     border: none;
     font-weight: 500;
@@ -77,7 +77,7 @@ export const ExercisesTableThead = styled.thead`
 
 export const TableTitle = styled.th`
   @media (min-width: 768px) {
-    color: #ef8964;
+    color: var(--color-text-secondaryV1);
     font-size: 12px;
     line-height: 1.5;
     text-align: start;
@@ -90,5 +90,4 @@ export const TableTitle = styled.th`
 
 export const TableTitleCalories = styled(TableTitle)`
   max-width: 78px;
-  /* width: 78px; */
 `;

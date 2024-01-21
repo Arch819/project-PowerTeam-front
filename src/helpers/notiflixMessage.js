@@ -3,7 +3,6 @@ const statusArray = {
   OK: 'ok',
   INFO: 'info',
   REJECT: 'error',
-  LOGOUT: 'logout',
 };
 
 const confirmArray = {

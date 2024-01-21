@@ -22,8 +22,12 @@ function BurgerMenu({ onClick }) {
 
   const dispatch = useDispatch();
   const handleLogOutUser = async () => {
-    await notiflixConfirmLogout('logout');
-    dispatch(logOutUser());
+    try {
+      await notiflixConfirmLogout('logout');
+      dispatch(logOutUser());
+    } catch (error) {
+      return;
+    }
   };
 
   useEffect(() => {

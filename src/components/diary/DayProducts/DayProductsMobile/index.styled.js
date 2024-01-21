@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const ProductsContainer = styled.div`
   width: 335px;
-  height: ${({ $products }) => ($products ? '824px;' : '335px')};
+  max-height: ${({ $products }) => ($products ? '824px;' : '335px')};
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 40px;
@@ -25,7 +25,7 @@ export const ProductsTitle = styled.p`
 `;
 
 export const AddProductButton = styled(Link)`
-  color: #e6533c;
+  color: var(--color-btn-secondary);
   background-color: transparent;
   border: none;
   display: flex;
