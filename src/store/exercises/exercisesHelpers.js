@@ -5,3 +5,7 @@ export const handleGetAllExercisesFulfilled = (state, { payload }) => {
 export const handleGetExercisesFiltersFulfilled = (state, { payload }) => {
   state.exercisesFilters = payload;
 };
+
+export const handleGetExercisesIdFulfilled = (state, { payload }) => {
+  state.exercisesById = payload;
+};

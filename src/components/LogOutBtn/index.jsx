@@ -8,19 +8,19 @@ import { useDispatch } from 'react-redux';
 import sprite from '../../images/sprite.svg';
 import { IconLogoutStyled, LogoutStyled } from './LogOutBtn.styled';
 import { logOutUser } from 'store/auth/operations';
-
-// Треба зробити dispatch для logoutUser, const handleLogOut та додати на onClick у LogoutStyled.
+import { notiflixConfirmLogout } from 'helpers/notiflixMessage';
 
 function LogOutBtn() {
   const dispatch = useDispatch();
-  const handleLogOut = () => {
+
+  const handleLogOut = async () => {
+    await notiflixConfirmLogout('logout');
     dispatch(logOutUser());
-    
   };
 
   return (
     <>
-      <LogoutStyled onClick={handleLogOut} >
+      <LogoutStyled onClick={handleLogOut}>
         <span>Logout</span>
         <IconLogoutStyled>
           <use href={`${sprite}#icon-logout`} />

@@ -7,9 +7,11 @@
 //  - The rest of sports -  кількістт часу, яку необхідно приділити спорту в межах добової норми часу для занять спортом. У разі перевищення добової норми калорій, блок необхідно заохочуючи підсвітити.
 // У разі будь-якої зміни показників, відображена інформація має бути актуалізована без перезавантаження сторінки.
 
+import { useSelector } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import DayDashboardItem from '../DayDashboardItem';
 
+import { selectExercises, selectProducts } from 'store/diary/diarySelectors.js';
 import {
   Box,
   DayDashboardList,
@@ -17,8 +19,40 @@ import {
   TextWarning,
   Thumb,
 } from './DayDashboard.styled';
+import { selectUserParams } from 'store/auth/selector';
 
 function DayDashboard() {
+  const diaryProducts = useSelector(selectProducts);
+  const diaryExercises = useSelector(selectExercises);
+  const dailyBMR = useSelector(selectUserParams);
+  console.log(dailyBMR.bmr);
+  //  - Daily calorie intake відображає добову норму калорій для авторизованого користувача
+  const dailyCalorieIntake = dailyBMR.bmr;
+  //  - Daily norm of sports - добову норму часу для занять спортом (в хвилинах)
+  const dailyNormOfSports = 110;
+  //  - Сalories consumed - кількість спожитих калорій
+  let caloriesConsumed = 0;
+  if (diaryProducts) {
+    caloriesConsumed = diaryProducts.reduce((prev, number) => {
+      return prev + number.calories;
+    }, 0);
+  }
+  //  - Сalories burned - кількість спалених калорій під час занять спортом
+  let caloriesBurned = 0;
+  let totalSportTime = 0;
+  if (diaryExercises) {
+    caloriesBurned = diaryExercises.reduce((prev, number) => {
+      return prev + number.burnedCalories;
+    }, 0);
+    totalSportTime = diaryExercises.reduce((prev, number) => {
+      return prev + number.time;
+    }, 0);
+  }
+  //  - The rest of the calories - кількість калорій, яку залишилось спожити користувачеві в межах добової норми. У разі перевищення добової норми калорій, блок необхідно попереджуючи підсвітити.
+  const restOfCalories = dailyCalorieIntake - caloriesConsumed + caloriesBurned;
+  //  - The rest of sports -  кількістт часу, яку необхідно приділити спорту в межах добової норми часу для занять спортом. У разі перевищення добової норми калорій, блок необхідно заохочуючи підсвітити.
+  const restOfSport = dailyNormOfSports - totalSportTime;
+
   return (
     <Box>
       <DayDashboardList>
@@ -26,37 +60,41 @@ function DayDashboard() {
           color={'accent'}
           icon={'icon-food-24'}
           title={'Daily calorie intake'}
-          data={2200}
+          data={dailyCalorieIntake}
         />
         <DayDashboardItem
           color={'accent'}
           icon={'icon-dumbbell'}
           title={'Daily physical activity'}
-          data={'110 min'}
+          data={`${dailyNormOfSports} min`}
         />
         <DayDashboardItem
           color={''}
           icon={'icon-food-apple'}
           title={'Сalories consumed'}
-          data={2300}
+          data={caloriesConsumed}
         />
         <DayDashboardItem
           color={''}
           icon={'icon-fire'}
           title={'Сalories burned'}
-          data={855}
+          data={caloriesBurned}
         />
         <DayDashboardItem
-          color={'warning'}
+          color={restOfCalories < 0 ? 'warning' : ''}
           icon={'icon-bubble'}
           title={'Calories remaining'}
-          data={-100}
+          data={restOfCalories}
         />
         <DayDashboardItem
-          color={'success'}
+          color={restOfSport < 0 ? 'success' : ''}
           icon={'icon-running-stick-figure'}
           title={'Sports remaining'}
-          data={'+30 min'}
+          data={
+            restOfSport > 0
+              ? `${restOfSport} min`
+              : `+${Math.abs(restOfSport)} min`
+          }
         />
       </DayDashboardList>
       <Thumb>

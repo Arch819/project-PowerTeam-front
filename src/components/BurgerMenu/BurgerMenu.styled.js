@@ -10,8 +10,7 @@ export const BackdropBurgerMenuStyled = styled.div`
   bottom: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999;
-
+  z-index: 4999;
   background-color: rgba(4, 4, 4, 0.4);
 `;
 
@@ -23,7 +22,7 @@ export const ContainerBurgerMenuStyled = styled.div`
   padding: 20px;
   width: 50%;
   height: 100%;
-  z-index: 10000;
+  z-index: 5000;
   background-color: var(--bg-btn);
 
   @media (min-width: 769px) and (max-width: 1440px) {
@@ -86,11 +85,11 @@ export const BurgerMenuNavLinkStyled = styled(NavLink)`
 
   &:hover,
   &:focus {
-    border-color: var( --color-text-primary);
+    border-color: var(--color-text-primary);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   &.active {
-    border-color: var( --color-text-primary);
+    border-color: var(--color-text-primary);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
@@ -106,7 +105,7 @@ export const BurgerMenuLogOutStyled = styled(Link)`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var( --color-text-primary);
+  color: var(--color-text-primary);
   font-size: 14px;
   line-height: calc(18 / 14);
   text-decoration: none;
@@ -119,7 +118,7 @@ export const BurgerMenuLogOutStyled = styled(Link)`
 
 export const BurgerMenuIconLogoutStyled = styled.svg`
   fill: transparent;
-  stroke: var( --color-text-primary);
+  stroke: var(--color-text-primary);
   width: 20px;
   height: 20px;
   cursor: pointer;
