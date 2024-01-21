@@ -64,24 +64,12 @@ const SignUpForm = () => {
             'You have been successfully registered and logged in! Your session is now active.'
           );
           actions.resetForm();
-        } else {
-          notiflixMessage('REJECT', 'Token was not returned from the backend');
         }
       } catch (error) {
-        if (error.name === 'ValidationError') {
-          error.inner.forEach(err => {
-            actions.setFieldError(err.path, err.message);
-            notiflixMessage(
-              'REJECT',
-              `Registration validation failed for ${err.path}: ${err.message}`
-            );
-          });
-        } else {
-          notiflixMessage(
-            'REJECT',
-            'An error occurred during registration: ' + error.message
-          );
-        }
+        notiflixMessage(
+          'REJECT',
+          'An error occurred during registration: ' + error.message
+        );
       }
     },
   });

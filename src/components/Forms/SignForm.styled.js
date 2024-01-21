@@ -59,7 +59,7 @@ export const StyledInput = styled.input`
       ? 'var(--border-negative)'
       : props.success
       ? 'var(--border-positive)'
-      : 'rgba(239, 237, 232, 0.3)'};
+      : '1px solid rgba(239, 237, 232, 0.3)'};
   padding: 14px;
   color: var(--color-text-primary);
   background-color: transparent;
