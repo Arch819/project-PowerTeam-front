@@ -15,14 +15,14 @@ import {
 import { logOutUser } from 'store/auth/operations';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'store/auth/selector';
-import { netliflixConfirmLogout } from 'helpers/notiflixMessage';
+import { notiflixConfirmLogout } from 'helpers/notiflixMessage';
 
 function BurgerMenu({ onClick }) {
   const { bodyData } = useSelector(selectUser);
 
   const dispatch = useDispatch();
   const handleLogOutUser = async () => {
-    await netliflixConfirmLogout('logout');
+    await notiflixConfirmLogout('logout');
     dispatch(logOutUser());
   };
 
