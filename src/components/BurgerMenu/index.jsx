@@ -15,14 +15,14 @@ import {
 import { logOutUser } from 'store/auth/operations';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'store/auth/selector';
+import { notiflixConfirmLogout } from 'helpers/notiflixMessage';
 
 function BurgerMenu({ onClick }) {
-  // Треба зробити dispatch для logoutUser, const handleLogOut та додати на onClick у BurgerMenuLogOutStyled, та зробити logoutUser у redux/auth/operations.
-
   const { bodyData } = useSelector(selectUser);
 
   const dispatch = useDispatch();
-  const handleLogOutUser = () => {
+  const handleLogOutUser = async () => {
+    await notiflixConfirmLogout('logout');
     dispatch(logOutUser());
   };
 

@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 export const getProducts = async query => {
-  const { data } = await axios.get('products', query);
+  const { data } = await axios.get('products', {
+    params: query,
+  });
   return data;
 };
 

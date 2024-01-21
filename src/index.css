@@ -9,8 +9,9 @@
   --bg-btn-sec: #EF8964;
   --bg-l-icon: #EF8964;
   --bg-r-icon: #EFA082;
-
-
+  --bg-alert: #EFEDE8;
+  --bg-btn-positive: #3CBF61;
+  --bg-btn-negative: #E9101D;
   /* text */
   --color-text-primary: #EFEDE8;
   --color-text-pr80: #EFEDE8CC;
@@ -22,8 +23,7 @@
   --color-text-secondaryV1: #EF8964;
   --color-text-caloriesV2: #E6533C;
   --color-text-white: #ffffff;
-
-  --color-btn-primary: #EFEDE8;
+  --color-text-alert: #040404 --color-btn-primary: #EFEDE8;
   --color-btn-secondary: #E6533C;
 
   /* border */
@@ -117,25 +117,29 @@ img {
 }
 
 .container {
+  width: 100%;
   margin: 0 auto;
 }
 
 
 
-/* @media screen and (min-width: 375px) {
-} */
+@media screen and (min-width: 375px) {
+  .container {
+    max-width: 375px;
+  }
+}
 
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
 
   .container {
     width: 375px;
     padding: 0 20px;
   }
-}
+} */
 
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
     padding: 0 32px;
   }
 }
@@ -144,7 +148,7 @@ img {
 
 @media screen and (min-width: 1440px) {
   .container {
-    width: 1440px;
+    max-width: 1440px;
     padding: 0 96px;
   }
 }
