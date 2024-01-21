@@ -46,7 +46,7 @@ function ExercisesItem({ exerciseData }) {
       <ul className="categories-list">
         <li className="categories-item">
           <p className="category-name">Burned calories:</p>
-          <span className="category-data">{upFirst(burnedCalories)}</span>
+          <span className="category-data">{burnedCalories}</span>
         </li>
         <li className="categories-item">
           <p className="category-name">Body part:</p>
