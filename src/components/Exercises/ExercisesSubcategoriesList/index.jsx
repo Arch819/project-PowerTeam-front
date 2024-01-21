@@ -1,5 +1,5 @@
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem';
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import {
   Image,
   SubCategoriesList,
@@ -25,14 +25,32 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
   return (
     <>
       <SwiperBox
-        slidesPerView={3}
+        slidesPerView={1}
         grid={{
           fill: 'row',
-          rows: 2,
+          rows: 10,
         }}
-        spaceBetween={30}
+        spaceBetween={20}
         pagination={{
           clickable: true,
+        }}
+        breakpoints={{
+          768: {
+            slidesPerView: 3,
+            grid: {
+              fill: 'row',
+              rows: 3,
+            },
+            spaceBetween: 16,
+          },
+          1440: {
+            slidesPerView: 5,
+            grid: {
+              fill: 'row',
+              rows: 2,
+            },
+            spaceBetween: 16,
+          },
         }}
         modules={[Grid, Pagination]}
         className="mySwiper"

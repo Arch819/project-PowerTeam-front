@@ -4,7 +4,7 @@ import ExercisesSubcategoriesList from 'components/Exercises/ExercisesSubcategor
 import TitlePage from 'components/TitlePage';
 import { NavBox } from './ExercisesPage.styled';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Oval } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExercisesFilters } from 'store/exercises/exercisesSelector';
@@ -15,8 +15,6 @@ function ExercisesPage() {
   const exercisesFilters = useSelector(selectExercisesFilters);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
-  // const [subcategoriesList, setSubcategoriesList] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { category } = useParams();
@@ -34,22 +32,6 @@ function ExercisesPage() {
     }
     dispatch(getExercisesFilters(filter));
   }, [category, dispatch, filter, navigate]);
-
-  // const gedListByFilter = useCallback(() => {
-  //   const filterValid = {
-  //     bodyPart: 'Body parts',
-  //     target: 'Muscles',
-  //     equipment: 'Equipment',
-  //   };
-  //   const subCategoriesToRender = exercisesFilters.filter(
-  //     item => item.filter === filterValid[category]
-  //   );
-  //   setSubcategoriesList(subCategoriesToRender);
-  // }, [category, exercisesFilters]);
-
-  // useEffect(() => {
-  //   gedListByFilter();
-  // }, [gedListByFilter, exercisesFilters]);
 
   return (
     <Section>

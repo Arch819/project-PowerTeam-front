@@ -6,30 +6,32 @@ export const SwiperBox = styled(Swiper)`
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 40px !important;
+
+  /* > .swiper-pagination {
+    width: 14px;
+    height: 14px;
+  } */
+  > .swiper-pagination .swiper-pagination-bullet {
+    background-color: rgba(239, 237, 232, 0.1);
+  }
+
+  > .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #e6533c;
+  }
 `;
 
 export const SwiperItem = styled(SwiperSlide)`
-  text-align: center;
+  /* text-align: center;
   font-size: 18px;
   background: #fff;
   height: calc((100% - 30px) / 2) !important;
 
   /* Center slide text vertically */
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
-`;
+  align-items: center; */
 
-export const SubCategoriesList = styled.ul`
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    gap: 32px 16px;
-  }
-`;
-
-export const SubExercisesLi = styled.li`
   position: relative;
   cursor: pointer;
   overflow: hidden;
@@ -45,6 +47,31 @@ export const SubExercisesLi = styled.li`
   }
 `;
 
+// export const SubCategoriesList = styled.ul`
+//   @media screen and (min-width: 768px) {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: start;
+//     gap: 32px 16px;
+//   }
+// `;
+
+// export const SubExercisesLi = styled.li`
+//   position: relative;
+//   cursor: pointer;
+//   overflow: hidden;
+//   border-radius: 12px;
+//   max-width: 334px;
+
+//   border: 1px solid rgba(239, 237, 232, 0.2);
+
+//   @media screen and (max-width: 767px) {
+//     margin-left: auto;
+//     margin-right: auto;
+//     margin-bottom: 20px;
+//   }
+// `;
+
 export const Image = styled.img`
   object-fit: cover;
   height: auto;
@@ -56,12 +83,12 @@ export const Image = styled.img`
   }
 
   @media screen and (min-width: 768px) {
-    width: 221px;
+    width: 224px;
     height: 206px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 234px;
+    width: 237px;
     height: 206px;
   }
 `;
