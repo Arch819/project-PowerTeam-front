@@ -7,8 +7,9 @@ export const HeaderContainer = styled.header`
   left: 0;
   top: 0;
   right: 0;
-  border-bottom: var(--border-20);
   padding: 12px 0;
+  border-bottom: ${props =>
+    props.border ? '1px solid #EFEDE833' : 'transparent'};
 
   @media screen and (min-width: 768px) {
     padding: 19px 0;
