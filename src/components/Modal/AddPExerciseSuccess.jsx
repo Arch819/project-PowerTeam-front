@@ -5,7 +5,7 @@
 
 
 import { Link } from 'react-router-dom';
-import like from '../../images/like-2x.png';
+import like from '../../images/ModalImg/like-2x.png';
 import sprite from '../../images/sprite.svg';
 import {
   ArrowIcon,

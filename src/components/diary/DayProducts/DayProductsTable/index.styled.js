@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const ProductsSection = styled.section`
+export const ProductsSection = styled.div`
   @media (min-width: 768px) {
     border-radius: 12px;
     border: 1px solid rgba(239, 237, 232, 0.2);
     background: rgba(239, 237, 232, 0.05);
     margin-bottom: 32px;
-    /* margin-top: 10px; */
     width: 704px;
     height: 234px;
     padding: 16px 8px;
@@ -38,7 +37,7 @@ export const ProductsTitle = styled.p`
 
 export const AddProductButton = styled(Link)`
   @media (min-width: 768px) {
-    color: #e6533c;
+    color: var(--color-btn-secondary);
     background-color: transparent;
     border: none;
     font-weight: 500;
@@ -75,7 +74,7 @@ export const ProductsTableThead = styled.thead`
 
 export const TableTitle = styled.th`
   @media (min-width: 768px) {
-    color: #ef8964;
+    color: var(--color-text-secondaryV1);
     font-size: 12px;
     line-height: 1.5;
     text-align: start;

@@ -14,8 +14,12 @@ function LogOutBtn() {
   const dispatch = useDispatch();
 
   const handleLogOut = async () => {
-    await notiflixConfirmLogout('logout');
-    dispatch(logOutUser());
+    try {
+      await notiflixConfirmLogout('logout');
+      dispatch(logOutUser());
+    } catch (error) {
+      return;
+    }
   };
 
   return (

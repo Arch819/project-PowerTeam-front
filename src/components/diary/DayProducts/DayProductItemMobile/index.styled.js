@@ -5,14 +5,14 @@ export const DayProductItem = styled.li`
 `;
 
 export const ProductsTitle = styled.p`
-  color: #ef8964;
+  color: var(--color-text-secondaryV1);
   font-size: 12px;
   line-height: 1.5;
   margin-bottom: 8px;
 `;
 
 export const ProductsText = styled.p`
-  color: #efede8;
+  color: var(--color-text-primary);
   font-size: 14px;
   line-height: 1.3;
   padding: 10px 14px;
@@ -39,7 +39,8 @@ export const ProductsTextRecommend = styled(ProductsText)`
 `;
 
 export const IsRecommend = styled.span`
-  background-color: ${({ $recommend }) => ($recommend ? '#419B09' : '#E9101D')};
+  background-color: ${({ $recommended }) =>
+    $recommended ? '#419B09' : '#E9101D'};
   width: 14px;
   height: 14px;
   border-radius: 10px;

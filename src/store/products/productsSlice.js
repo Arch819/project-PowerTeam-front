@@ -14,6 +14,11 @@ import {
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
+  reducers: {
+    handleUpdateFilters(state, action) {
+      state.filters = { ...state.filters, ...action.payload };
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getAllProducts.fulfilled, handleGetAllProductsFulfilled)
@@ -24,5 +29,7 @@ export const productsSlice = createSlice({
       .addCase(getProductsId.fulfilled, handleGetProductsIdFulfilled);
   },
 });
+
+export const { handleUpdateFilters } = productsSlice.actions;
 
 export const productsReducer = productsSlice.reducer;

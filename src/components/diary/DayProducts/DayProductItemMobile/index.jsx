@@ -13,12 +13,21 @@ import {
 } from './index.styled';
 import sprite from '../../../../images/sprite.svg';
 import { getDeleteProductThunk } from 'store/diary/diaryThunk';
+import { notiflixConfirmLogout } from 'helpers/notiflixMessage';
 
 const DayProductsItemMobile = ({ products }) => {
   const dispatch = useDispatch();
+  const deleteProduct = async id => {
+    try {
+      await notiflixConfirmLogout('delete');
+      dispatch(getDeleteProductThunk(id));
+    } catch (error) {
+      return;
+    }
+  };
   return products.map(
-    ({ productId, title, category, calories, amount, recommend }) => (
-      <DayProductItem key={productId}>
+    ({ idProduct, title, category, calories, amount, recommended }) => (
+      <DayProductItem key={idProduct}>
         <ProductsTitle>Title</ProductsTitle>
         <ProductsText>{title}</ProductsText>
         <ProductsTitle>Category</ProductsTitle>
@@ -35,14 +44,11 @@ const DayProductsItemMobile = ({ products }) => {
           <div>
             <ProductsTitle>Recommend</ProductsTitle>
             <ProductsTextRecommend>
-              <IsRecommend $recommend={recommend} />
-              {recommend ? 'Yes' : 'No'}
+              <IsRecommend $recommended={recommended} />
+              {recommended ? 'Yes' : 'No'}
             </ProductsTextRecommend>
           </div>
-          <DeleteButton
-            type="button"
-            onClick={() => dispatch(getDeleteProductThunk(productId))}
-          >
+          <DeleteButton type="button" onClick={() => deleteProduct(idProduct)}>
             <svg width="20px" height="20px">
               <use href={`${sprite}#icon-trash`}></use>
             </svg>

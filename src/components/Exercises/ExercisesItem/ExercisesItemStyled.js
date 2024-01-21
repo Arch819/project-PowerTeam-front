@@ -34,6 +34,8 @@ const ExercisesItemStyled = styled.li`
     color: var(--color-text-caloriesV2);
     fill: var(--color-text-caloriesV2);
     stroke: var(--color-text-caloriesV2);
+    transition: color var(--transition), fill var(--transition),
+      stroke var(--transition);
 
     display: flex;
     align-items: center;
