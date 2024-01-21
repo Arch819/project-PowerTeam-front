@@ -1,10 +1,9 @@
 import { Navigate } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useFormik } from 'formik';
-import { selectToken } from 'store/auth/selector';
 import { registerUser } from 'store/auth/operations';
-import Notiflix from 'notiflix';
+import { notiflixMessage, statusArray } from 'helpers/notiflixMessage';
 import * as Yup from 'yup';
 import {
   Form,
@@ -46,7 +45,6 @@ const ValidationIcon = ({ error, touched, successText, errorText }) => {
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
 
   const formik = useFormik({
     initialValues: {
@@ -54,42 +52,42 @@ const SignUpForm = () => {
       email: '',
       password: '',
     },
-    onSubmit: (values, actions) => {
-      validationSchema
-        .validate(values, { abortEarly: false })
-        .then(() => {
-          dispatch(registerUser(values))
-            .then(response => {
-              if (response.token) {
-                if (token) {
-                  Navigate('/profile');
-                  Notiflix.Notify.success(
-                    'You have been successfully registered and logged in! Your session is now active.'
-                  );
-                } else {
-                  Notiflix.Notify.failure(
-                    'Token was not returned from the backend'
-                  );
-                }
-              }
-              actions.resetForm();
-            })
-            .catch(error => {
-              Notiflix.Notify.failure(
-                'An error occurred during registration: ' + error.message
-              );
-            });
-        })
-        .catch(errors => {
-          errors.inner.forEach(error => {
-            actions.setFieldError(error.path, error.message);
-          });
-          Notiflix.Notify.failure(
-            'Registration validation failed. Please check the fields.'
-          );
-        });
-    },
     validationSchema: validationSchema,
+    onSubmit: async (values, actions) => {
+      try {
+        await validationSchema.validate(values, { abortEarly: false });
+        const response = await dispatch(registerUser(values));
+        if (response.payload.token) {
+          Navigate('/profile');
+          notiflixMessage(
+            statusArray.OK,
+            'You have been successfully registered and logged in! Your session is now active.'
+          );
+          actions.resetForm();
+        } else {
+          notiflixMessage(
+            statusArray.REJECT,
+            'Token was not returned from the backend'
+          );
+        }
+      } catch (error) {
+        if (error.name === 'ValidationError') {
+          error.inner.forEach(err => {
+            actions.setFieldError(err.path, err.message);
+            notiflixMessage(
+              statusArray.REJECT,
+              `Registration validation failed for ${err.path}: ${err.message}`
+            );
+          });
+        } else {
+          notiflixMessage(
+            statusArray.REJECT,
+            'An error occurred during registration: ' + error.message
+          );
+          console.log(error.message);
+        }
+      }
+    },
   });
 
   const [showPassword, setShowPassword] = useState(false);
