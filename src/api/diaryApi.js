@@ -14,8 +14,8 @@ export const fetchDeleteProduct = async idProduct => {
   await axios.delete(`diary/products/${idProduct}`);
 };
 
-export const fetchAddExercise = async product => {
-  const { data } = await axios.post('diary/exercises', product);
+export const fetchAddExercise = async exercice => {
+  const { data } = await axios.post('diary/exercises', exercice);
   return data;
 };
 
