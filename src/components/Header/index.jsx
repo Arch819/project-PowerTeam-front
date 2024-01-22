@@ -1,11 +1,3 @@
-// Header в собі містить:
-//  незалежно від статусу користувача
-//   - Logo компанії
-//  для авторизованого користувача
-//  - блок зі списком елементів навігації UserNav(якщо на backendі наявна інформація про параметри авторизованого користувача)
-//  - блок з інформацією про поточного користувача UserBar
-//  - кнопку LogOutBtn
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
@@ -39,7 +31,7 @@ function Header() {
   };
 
   return (
-    <HeaderContainer current={isLoggedIn} >
+    <HeaderContainer current={isLoggedIn}>
       <div className="container">
         <AllWrapper>
           <nav>
