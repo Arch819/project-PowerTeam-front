@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const Item = styled.li`
-  width: 157px;
+  width: calc((100vw - 66px) / 2);
   height: 96px;
-
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background-color: rgba(239, 237, 232, 0.05);
@@ -12,8 +11,12 @@ export const Item = styled.li`
   flex-direction: column;
   justify-content: space-between;
 
+  @media screen and (min-width: 375px) {
+    width: 155px;
+  }
+
   @media screen and (min-width: 768px) {
-    width: 187px;
+    width: 185px;
     height: 116px;
     padding: 18px;
   }

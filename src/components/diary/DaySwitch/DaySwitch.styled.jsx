@@ -27,6 +27,12 @@ export const CalendarGlobalStyles = createGlobalStyle`
     border-radius: 8px;
 
   }
+
+
+   .react-datepicker__year-read-view{
+     // display:none;
+    }
+
   .react-datepicker__month-container {
     float: inherit;
     box-sizing: border-box;
