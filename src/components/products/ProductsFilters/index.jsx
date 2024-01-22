@@ -27,39 +27,43 @@ import {
   CategoryAll,
   ProductsContainer,
 } from './index.styled';
+import { handleUpdateFilters } from 'store/products/productsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { optionsRec } from '../../../store/products/productsInitialState';
+import { selectCategoriesProducts } from '../../../store/products/productsSelector';
 
-const optionsRec = [
-  { value: 'all', label: 'All' },
-  { value: 'recommended', label: 'Recommended ' },
-  { value: 'notRecommended', label: 'Not recommended' },
-];
+// const optionsRec = [
+//   { value: 'all', label: 'All' },
+//   { value: 'recommended', label: 'Recommended ' },
+//   { value: 'notRecommended', label: 'Not recommended' },
+// ];
 
-const categories = [
-  'alcoholic drinks',
-  'berries',
-  'cereals',
-  'dairy',
-  'dried fruits',
-  'eggs',
-  'fish',
-  'flour',
-  'fruits',
-  'meat',
-  'mushrooms',
-  'nuts',
-  'oils and fats',
-  'poppy',
-  'sausage',
-  'seeds',
-  'sesame',
-  'soft drinks',
-  'vegetables and herbs',
-];
+// const categories = [
+//   'alcoholic drinks',
+//   'berries',
+//   'cereals',
+//   'dairy',
+//   'dried fruits',
+//   'eggs',
+//   'fish',
+//   'flour',
+//   'fruits',
+//   'meat',
+//   'mushrooms',
+//   'nuts',
+//   'oils and fats',
+//   'poppy',
+//   'sausage',
+//   'seeds',
+//   'sesame',
+//   'soft drinks',
+//   'vegetables and herbs',
+// ];
 
 const ProductsFilters = () => {
-  
   const [fontSize, setFontSize] = useState(getResponsiveFontSize());
   const [inputValue, setInputValue] = useState('');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleResize = () => {
@@ -74,6 +78,8 @@ const ProductsFilters = () => {
   }, []);
   const customStyles = getCustomStyles(fontSize);
 
+  const categories = useSelector(selectCategoriesProducts);
+
   const categoriesList = categories.map(category => ({
     value: category,
     label: capitalizeFirstLetter(category),
@@ -83,7 +89,29 @@ const ProductsFilters = () => {
     setInputValue(event.target.value);
   };
   const clearSearch = () => {
+    dispatch(
+      handleUpdateFilters({
+        query: '',
+      })
+    );
     setInputValue('');
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    dispatch(
+      handleUpdateFilters({
+        query: inputValue,
+      })
+    );
+  };
+
+  const handleCategoriesChange = selectedOption => {
+    dispatch(handleUpdateFilters({ category: selectedOption }));
+  };
+
+  const handleRecomendedChange = selectedOption => {
+    dispatch(handleUpdateFilters({ recommended: selectedOption }));
   };
 
   return (
@@ -110,7 +138,7 @@ const ProductsFilters = () => {
               </ProductsSvgClose>
             </ProductsBtnClose>
           )}
-          <ProductsBtnSearch type="button">
+          <ProductsBtnSearch type="button" onClick={handleSubmit}>
             <ProductsSvgSearch>
               <use href={`${sprite}#icon-search`}></use>
             </ProductsSvgSearch>
@@ -121,6 +149,7 @@ const ProductsFilters = () => {
         <li>
           <SelectWrapperCategory>
             <Select
+              onChange={handleCategoriesChange}
               styles={customStyles}
               placeholder="Categories"
               options={categoriesList || []}
@@ -143,6 +172,7 @@ const ProductsFilters = () => {
         <li>
           <SelectWrapperRec>
             <Select
+              onChange={handleRecomendedChange}
               options={optionsRec}
               styles={customStyles}
               placeholder="All"
