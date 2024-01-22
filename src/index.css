@@ -1,5 +1,7 @@
 @import-normalize;
-
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
 :root {
   /* background */
   --bg-body: #040404;
