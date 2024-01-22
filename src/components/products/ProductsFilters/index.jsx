@@ -1,10 +1,3 @@
-// ProductsFilters містить в собі:
-//  - поле для пошуку продуктів по вмісту ключового слова в назві. Якщо поле для пошуку заповнене - поряд з іконкою лупи повинна зʼявлятись кнопка з іконкою хрестика, по clickу на яку поле для пошуку має бути очищене. Пошук продуктів відбувається по події submit або  clickу на іконку лупи
-//  - поле з випадаючим списком категорій продуктів. Пошук продуктів відбувається при виборі категорії
-//  - поле з випадаючим списком типів продуктів. Пошук продуктів відбувається при виборі типу
-
-// Запит на backend має відправлятися з урахуванням усіх параметрів пошуку.
-
 import sprite from '../../../images/sprite.svg';
 import Select from 'react-select';
 import { useState, useEffect } from 'react';
@@ -31,34 +24,6 @@ import { handleUpdateFilters } from 'store/products/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { optionsRec } from '../../../store/products/productsInitialState';
 import { selectCategoriesProducts } from '../../../store/products/productsSelector';
-
-// const optionsRec = [
-//   { value: 'all', label: 'All' },
-//   { value: 'recommended', label: 'Recommended ' },
-//   { value: 'notRecommended', label: 'Not recommended' },
-// ];
-
-// const categories = [
-//   'alcoholic drinks',
-//   'berries',
-//   'cereals',
-//   'dairy',
-//   'dried fruits',
-//   'eggs',
-//   'fish',
-//   'flour',
-//   'fruits',
-//   'meat',
-//   'mushrooms',
-//   'nuts',
-//   'oils and fats',
-//   'poppy',
-//   'sausage',
-//   'seeds',
-//   'sesame',
-//   'soft drinks',
-//   'vegetables and herbs',
-// ];
 
 const ProductsFilters = () => {
   const [fontSize, setFontSize] = useState(getResponsiveFontSize());
@@ -109,6 +74,15 @@ const ProductsFilters = () => {
     );
   };
 
+  const handleKeyDown = event => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (!event.repeat) {
+        handleSubmit(event);
+      }
+    }
+  };
+
   const handleCategoriesChange = selectedOption => {
     dispatch(handleUpdateFilters({ category: selectedOption }));
   };
@@ -118,7 +92,7 @@ const ProductsFilters = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onKeyDown={handleKeyDown}>
       <ProductsFilterList>
         <ProductsContainer>
           <li>
@@ -135,7 +109,7 @@ const ProductsFilters = () => {
               <ProductsBtnClose
                 type="button"
                 onClick={clearSearch}
-                isVisible={inputValue.length > 0}
+                $isVisible={inputValue.length > 0}
               >
                 <ProductsSvgClose>
                   <use href={`${sprite}#icon-close`}></use>
@@ -161,12 +135,12 @@ const ProductsFilters = () => {
                   ...theme,
                   colors: {
                     ...theme.colors,
-                    primary50: 'rgba(255, 255, 255, 0.10)', // bg color in menu
+                    primary50: 'rgba(255, 255, 255, 0.10)',
                     primary: 'transparent',
-                    neutral40: '#EFEDE8', // hover on dropdown sign
-                    neutral20: 'transparent', // border default
-                    neutral30: 'transparent', // hover border default
-                    neutral50: 'rgba(239, 237, 232, 1)', // placeholder color
+                    neutral40: '#EFEDE8',
+                    neutral20: 'transparent',
+                    neutral30: 'transparent',
+                    neutral50: 'rgba(239, 237, 232, 1)',
                     neutral80: 'rgba(239, 237, 232, 1)',
                   },
                 })}
