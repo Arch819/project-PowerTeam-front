@@ -6,7 +6,6 @@ import * as exercisesApi from './exercisesApi';
 import * as authApi from './authApi';
 
 axios.defaults.baseURL = 'https://powerpulse-backend-heie.onrender.com';
-// axios.defaults.baseURL = 'http://localhost:8000';
 const api = {
   statisticApi,
   diaryApi,
