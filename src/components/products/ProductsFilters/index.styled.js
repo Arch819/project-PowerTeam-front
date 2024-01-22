@@ -13,7 +13,6 @@ export const CategoryAll = styled.div`
 `;
 
 export const ProductsFilterSearch = styled.input`
-  /* @media screen and (min-width: 375px) { */
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
   padding: 14px;
@@ -34,7 +33,6 @@ export const ProductsFilterSearch = styled.input`
     outline: none;
     border-color: var(--bg-btn);
   }
-  /* } */
   @media screen and (min-width: 768px) {
     width: 236px;
     font-size: 16px;
@@ -83,7 +81,6 @@ export const ProductsFilterList = styled.ul`
     margin-bottom: 132px;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
     justify-content: flex-start;
   }
   @media screen and (min-width: 1440px) {
@@ -93,10 +90,8 @@ export const ProductsFilterList = styled.ul`
 `;
 
 export const SelectWrapperCategory = styled.div`
-  /* @media screen and (min-width: 375px) { */
   width: 146px;
   margin-right: 16px;
-  /* } */
   @media screen and (min-width: 768px) {
     width: 192px;
   }
@@ -106,9 +101,7 @@ export const SelectWrapperCategory = styled.div`
 `;
 
 export const SelectWrapperRec = styled.div`
-  /* @media screen and (min-width: 375px) { */
   width: 173px;
-  /* } */
   @media screen and (min-width: 768px) {
     width: 204px;
   }
@@ -145,5 +138,5 @@ export const TitleFilter = styled.div`
 `;
 export const ProductsContainer = styled.div`
   position: relative;
-  margin-bottom: 16px;
+  align-items: center;
 `;
