@@ -5,6 +5,7 @@ import {
   SwiperItem,
   TextContainer,
 } from './ExercisesSubcategoriesList.styled';
+
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
