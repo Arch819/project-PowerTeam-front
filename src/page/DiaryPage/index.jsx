@@ -1,17 +1,8 @@
-// Diary page "/diary"
-// Складається з:
-//  - компоненту TitlePage(опис компонента деталізовано у Profile page)
-//  - компоненту DaySwitch, що дозволяє користувачу змінити дату, інформацію за яку він хоче переглянути
-//  - компоненту DayProducts, що містить інформацію про перелік продуктів, спожитих користувачем за обрану ним дату
-//  - компоненту DayExercises, що містить інформацію про перелік вправ, виконаних користувачем за обрану ним дату
-//  - компоненту DayDashboard, що містить зведену інформацію за день по результатах спожитих користувачем продуктів та викона-
-// них ним вправ
-
 import Section from 'components/Section';
 import TitlePage from 'components/TitlePage';
 import DayDashboard from 'components/diary/DayDashboard';
-import DayExercises from 'components/diary/DayExercises/DayExercisesTable/index.jsx';
-import DayProductsTable from 'components/diary/DayProducts/DayProductsTable/index.jsx';
+import DayExercises from 'components/diary/DayExercises/DayExercisesTable';
+import DayProducts from 'components/diary/DayProducts/DayProductsTable';
 import DaySwitch from 'components/diary/DaySwitch';
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
@@ -47,7 +38,7 @@ function DiaryPage() {
         <MainContentContainer>
           <DayDashboard></DayDashboard>
           <ItemsContainer>
-            <DayProductsTable></DayProductsTable>
+            <DayProducts></DayProducts>
             <DayExercises></DayExercises>
           </ItemsContainer>
         </MainContentContainer>

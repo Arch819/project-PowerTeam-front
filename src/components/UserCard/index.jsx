@@ -45,7 +45,6 @@ function UserCard() {
 
   const handleAvatarChange = e => {
     const file = e.target.files[0];
-    //setAvatar(e.target.files[0]);
     
     if (file) {
       setAvatar(e.target.files[0]);

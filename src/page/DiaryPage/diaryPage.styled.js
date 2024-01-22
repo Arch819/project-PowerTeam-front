@@ -4,13 +4,13 @@ export const CalendarMainContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px 0 20px auto;
+  padding: 40px 0 20px 0;
   @media screen and (min-width: 768px) {
-    margin: 52px 0 32px auto;
+    padding: 52px 0 32px 0;
   }
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 48px;
+    padding-bottom: 48px;
   }
 `;
 
