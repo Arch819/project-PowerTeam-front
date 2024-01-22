@@ -37,6 +37,32 @@ export const StyledLink = styled(Link)`
   line-height: 1.28;
   transition: var(--transition);
 
+  &::before,
+  ::after {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    height: 4px;
+    bottom: -6px;
+    border-radius: 2px;
+    background-color: var(--bg-btn-sec);
+    transition: all var(--transition);
+  }
+
+  &::after {
+    right: 0px;
+    bottom: 0px;
+  }
+
+  &:hover::before,
+  &:hover::after,
+  &:focus::before,
+  &:focus::after {
+    opacity: 1;
+    width: 100%;
+  }
+
   &:hover,
   &:focus {
     color: var(--bg-alert);
