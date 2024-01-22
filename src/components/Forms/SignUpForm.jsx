@@ -1,10 +1,7 @@
-import { Navigate } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useFormik } from 'formik';
-import { selectToken } from 'store/auth/selector';
 import { registerUser } from 'store/auth/operations';
-import Notiflix from 'notiflix';
 import * as Yup from 'yup';
 import {
   Form,
@@ -23,14 +20,6 @@ import sprite from 'images/sprite.svg';
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Please enter your name'),
-  email: Yup.string()
-    .matches(emailPattern, 'Doesn`t look like a valid email')
-    .required('Please enter your email address'),
-  password: Yup.string().min(6).required('Please enter your password'),
-});
-
 const ValidationIcon = ({ error, touched, successText, errorText }) => {
   return (
     <IconWrapper>
@@ -46,7 +35,6 @@ const ValidationIcon = ({ error, touched, successText, errorText }) => {
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
 
   const formik = useFormik({
     initialValues: {
@@ -54,42 +42,16 @@ const SignUpForm = () => {
       email: '',
       password: '',
     },
-    onSubmit: (values, actions) => {
-      validationSchema
-        .validate(values, { abortEarly: false })
-        .then(() => {
-          dispatch(registerUser(values))
-            .then(response => {
-              if (response.token) {
-                if (token) {
-                  Navigate('/profile');
-                  Notiflix.Notify.success(
-                    'You have been successfully registered and logged in! Your session is now active.'
-                  );
-                } else {
-                  Notiflix.Notify.failure(
-                    'Token was not returned from the backend'
-                  );
-                }
-              }
-              actions.resetForm();
-            })
-            .catch(error => {
-              Notiflix.Notify.failure(
-                'An error occurred during registration: ' + error.message
-              );
-            });
-        })
-        .catch(errors => {
-          errors.inner.forEach(error => {
-            actions.setFieldError(error.path, error.message);
-          });
-          Notiflix.Notify.failure(
-            'Registration validation failed. Please check the fields.'
-          );
-        });
+    onSubmit: values => {
+      dispatch(registerUser(values));
     },
-    validationSchema: validationSchema,
+    validationSchema: Yup.object().shape({
+      name: Yup.string().required('Please enter your name'),
+      email: Yup.string()
+        .matches(emailPattern, 'Doesn`t look like a valid email')
+        .required('Please enter your email address'),
+      password: Yup.string().min(6).required('Please enter your password'),
+    }),
   });
 
   const [showPassword, setShowPassword] = useState(false);

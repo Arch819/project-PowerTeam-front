@@ -54,15 +54,14 @@ export const StyledInput = styled.input`
   line-height: 1.2;
   align-items: center;
   border-radius: 12px;
-  border: 1px solid
-    ${props =>
-      props.error
-        ? '#D80027'
-        : props.success
-        ? '#3CBF61'
-        : 'rgba(239, 237, 232, 0.3)'};
+  border: ${props =>
+    props.error
+      ? 'var(--border-negative)'
+      : props.success
+      ? 'var(--border-positive)'
+      : '1px solid rgba(239, 237, 232, 0.3)'};
   padding: 14px;
-  color: #efede8;
+  color: var(--color-text-primary);
   background-color: transparent;
 
   &:hover,
@@ -165,8 +164,8 @@ export const SubmitButton = styled.button`
   display: block;
   padding: 12px 40px;
   margin-top: 28px;
-  background-color: #e6533c;
-  color: #fff;
+  background-color: var(--bg-btn);
+  color: var(--color-text-white);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.2;
@@ -177,7 +176,7 @@ export const SubmitButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #ef8964;
+    background-color: var(--bg-btn-hover);
   }
 
   @media screen and (min-width: 768px) {
