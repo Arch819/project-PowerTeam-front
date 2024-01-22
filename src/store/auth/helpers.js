@@ -2,6 +2,7 @@ export const handleRegisterUserFulfilled = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
   state.isLoggedIn = true;
+  state.isRefreshing = false;
 };
 
 export const handleLoginFulfilled = (state, { payload }) => {
@@ -9,6 +10,7 @@ export const handleLoginFulfilled = (state, { payload }) => {
   state.userParams = payload.userParams;
   state.token = payload.token;
   state.isLoggedIn = true;
+  state.isRefreshing = false;
 };
 
 export const handleLogOutPending = state => {

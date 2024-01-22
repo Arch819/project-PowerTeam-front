@@ -23,7 +23,7 @@ import { DailyBlock } from './DailyBlock';
 import LogOutBtn from 'components/LogOutBtn';
 import WarningMessage from './WarningMessage';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from 'store/auth/selector';
+import { selectUser, selectUserParams } from 'store/auth/selector';
 import { updateAvatar } from 'store/auth/operations';
 import { useState } from 'react';
 
@@ -31,6 +31,7 @@ function UserCard() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser)
   const [avatar, setAvatar] = useState(user.avatarURL);
+  const dailyBMR = useSelector(selectUserParams);
     
   const avatarUser = <UserPhoto src={avatar} alt="UserPhoto" width="100%" />;
   const avatarSvg = (
@@ -39,22 +40,24 @@ function UserCard() {
     </UserSvg>
   );
 
+  const dailyCalorieIntake = dailyBMR.bmr;
+  const dailyNormOfSport = 110;
+
   const handleAvatarChange = e => {
     const file = e.target.files[0];
-    setAvatar(e.target.files[0]);
+    //setAvatar(e.target.files[0]);
     
-    console.log('file',file);
     if (file) {
+      setAvatar(e.target.files[0]);
       const blob = new Blob([file]);
       const objectURL = URL.createObjectURL(blob);
       setAvatar(objectURL);
     }
 
-    try {
+    if (typeof(file) != "undefined") {
       dispatch(updateAvatar(file)) 
-    } catch (error) {
-      console.error('Error loading the file', error);
     }
+
   }
 
   return (
@@ -84,14 +87,14 @@ function UserCard() {
           border="1px solid rgba(239, 237, 232, 0.2)"
           iconId="icon-food-24"
           text="Daily calorie intake"
-          value="2200"
+          value= {dailyCalorieIntake}
         />
         <DailyBlock
           color="#E6533C"
           border="1px solid rgba(239, 237, 232, 0.2)"
           iconId="icon-dumbbell"
           text="Daily physical activity"
-          value="110 min"
+          value={`${dailyNormOfSport} min`}
         />
       </WrapperDaily>
       <WarningMessage />

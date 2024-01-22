@@ -29,7 +29,7 @@ function ExercisesListPage() {
   };
 
   return (
-    <Section className="exercises-bg" $use={'first'}>
+    <Section className="exercises-bg" use={'first'}>
       <div className="container">
         <LinkBox>
           <LinkBack to={ref.current}>
