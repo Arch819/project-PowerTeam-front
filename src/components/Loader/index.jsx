@@ -10,6 +10,10 @@ export const Loader = () => {
       ariaLabel="bars-loading"
       wrapperStyle={{
         display: 'flex',
+        position: 'fixed',
+        zIndex: '9999',
+        top: '0',
+        left: '0',
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
