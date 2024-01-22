@@ -1,9 +1,9 @@
 import { useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getAddProductThunk } from '../../store/diary/diaryThunk';
 import Notiflix from 'notiflix';
 // import { fetchCurrentUser } from '../../store/auth/operations';
-import { selectUser } from '../../store/auth/selector';
+// import { selectUser } from '../../store/auth/selector';
 import {
   BtnAdd,
   BtnCancel,
