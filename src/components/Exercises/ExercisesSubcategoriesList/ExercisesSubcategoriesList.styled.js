@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
 
 export const SwiperBox = styled(Swiper)`
   width: 100%;
