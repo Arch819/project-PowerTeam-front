@@ -13,22 +13,24 @@ import StatisticsList from 'components/statistic/StatisticsList';
 const SignUpPage = () => {
   return (
     <Section use={'first'}>
-      <StyledContainer>
-        <StyledWrapperTemplate>
-          <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
-          <StyledParagraf>
-            Thank you for your interest in our platform. To complete the
-            registration process, please provide us with the following
-            information.
-          </StyledParagraf>
-          <SignUpForm />
-          <StyledTextRedirection>
-            Already have an account?{' '}
-            <StyledNavLink to="/signin">Sign In</StyledNavLink>
-          </StyledTextRedirection>
-        </StyledWrapperTemplate>
-        <StatisticsList />
-      </StyledContainer>
+      <div className="container">
+        <StyledContainer>
+          <StyledWrapperTemplate>
+            <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
+            <StyledParagraf>
+              Thank you for your interest in our platform. To complete the
+              registration process, please provide us with the following
+              information.
+            </StyledParagraf>
+            <SignUpForm />
+            <StyledTextRedirection>
+              Already have an account?{' '}
+              <StyledNavLink to="/signin">Sign In</StyledNavLink>
+            </StyledTextRedirection>
+          </StyledWrapperTemplate>
+          <StatisticsList />
+        </StyledContainer>
+      </div>
     </Section>
   );
 };

@@ -48,6 +48,7 @@ Notify.init({
 });
 
 export const notiflixMessage = (status, message) => {
+  console.log('Status:', status, 'Message:', message);
   switch (status) {
     case statusArray.OK:
       return Notify.success(message);

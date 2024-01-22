@@ -56,9 +56,9 @@ export const StyledInput = styled.input`
   border-radius: 12px;
   border: ${props =>
     props.error
-      ? 'var(--border-negative)'
+      ? 'var(--border-input-negative)'
       : props.success
-      ? 'var(--border-positive)'
+      ? 'var(--border-input-positive)'
       : '1px solid rgba(239, 237, 232, 0.3)'};
   padding: 14px;
   color: var(--color-text-primary);
@@ -144,14 +144,13 @@ export const IconPasswordWrapper = styled.span`
   padding: 0;
   cursor: pointer;
 
-  @media screen and (min-width: 375px) and (max-width: 768px) {
-    right: 0;
-    left: 298px;
-  }
-
   @media screen and (min-width: 768px) {
     right: 0;
     left: 325px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    left: 285px;
   }
 `;
 

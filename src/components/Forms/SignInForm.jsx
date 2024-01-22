@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { loginUser } from 'store/auth/operations';
+import { notiflixMessage } from 'helpers/notiflixMessage';
 import {
   Form,
   StyledInputContainer,
@@ -41,8 +42,14 @@ const SignInForm = () => {
       email: '',
       password: '',
     },
-    onSubmit: values => {
-      dispatch(loginUser(values));
+    onSubmit: async (values, actions) => {
+      dispatch(loginUser(values)).then(() => {
+        notiflixMessage(
+          'ok',
+          'You have been successfully logged in! Your session is now active.'
+        );
+        actions.resetForm();
+      });
     },
 
     validationSchema: Yup.object().shape({
