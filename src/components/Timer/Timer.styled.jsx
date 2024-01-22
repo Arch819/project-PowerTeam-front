@@ -28,12 +28,15 @@ export const TimerBtn = styled.button`
   margin-top: 14px;
   padding: 5px;
   border-radius: 5px;
+  border-color: transparent;
   display: flex;
 `;
 
 export const PlayIcon = styled.svg`
   width: 20px;
   height: 20px;
+  fill: var(--bg-alert);
+  stroke: var(--bg-alert);
 `;
 
 export const TimerText = styled.p`

@@ -1,4 +1,4 @@
-import { ExersiceModalLink, ExersiceModalLinkSub, ExersiceModalLinkTitle, ExersiceModalList } from "./ExersiceModalWindowList.styled";
+import { ExersiceModalLink, ExersiceModalLinkSub, ExersiceModalLinkTitle, ExersiceModalList } from "../Modal/ExerciseModalWindowList.styled";
 
 const ExersiceModalWindowList = ({ name, bodypart, target, equipment, time }) => {
   const firstLetterToUppercase = (title) => {

@@ -16,7 +16,7 @@ import {
   SuccessModalWindowSpan,
   SuccessModalWindowBtn,
   ArrowIcon,
-} from './AddProductSuccess.styled';
+} from '../Modal/AddProductSuccess.styled';
 
 export const AddProductSuccess = ({ calories, closeModal }) => {
   return (
@@ -26,7 +26,7 @@ export const AddProductSuccess = ({ calories, closeModal }) => {
           <SuccessModalWindowImg src={avocado} alt="avocado" />
           <SuccessModalWindowTitle>Well done</SuccessModalWindowTitle>
           <SuccessModalWindowText>
-            Calories:{' '}
+            Calories:{calories}
             <SuccessModalWindowSpan>{calories}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>

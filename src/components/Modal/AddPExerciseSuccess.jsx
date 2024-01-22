@@ -17,7 +17,8 @@ import {
   SuccessModalWindowTitle,
   SuccessModalWindowWrap,
   SuccessModalWindowWrapImg,
-} from './SuccessExerciseModalWindow.styled';
+} from '../Modal/AddPExerciseSuccess.styled';
+
 export const SuccessExerciseModalWindow = ({ data, closeModal }) => {
   console.log(data);
   return (
