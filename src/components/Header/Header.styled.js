@@ -43,6 +43,10 @@ export const NavLinkStyled = styled(NavLink)`
   &:focus {
     background-color: var(--bg-btn);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+      7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.25s ease;
+    transform: scale(1.05);
   }
   &.active {
     background-color: var(--bg-btn);
