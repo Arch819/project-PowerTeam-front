@@ -88,7 +88,7 @@ export const ProductsFilterList = styled.ul`
     justify-content: flex-start;
   }
   @media screen and (min-width: 1440px) {
-    margin-top: 68px;
+    /* margin-top: 68px; */
     display: flex;
     justify-content: flex-end;
   }
@@ -122,12 +122,12 @@ export const SelectWrapperRec = styled.div`
 export const ProductTitle = styled.h2`
   @media screen and (min-width: 375px) {
     font-size: 24px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     margin-bottom: 40px;
   }
   @media screen and (min-width: 768px) {
     font-size: 32px;
-    margin-top: 72px;
+    /* margin-top: 72px; */
     margin-bottom: 32px;
   }
   @media screen and (min-width: 1440px) {
@@ -136,6 +136,12 @@ export const ProductTitle = styled.h2`
 `;
 
 export const TitleFilter = styled.div`
+  @media screen and (min-width: 375px) {
+    padding-top: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 72px;
+  }
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
