@@ -4,7 +4,7 @@ export const TableText = styled.td`
   @media (min-width: 768px) {
     color: var(--color-text-primary);
     font-weight: 400;
-    border: 1px solid rgba(239, 237, 232, 0.3);
+    border: var(--border-30);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

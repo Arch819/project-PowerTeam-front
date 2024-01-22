@@ -8,8 +8,7 @@ export const PlugContainer = styled.div`
 `;
 
 export const PlugText = styled.p`
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--color-text-pr30);
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.3;
 `;
