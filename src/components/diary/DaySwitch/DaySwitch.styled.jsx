@@ -67,7 +67,6 @@ export const CalendarGlobalStyles = createGlobalStyle`
     color: rgba(239, 237, 232, 0.5);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     line-height: normal;
   }
