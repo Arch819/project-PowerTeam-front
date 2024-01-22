@@ -7,7 +7,7 @@ export const ExercisesList = styled.ul`
 
   @media screen and (max-width: 767px) {
     margin-top: 20px;
-    margin-bottom: 40px;
+    //padding-bottom: 40px;
   }
 
   @media screen and (min-width: 768px) {
@@ -27,7 +27,6 @@ export const ExercisesItem = styled.li`
 `;
 
 export const StyledLink = styled(Link)`
-  //padding: 0;
   outline: none;
   text-decoration: none;
 
@@ -36,8 +35,12 @@ export const StyledLink = styled(Link)`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
+  transition: var(--transition);
 
-  //background-color: transparent;
+  &:hover,
+  &:focus {
+    color: var(--bg-alert);
+  }
 
   &.active::after {
     content: '';
@@ -48,11 +51,11 @@ export const StyledLink = styled(Link)`
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: #ef8964;
+    background-color: var(--bg-btn-sec);
   }
 
   &.active {
-    color: #efede8;
+    color: var(--bg-alert);
   }
 
   @media screen and (min-width: 768px) {
