@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import { registerUser } from 'store/auth/operations';
+import { notiflixMessage } from 'helpers/notiflixMessage';
 import * as Yup from 'yup';
 import {
   Form,
@@ -42,8 +43,14 @@ const SignUpForm = () => {
       email: '',
       password: '',
     },
-    onSubmit: values => {
-      dispatch(registerUser(values));
+    onSubmit: async (values, actions) => {
+      dispatch(registerUser(values)).then(() => {
+        notiflixMessage(
+          'ok',
+          'You have been successfully registered and logged in! Your session is now active.'
+        );
+        actions.resetForm();
+      });
     },
     validationSchema: Yup.object().shape({
       name: Yup.string().required('Please enter your name'),
@@ -82,6 +89,7 @@ const SignUpForm = () => {
           value={formik.values.name}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          autoComplete="off"
         />
 
         {(formik.errors.name && formik.touched.name) ||
