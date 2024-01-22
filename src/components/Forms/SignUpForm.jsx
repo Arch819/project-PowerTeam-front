@@ -44,12 +44,14 @@ const SignUpForm = () => {
       password: '',
     },
     onSubmit: async (values, actions) => {
-      dispatch(registerUser(values)).then(() => {
-        notiflixMessage(
-          'ok',
-          'You have been successfully registered and logged in! Your session is now active.'
-        );
-        actions.resetForm();
+      dispatch(registerUser(values)).then(({ payload }) => {
+        if (payload.token) {
+          notiflixMessage(
+            'ok',
+            'You have been successfully registered and logged in! Your session is now active.'
+          );
+          actions.resetForm();
+        }
       });
     },
     validationSchema: Yup.object().shape({
@@ -121,6 +123,7 @@ const SignUpForm = () => {
           value={formik.values.email}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          autoComplete="off"
         />
 
         {(formik.errors.email && formik.touched.email) ||
@@ -154,6 +157,7 @@ const SignUpForm = () => {
           value={formik.values.password}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          autoComplete="off"
         />
 
         <IconPasswordWrapper onClick={togglePassword}>
