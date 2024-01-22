@@ -117,7 +117,6 @@ export const TextContainer = styled.div`
   }
 
   > h3 {
-    font-style: normal;
     text-align: center;
     font-size: 20px;
     font-weight: 400;

@@ -58,10 +58,7 @@ const Label = styled.label`
   display: block;
   margin-bottom: 8px;
   color: var(--color-text-pr50);
-  font-family: 'Roboto';
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
   @media (min-width: 768px) {
     font-size: 14px;
@@ -72,10 +69,7 @@ const LabelGender = styled.label`
   display: flex;
   align-items: center;
   color: var(--color-text-primary);
-  font-family: 'Roboto';
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
   @media (min-width: 768px) {
     font-size: 16px;
@@ -87,10 +81,7 @@ const RadioLabel = styled.label`
   display: inline-flex;
   align-items: center;
   color: var(--color-text-primary);
-  font-family: 'Roboto';
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
   @media (min-width: 768px) {
     font-size: 16px;
@@ -100,10 +91,7 @@ const RadioLabel = styled.label`
 
 const Input = styled(Field)`
   color: var(--color-text-primary);
-  font-family: 'Roboto';
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
   display: inline-flex;
   width: 100%;
@@ -171,10 +159,7 @@ const ActivitiLabel = styled.label`
   display: flex;
   align-items: center;
   color: var(--color-text-primary);
-  font-family: 'Roboto';
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
   @media (min-width: 768px) {
     font-size: 16px;
@@ -184,9 +169,7 @@ const ActivitiLabel = styled.label`
 
 const SubmitButton = muiStyled('button')({
   color: 'var(--color-text-primary)',
-  fontFamily: 'Roboto',
   fontSize: '16px',
-  fontStyle: 'normal',
   fontWeight: '500',
   lineHeight: '18px',
   padding: '12px 40px',

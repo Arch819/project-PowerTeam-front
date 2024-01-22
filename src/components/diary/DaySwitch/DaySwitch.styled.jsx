@@ -67,7 +67,6 @@ export const CalendarGlobalStyles = createGlobalStyle`
     color: rgba(239, 237, 232, 0.5);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     line-height: normal;
   }
@@ -176,13 +175,18 @@ export const CalendarWrapper = styled.div`
   align-items: center;
 `;
 
+export const ChevronButton = styled.button`
+  background: transparent;
+  border: none;
+`;
+
 export const IconChevron = styled.svg`
   width: 16px;
   height: 16px;
   stroke: var(--color-text-pr30);
   fill: transparent;
   cursor: pointer;
-  transition: stroke 0.3s var(--transition);
+  transition: stroke var(--transition);
   &:hover {
     stroke: var(--color-text-primary);
   }

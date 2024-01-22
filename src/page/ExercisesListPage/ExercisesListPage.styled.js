@@ -14,14 +14,12 @@ export const LinkBack = styled(Link)`
   text-decoration: none;
   align-items: center;
   gap: 8px;
-  // margin-top: 10px;
   color: rgba(239, 237, 232, 0.4);
   font-size: 14px;
   line-height: 1.28;
   transition: var(--transition);
 
   @media screen and (min-width: 768px) {
-    // margin-top: 32px;
     font-size: 16px;
     line-height: 1.5;
   }

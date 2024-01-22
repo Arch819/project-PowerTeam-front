@@ -7,7 +7,6 @@ export const ExercisesList = styled.ul`
 
   @media screen and (max-width: 767px) {
     margin-top: 20px;
-    //padding-bottom: 40px;
   }
 
   @media screen and (min-width: 768px) {
@@ -29,7 +28,6 @@ export const ExercisesItem = styled.li`
 export const StyledLink = styled(Link)`
   outline: none;
   text-decoration: none;
-
   color: rgba(239, 237, 232, 0.4);
   font-family: inherit;
   font-size: 14px;

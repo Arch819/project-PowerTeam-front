@@ -9,7 +9,7 @@ export const StatisticListStyle = styled('ul')({
   '& svg': {
     width: '12px',
     height: '12px',
-    fill: '#EFEDE8',
+    fill: 'var(--color-text-primary)',
   },
 
   '@media screen and (min-width: 768px)': {

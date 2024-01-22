@@ -4,6 +4,20 @@ import styled from 'styled-components';
 export const StyledContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row-reverse;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1024px) {
+    flex-wrap: nowrap;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 `;
 export const StyledWrapperTemplate = styled.div`
   display: flex;

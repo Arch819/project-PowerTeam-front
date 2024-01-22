@@ -1,17 +1,14 @@
-// ExercisesItem містить інформацію про вправу, а саме:
-//  - назву вправи
-//  - кількість калорій, яку буде спалено за 60 хвилин виконання вправи
-//  - частину тіла, яка буде задіяна під час виконання вправи
-//  - мʼязи, які буде вдосконалено в результаті виконання вправи
-// Також ExercisesItem містить кнопку Start, що відкриває модальне вікно BasicModalWindow,  яке містить AddExerciseForm
-
 import { useState } from 'react';
 import ExercisesItemStyled from './ExercisesItemStyled';
 import sprite from '../../../images/sprite.svg';
 import BasicModalWindow from '../../Modal';
+import { AddExerciseForm } from '../../Modal/AddExerciseForm';
+import { SuccessExerciseModalWindow } from 'components/Modal/AddPExerciseSuccess';
 
 function ExercisesItem({ exerciseData }) {
   const [modal, setModal] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
+  const [dataSuccess, setDataSuccess] = useState(null);
   const { bodyPart, name, target, burnedCalories } = exerciseData;
 
   const upFirst = string => {
@@ -24,6 +21,19 @@ function ExercisesItem({ exerciseData }) {
     setModal(preModal => {
       return !preModal;
     });
+  };
+
+  const closeModal = () => {
+    setModal(false);
+  };
+
+  const closeSuccessModal = () => {
+    setSuccessModal(false);
+  };
+
+  const handleSuccessModal = data => {
+    setDataSuccess(data);
+    setSuccessModal(true);
   };
 
   return (
@@ -57,7 +67,23 @@ function ExercisesItem({ exerciseData }) {
           <span className="category-data">{upFirst(target)}</span>
         </li>
       </ul>
-      {modal && <BasicModalWindow exerciseData={exerciseData} />}
+      {modal && (
+        <BasicModalWindow isOpenModalToggle={closeModal}>
+          <AddExerciseForm
+            data={exerciseData}
+            onClick={openModal}
+            openSuccess={handleSuccessModal}
+          />
+        </BasicModalWindow>
+      )}
+      {successModal && (
+        <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
+          <SuccessExerciseModalWindow
+            data={dataSuccess}
+            closeModal={closeModal}
+          />
+        </BasicModalWindow>
+      )}
     </ExercisesItemStyled>
   );
 }

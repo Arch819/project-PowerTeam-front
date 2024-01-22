@@ -10,7 +10,7 @@ import {
 } from './Timer.styled';
 import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
-import _ from 'lodash.throttle';
+// import _ from 'lodash.throttle';
 
 const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
   const [isPlaying, setIsPlaying] = useState(false);

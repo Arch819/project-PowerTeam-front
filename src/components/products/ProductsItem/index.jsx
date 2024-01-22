@@ -1,17 +1,14 @@
-// ProductsItem містить інформацію про продукт, а саме:
-//  - назву продукту
-//  - кількість калорій, яку вміщає продукт
-//  - категорію продукту
-//  - кількість продукту (в грамах), за яку проведено розрахунок кількості калорій в продукті
-// Також ProductsItem відображає користувачу, чи рекомендований цей продукт для нього, та містить кнопку Add, що відкриває модальне вікно BasicModalWindow,  яке містить AddProductForm
-
 import { useState } from 'react';
 import ProductsItemStyled from './ProductsItemStyled';
 import sprite from '../../../images/sprite.svg';
 import BasicModalWindow from '../../Modal';
+import { AddProductSuccess } from 'components/Modal/AddProductSuccess';
+import AddProductForm from 'components/Modal/AddProductForm';
 
 function ProductsItem({ productData }) {
   const [modal, setModal] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
+  const [dataSuccess, setDataSuccess] = useState(null);
   const { title, category, calories, weight, recommend } = productData;
 
   const upFirst = string => {
@@ -24,6 +21,19 @@ function ProductsItem({ productData }) {
     setModal(preModal => {
       return !preModal;
     });
+  };
+
+  const closeModal = () => {
+    setModal(false);
+  };
+
+  const closeSuccessModal = () => {
+    setSuccessModal(false);
+  };
+
+  const handleSuccessModal = data => {
+    setDataSuccess(data);
+    setSuccessModal(true);
   };
 
   return (
@@ -67,7 +77,20 @@ function ProductsItem({ productData }) {
           <span className="category-data">{weight}</span>
         </li>
       </ul>
-      {modal && <BasicModalWindow productData={productData} />}
+      {modal && (
+        <BasicModalWindow isOpenModalToggle={closeModal}>
+          <AddProductForm
+            eldata={productData}
+            onClick={openModal}
+            openSuccess={handleSuccessModal}
+          />
+        </BasicModalWindow>
+      )}
+      {successModal && (
+        <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
+          <AddProductSuccess calories={dataSuccess} closeModal={closeModal} />
+        </BasicModalWindow>
+      )}
     </ProductsItemStyled>
   );
 }

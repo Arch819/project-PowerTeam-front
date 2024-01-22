@@ -50,7 +50,6 @@ export const TextContainer = styled.div`
   height: 100%;
 
   > h3 {
-    font-style: normal;
     text-align: center;
     font-size: 20px;
     font-weight: 400;
