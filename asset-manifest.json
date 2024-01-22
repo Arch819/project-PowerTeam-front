@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-PowerTeam-front/static/css/main.cb27c3d0.css",
-    "main.js": "/project-PowerTeam-front/static/js/main.dcbd38d1.js",
+    "main.js": "/project-PowerTeam-front/static/js/main.e291f1a9.js",
     "static/js/881.46d8f165.chunk.js": "/project-PowerTeam-front/static/js/881.46d8f165.chunk.js",
     "static/js/161.9b8f454c.chunk.js": "/project-PowerTeam-front/static/js/161.9b8f454c.chunk.js",
     "static/media/background-1-mobile@2x.jpg": "/project-PowerTeam-front/static/media/background-1-mobile@2x.87c01507cadde944a79c.jpg",
@@ -23,12 +23,12 @@
     "static/media/background-1-tablet.jpg": "/project-PowerTeam-front/static/media/background-1-tablet.1bae9f11a2c31cf1e521.jpg",
     "index.html": "/project-PowerTeam-front/index.html",
     "main.cb27c3d0.css.map": "/project-PowerTeam-front/static/css/main.cb27c3d0.css.map",
-    "main.dcbd38d1.js.map": "/project-PowerTeam-front/static/js/main.dcbd38d1.js.map",
+    "main.e291f1a9.js.map": "/project-PowerTeam-front/static/js/main.e291f1a9.js.map",
     "881.46d8f165.chunk.js.map": "/project-PowerTeam-front/static/js/881.46d8f165.chunk.js.map",
     "161.9b8f454c.chunk.js.map": "/project-PowerTeam-front/static/js/161.9b8f454c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cb27c3d0.css",
-    "static/js/main.dcbd38d1.js"
+    "static/js/main.e291f1a9.js"
   ]
 }
