@@ -122,12 +122,10 @@ export const SelectWrapperRec = styled.div`
 export const ProductTitle = styled.h2`
   @media screen and (min-width: 375px) {
     font-size: 24px;
-    /* margin-top: 40px; */
     margin-bottom: 40px;
   }
   @media screen and (min-width: 768px) {
     font-size: 32px;
-    /* margin-top: 72px; */
     margin-bottom: 32px;
   }
   @media screen and (min-width: 1440px) {
