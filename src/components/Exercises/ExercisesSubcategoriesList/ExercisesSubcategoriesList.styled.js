@@ -56,11 +56,11 @@ export const Image = styled.img`
 
   @media screen and (min-width: 375px) {
     width: 334px;
-    height: 206px;
+    height: 207px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 222px;
+    width: 223px;
     height: 206px;
   }
 
