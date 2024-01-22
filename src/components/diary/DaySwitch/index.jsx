@@ -1,25 +1,17 @@
-// Компонент відображає обрану користувачем дату у форматі dd/mm/YYYY.  По замовчуванню обрана дата дорівнює поточній даті.
-
-// По clickу на поточну дату має відкриватись календар для зручного вибору дати користувачем.
-
-// По clickу на іконку-"<" поточна дата має змінюватись на дату попереднього дня.
-// По clickу на іконку-">" поточна дата має змінюватись на дату наступного дня.
-
-// Дати, що передували даті реєстрації авторизованого користувача, мають бути недоступними для вибору.
-
+import { addDays, format, subDays } from 'date-fns';
 import { forwardRef, useState } from 'react';
-import { format, subDays, addDays } from 'date-fns';
 import DatePicker from 'react-datepicker';
-import {
-  CalendarGlobalStyles,
-  CalendarWrapper,
-  IconSvg,
-  TitleWrapper,
-  IconChevron,
-  CalendarContainer,
-} from './DaySwitch.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import sprite from '../../../images/sprite.svg';
+import {
+  CalendarContainer,
+  CalendarGlobalStyles,
+  CalendarWrapper,
+  ChevronButton,
+  IconChevron,
+  IconSvg,
+  TitleWrapper,
+} from './DaySwitch.styled';
 
 const DaySwitch = ({ onChangeDate }) => {
   const [selectedDate, setSelectedDate] = useState(Date.now());
@@ -38,12 +30,20 @@ const DaySwitch = ({ onChangeDate }) => {
             <use href={`${sprite}#icon-calendar`}></use>
           </IconSvg>
         </TitleWrapper>
-        <IconChevron onClick={() => handleDateChange(subDays(selectedDate, 1))}>
-          <use href={`${sprite}#icon-calendar-left`}></use>
-        </IconChevron>
-        <IconChevron onClick={() => handleDateChange(addDays(selectedDate, 1))}>
-          <use href={`${sprite}#icon-calendar-right`}></use>
-        </IconChevron>
+        <ChevronButton
+          onClick={() => handleDateChange(subDays(selectedDate, 1))}
+        >
+          <IconChevron>
+            <use href={`${sprite}#icon-calendar-left`}></use>
+          </IconChevron>
+        </ChevronButton>
+        <ChevronButton
+          onClick={() => handleDateChange(addDays(selectedDate, 1))}
+        >
+          <IconChevron>
+            <use href={`${sprite}#icon-calendar-right`}></use>
+          </IconChevron>
+        </ChevronButton>
       </CalendarWrapper>
     );
   });

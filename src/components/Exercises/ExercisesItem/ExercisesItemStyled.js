@@ -3,11 +3,20 @@ import styled from 'styled-components';
 const ExercisesItemStyled = styled.li`
   position: relative;
   width: 335px;
+  max-height: 163px;
   padding: 16px;
 
   border-radius: 12px;
   border: var(--border-20);
   background: rgba(239, 237, 232, 0.05);
+
+  &:hover,
+  &:focus {
+    transition: var(--transition);
+    border: 1px solid var(--bg-alert);
+    box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset,
+      8px 8px 8px 2px rgba(34, 60, 80, 0.2);
+  }
 
   .workout {
     width: 73px;
@@ -34,8 +43,6 @@ const ExercisesItemStyled = styled.li`
     color: var(--color-text-caloriesV2);
     fill: var(--color-text-caloriesV2);
     stroke: var(--color-text-caloriesV2);
-    transition: color var(--transition), fill var(--transition),
-      stroke var(--transition);
 
     display: flex;
     align-items: center;
@@ -51,12 +58,9 @@ const ExercisesItemStyled = styled.li`
       height: 16px;
     }
 
-    &:hover {
-      color: var(--color-text-white);
-      fill: var(--color-text-white);
-      stroke: var(--color-text-white);
-    }
+    &:hover,
     &:focus {
+      transition: var(--transition);
       color: var(--color-text-white);
       fill: var(--color-text-white);
       stroke: var(--color-text-white);
@@ -149,6 +153,7 @@ const ExercisesItemStyled = styled.li`
 
   @media screen and (min-width: 1440px) {
     width: 405px;
+    max-height: 141px;
 
     .workout {
       margin-bottom: 27px;

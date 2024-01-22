@@ -1,4 +1,5 @@
-import ExersiceModalWindowList from './ExersiceModalWindowList/ExersiceModalWindowList';
+import { format } from 'date-fns';
+import ExersiceModalWindowList from '../Modal/ExersiceModalWindowList';
 
 import {
   ExersiceModalWindowWrap,
@@ -9,8 +10,8 @@ import {
   ExersiceModalImg,
   ExersiceModalTimer,
 } from './AddExerciseForm.styled';
+
 import Timer from '../Timer/Timer';
-import { fetchCurrentUser } from '../../store/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Notiflix from 'notiflix';
@@ -23,7 +24,7 @@ const formatDate = date => {
   return `${day}/${month}/${year}`;
 };
 
-export const AddExerciseForm = ({ data, onClick, closeModal }) => {
+export const AddExerciseForm = ({ data, onClick, openSuccess }) => {
   const {
     bodyPart,
     equipment,
@@ -31,18 +32,14 @@ export const AddExerciseForm = ({ data, onClick, closeModal }) => {
     gifUrl,
     name,
     target,
-    _id,
+    idExercise,
     time,
   } = data;
-
+console.log(data)
   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
   const [dinamicTime, setDinamicTime] = useState(0);
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCurrentUser());
-  }, [dispatch]);
 
   const amount = Math.round((burnedCalories / (time * 60)) * 180);
 
@@ -58,25 +55,21 @@ export const AddExerciseForm = ({ data, onClick, closeModal }) => {
 
   const formattedDate = formatDate(date);
 
+  const currentDate = new Date();
+  const normalizedDate = (format(currentDate, 'yyyy-MM-dd'))
+
   const handleAddToDiary = () => {
     if (!amount) {
       Notiflix.Report.failure('Error', 'Must be greater than 0', 'OK');
       return;
-    }
+    };
 
     dispatch(
-      getAddExerciseThunk({
-        date: formattedDate, // Use the formatted date
-        bodyPart,
-        target,
-        time: dinamicTime,
-        exerciseId: _id,
-        equipment,
-        name,
-        burnedCalories: dinamicBurnCal,
-      }),
-    );
-    onClick();
+      getAddExerciseThunk({ time:dinamicTime, date: normalizedDate, exercise: idExercise, burnedCalories: dinamicBurnCal }),
+    ).then(() => {
+    openSuccess({burnedCalories: dinamicBurnCal, time: dinamicTime})
+     onClick();
+    })
   };
 
   return (

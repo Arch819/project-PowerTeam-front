@@ -1,10 +1,3 @@
-// ProductsItem містить інформацію про продукт, а саме:
-//  - назву продукту
-//  - кількість калорій, яку вміщає продукт
-//  - категорію продукту
-//  - кількість продукту (в грамах), за яку проведено розрахунок кількості калорій в продукті
-// Також ProductsItem відображає користувачу, чи рекомендований цей продукт для нього, та містить кнопку Add, що відкриває модальне вікно BasicModalWindow,  яке містить AddProductForm
-
 import { useState } from 'react';
 import ProductsItemStyled from './ProductsItemStyled';
 import sprite from '../../../images/sprite.svg';

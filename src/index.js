@@ -11,6 +11,9 @@ import { App } from 'components/App';
  import { Loader } from 'components/Loader';
 import 'react-datepicker/dist/react-datepicker.css';
 import './index.css';
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

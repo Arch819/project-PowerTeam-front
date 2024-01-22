@@ -1,5 +1,3 @@
-// ExercisesList містить список всіх вправ ExercisesItem, отриманих з backendу за відповідною підкатегорією.
-
 import React from 'react';
 import ExercisesItem from '../ExercisesItem';
 import ExercisesListStyled from './ExercisesListStyled';

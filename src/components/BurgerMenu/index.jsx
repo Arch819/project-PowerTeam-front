@@ -62,7 +62,7 @@ function BurgerMenu({ onClick }) {
             </IconCloseMenu>
           </ContainerIconCloseStyled>
           {bodyData && (
-            <NavContainerStyled>
+            <NavContainerStyled onClick={handleCloseClick}>
               <BurgerMenuNavLinkStyled to="/diary">
                 Diary
               </BurgerMenuNavLinkStyled>
