@@ -1,9 +1,3 @@
-//  Products page "/products"
-// Складається з:
-//  - компоненту TitlePage (опис компонента деталізовано у Diary page)
-//  - компоненту ProductsFilters, що дозволяє користувачу відфільтрувати продукти по ключовому слову, за категорією, а також в
-// залежності рекомендовано цей продукт йому або ні
-//  - компоненту ProductsList, що містить перелік продуктів
 
 import Section from 'components/Section';
 import TitlePage from 'components/TitlePage';
@@ -19,6 +13,8 @@ import {
 } from 'store/products/productsSelector';
 import { useEffect } from 'react';
 import { getAllProducts, getProductsCategories } from 'store/products/productsOperations';
+import { TitleFilter } from '../../components/products/ProductsFilters/index.styled'; 
+import SearchNoResult from 'components/products/SearchNoResult';
 
 function ProductsPage() {
   const dispatch = useDispatch();
@@ -50,11 +46,15 @@ function ProductsPage() {
   return (
     <Section use={'secondary'}>
       <div className="container">
-        <TitlePage title={'Products'} />
-        <ProductsFilters
-          categories={categories}
-        />
-        <ProductsList productsArray={productsArray} />
+        <TitleFilter>
+          <TitlePage title={'Products'} />
+          <ProductsFilters categories={categories} />
+        </TitleFilter>
+        {productsArray.length > 0 ? (
+          <ProductsList productsArray={productsArray} />
+        ) : (
+          <SearchNoResult />
+        )}
       </div>
     </Section>
   );

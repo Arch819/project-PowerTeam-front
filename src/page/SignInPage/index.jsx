@@ -13,20 +13,22 @@ import {
 const SignInPage = () => {
   return (
     <Section use={'first'}>
-      <StyledContainer>
-        <StyledWrapperTemplate>
-          <StyledSignUpTitle>Sign In</StyledSignUpTitle>
-          <StyledParagraf>
-            Welcome! Please enter your credentials to login to the platform:
-          </StyledParagraf>
-          <SignInForm />
-          <StyledTextRedirection>
-            Don’t have an account?{' '}
-            <StyledNavLink to="/signup">Sign Up</StyledNavLink>
-          </StyledTextRedirection>
-        </StyledWrapperTemplate>
-        <StatisticsList />
-      </StyledContainer>
+      <div className="container">
+        <StyledContainer>
+          <StyledWrapperTemplate>
+            <StyledSignUpTitle>Sign In</StyledSignUpTitle>
+            <StyledParagraf>
+              Welcome! Please enter your credentials to login to the platform:
+            </StyledParagraf>
+            <SignInForm />
+            <StyledTextRedirection>
+              Don’t have an account?{' '}
+              <StyledNavLink to="/signup">Sign Up</StyledNavLink>
+            </StyledTextRedirection>
+          </StyledWrapperTemplate>
+          <StatisticsList />
+        </StyledContainer>
+      </div>
     </Section>
   );
 };

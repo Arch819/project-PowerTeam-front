@@ -4,15 +4,17 @@ export const SuccessModalWindow = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 export const SuccessModalWindowWrap = styled.div`
-  padding: 48px 89px;
+  width: 100%; 
+  padding: 48px 16px; 
   display: flex;
   flex-direction: column;
   align-items: center;
   @media screen and (min-width: 768px) {
-    padding: 64px 134px;
+    padding: 64px 134px; 
   }
 `;
 
@@ -44,6 +46,7 @@ export const SuccessModalWindowText = styled.p`
   display: flex;
   gap: 8px;
   align-items: center;
+  text-decoration: none;
 `;
 
 export const SuccessModalWindowSpan = styled.span`

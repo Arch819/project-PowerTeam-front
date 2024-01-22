@@ -26,8 +26,13 @@ function ExercisesPage() {
     if (!category) {
       navigate('/exercises/bodyPart', { replace: true });
     }
-    dispatch(getExercisesFilters(filter));
-  }, [category, dispatch, filter, navigate]);
+  }, [category, navigate]);
+
+  useEffect(() => {
+    if (category) {
+      dispatch(getExercisesFilters(filter));
+    }
+  }, [category, dispatch, filter]);
 
   return (
     <Section>

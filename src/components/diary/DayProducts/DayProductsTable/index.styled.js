@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const ProductsSection = styled.div`
   @media (min-width: 768px) {
     border-radius: 12px;
-    border: 1px solid rgba(239, 237, 232, 0.2);
+    border: var(--border-20);
     background: rgba(239, 237, 232, 0.05);
     margin-bottom: 32px;
     width: 704px;
@@ -29,7 +29,7 @@ export const ProductsHeader = styled.div`
 
 export const ProductsTitle = styled.p`
   @media (min-width: 768px) {
-    color: rgba(239, 237, 232, 0.5);
+    color: var(--color-text-pr50);
     font-size: 14px;
     line-height: 1.3;
   }

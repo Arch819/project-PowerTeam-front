@@ -7,7 +7,7 @@ export const DayExercisesContainer = styled.div`
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 80px;
-  border: 1px solid rgba(239, 237, 232, 0.2);
+  border: var(--border-20);
   background: rgba(239, 237, 232, 0.05);
 `;
 
@@ -19,7 +19,7 @@ export const DayExercisesHeader = styled.div`
 `;
 
 export const ExercisesTitle = styled.p`
-  color: rgba(239, 237, 232, 0.5);
+  color: var(--color-text-pr50);
   font-size: 14px;
   line-height: 1.3;
 `;

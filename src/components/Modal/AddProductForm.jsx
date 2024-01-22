@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState} from 'react';
+import { useDispatch } from 'react-redux';
 import { getAddProductThunk } from '../../store/diary/diaryThunk';
 import Notiflix from 'notiflix';
-import { fetchCurrentUser } from '../../store/auth/operations';
-import { selectUser } from '../../store/auth/selector';
+// import { fetchCurrentUser } from '../../store/auth/operations';
+// import { selectUser } from '../../store/auth/selector';
 import {
   BtnAdd,
   BtnCancel,
@@ -16,26 +16,24 @@ import {
   InputWrapper,
   ModalWrapper,
   WeightLabel,
-} from './AddProductForm.styled';
+} from '../Modal/AddProductForm.styled';
+// import { notiflixMessage } from 'helpers/notiflixMessage';
 
 const formatDate = date => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+  return `${year}-${month}-${day}`;
 };
  
-const AddProductForm = ({ eldata, onClick, closeModal }) => {
+const AddProductForm = ({ eldata, onClick, openSuccess }) => {
   const dispatch = useDispatch();
-  const { title, calories, category, weight, _id: productId } = eldata;
+  const { title, calories, idProduct: productId } = eldata;
+  console.log(eldata)
   const [quantity, setQuantity] = useState(1);
 
-  const data = useSelector(selectUser);
-  const bloodType = data.blood;
-
-  useEffect(() => {
-    dispatch(fetchCurrentUser());
-  }, [dispatch]);
+  // const data = useSelector(selectUser);
+  // const bloodType = data.blood;
 
   const amount = Math.round((quantity * calories) / 100);
 
@@ -52,21 +50,13 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
     dispatch(
       getAddProductThunk({
         date: formattedDate,
-        title,
         productId,
-        category,
-        weight,
         amount: quantity,
-        recommended: eldata.groupBloodNotAllowed[bloodType],
         calories,
       }),
-    )
-      .then(() => {
-        onClick(amount);
-      })
-      .catch(error => {
-        Notiflix.Report.failure('Error', error.message, 'OK');
-      });
+    ).then(() => {
+    openSuccess(calories)
+     onClick();    })
   };
 
   return (
@@ -97,7 +87,7 @@ const AddProductForm = ({ eldata, onClick, closeModal }) => {
           <BtnAdd type="button" onClick={handleAddToDiary}>
             Add to diary
           </BtnAdd>
-          <BtnCancel type="button" onClick={closeModal}>
+          <BtnCancel type="button" onClick={onClick}>
             Cancel
           </BtnCancel>
         </BtnWrapper>
