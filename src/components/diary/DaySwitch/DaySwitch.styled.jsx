@@ -176,13 +176,18 @@ export const CalendarWrapper = styled.div`
   align-items: center;
 `;
 
+export const ChevronButton = styled.button`
+  background: transparent;
+  border: none;
+`;
+
 export const IconChevron = styled.svg`
   width: 16px;
   height: 16px;
   stroke: var(--color-text-pr30);
   fill: transparent;
   cursor: pointer;
-  transition: stroke 0.3s var(--transition);
+  transition: stroke var(--transition);
   &:hover {
     stroke: var(--color-text-primary);
   }

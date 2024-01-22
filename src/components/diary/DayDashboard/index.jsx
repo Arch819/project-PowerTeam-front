@@ -1,17 +1,8 @@
-// DayDashboard складається з повідомлення-попередження та 6 блоків, а саме:
-//  - Daily calorie intake відображає добову норму калорій для авторизованого користувача
-//  - Daily norm of sports - добову норму часу для занять спортом (в хвилинах)
-//  - Сalories consumed - кількість спожитих калорій
-//  - Сalories burned - кількість спалених калорій під час занять спортом
-//  - The rest of the calories - кількість калорій, яку залишилось спожити користувачеві в межах добової норми. У разі перевищення добової норми калорій, блок необхідно попереджуючи підсвітити.
-//  - The rest of sports -  кількістт часу, яку необхідно приділити спорту в межах добової норми часу для занять спортом. У разі перевищення добової норми калорій, блок необхідно заохочуючи підсвітити.
-// У разі будь-якої зміни показників, відображена інформація має бути актуалізована без перезавантаження сторінки.
-
 import { useSelector } from 'react-redux';
+import { selectUserParams } from 'store/auth/selector';
+import { selectExercises, selectProducts } from 'store/diary/diarySelectors.js';
 import sprite from '../../../images/sprite.svg';
 import DayDashboardItem from '../DayDashboardItem';
-
-import { selectExercises, selectProducts } from 'store/diary/diarySelectors.js';
 import {
   Box,
   DayDashboardList,
@@ -19,7 +10,6 @@ import {
   TextWarning,
   Thumb,
 } from './DayDashboard.styled';
-import { selectUserParams } from 'store/auth/selector';
 
 function DayDashboard() {
   const diaryProducts = useSelector(selectProducts);
