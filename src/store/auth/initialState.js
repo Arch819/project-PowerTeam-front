@@ -17,5 +17,5 @@ export const initialState = {
   },
   token: '',
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
 };
