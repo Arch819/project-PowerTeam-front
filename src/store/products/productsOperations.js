@@ -16,9 +16,9 @@ export const getAllProducts = createAsyncThunk(
           : 'none';
 
       const data = await getProducts({
-        filterType: transformedRecommended,
-        category,
         title: query,
+        category,
+        filterType: transformedRecommended,
       });
       return data;
     } catch (error) {
