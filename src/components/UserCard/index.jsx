@@ -26,6 +26,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, selectUserParams } from 'store/auth/selector';
 import { updateAvatar } from 'store/auth/operations';
 import { useState } from 'react';
+import { notiflixMessage } from 'helpers/notiflixMessage';
 
 function UserCard() {
   const dispatch = useDispatch();
@@ -47,7 +48,6 @@ function UserCard() {
     const file = e.target.files[0];
     setAvatar(e.target.files[0]);
     
-    console.log('file',file);
     if (file) {
       const blob = new Blob([file]);
       const objectURL = URL.createObjectURL(blob);
@@ -57,7 +57,7 @@ function UserCard() {
     try {
       dispatch(updateAvatar(file)) 
     } catch (error) {
-      console.error('Error loading the file', error);
+      notiflixMessage('error', `Error loading the file: ${error}` )
     }
   }
 
