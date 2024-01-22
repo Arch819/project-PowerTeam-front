@@ -23,7 +23,8 @@ export const AvatarFrame = styled.div`
 `;
 
 export const UserPhoto = styled.img`
-  //width: "70%";
+  height: 100%;
+  width:  100%;
   border-radius: 100px;
 `;
 
