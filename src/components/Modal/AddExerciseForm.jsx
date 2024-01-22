@@ -13,7 +13,7 @@ import {
 
 import Timer from '../Timer/Timer';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import Notiflix from 'notiflix';
 import { getAddExerciseThunk } from '../../store/diary/diaryThunk';
 
@@ -53,7 +53,7 @@ console.log(data)
     }
   }
 
-  const formattedDate = formatDate(date);
+  // const formattedDate = formatDate(date);
 
   const currentDate = new Date();
   const normalizedDate = (format(currentDate, 'yyyy-MM-dd'))
