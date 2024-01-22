@@ -88,6 +88,7 @@ const SignInForm = () => {
           value={formik.values.email}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          autoComplete="off"
         />
 
         {(formik.errors.email && formik.touched.email) ||

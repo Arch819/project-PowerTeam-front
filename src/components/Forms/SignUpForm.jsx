@@ -89,6 +89,7 @@ const SignUpForm = () => {
           value={formik.values.name}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          autoComplete="off"
         />
 
         {(formik.errors.name && formik.touched.name) ||
