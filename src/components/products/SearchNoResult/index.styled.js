@@ -13,10 +13,8 @@ export const NoResultWrapper = styled.div`
 export const NoResultText = styled.p`
   @media screen and (min-width: 375px) {
     display: inline-block;
-    font-size: 14px;
     line-height: 1.3;
     font-weight: 400;
-    font-style: normal;
     margin-bottom: 16px;
     color: rgba(239, 237, 232, 0.3);
   }
