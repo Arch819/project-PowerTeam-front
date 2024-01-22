@@ -7,7 +7,7 @@ export const ExercisesSection = styled.div`
     height: 824px;
     padding: 14px 16px;
     border-radius: 12px;
-    border: 1px solid rgba(239, 237, 232, 0.2);
+    border: var(--border-20);
     background: rgba(239, 237, 232, 0.05);
     overflow-y: scroll;
     width: 704px;
@@ -32,7 +32,7 @@ export const ExercisesHeader = styled.div`
 
 export const ExercisesTitle = styled.p`
   @media (min-width: 768px) {
-    color: rgba(239, 237, 232, 0.5);
+    color: var(--color-text-pr50);
     font-size: 14px;
     line-height: 1.3;
   }

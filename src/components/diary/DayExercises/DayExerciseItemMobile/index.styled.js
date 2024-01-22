@@ -24,7 +24,7 @@ export const ExercisesText = styled.p`
   width: 297px;
   height: 38px;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
+  border: var(--border-30);
 `;
 
 export const ExercisesTextTarget = styled(ExercisesText)`
