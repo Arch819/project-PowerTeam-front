@@ -32,7 +32,7 @@ const AddProductForm = ({ eldata, onClick, openSuccess }) => {
   console.log(eldata)
   const [quantity, setQuantity] = useState(1);
 
-  const data = useSelector(selectUser);
+  // const data = useSelector(selectUser);
   // const bloodType = data.blood;
 
   const amount = Math.round((quantity * calories) / 100);
