@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/project-PowerTeam-front/static/css/main.cb27c3d0.css",
-    "main.js": "/project-PowerTeam-front/static/js/main.4e9e0244.js",
-    "static/js/881.02861829.chunk.js": "/project-PowerTeam-front/static/js/881.02861829.chunk.js",
-    "static/js/161.0f29644b.chunk.js": "/project-PowerTeam-front/static/js/161.0f29644b.chunk.js",
+    "main.js": "/project-PowerTeam-front/static/js/main.dcbd38d1.js",
+    "static/js/881.46d8f165.chunk.js": "/project-PowerTeam-front/static/js/881.46d8f165.chunk.js",
+    "static/js/161.9b8f454c.chunk.js": "/project-PowerTeam-front/static/js/161.9b8f454c.chunk.js",
     "static/media/background-1-mobile@2x.jpg": "/project-PowerTeam-front/static/media/background-1-mobile@2x.87c01507cadde944a79c.jpg",
     "static/media/Roboto-Regular.ttf": "/project-PowerTeam-front/static/media/Roboto-Regular.25e40da956314b12d333.ttf",
     "static/media/Roboto-Bold.ttf": "/project-PowerTeam-front/static/media/Roboto-Bold.5e9f6556d3c0bf6230f0.ttf",
@@ -15,18 +15,20 @@
     "static/media/Roboto-Regular.woff2": "/project-PowerTeam-front/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
     "static/media/background-2-des@2x.jpg": "/project-PowerTeam-front/static/media/background-2-des@2x.6e4e2375c2204080dab5.jpg",
     "static/media/background-1-tablet@2x.jpg": "/project-PowerTeam-front/static/media/background-1-tablet@2x.513d4c44d769927c88c9.jpg",
+    "static/media/avocado-2x.png": "/project-PowerTeam-front/static/media/avocado-2x.01ea0a4aeb80a1d4532a.png",
     "static/media/sprite.svg": "/project-PowerTeam-front/static/media/sprite.32aa08b2ebf958776dda252e1c81e3a3.svg",
+    "static/media/like-2x.png": "/project-PowerTeam-front/static/media/like-2x.80d08c402daf4eb1e7ee.png",
     "static/media/background-1-des.jpg": "/project-PowerTeam-front/static/media/background-1-des.930667ea66724d5608af.jpg",
     "static/media/background-2-des.jpg": "/project-PowerTeam-front/static/media/background-2-des.d54f7b5608be85ca682f.jpg",
     "static/media/background-1-tablet.jpg": "/project-PowerTeam-front/static/media/background-1-tablet.1bae9f11a2c31cf1e521.jpg",
     "index.html": "/project-PowerTeam-front/index.html",
     "main.cb27c3d0.css.map": "/project-PowerTeam-front/static/css/main.cb27c3d0.css.map",
-    "main.4e9e0244.js.map": "/project-PowerTeam-front/static/js/main.4e9e0244.js.map",
-    "881.02861829.chunk.js.map": "/project-PowerTeam-front/static/js/881.02861829.chunk.js.map",
-    "161.0f29644b.chunk.js.map": "/project-PowerTeam-front/static/js/161.0f29644b.chunk.js.map"
+    "main.dcbd38d1.js.map": "/project-PowerTeam-front/static/js/main.dcbd38d1.js.map",
+    "881.46d8f165.chunk.js.map": "/project-PowerTeam-front/static/js/881.46d8f165.chunk.js.map",
+    "161.9b8f454c.chunk.js.map": "/project-PowerTeam-front/static/js/161.9b8f454c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cb27c3d0.css",
-    "static/js/main.4e9e0244.js"
+    "static/js/main.dcbd38d1.js"
   ]
 }
