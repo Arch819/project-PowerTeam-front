@@ -27,12 +27,14 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
           fill: 'row',
           rows: 10,
         }}
+        slidesPerGroup={1}
         pagination={{
           clickable: true,
         }}
         breakpoints={{
           768: {
             slidesPerView: 3,
+            slidesPerGroup: 3,
             grid: {
               fill: 'row',
               rows: 3,
@@ -41,6 +43,7 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
           },
           1440: {
             slidesPerView: 5,
+            slidesPerGroup: 5,
             grid: {
               fill: 'row',
               rows: 2,

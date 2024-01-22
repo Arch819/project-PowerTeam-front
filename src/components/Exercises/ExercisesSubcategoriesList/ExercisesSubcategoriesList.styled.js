@@ -9,12 +9,28 @@ export const SwiperBox = styled(Swiper)`
 
   padding-bottom: 40px !important;
 
+  > .main__slider {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  > .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   > .swiper-pagination .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
     background-color: rgba(239, 237, 232, 0.1);
   }
 
   > .swiper-pagination .swiper-pagination-bullet-active {
     background-color: var(--color-btn-secondary);
+    width: 9px;
+    height: 9px;
+    outline: 1px solid var(--color-btn-secondary);
+    outline-offset: 2px;
   }
 
   > .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -29,11 +45,13 @@ export const SwiperItem = styled(SwiperSlide)`
   border-radius: 12px;
 
   border: 1px solid rgba(239, 237, 232, 0.2);
-  //transition: var(--transition);
 
   &:hover,
   &:focus {
+    transition: var(--transition);
     border: 1px solid var(--bg-alert);
+    box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset,
+      8px 8px 8px 2px rgba(34, 60, 80, 0.2);
   }
 
   @media screen and (max-width: 767px) {
