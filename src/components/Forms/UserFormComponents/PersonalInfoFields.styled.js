@@ -71,7 +71,6 @@ export const CalendarGlobalStyles = createGlobalStyle`
     color: var(--color-text-pr50);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     line-height: normal;
   }
@@ -113,7 +112,6 @@ export const CalendarGlobalStyles = createGlobalStyle`
     color: var(--color-text-primary);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 400;
     line-height: 18px;
     text-align: center;
     width: 24px;
@@ -163,8 +161,6 @@ export const TitleWrapper = styled.button`
   text-align: start;
   font-family: 'Roboto';
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 24px;
   padding: 14px;
 `;
