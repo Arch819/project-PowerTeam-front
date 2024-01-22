@@ -3,7 +3,7 @@ import { ContainerBlock, SvgBlock, TextBlock, ValueBlock, WrapperBlock } from '.
 
 export const DailyBlock = ({ color, border, iconId, text, value }) => {
     return (
-      <ContainerBlock color={color} border={border}>
+      <ContainerBlock color={color} $border={border}>
         <WrapperBlock>
           <SvgBlock>
             <use href={`${sprite}#${iconId}`} />
