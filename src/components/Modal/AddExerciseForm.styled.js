@@ -85,6 +85,7 @@ export const ExersiceModalWindowBtn = styled.button`
   line-height: 24px;
   padding: 12px 32px;
   border-radius: 12px;
+  border-color: transparent;
   background: #e6533c;
   align-self: flex-start;
   &:hover {
