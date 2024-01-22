@@ -9,10 +9,6 @@ export const SwiperBox = styled(Swiper)`
 
   padding-bottom: 40px !important;
 
-  > .swiper-wrapper {
-    justify-content: flex-start;
-  }
-
   > .swiper-pagination {
     display: flex;
     justify-content: center;
