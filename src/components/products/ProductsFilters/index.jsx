@@ -80,10 +80,13 @@ const ProductsFilters = () => {
 
   const categories = useSelector(selectCategoriesProducts);
 
-  const categoriesList = categories.map(category => ({
-    value: category,
-    label: capitalizeFirstLetter(category),
-  }));
+  const categoriesList = [
+    { value: 'all', label: 'All' },
+    ...categories.map(category => ({
+      value: category,
+      label: capitalizeFirstLetter(category),
+    })),
+  ];
 
   const handleSearchChange = event => {
     setInputValue(event.target.value);
