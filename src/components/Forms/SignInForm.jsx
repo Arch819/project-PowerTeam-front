@@ -43,12 +43,14 @@ const SignInForm = () => {
       password: '',
     },
     onSubmit: async (values, actions) => {
-      dispatch(loginUser(values)).then(() => {
-        notiflixMessage(
-          'ok',
-          'You have been successfully logged in! Your session is now active.'
-        );
-        actions.resetForm();
+      dispatch(loginUser(values)).then(({ payload }) => {
+        if (payload.token) {
+          notiflixMessage(
+            'ok',
+            'You have been successfully logged in! Your session is now active.'
+          );
+          actions.resetForm();
+        }
       });
     },
 
@@ -122,6 +124,7 @@ const SignInForm = () => {
           value={formik.values.password}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
+          autoComplete="off"
         />
 
         <IconPasswordWrapper onClick={togglePassword}>

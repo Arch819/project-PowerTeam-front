@@ -148,10 +148,6 @@ export const IconPasswordWrapper = styled.span`
     right: 0;
     left: 325px;
   }
-
-  @media screen and (min-width: 1440px) {
-    left: 285px;
-  }
 `;
 
 export const SvgPasswordIcon = styled.svg`

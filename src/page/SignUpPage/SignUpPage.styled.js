@@ -17,19 +17,21 @@ export const StyledContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
+    padding-top: 200px;
+    justify-content: space-between;
   }
 `;
 export const StyledWrapperTemplate = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 127px 20px 0;
+  padding-top: 127px;
 
   @media screen and (min-width: 768px) {
-    padding: 189px 240px 0 32px;
+    padding-top: 189px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 200px 178px 0 96px;
+    padding-top: 0px;
   }
 `;
 
