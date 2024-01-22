@@ -43,8 +43,8 @@ console.log(data)
 
   const amount = Math.round((burnedCalories / (time * 60)) * 180);
 
-  const savedDate = localStorage.getItem('selectedDate');
-  let date = new Date(); // Default to current date
+  // const savedDate = localStorage.getItem('selectedDate');
+  // let date = new Date(); // Default to current date
 
   // if (savedDate) {
   //   const parsedDate = new Date(savedDate);
