@@ -27,7 +27,7 @@ export const Image = styled.img`
   }
 
   @media screen and (min-width: 768px) {
-    width: 221px;
+    width: 220px;
     height: 206px;
   }
 

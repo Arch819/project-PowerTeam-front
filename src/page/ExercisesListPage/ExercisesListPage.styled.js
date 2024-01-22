@@ -1,23 +1,37 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const LinkBox = styled.div`
+  padding-top: 10px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 32px;
+  }
+`;
+
 export const LinkBack = styled(Link)`
   display: flex;
   text-decoration: none;
   align-items: center;
   gap: 8px;
-  margin-top: 10px;
+  // margin-top: 10px;
   color: rgba(239, 237, 232, 0.4);
   font-size: 14px;
   line-height: 1.28;
+  transition: var(--transition);
+
   @media screen and (min-width: 768px) {
-    margin-top: 32px;
+    // margin-top: 32px;
     font-size: 16px;
     line-height: 1.5;
   }
 
   &:hover {
-    color: #e6533c;
+    color: var(----color-btn-secondary);
+  }
+
+  &:focus {
+    color: var(----color-btn-secondary);
   }
 `;
 
