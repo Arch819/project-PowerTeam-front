@@ -109,6 +109,15 @@ const ProductsFilters = () => {
     );
   };
 
+  const handleKeyDown = event => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (!event.repeat) {
+        handleSubmit(event);
+      }
+    }
+  };
+
   const handleCategoriesChange = selectedOption => {
     dispatch(handleUpdateFilters({ category: selectedOption }));
   };
@@ -118,7 +127,7 @@ const ProductsFilters = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onKeyDown={handleKeyDown}>
       <ProductsFilterList>
         <ProductsContainer>
           <li>
@@ -135,7 +144,7 @@ const ProductsFilters = () => {
               <ProductsBtnClose
                 type="button"
                 onClick={clearSearch}
-                isVisible={inputValue.length > 0}
+                $isVisible={inputValue.length > 0}
               >
                 <ProductsSvgClose>
                   <use href={`${sprite}#icon-close`}></use>
