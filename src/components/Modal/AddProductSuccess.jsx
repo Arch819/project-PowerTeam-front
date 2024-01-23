@@ -1,7 +1,3 @@
-// AddProductSuccess містить:
-//  - повідомлення користувачеві про успішне додавання спожитого ним продукту за день
-//  - кнопку Next product, по clickу на яку BasicModalWindow з AddProductSuccess має бути закрито
-//  - посилання To the diary, по clickу на яке користувача має бути переадресовано на Diary page
 
 import avocado from '../../images/ModalImg/avocado-2x.png';
 import sprite from '../../images/sprite.svg';

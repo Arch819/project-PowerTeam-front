@@ -1,7 +1,3 @@
-// AddPExerciseSuccess містить:
-//  - повідомлення користувачеві про успішне додавання виконаної ним вправи за день
-//  - кнопку Next exercise по clickу на яку BasicModalWindow з AddExerciseSuccess має бути закрито
-//  - посилання To the diary, по clickу на яке користувача має бути переадресовано на Diary page
 
 import like from '../../images/ModalImg/like-2x.png';
 import sprite from '../../images/sprite.svg';
