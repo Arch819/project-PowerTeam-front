@@ -13,7 +13,7 @@ import {
   TitleWrapper,
 } from './DaySwitch.styled';
 
-const DaySwitch = ({ onChangeDate }) => {
+const DaySwitch = ({ onChangeDate, dateRegister }) => {
   const [selectedDate, setSelectedDate] = useState(Date.now());
 
   const handleDateChange = newDate => {
@@ -54,19 +54,18 @@ const DaySwitch = ({ onChangeDate }) => {
         selected={selectedDate}
         changeMonth={true}
         changeYear={true}
-        peekNextMonth
         showMonthDropdown
         showYearDropdown
-        scrollableYearDropdown
-        yearDropdownItemNumber={100}
+        calendarStartDay={1}
+        formatWeekDay={day => day.substr(0, 1)}
+        // minDate={dateRegister}
+        maxDate={Date.now()}
         onChange={date => {
           setSelectedDate(date);
           onChangeDate(date);
         }}
         customInput={<CustomInput />}
         dateFormat={'dd MM yyyy'}
-        calendarStartDay={1}
-        formatWeekDay={day => day.substr(0, 1)}
       />
       <CalendarGlobalStyles />
     </CalendarContainer>
