@@ -21,25 +21,40 @@ export const ExercisesText = styled.p`
   line-height: 1.3;
   padding: 10px 14px;
   margin-bottom: 16px;
-  width: 297px;
   height: 38px;
   border-radius: 12px;
   border: var(--border-30);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  @media (min-width: 375px) {
+    width: 297px;
+    max-width: 297px;
+  }
 `;
 
 export const ExercisesTextTarget = styled(ExercisesText)`
-  width: 81px;
+  @media (min-width: 375px) {
+    width: 81px;
+    max-width: 81px;
+  }
 `;
 
 export const ExercisesTextCalories = styled(ExercisesText)`
-  width: 80px;
+  @media (min-width: 375px) {
+    width: 80px;
+    max-width: 80px;
+  }
 `;
 
 export const ExercisesTextTime = styled(ExercisesText)`
-  width: 76px;
   display: flex;
   align-items: center;
   gap: 8px;
+  @media (min-width: 375px) {
+    width: 76px;
+    max-width: 76px;
+  }
 `;
 
 export const DeleteButton = styled.button`
@@ -55,6 +70,7 @@ export const DeleteButton = styled.button`
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const ExerciseItemContainer = styled.div`
