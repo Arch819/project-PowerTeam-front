@@ -23,7 +23,7 @@ export const ExersiceModalLink = styled.li`
   padding-bottom: 12px;
   padding-left: 18px;
   width: 147px;
-  height: 62px;
+  max-height: 98px;
   justify-content: center;
 
   gap: 4px;
@@ -35,7 +35,7 @@ export const ExersiceModalLink = styled.li`
     margin-left: 0;
     margin-top: 0px;
     width: 168px;
-    height: 70px;
+    height: 76px;
     align-items: flex-start;
   }
 `;
