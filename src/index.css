@@ -1,4 +1,4 @@
-@import-normalize;
+  @import-normalize;
 
 :root {
   /* background */
@@ -121,10 +121,6 @@ img {
   height: auto;
 }
 
-header .conteiner {
-padding-bottom: 0;
-}
-
 .container {
   width: 100%;
   margin: 0 auto;
@@ -156,4 +152,7 @@ padding-bottom: 0;
     max-width: 1440px;
     padding: 0 96px;
   }
+}
+header .conteiner {
+padding-bottom: 0;
 }
