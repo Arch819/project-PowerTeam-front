@@ -1,3 +1,5 @@
+import { initialState } from './initialState';
+
 export const handleRegisterUserFulfilled = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
@@ -14,33 +16,15 @@ export const handleLoginFulfilled = (state, { payload }) => {
 };
 
 export const handleLogOutPending = state => {
-  state.user = {
-    name: '',
-    email: '',
-    avatarURL: '',
-    bodyData: false,
-  };
+  state.user = initialState.user;
+  state.userParams = initialState.userParams;
   state.token = '';
   state.isLoggedIn = false;
 };
 
 export const handleLogOutFulfilled = state => {
-  state.user = {
-    name: '',
-    email: '',
-    avatarURL: '',
-    bodyData: false,
-  };
-  state.userParams = {
-    height: 0,
-    currentWeight: 0,
-    desiredWeight: 0,
-    birthday: '',
-    blood: 0,
-    sex: '',
-    levelActivity: 0,
-    bmr: 0,
-  };
+  state.user = initialState.user;
+  state.userParams = initialState.userParams;
   state.token = '';
   state.isLoggedIn = false;
 };

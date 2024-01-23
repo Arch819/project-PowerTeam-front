@@ -9,6 +9,7 @@ import {
   handleGetAllExercisesFulfilled,
   handleGetExercisesFiltersFulfilled,
   handleGetExercisesIdFulfilled,
+  resetExercisesState,
 } from './exercisesHelpers';
 
 export const exercisesSlice = createSlice({
@@ -21,7 +22,8 @@ export const exercisesSlice = createSlice({
         getExercisesFilters.fulfilled,
         handleGetExercisesFiltersFulfilled
       )
-      .addCase(getExercisesId.fulfilled, handleGetExercisesIdFulfilled);
+      .addCase(getExercisesId.fulfilled, handleGetExercisesIdFulfilled)
+      .addMatcher(({ type }) => type.includes('logOut'), resetExercisesState);
   },
 });
 
