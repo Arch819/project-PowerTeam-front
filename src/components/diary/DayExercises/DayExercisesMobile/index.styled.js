@@ -5,7 +5,6 @@ export const DayExercisesContainer = styled.div`
   max-height: ${({ $exercises }) => ($exercises ? '1064px;' : '335px')};
   padding: 16px;
   border-radius: 12px;
-  margin-bottom: 80px;
   border: var(--border-20);
   background: rgba(239, 237, 232, 0.05);
   @media (min-width: 375px) {

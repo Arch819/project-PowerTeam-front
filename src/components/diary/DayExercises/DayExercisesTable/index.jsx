@@ -32,7 +32,7 @@ const DayExercises = () => {
               </svg>
             </AddExerciseButton>
           </ExercisesHeader>
-          {exercises && exercises?.length > 0 ? (
+          {exercises.length > 0 ? (
             <TableWrapper>
               <ExercisesTable>
                 <ExercisesTableThead>

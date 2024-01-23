@@ -31,7 +31,7 @@ function DayProducts() {
               </svg>
             </AddProductButton>
           </ProductsHeader>
-          {products && products?.length > 0 ? (
+          {products.length > 0 ? (
             <TableWrapper>
               <ProductsTable>
                 <ProductsTableThead>
