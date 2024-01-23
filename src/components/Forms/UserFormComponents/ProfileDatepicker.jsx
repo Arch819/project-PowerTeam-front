@@ -7,6 +7,8 @@ import {
   TitleWrapper,
   SelectProfile,
   YearsMonthThumb,
+  MonthThumb,
+  MonthText,
 } from './PersonalInfoFields.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import sprite from '../../../images/sprite.svg';
@@ -14,6 +16,9 @@ import sprite from '../../../images/sprite.svg';
 const ProfileDatepicker = ({ value, onChange }) => {
   const isAdult = new Date();
   isAdult.setFullYear(isAdult.getFullYear() - 18);
+
+  const startDate = new Date();
+  startDate.setFullYear(startDate.getFullYear() - 50);
 
   const yearsArray = (start, end) => {
     let array = [];
@@ -23,7 +28,7 @@ const ProfileDatepicker = ({ value, onChange }) => {
     return array;
   };
 
-  const years = yearsArray(isAdult.getFullYear() - 40, isAdult.getFullYear());
+  const years = yearsArray(startDate.getFullYear(), isAdult.getFullYear());
   const months = [
     'January',
     'February',
@@ -42,7 +47,6 @@ const ProfileDatepicker = ({ value, onChange }) => {
   const [selectedDate, setSelectedDate] = useState(
     value ? new Date(value) : isAdult
   );
-
   const [status, setStatus] = useState(value ? true : false);
 
   const submitDate = date => {
@@ -72,10 +76,49 @@ const ProfileDatepicker = ({ value, onChange }) => {
         calendarStartDay={1}
         formatWeekDay={day => day.substr(0, 1)}
         maxDate={isAdult}
-        renderCustomHeader={({ date, changeYear, changeMonth }) => (
+        minDate={startDate}
+        renderCustomHeader={({
+          date,
+          changeYear,
+          changeMonth,
+          decreaseMonth,
+          increaseMonth,
+          prevMonthButtonDisabled,
+          nextMonthButtonDisabled,
+        }) => (
           <YearsMonthThumb>
+            <MonthThumb>
+              <button
+                type="button"
+                className="react-datepicker__navigation react-datepicker__navigation--previous"
+                aria-label="Previous Month"
+                onClick={decreaseMonth}
+                style={{
+                  display: prevMonthButtonDisabled ? 'none' : 'flex',
+                }}
+                disabled={prevMonthButtonDisabled}
+              >
+                <span className="react-datepicker__navigation-icon react-datepicker__navigation-icon--previous">
+                  Previous Month
+                </span>
+              </button>
+              <MonthText>{months[getMonth(date)]}</MonthText>
+              <button
+                type="button"
+                className="react-datepicker__navigation react-datepicker__navigation--next"
+                aria-label="Next Month"
+                onClick={increaseMonth}
+                style={{
+                  display: nextMonthButtonDisabled ? 'none' : 'flex',
+                }}
+              >
+                <span className="react-datepicker__navigation-icon react-datepicker__navigation-icon--next">
+                  Next Month
+                </span>
+              </button>
+            </MonthThumb>
             <SelectProfile
-              style={{ flexBasis: '70%' }}
+              style={{ flexBasis: '40%' }}
               value={getYear(date)}
               onChange={({ target: { value } }) => changeYear(value)}
             >
@@ -87,6 +130,7 @@ const ProfileDatepicker = ({ value, onChange }) => {
             </SelectProfile>
 
             <SelectProfile
+              style={{ flexBasis: '60%' }}
               value={months[getMonth(date)]}
               onChange={({ target: { value } }) =>
                 changeMonth(months.indexOf(value))
