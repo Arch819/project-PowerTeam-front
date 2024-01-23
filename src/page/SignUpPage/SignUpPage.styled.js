@@ -4,11 +4,10 @@ import styled from 'styled-components';
 export const StyledContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row-reverse;
+  flex-direction: column;
 
   @media screen and (min-width: 768px) {
     flex-wrap: wrap;
-    flex-direction: column;
   }
 
   @media screen and (min-width: 1024px) {
