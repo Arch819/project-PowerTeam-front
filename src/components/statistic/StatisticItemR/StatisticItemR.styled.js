@@ -41,7 +41,7 @@ export const StatisticRTitleStyled = styled('p')({
   fontWeight: '700',
   lineHeight: '1',
   letterSpacing: '-1px',
-  textTransform: 'uppercase',
+  // textTransform: 'uppercase',
   color: 'var(--color-text-primary)',
   '@media screen and (min-width: 768px)': {
     fontSize: '48px',
