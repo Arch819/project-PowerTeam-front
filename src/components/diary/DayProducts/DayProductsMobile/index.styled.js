@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const ProductsContainer = styled.div`
-  width: 335px;
   max-height: ${({ $products }) => ($products ? '824px;' : '335px')};
   padding: 16px;
   border-radius: 12px;
   margin-bottom: 40px;
   border: var(--border-20);
   background: rgba(239, 237, 232, 0.05);
+  @media (min-width: 375px) {
+    width: 335px;
+  }
 `;
 
 export const ProductsHeader = styled.div`
@@ -40,5 +42,7 @@ export const AddProductButton = styled(Link)`
 export const ProductList = styled.ul`
   overflow-y: scroll;
   max-height: 752px;
-  width: 311px;
+  @media (min-width: 375px) {
+    width: 311px;
+  }
 `;
