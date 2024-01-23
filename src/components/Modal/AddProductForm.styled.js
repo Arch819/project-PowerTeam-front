@@ -2,12 +2,10 @@ import styled from 'styled-components';
 
 export const ModalWrapper = styled.div`
   display: flex;
-
   font-family: 'Roboto', sans-serif;
 `;
 export const Form = styled.form`
   margin: 48px 24px;
-
   font-family: inherit;
 
   @media screen and (min-width: 768px) {
@@ -15,7 +13,6 @@ export const Form = styled.form`
   }
 `;
 export const InputWrapper = styled.div`
-  /* display: flex; */
   @media screen and (min-width: 768px) {
     display: flex;
   }

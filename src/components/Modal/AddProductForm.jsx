@@ -2,8 +2,6 @@ import { useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { getAddProductThunk } from '../../store/diary/diaryThunk';
 import Notiflix from 'notiflix';
-// import { fetchCurrentUser } from '../../store/auth/operations';
-// import { selectUser } from '../../store/auth/selector';
 import {
   BtnAdd,
   BtnCancel,
@@ -17,7 +15,6 @@ import {
   ModalWrapper,
   WeightLabel,
 } from '../Modal/AddProductForm.styled';
-// import { notiflixMessage } from 'helpers/notiflixMessage';
 
 const formatDate = date => {
   const day = String(date.getDate()).padStart(2, '0');
@@ -29,11 +26,7 @@ const formatDate = date => {
 const AddProductForm = ({ eldata, onClick, openSuccess }) => {
   const dispatch = useDispatch();
   const { title, calories, idProduct: productId } = eldata;
-  console.log(eldata)
   const [quantity, setQuantity] = useState(1);
-
-  // const data = useSelector(selectUser);
-  // const bloodType = data.blood;
 
   const amount = Math.round((quantity * calories) / 100);
 

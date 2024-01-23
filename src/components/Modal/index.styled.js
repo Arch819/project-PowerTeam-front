@@ -18,6 +18,7 @@ export const Modal = styled.div`
   background: #10100f;
   position: relative;
 `;
+
 export const BtnClose = styled.button`
   width: 22px;
   height: 22px;

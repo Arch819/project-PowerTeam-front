@@ -18,6 +18,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
     document.addEventListener("keydown", closeESC);
     return () => {
       document.removeEventListener("keydown", closeESC);
+      document.body.style.overflow = 'auto';
     };
   }, [isOpenModalToggle]);
 
@@ -26,6 +27,14 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
       isOpenModalToggle();
     }
   };
+
+   useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto'; 
+    };
+  }, []);
 
   const modal = (
     <BasicWindow onClick={handleClickBackground}>
