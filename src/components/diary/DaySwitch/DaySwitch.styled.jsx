@@ -14,6 +14,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     
   }
   .react-datepicker {
+    color: inherit;
     position: absolute;
     left: -20px;
     top: 50%;
@@ -48,6 +49,25 @@ export const CalendarGlobalStyles = createGlobalStyle`
     border-bottom: 0px;
     padding: 0;
   }
+
+  .react-datepicker__year-dropdown, .react-datepicker__month-dropdown{
+    height: 200%;
+    overflow: auto;
+    background-color: var(--color-text-primary);
+    color:var( --bg-btn-hover);
+  }
+
+  .react-datepicker__year-option, .react-datepicker__month-option{
+    &:hover,
+  &:focus{
+  background-color: var(--bg-btn-hover);
+  color: var(--color-text-primary);
+  }
+  }
+ 
+.react-datepicker__month-option--selected{
+  left:5px;}
+   
   .react-datepicker__day
     react-datepicker__day--018.react-datepicker__day--selected
     react-datepicker__day--today {
