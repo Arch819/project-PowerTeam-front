@@ -26,6 +26,7 @@
   --color-text-alert: #040404;
   --color-btn-primary: #EFEDE8;
   --color-btn-secondary: #E6533C;
+  --color-avatar: rgba(239, 237, 232, 0.1);
 
   /* border */
   --border-20: 1px solid #EFEDE833;
@@ -33,6 +34,7 @@
   --border-positive: 1px solid #3CBF61;
   --border-input-positive: 1px solid #3CBF61;
   --border-input-negative: 1px solid #D80027;
+  --border-avatar: 1px solid #E6533C;
   --border-negative: 1px solid #E9101D;
   --border-color-btn-hover: #E6533C;
   --border-color-link-hover: #EFEDE8;
@@ -122,7 +124,7 @@ img {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px 40px;
 }
 
 

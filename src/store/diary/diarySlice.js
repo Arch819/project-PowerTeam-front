@@ -21,12 +21,12 @@ const diarySlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addMatcher(({ type }) => type.includes('logOut'), resetState)
       .addCase(getDiaryByDateThunk.fulfilled, getDiaryFulfilled)
       .addCase(getAddProductThunk.fulfilled, addDiaryProductFulfilled)
       .addCase(getDeleteProductThunk.fulfilled, deleteDiaryProductFulfilled)
       .addCase(getAddExerciseThunk.fulfilled, addDiaryExerciseFulfilled)
-      .addCase(getDeleteExerciseThunk.fulfilled, deleteDiaryExerciseFulfilled);
+      .addCase(getDeleteExerciseThunk.fulfilled, deleteDiaryExerciseFulfilled)
+      .addMatcher(({ type }) => type.includes('logOut'), resetState);
   },
 });
 

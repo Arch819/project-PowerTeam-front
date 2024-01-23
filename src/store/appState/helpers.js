@@ -12,6 +12,6 @@ export const handleFulfilled = state => {
   state.isLoading = false;
   state.error = null;
 };
-export const resetState = state => {
-  state = initialState;
+export const resetState = () => {
+  return initialState;
 };

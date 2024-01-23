@@ -21,6 +21,6 @@ export const deleteDiaryExerciseFulfilled = (state, { meta: { arg } }) => {
   );
 };
 
-export const resetState = state => {
-  state = initialState;
+export const resetState = () => {
+  return initialState;
 };
