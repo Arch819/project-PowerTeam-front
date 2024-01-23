@@ -4,6 +4,7 @@ export const initialState = {
     email: '',
     avatarURL: '',
     bodyData: false,
+    createdAt: null,
   },
   userParams: {
     height: 0,
