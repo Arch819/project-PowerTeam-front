@@ -19,15 +19,12 @@ export const WrapperIcon = styled.div`
   width: 24px;
   height: 24px;
   border-radius: 100px;
-  background-color: #EFA082;
+  background-color: var(--bg-r-icon);
 `;
 
 export const TextMess = styled.p`
-  color: rgba(239, 237, 232, 0.3);
-  font-family: 'Roboto';
+  color: var(--color-text-pr30);
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
 
   @media screen and (min-width: 768px) {

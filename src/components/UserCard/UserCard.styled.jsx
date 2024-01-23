@@ -62,8 +62,7 @@ export const IconBtnSvg = styled.svg`
 `;
 
 export const TitleUserName = styled.p`
-  color: #efede8;
-  font-family: 'Roboto';
+  color: var(--color-text-primary);
   font-size: 18px;
   line-height: 20px;
 
@@ -74,8 +73,7 @@ export const TitleUserName = styled.p`
 `;
 
 export const SubTitle = styled.p`
-  color: rgba(239, 237, 232, 0.5);
-  font-family: 'Roboto';
+  color: var(--color-text-pr50);
   font-size: 14px;
   line-height: 18px;
   margin-top: 4px;
