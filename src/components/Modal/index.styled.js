@@ -17,6 +17,7 @@ export const Modal = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: #10100f;
   position: relative;
+  height: 80%;
 `;
 
 export const BtnClose = styled.button`
@@ -50,3 +51,8 @@ export const SvgClose = styled.svg`
     stroke: #ffffff;
   }
 `;
+
+export const ModalWraper = styled.div`
+overflow: auto;
+height: 100%;
+`

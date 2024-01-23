@@ -32,9 +32,7 @@ export const SuccessExerciseModalWindow = ({ data, closeModal }) => {
             </SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-        <StyledLink to="/exercises" onClick={closeModal}>
-          <SuccessModalWindowBtn>Next exercise</SuccessModalWindowBtn>
-        </StyledLink>
+          <SuccessModalWindowBtn onClick={closeModal}>Next exercise</SuccessModalWindowBtn>
         <StyledLink to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary

@@ -22,13 +22,11 @@ export const AddProductSuccess = ({ calories, closeModal }) => {
           <SuccessModalWindowImg src={avocado} alt="avocado" />
           <SuccessModalWindowTitle>Well done</SuccessModalWindowTitle>
           <SuccessModalWindowText>
-            Calories:{calories}
+            Calories:
             <SuccessModalWindowSpan>{calories}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-        <StyledLink to="/products" onClick={closeModal}>
-          <SuccessModalWindowBtn>Next product</SuccessModalWindowBtn>
-        </StyledLink>
+        <SuccessModalWindowBtn onClick={closeModal}>Next product</SuccessModalWindowBtn>
         <StyledLink to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary
