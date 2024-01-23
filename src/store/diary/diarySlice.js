@@ -13,6 +13,7 @@ import {
   deleteDiaryExerciseFulfilled,
   deleteDiaryProductFulfilled,
   getDiaryFulfilled,
+  resetState,
 } from './diaryHelpers.js';
 
 const diarySlice = createSlice({
@@ -20,6 +21,7 @@ const diarySlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
+      .addMatcher(({ type }) => type.includes('logOut'), resetState)
       .addCase(getDiaryByDateThunk.fulfilled, getDiaryFulfilled)
       .addCase(getAddProductThunk.fulfilled, addDiaryProductFulfilled)
       .addCase(getDeleteProductThunk.fulfilled, deleteDiaryProductFulfilled)
