@@ -52,6 +52,13 @@ const DaySwitch = ({ onChangeDate }) => {
     <CalendarContainer>
       <DatePicker
         selected={selectedDate}
+        changeMonth={true}
+        changeYear={true}
+        peekNextMonth
+        showMonthDropdown
+        showYearDropdown
+        scrollableYearDropdown
+        yearDropdownItemNumber={100}
         onChange={date => {
           setSelectedDate(date);
           onChangeDate(date);

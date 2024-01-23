@@ -41,24 +41,27 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/welcome" replace />} />
+        <Route
+          index
+          element={<Navigate to={isLoggedIn ? '/diary' : '/welcome'} replace />}
+        />
         <Route
           path="/welcome"
           element={
-            <RestrictedRoute redirectTo="/profile" component={<WelcomePage />} />
+            <RestrictedRoute redirectTo="/diary" component={<WelcomePage />} />
           }
         />
         <Route
           path="/signin"
           element={
-            <RestrictedRoute redirectTo="/profile" component={<LoginPage />} />
+            <RestrictedRoute redirectTo="/diary" component={<LoginPage />} />
           }
         />
         <Route
           path="/signup"
           element={
             <RestrictedRoute
-              redirectTo="/profile"
+              redirectTo="/diary"
               component={<RegistrationPage />}
             />
           }

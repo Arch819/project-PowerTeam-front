@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
 
 export const SwiperBox = styled(Swiper)`
   width: 100%;
@@ -8,11 +11,6 @@ export const SwiperBox = styled(Swiper)`
   margin-right: auto;
 
   padding-bottom: 40px !important;
-
-  > .main__slider {
-    display: flex;
-    justify-content: flex-start;
-  }
 
   > .swiper-pagination {
     display: flex;

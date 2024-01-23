@@ -1,10 +1,12 @@
 import { forwardRef, useState } from 'react';
-import { format } from 'date-fns';
+import { format, getYear, getMonth } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import {
   CalendarGlobalStyles,
   IconSvg,
   TitleWrapper,
+  SelectProfile,
+  YearsMonthThumb,
 } from './PersonalInfoFields.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import sprite from '../../../images/sprite.svg';
@@ -13,9 +15,34 @@ const ProfileDatepicker = ({ value, onChange }) => {
   const isAdult = new Date();
   isAdult.setFullYear(isAdult.getFullYear() - 18);
 
+  const yearsArray = (start, end) => {
+    let array = [];
+    for (let i = start; i <= end; i += 1) {
+      array.push(i);
+    }
+    return array;
+  };
+
+  const years = yearsArray(isAdult.getFullYear() - 40, isAdult.getFullYear());
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
   const [selectedDate, setSelectedDate] = useState(
     value ? new Date(value) : isAdult
   );
+
   const [status, setStatus] = useState(value ? true : false);
 
   const submitDate = date => {
@@ -45,6 +72,34 @@ const ProfileDatepicker = ({ value, onChange }) => {
         calendarStartDay={1}
         formatWeekDay={day => day.substr(0, 1)}
         maxDate={isAdult}
+        renderCustomHeader={({ date, changeYear, changeMonth }) => (
+          <YearsMonthThumb>
+            <SelectProfile
+              style={{ flexBasis: '70%' }}
+              value={getYear(date)}
+              onChange={({ target: { value } }) => changeYear(value)}
+            >
+              {years.map(option => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </SelectProfile>
+
+            <SelectProfile
+              value={months[getMonth(date)]}
+              onChange={({ target: { value } }) =>
+                changeMonth(months.indexOf(value))
+              }
+            >
+              {months.map(option => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </SelectProfile>
+          </YearsMonthThumb>
+        )}
       />
       <CalendarGlobalStyles />
     </div>
