@@ -11,7 +11,7 @@ export const AvatarFrame = styled.div`
   width: 90px;
   height: 90px;
   border-radius: 100px;
-  border: 1px solid #e6533c;
+  border: var(--border-avatar);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@ export const UserPhoto = styled.img`
 `;
 
 export const UserSvg = styled.svg`
-  fill: #303030;
+  fill: var(--color-avatar);
   width: 68px;
   height: 68px;
   @media screen and (min-width: 768px) {
