@@ -1,4 +1,3 @@
-// Перевикористовуємий компонент, що рендерить у модальному вікні контент, отриманий у вигляді childrens, та кнопку у вигляді іконки-хрестика. Модальне вікно повинно закриватись по clickу на кнопку іконки-хрестика, по clickк на backdrop, а також click по Escape.
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
@@ -18,6 +17,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
     document.addEventListener("keydown", closeESC);
     return () => {
       document.removeEventListener("keydown", closeESC);
+      document.body.style.overflow = 'auto';
     };
   }, [isOpenModalToggle]);
 
@@ -26,6 +26,14 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
       isOpenModalToggle();
     }
   };
+
+   useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto'; 
+    };
+  }, []);
 
   const modal = (
     <BasicWindow onClick={handleClickBackground}>

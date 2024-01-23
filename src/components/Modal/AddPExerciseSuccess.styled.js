@@ -1,20 +1,19 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SuccessModalWindow = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 `;
 
 export const SuccessModalWindowWrap = styled.div`
-  width: 100%; 
-  padding: 48px 16px; 
+  padding: 48px 89px; 
   display: flex;
   flex-direction: column;
   align-items: center;
   @media screen and (min-width: 768px) {
-    padding: 64px 134px; 
+    width: 100%;
   }
 `;
 
@@ -46,11 +45,10 @@ export const SuccessModalWindowText = styled.p`
   display: flex;
   gap: 8px;
   align-items: center;
-  text-decoration: none;
 `;
 
 export const SuccessModalWindowSpan = styled.span`
-  color: rgba(239, 237, 232, 0.3);
+  color: #E6533C;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -71,6 +69,7 @@ export const SuccessModalWindowBtn = styled.button`
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+  border-color: transparent;
 
   @media screen and (min-width: 768px) {
     padding: 16px 32px;
@@ -87,4 +86,9 @@ export const ArrowIcon = styled.svg`
   width: 16px;
   height: 16px;
   stroke: #efede8;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;

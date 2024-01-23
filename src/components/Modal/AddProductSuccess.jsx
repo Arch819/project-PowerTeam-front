@@ -1,9 +1,4 @@
-// AddProductSuccess містить:
-//  - повідомлення користувачеві про успішне додавання спожитого ним продукту за день
-//  - кнопку Next product, по clickу на яку BasicModalWindow з AddProductSuccess має бути закрито
-//  - посилання To the diary, по clickу на яке користувача має бути переадресовано на Diary page
 
-import { Link } from 'react-router-dom';
 import avocado from '../../images/ModalImg/avocado-2x.png';
 import sprite from '../../images/sprite.svg';
 import {
@@ -16,6 +11,7 @@ import {
   SuccessModalWindowSpan,
   SuccessModalWindowBtn,
   ArrowIcon,
+  StyledLink,
 } from '../Modal/AddProductSuccess.styled';
 
 export const AddProductSuccess = ({ calories, closeModal }) => {
@@ -30,17 +26,17 @@ export const AddProductSuccess = ({ calories, closeModal }) => {
             <SuccessModalWindowSpan>{calories}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-        <Link to="/products" onClick={closeModal}>
+        <StyledLink to="/products" onClick={closeModal}>
           <SuccessModalWindowBtn>Next product</SuccessModalWindowBtn>
-        </Link>
-        <Link to="/diary" onClick={closeModal}>
+        </StyledLink>
+        <StyledLink to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary
             <ArrowIcon>
               <use href={`${sprite}#icon-next`}> </use>
             </ArrowIcon>
           </SuccessModalWindowText>
-        </Link>
+        </StyledLink>
       </SuccessModalWindowWrap>
     </SuccessModalWindow>
   );
