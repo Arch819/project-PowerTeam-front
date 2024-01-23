@@ -9,6 +9,7 @@ import {
   handleGetAllProductsFulfilled,
   handleGetProductsCategoriesFulfilled,
   handleGetProductsIdFulfilled,
+  resetProductsState,
 } from './productsHelpers';
 
 export const productsSlice = createSlice({
@@ -26,7 +27,8 @@ export const productsSlice = createSlice({
         getProductsCategories.fulfilled,
         handleGetProductsCategoriesFulfilled
       )
-      .addCase(getProductsId.fulfilled, handleGetProductsIdFulfilled);
+      .addCase(getProductsId.fulfilled, handleGetProductsIdFulfilled)
+      .addMatcher(({ type }) => type.includes('logOut'), resetProductsState);
   },
 });
 
