@@ -164,3 +164,20 @@ export const TitleWrapper = styled.button`
   line-height: 24px;
   padding: 14px;
 `;
+
+export const SelectProfile = styled.select`
+  background-color: var(--bg-btn-sec);
+  border: none;
+  width: 100%;
+  color: var(--color-text-primary);
+  text-align: start;
+  font-family: 'Roboto';
+  font-size: 16px;
+  line-height: 24px;
+  padding: 2px;
+`;
+export const YearsMonthThumb = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+`;
