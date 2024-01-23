@@ -61,7 +61,7 @@ export const SwiperItem = styled(SwiperSlide)`
   @media screen and (min-width: 768px) {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 16px;
+    // margin-bottom: 16px;
   }
 `;
 

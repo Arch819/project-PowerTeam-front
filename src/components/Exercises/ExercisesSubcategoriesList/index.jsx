@@ -21,11 +21,10 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
   };
 
   return (
-    <>
+    <div style={{ height: '444px' }}>
       <SwiperBox
         slidesPerView={1}
         grid={{
-          fill: 'row',
           rows: 10,
         }}
         slidesPerGroup={1}
@@ -37,7 +36,6 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
             slidesPerView: 3,
             slidesPerGroup: 3,
             grid: {
-              fill: 'row',
               rows: 3,
             },
             spaceBetween: 16,
@@ -46,7 +44,6 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
             slidesPerView: 5,
             slidesPerGroup: 5,
             grid: {
-              fill: 'row',
               rows: 2,
             },
             spaceBetween: 16,
@@ -70,7 +67,7 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
           </SwiperItem>
         ))}
       </SwiperBox>
-    </>
+    </div>
   );
 };
 
