@@ -6,6 +6,17 @@ import { selectStatistic } from 'store/statistic/statisticSelector';
 import { useEffect } from 'react';
 import { getStatisticThunk } from 'store/statistic/statisticThunk';
 
+const dataRounding = data => {
+  let result = data;
+  if (data > 999) {
+    result = Math.trunc(data / 1000) + 'k+';
+  }
+  if (data > 999999) {
+    result = Math.trunc(data / 1000000) + 'm+';
+  }
+  return result;
+};
+
 function StatisticsList() {
   const dispatch = useDispatch();
   const statistics = useSelector(selectStatistic);
@@ -26,27 +37,27 @@ function StatisticsList() {
     <StatisticListStyle>
       <StatisticItemL
         icon="icon-play"
-        title={`${totalVideoExercises}+`}
+        title={dataRounding(totalVideoExercises)}
         desc="Video tutorial"
       />
       <StatisticItemR
         icon="icon-running-stick-figure"
-        title={totalBurnedCalories}
+        title={dataRounding(totalBurnedCalories)}
         desc="Cal"
       />
       <StatisticItemL
         icon="icon-system_user"
-        title={totalUsers}
+        title={dataRounding(totalUsers)}
         desc="Used the service"
       />
       <StatisticItemR
         icon="icon-clock_time"
-        title={totalTime}
+        title={dataRounding(totalTime)}
         desc="Training time"
       />
       <StatisticItemL
         icon="icon-dumbbell"
-        title={totalPerformedExercises}
+        title={dataRounding(totalPerformedExercises)}
         desc="Completed trainings"
       />
     </StatisticListStyle>

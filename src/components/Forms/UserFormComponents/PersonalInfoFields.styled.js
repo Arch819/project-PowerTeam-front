@@ -79,8 +79,8 @@ export const CalendarGlobalStyles = createGlobalStyle`
     opacity: 25%;
   }
   .react-datepicker__navigation {
-    margin-top: 14px;
     color: white;
+    align-items: normal;
   }
   .react-datepicker__navigation--previous {
     left: 7px;
@@ -136,12 +136,12 @@ export const CalendarGlobalStyles = createGlobalStyle`
   }
   .react-datepicker__day:hover {
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--border-color-btn-hover);
     color: var(--color-text-primary);
   }
   .react-datepicker__day--keyboard-selected {
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--color-text-alert);
     color: var(--color-text-primary);
   }
   .react-datepicker__day--outside-month {
@@ -163,4 +163,33 @@ export const TitleWrapper = styled.button`
   font-size: 16px;
   line-height: 24px;
   padding: 14px;
+`;
+
+export const SelectProfile = styled.select`
+  background-color: var(--bg-btn-sec);
+  border: none;
+  width: 100%;
+  color: var(--color-text-primary);
+  text-align: start;
+  font-family: 'Roboto';
+  font-size: 16px;
+  line-height: 24px;
+  padding: 2px;
+`;
+export const YearsMonthThumb = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
+`;
+export const MonthThumb = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+`;
+export const MonthText = styled.p`
+  color: var(--color-text-primary);
+  font-size: 16px;
+  line-height: 24px;
 `;

@@ -11,7 +11,7 @@ export const ExercisesSection = styled.div`
     background: rgba(239, 237, 232, 0.05);
     overflow-y: scroll;
     width: 704px;
-    height: 234px;
+    height: 244px;
     padding: 16px 8px;
   }
   @media (min-width: 1440px) {
@@ -54,10 +54,11 @@ export const AddExerciseButton = styled(Link)`
 `;
 
 export const TableWrapper = styled.div`
-  max-height: 162px;
+  max-height: 177px;
   overflow: auto;
   position: sticky;
   top: 0px;
+  background-color: rgba(16, 16, 16, 255);
 `;
 
 export const ExercisesTable = styled.table`

@@ -17,25 +17,36 @@ export const ProductsText = styled.p`
   line-height: 1.3;
   padding: 10px 14px;
   margin-bottom: 16px;
-  width: 297px;
   height: 38px;
   border-radius: 12px;
   border: var(--border-30);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  @media (min-width: 375px) {
+    width: 297px;
+  }
 `;
 
 export const ProductsTextCalories = styled(ProductsText)`
-  width: 81px;
+  @media (min-width: 375px) {
+    width: 81px;
+  }
 `;
 
 export const ProductsTextWeight = styled(ProductsText)`
-  width: 80px;
+  @media (min-width: 375px) {
+    width: 80px;
+  }
 `;
 
 export const ProductsTextRecommend = styled(ProductsText)`
-  width: 76px;
   display: flex;
   align-items: center;
   gap: 8px;
+  @media (min-width: 375px) {
+    width: 76px;
+  }
 `;
 
 export const IsRecommend = styled.span`
@@ -59,6 +70,7 @@ export const DeleteButton = styled.button`
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const ProductItemContainer = styled.div`

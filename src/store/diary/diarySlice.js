@@ -13,6 +13,7 @@ import {
   deleteDiaryExerciseFulfilled,
   deleteDiaryProductFulfilled,
   getDiaryFulfilled,
+  resetState,
 } from './diaryHelpers.js';
 
 const diarySlice = createSlice({
@@ -24,7 +25,8 @@ const diarySlice = createSlice({
       .addCase(getAddProductThunk.fulfilled, addDiaryProductFulfilled)
       .addCase(getDeleteProductThunk.fulfilled, deleteDiaryProductFulfilled)
       .addCase(getAddExerciseThunk.fulfilled, addDiaryExerciseFulfilled)
-      .addCase(getDeleteExerciseThunk.fulfilled, deleteDiaryExerciseFulfilled);
+      .addCase(getDeleteExerciseThunk.fulfilled, deleteDiaryExerciseFulfilled)
+      .addMatcher(({ type }) => type.includes('logOut'), resetState);
   },
 });
 

@@ -82,15 +82,15 @@ function UserCard() {
       <SubTitle>User</SubTitle>
       <WrapperDaily>
         <DailyBlock
-          color="#E6533C"
-          border="1px solid rgba(239, 237, 232, 0.2)"
+          color="var(--bg-container)"
+          border="var(--border-20)"
           iconId="icon-food-24"
           text="Daily calorie intake"
           value= {dailyCalorieIntake}
         />
         <DailyBlock
-          color="#E6533C"
-          border="1px solid rgba(239, 237, 232, 0.2)"
+          color="var(--bg-container)"
+          border="var(--border-20)"
           iconId="icon-dumbbell"
           text="Daily physical activity"
           value={`${dailyNormOfSport} min`}

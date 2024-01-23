@@ -8,7 +8,7 @@ export const ProductsSection = styled.div`
     background: rgba(239, 237, 232, 0.05);
     margin-bottom: 32px;
     width: 704px;
-    height: 234px;
+    height: 244px;
     padding: 16px 8px;
   }
   @media (min-width: 1440px) {
@@ -51,7 +51,7 @@ export const AddProductButton = styled(Link)`
 `;
 
 export const TableWrapper = styled.div`
-  max-height: 162px;
+  max-height: 177px;
   overflow: auto;
   position: sticky;
   top: 0px;

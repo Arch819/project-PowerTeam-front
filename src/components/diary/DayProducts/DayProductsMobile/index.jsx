@@ -25,7 +25,7 @@ const DayProductsMobile = () => {
         </AddProductButton>
       </ProductsHeader>
       <ProductList>
-        {products ? (
+        {products && products?.length > 0 ? (
           <DayProductsItemMobile products={products} />
         ) : (
           <DayProductsPlug />

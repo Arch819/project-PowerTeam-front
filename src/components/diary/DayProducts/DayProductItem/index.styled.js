@@ -76,5 +76,6 @@ export const DeleteButton = styled.button`
     margin-left: 4px;
     width: 20px;
     height: 20px;
+    background-color: rgba(16, 16, 16, 255);
   }
 `;

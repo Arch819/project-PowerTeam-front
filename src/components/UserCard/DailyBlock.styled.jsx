@@ -4,11 +4,10 @@ export const ContainerBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* flex-shrink: 0; */
   width: 157px;
   height: 96px;
   padding: 14px;
-  gap: 8px;
+  justify-content: space-between;
   border-radius: 12px;
   border: ${({ border }) => border};
   background-color: ${({ color }) => color};
@@ -17,7 +16,6 @@ export const ContainerBlock = styled.div`
     width: 214px;
     height: 108px;
     padding: 14px 14px;
-    gap: 32px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -36,13 +34,13 @@ export const WrapperBlock = styled.div`
 
 export const SvgBlock = styled.svg`
   width: 20px;
-  height: 14px;
-  fill: #ef8964;
+  height: 20px;
+  fill: var(--bg-l-icon);
+  stroke: var(--bg-l-icon);
 `;
 
 export const TextBlock = styled.p`
-  color: rgba(239, 237, 232, 0.8);
-  font-family: 'Roboto';
+  color: var(--color-text-pr80);
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
@@ -53,8 +51,7 @@ export const TextBlock = styled.p`
 `;
 
 export const ValueBlock = styled.p`
-  color: #efede8;
-  font-family: 'Roboto';
+  color: var(--color-text-primary);
   font-weight: Bold;
   font-size: 18px;
   line-height: 20px;
