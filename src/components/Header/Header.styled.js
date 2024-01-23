@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.header`
-  position: ${props => (props.current ? 'relative' : 'fixed')};
+  position: ${props => (props.current ? 'relative' : 'absolute')};
   left: 0;
   top: 0;
   right: 0;
