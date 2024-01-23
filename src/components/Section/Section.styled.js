@@ -10,6 +10,7 @@ import bdDesktopFirstRetina from 'images/background/desctop/background-1-des@2x.
 
 export const SectionStyled = styled('section')(props => ({
   height: '100vh',
+  paddingBottom: '40px',
 
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
