@@ -25,8 +25,8 @@ export const CalendarGlobalStyles = createGlobalStyle`
     background-color: var(--bg-l-icon);
     font-family: 'Roboto', sans-serif;
     border-radius: 8px;
-
   }
+
   .react-datepicker__month-container {
     float: inherit;
     box-sizing: border-box;
