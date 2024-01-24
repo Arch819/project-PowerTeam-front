@@ -14,7 +14,8 @@ import { notiflixMessage } from 'helpers/notiflixMessage';
 function UserForm() {
   const user = useSelector(selectUser);
   const userData = useSelector(selectUserParams);
-  const initState = { ...user, ...userData };
+  const { name, email } = user;
+  const initState = { name, email, ...userData };
   const dispatch = useDispatch();
 
   return (
@@ -33,6 +34,7 @@ function UserForm() {
               levelActivity: Number(values.levelActivity),
             };
             values.bmr = bmr(values);
+            console.log(values);
             dispatch(updateProfile(values));
 
             if (values.bodyData) {
