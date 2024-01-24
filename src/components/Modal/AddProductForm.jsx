@@ -28,14 +28,14 @@ const AddProductForm = ({ eldata, onClick, openSuccess }) => {
   const { title, calories, idProduct: productId } = eldata;
   const [quantity, setQuantity] = useState(1);
 
-  const amount = Math.round((quantity * calories) / 100);
+  const caloriesEated = Math.round((quantity * calories) / 100);
 
   let date = new Date();
 
   const formattedDate = formatDate(date);
 
   const handleAddToDiary = () => {
-    if (!amount) {
+    if (!caloriesEated) {
       Notiflix.Report.failure('Error', 'Must be greater than 0', 'OK');
       return;
     }
@@ -45,12 +45,16 @@ const AddProductForm = ({ eldata, onClick, openSuccess }) => {
         date: formattedDate,
         productId,
         amount: quantity,
-        calories,
+        calories: caloriesEated,
       }),
     ).then(() => {
-    openSuccess(calories)
+      openSuccess(caloriesEated);
+      setQuantity(1);
+      
      onClick();    })
   };
+
+  const isCaloriesEntered = caloriesEated > 0;
 
   return (
     <ModalWrapper>
@@ -66,21 +70,21 @@ const AddProductForm = ({ eldata, onClick, openSuccess }) => {
               min={1}
               onChange={e => setQuantity(e.target.value)}
             />
-            <WeightLabel>weight</WeightLabel>
+            <WeightLabel>grams</WeightLabel>
           </label>
         </InputWrapper>
         <br />
         <CaloriesTitle>
           <CaloriesTitle>
-            Calories: <CaloriesSpan>{amount}</CaloriesSpan>
+            Calories: <CaloriesSpan>{caloriesEated}</CaloriesSpan>
           </CaloriesTitle>
         </CaloriesTitle>
         <br />
         <BtnWrapper>
-          <BtnAdd type="button" onClick={handleAddToDiary}>
+          <BtnAdd type="button" onClick={handleAddToDiary} disabled={!isCaloriesEntered}>
             Add to diary
           </BtnAdd>
-          <BtnCancel type="button" onClick={onClick}>
+          <BtnCancel className='page-styled' type="button" onClick={onClick}>
             Cancel
           </BtnCancel>
         </BtnWrapper>

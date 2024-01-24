@@ -14,7 +14,7 @@ import {
   StyledLink,
 } from '../Modal/AddProductSuccess.styled';
 
-export const AddProductSuccess = ({ calories, closeModal }) => {
+export const AddProductSuccess = ({ calories, closeModal, pathBack='/' }) => {
   return (
     <SuccessModalWindow>
       <SuccessModalWindowWrap>
@@ -26,7 +26,7 @@ export const AddProductSuccess = ({ calories, closeModal }) => {
             <SuccessModalWindowSpan>{calories}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-        <SuccessModalWindowBtn onClick={closeModal}>Next product</SuccessModalWindowBtn>
+        <SuccessModalWindowBtn to={pathBack}>Next product</SuccessModalWindowBtn>
         <StyledLink to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary

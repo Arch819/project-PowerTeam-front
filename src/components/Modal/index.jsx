@@ -43,7 +43,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
             <use href={`${sprite}#icon-close`}></use>
           </SvgClose>
         </BtnClose>
-        <ModalWraper>{children}</ModalWraper>
+        {children}
         
       </Modal>
     </BasicWindow>

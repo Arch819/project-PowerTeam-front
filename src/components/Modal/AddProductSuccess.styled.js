@@ -5,6 +5,13 @@ export const SuccessModalWindow = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 362px;
+    max-width: 335px;
+
+    @media screen and(min-width: 768px){
+     max-width: 430px;
+     height: 428px;   
+    }
 `;
 
 export const SuccessModalWindowWrap = styled.div`
@@ -12,6 +19,7 @@ export const SuccessModalWindowWrap = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 362px;
     @media screen and (min-width: 768px) {
         width: 100%;
     }   
@@ -57,7 +65,7 @@ export const SuccessModalWindowSpan = styled.span`
     align-items: center;
 `;
 
-export const SuccessModalWindowBtn = styled.button`
+export const SuccessModalWindowBtn = styled(Link)`
     border-radius: 12px;
     background: #e6533c;
     padding: 14px 32px;
@@ -70,6 +78,7 @@ export const SuccessModalWindowBtn = styled.button`
     font-weight: 500;
     line-height: 24px;
     border-color: transparent;
+    text-decoration: none;
 
     @media screen and (min-width: 768px) {
         padding: 16px 32px;

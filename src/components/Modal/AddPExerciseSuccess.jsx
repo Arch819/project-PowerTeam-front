@@ -14,7 +14,7 @@ import {
   SuccessModalWindowWrapImg,
 } from '../Modal/AddPExerciseSuccess.styled';
 
-export const SuccessExerciseModalWindow = ({ data, closeModal }) => {
+export const SuccessExerciseModalWindow = ({ data, closeModal, pathBack='/' }) => {
   return (
     <SuccessModalWindow>
       <SuccessModalWindowWrap>
@@ -23,9 +23,7 @@ export const SuccessExerciseModalWindow = ({ data, closeModal }) => {
           <SuccessModalWindowTitle>Well done</SuccessModalWindowTitle>
           <SuccessModalWindowText>
             Your time:
-            <SuccessModalWindowSpan>
-              {formatTime(data.time)}
-            </SuccessModalWindowSpan>
+            <SuccessModalWindowSpan>{`${data.time} seconds`}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
           <SuccessModalWindowText>
             Burned calories:
@@ -34,9 +32,7 @@ export const SuccessExerciseModalWindow = ({ data, closeModal }) => {
             </SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-        <SuccessModalWindowBtn onClick={closeModal}>
-          Next exercise
-        </SuccessModalWindowBtn>
+          <SuccessModalWindowBtn to={pathBack}>Next exercise</SuccessModalWindowBtn>
         <StyledLink to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary
