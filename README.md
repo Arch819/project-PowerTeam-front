@@ -1,14 +1,10 @@
 # Power Pulse Frontend
 
----
-
 Welcome to the Power Pulse frontend. This project based on React.js.  
 The project was created for educational purposes by the excellent team
 project-02 FSON 86 GoIT.
 
 ## Libraries used in the project:
-
----
 
 - Material UI
 - Redux Toolkit
@@ -23,21 +19,15 @@ project-02 FSON 86 GoIT.
 - Styled-components
 - Yup
 
-### Scripts:
-
----
+## Scripts:
 
 | LEFT      | RIGHT                   |
 | --------- | ----------------------- |
 | npm i     | dependency installation |
-| --------- | -----                   |
 | npm start | start local server      |
-| --------- | -----                   |
 | npm build | production build        |
 
 ## Contributors
-
----
 
 - [Viacheslav Kosovskiy](https://github.com/Arch819)
 - [Alina Pishak](https://github.com/Alina-Pishak)
