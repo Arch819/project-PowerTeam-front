@@ -28,7 +28,7 @@ export const TimerBtn = styled.button`
   margin-top: 14px;
   padding: 5px;
   border-radius: 5px;
-  border-color: transparent;
+  border: none;
   display: flex;
 `;
 

@@ -5,6 +5,7 @@ export const SuccessModalWindow = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 `;
 
 export const SuccessModalWindowWrap = styled.div`
@@ -12,8 +13,13 @@ export const SuccessModalWindowWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 384px;
+  width: 335px;
+
   @media screen and (min-width: 768px) {
-    width: 100%;
+    /* width: 100%; */
+    width: 430px;
+    height: 439px;
   }
 `;
 
@@ -57,22 +63,28 @@ export const SuccessModalWindowSpan = styled.span`
   align-items: center;
 `;
 
-export const SuccessModalWindowBtn = styled.button`
+export const SuccessModalWindowBtn = styled(Link)`
   border-radius: 12px;
   background: #e6533c;
-  padding: 14px 32px;
+  padding: 12px 32px;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
   margin-bottom: 16px;
   color: #efede8;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 24px;
-  border-color: transparent;
+  line-height: 1.1;
+  border: none;
+  width: 157px;
+  display: block;
+  text-decoration: none;
 
   @media screen and (min-width: 768px) {
-    padding: 16px 32px;
+    padding: 14px 32px;
+    line-height: 1.5;
+    font-style: 16px;
+
   }
 
   &:hover,

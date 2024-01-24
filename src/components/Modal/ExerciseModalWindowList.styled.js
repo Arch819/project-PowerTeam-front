@@ -6,13 +6,9 @@ export const ExersiceModalList = styled.ul`
   gap: 8px;
 
   margin-bottom: 24px;
-  margin-top: 40px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 40px;
-    width: 345px;
-
-    align-items: flex-start;
+    width: 100%;
   }
 `;
 
@@ -22,7 +18,8 @@ export const ExersiceModalLink = styled.li`
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 18px;
-  width: 147px;
+  /* width: 147px; */
+  flex-basis: calc((100% - 8px) / 2);
   max-height: 98px;
   justify-content: center;
 

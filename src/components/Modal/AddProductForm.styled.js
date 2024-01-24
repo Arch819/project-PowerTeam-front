@@ -3,7 +3,12 @@ import styled from 'styled-components';
 export const ModalWrapper = styled.div`
   display: flex;
   font-family: 'Roboto', sans-serif;
-`;
+  max-width: 335px;
+  height: 280px;
+
+  @media screen and (min-width: 768px) {
+  max-width: 100% ;
+  }`;
 export const Form = styled.form`
   margin: 48px 24px;
   font-family: inherit;
@@ -13,6 +18,7 @@ export const Form = styled.form`
   }
 `;
 export const InputWrapper = styled.div`
+
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -20,7 +26,7 @@ export const InputWrapper = styled.div`
 
 export const InputTitle = styled.input`
   width: 100%;
-  height: 24px;
+  height: 34px;
   padding: 8px 14px;
   border-radius: 12px;
   border: 1px solid #e6533c;
@@ -36,7 +42,7 @@ export const InputTitle = styled.input`
 
 export const InputQuontity = styled.input`
   width: 100%;
-  height: 24px;
+  height: 34px;
   padding: 8px 14px;
   margin-top: 16px;
   border-radius: 12px;
@@ -94,7 +100,7 @@ export const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin-top: 64px;
+  margin-top: 40px;
 `;
 
 export const BtnAdd = styled.button`
