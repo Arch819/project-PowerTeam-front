@@ -1,4 +1,3 @@
-import TitlePage from 'components/TitlePage';
 import styled from 'styled-components';
 
 export const LocalTitlePage = styled.div`
