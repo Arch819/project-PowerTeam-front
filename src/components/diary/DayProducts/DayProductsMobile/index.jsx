@@ -24,13 +24,13 @@ const DayProductsMobile = () => {
           </svg>
         </AddProductButton>
       </ProductsHeader>
-      <ProductList>
-        {products.length > 0 ? (
+      {products.length > 0 ? (
+        <ProductList>
           <DayProductsItemMobile products={products} />
-        ) : (
-          <DayProductsPlug />
-        )}
-      </ProductList>
+        </ProductList>
+      ) : (
+        <DayProductsPlug />
+      )}
     </ProductsContainer>
   );
 };

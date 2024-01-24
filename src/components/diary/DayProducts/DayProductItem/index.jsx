@@ -33,7 +33,11 @@ const DayProductItem = ({ products }) => {
           {recommended ? 'Yes' : 'No'}
         </TableTextLast>
         <td>
-          <DeleteButton type="button" onClick={() => deleteProduct(idProduct)}>
+          <DeleteButton
+            type="button"
+            aria-label="Delete button"
+            onClick={() => deleteProduct(idProduct)}
+          >
             <svg width="20px" height="20px">
               <use href={`${sprite}#icon-trash`}></use>
             </svg>

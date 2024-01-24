@@ -36,12 +36,12 @@ function DayProducts() {
               <ProductsTable>
                 <ProductsTableThead>
                   <tr>
-                    <TableTitle>Title</TableTitle>
-                    <TableTitle>Category</TableTitle>
-                    <TableTitle>Calories</TableTitle>
-                    <TableTitle>Weight</TableTitle>
-                    <TableTitle>Recommend</TableTitle>
-                    <th></th>
+                    <TableTitle scope="col">Title</TableTitle>
+                    <TableTitle scope="col">Category</TableTitle>
+                    <TableTitle scope="col">Calories</TableTitle>
+                    <TableTitle scope="col">Weight</TableTitle>
+                    <TableTitle scope="col">Recommend</TableTitle>
+                    <th scope="col"></th>
                   </tr>
                 </ProductsTableThead>
                 <tbody>

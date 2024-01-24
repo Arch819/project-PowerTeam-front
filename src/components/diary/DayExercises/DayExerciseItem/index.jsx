@@ -50,6 +50,7 @@ const DayExerciseItem = ({ exercises }) => {
         <td>
           <DeleteButton
             type="button"
+            aria-label="Delete button"
             onClick={() => deleteExercise(idExercise)}
           >
             <svg width="20px" height="20px">

@@ -37,13 +37,15 @@ const DayExercises = () => {
               <ExercisesTable>
                 <ExercisesTableThead>
                   <tr>
-                    <TableTitle>Body Part</TableTitle>
-                    <TableTitle>Equipment</TableTitle>
-                    <TableTitle>Name</TableTitle>
-                    <TableTitle>Target</TableTitle>
-                    <TableTitleCalories>Burned Calories</TableTitleCalories>
-                    <TableTitle>Time</TableTitle>
-                    <th></th>
+                    <TableTitle scope="col">Body Part</TableTitle>
+                    <TableTitle scope="col">Equipment</TableTitle>
+                    <TableTitle scope="col">Name</TableTitle>
+                    <TableTitle scope="col">Target</TableTitle>
+                    <TableTitleCalories scope="col">
+                      Burned Calories
+                    </TableTitleCalories>
+                    <TableTitle scope="col">Time</TableTitle>
+                    <th scope="col"></th>
                   </tr>
                 </ExercisesTableThead>
                 <tbody>

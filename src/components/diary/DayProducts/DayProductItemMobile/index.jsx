@@ -48,7 +48,11 @@ const DayProductsItemMobile = ({ products }) => {
               {recommended ? 'Yes' : 'No'}
             </ProductsTextRecommend>
           </div>
-          <DeleteButton type="button" onClick={() => deleteProduct(idProduct)}>
+          <DeleteButton
+            type="button"
+            aria-label="Delete button"
+            onClick={() => deleteProduct(idProduct)}
+          >
             <svg width="20px" height="20px">
               <use href={`${sprite}#icon-trash`}></use>
             </svg>

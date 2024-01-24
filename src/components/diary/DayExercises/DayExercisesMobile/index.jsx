@@ -24,13 +24,13 @@ const DayExercisesMobile = () => {
           </svg>
         </AddExerciseButton>
       </DayExercisesHeader>
-      <ExerciseList>
-        {exercises.length > 0 ? (
+      {exercises.length > 0 ? (
+        <ExerciseList>
           <DayExerciseItemMobile exercises={exercises} />
-        ) : (
-          <DayExercisesPlug />
-        )}
-      </ExerciseList>
+        </ExerciseList>
+      ) : (
+        <DayExercisesPlug />
+      )}
     </DayExercisesContainer>
   );
 };
