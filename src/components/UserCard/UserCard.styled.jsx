@@ -38,7 +38,7 @@ export const UserSvg = styled.svg`
   }
 `;
 
-export const Button = styled.svg`
+export const Button = styled.div`
   width: 24px;
   height: 24px;
   cursor: pointer;
