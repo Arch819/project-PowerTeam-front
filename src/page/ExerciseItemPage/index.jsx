@@ -15,7 +15,6 @@ import { SuccessExerciseModalWindow } from 'components/Modal/AddPExerciseSuccess
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExercisesId } from 'store/exercises/exercisesSelector';
 import { getExercisesId } from 'store/exercises/exercisesOperations';
-import deleteIdForPathname from 'helpers/deleteIdForPathname';
 
 function ExerciseItemPage() {
   const { exId } = useParams();
