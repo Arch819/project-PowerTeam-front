@@ -6,6 +6,7 @@ import {
   Icon,
   LinkBack,
   LinkBox,
+  TitleBox,
 } from 'page/ExercisesListPage/ExercisesListPage.styled';
 import sprite from '../../images/sprite.svg';
 
@@ -15,6 +16,7 @@ import { SuccessExerciseModalWindow } from 'components/Modal/AddPExerciseSuccess
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExercisesId } from 'store/exercises/exercisesSelector';
 import { getExercisesId } from 'store/exercises/exercisesOperations';
+import TitlePage from 'components/TitlePage';
 
 function ExerciseItemPage() {
   const { exId } = useParams();
@@ -48,13 +50,16 @@ function ExerciseItemPage() {
       {exerciseData && (
         <div className="container">
           <LinkBox>
-            <LinkBack to={ref.current}>
+            <LinkBack to={ref.current} aria-label="Go to exercise` list">
               <Icon>
                 <use href={`${sprite}#${'icon-back'}`} />
               </Icon>
               Back
             </LinkBack>
           </LinkBox>
+          <TitleBox>
+            <TitlePage title={'Exercise'} />
+          </TitleBox>
 
           <AddExerciseForm
             data={exerciseData}
@@ -66,6 +71,7 @@ function ExerciseItemPage() {
               <SuccessExerciseModalWindow
                 data={dataSuccess}
                 closeModal={tumblerSuccessModal}
+                pathBack={newPath}
               />
             </BasicModalWindow>
           )}

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
-import { BasicWindow, Modal, BtnClose, SvgClose, ModalWraper } from "./index.styled";
+import { BasicWindow, Modal, BtnClose, SvgClose } from "./index.styled";
 
 import sprite from "../../images/sprite.svg";
 
@@ -43,7 +43,7 @@ const BasicModalWindow = ({ children, isOpenModalToggle }) => {
             <use href={`${sprite}#icon-close`}></use>
           </SvgClose>
         </BtnClose>
-        <ModalWraper>{children}</ModalWraper>
+        {children}
         
       </Modal>
     </BasicWindow>

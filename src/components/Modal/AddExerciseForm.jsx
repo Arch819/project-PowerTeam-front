@@ -9,6 +9,8 @@ import {
   BoxBtn,
   ExersiceModalImg,
   ExersiceModalTimer,
+  RightWrapper,
+  LeftWrapper,
 } from './AddExerciseForm.styled';
 
 import Timer from '../Timer/Timer';
@@ -48,15 +50,18 @@ export const AddExerciseForm = ({ data, onClick, openSuccess }) => {
     dispatch(
       getAddExerciseThunk({ time:dinamicTime, date: normalizedDate, exercise: idExercise, burnedCalories: dinamicBurnCal }),
     ).then(() => {
-    openSuccess({burnedCalories: dinamicBurnCal, time: dinamicTime})
+      openSuccess({ burnedCalories: dinamicBurnCal, time: dinamicTime })
+      setDinamicTime(0);
+      setDinamicBurnCal(0);
      onClick();
     })
   };
-
+console.log(dinamicBurnCal)
   return (
     <ExersiceModalContainer>
       <ExersiceModalWindowWrap>
-        <ExersiceModalImgWrapper>
+        <LeftWrapper>
+                  <ExersiceModalImgWrapper>
           <ExersiceModalImg src={gifUrl} alt={name} />
         </ExersiceModalImgWrapper>
         <ExersiceModalTimer>
@@ -67,7 +72,9 @@ export const AddExerciseForm = ({ data, onClick, openSuccess }) => {
             setDinamicTime={setDinamicTime}
           />
         </ExersiceModalTimer>
-        <ExersiceModalWindowList
+</LeftWrapper>
+        <RightWrapper>
+                  <ExersiceModalWindowList
           name={name}
           bodypart={bodyPart}
           target={target}
@@ -75,10 +82,11 @@ export const AddExerciseForm = ({ data, onClick, openSuccess }) => {
           time={time}
         />
         <BoxBtn>
-          <ExersiceModalWindowBtn type="button" onClick={handleAddToDiary}>
+          <ExersiceModalWindowBtn type="button" onClick={handleAddToDiary} title={dinamicBurnCal > 0 ? '' : 'Do some exercise!'} isDisabled={dinamicBurnCal >= 1} >
             Add to diary
           </ExersiceModalWindowBtn>
         </BoxBtn>
+</RightWrapper>
       </ExersiceModalWindowWrap>
     </ExersiceModalContainer>
   );

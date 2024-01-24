@@ -2,28 +2,54 @@ import styled from 'styled-components';
 
 export const ExersiceModalContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
+  overflow-y: auto;
+  height: 80vh;
+  max-width: 335px;
+  padding: 48px 16px;
 
   @media screen and (min-width: 768px) {
+    max-width: 100%;
+    width: 694px;
+    height: 550px;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+    overflow: hidden;
+    padding: 48px 32px;
+
+    /* align-items: flex-start;
+    justify-content: flex-start; */
   }
 `;
 
 export const ExersiceModalWindowWrap = styled.div`
-  width: 335px;
-  padding: 48px 16px;
   display: flex;
   flex-direction: column;
+  height: 788px;
 
   @media screen and (min-width: 768px) {
-    width: 694px;
-    height: 550px;
-    padding: 0;
-    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 16px;
+    height: 454px;
   }
+`;
+
+export const RightWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+` ;
+
+export const LeftWrapper = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 40px;
+
+@media screen and (min-width: 768px){
+ margin-bottom: 0; 
+}
 `;
 
 export const ExersiceModalImgWrapper = styled.div`
@@ -33,9 +59,6 @@ export const ExersiceModalImgWrapper = styled.div`
   margin-right: auto;
 
   @media screen and (min-width: 768px) {
-    margin-left: 32px;
-    margin-right: 0;
-    margin-top: 40px;
   }
 `;
 export const ExersiceModalTimer = styled.div`
@@ -48,8 +71,6 @@ export const ExersiceModalTimer = styled.div`
     align-items: start;
     width: 125px;
     height: 125px;
-    margin-left: 105px;
-    margin-right: none;
   }
 `;
 
@@ -71,9 +92,6 @@ export const BoxBtn = styled.div`
     display: flex;
     justify-content: flex-end;
     @media screen and (min-width: 768px) {
-      margin-right: 32px;
-      margin-top: auto;
-      margin-bottom: 48px;
     }
   }
 `;
@@ -88,6 +106,8 @@ export const ExersiceModalWindowBtn = styled.button`
   border-color: transparent;
   background: #e6533c;
   align-self: flex-start;
+  
+  pointer-events: ${({isDisabled})=>(!isDisabled ? 'none' : 'all')};
   &:hover {
     background: #ef8964;
     color: #efede8;

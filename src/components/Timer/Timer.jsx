@@ -1,6 +1,5 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import {
-  FormattedTitle,
   PlayIcon,
   TimerBtn,
   TimerSub,
@@ -54,7 +53,6 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
           </div>
         )}
       </CountdownCircleTimer>
-      <FormattedTitle>{data.time} minutes</FormattedTitle>
       <TimerBtn onClick={handlePlay}>
         <PlayIcon>
           <use

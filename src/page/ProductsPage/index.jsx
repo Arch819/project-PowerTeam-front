@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import { getAllProducts, getProductsCategories } from 'store/products/productsOperations';
 import { TitleFilter } from '../../components/products/ProductsFilters/index.styled'; 
 import SearchNoResult from 'components/products/SearchNoResult';
+import { LocalTitlePage } from './ProductsPage.styled';
 
 function ProductsPage() {
   const dispatch = useDispatch();
@@ -47,7 +48,9 @@ function ProductsPage() {
     <Section use={'secondary'}>
       <div className="container">
         <TitleFilter>
-          <TitlePage title={'Products'} />
+          <LocalTitlePage>
+            <TitlePage title={'Products'} />
+          </LocalTitlePage>
           <ProductsFilters categories={categories} />
         </TitleFilter>
         {productsArray.length > 0 ? (
