@@ -3,12 +3,15 @@ import styled from 'styled-components';
 const ExercisesListStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
-
-  width: 335px;
+  align-content: flex-start;
   gap: 20px;
 
+  @media screen and (min-width: 375px) {
+    max-width: 335px;
+  }
+
   @media screen and (min-width: 768px) {
-    width: 704px;
+    max-width: 704px;
     height: 726px;
     gap: 32px 16px;
     overflow: auto;
@@ -22,7 +25,7 @@ const ExercisesListStyled = styled.ul`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 850px;
+    max-width: 850px;
     height: 487px;
     gap: 30px 16px;
   }

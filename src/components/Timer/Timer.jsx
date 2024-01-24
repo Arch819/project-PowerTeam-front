@@ -25,10 +25,14 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
       const burnCal = time * data.burnedCalories;
       return Math.round(burnCal);
     });
-    setDinamicTime(() => duration - remainingTime);
+    setDinamicTime(() => {
+      return parseFloat(((duration - remainingTime) / 60).toFixed(2));
+    });
 
-  const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
-  const seconds = (remainingTime % 60).toString().padStart(2, '0');
+    const minutes = Math.floor(remainingTime / 60)
+      .toString()
+      .padStart(2, '0');
+    const seconds = (remainingTime % 60).toString().padStart(2, '0');
 
     return `${minutes}:${seconds}`;
   };
@@ -52,11 +56,7 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
       <TimerBtn onClick={handlePlay}>
         <PlayIcon>
           <use
-            href={
-              isPlaying
-                ? `${sprite}#icon-pause`
-                : `${sprite}#icon-play`
-            }
+            href={isPlaying ? `${sprite}#icon-pause` : `${sprite}#icon-play`}
           ></use>
         </PlayIcon>
       </TimerBtn>

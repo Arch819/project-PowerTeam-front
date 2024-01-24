@@ -10,6 +10,7 @@ import {
   TextWarning,
   Thumb,
 } from './DayDashboard.styled';
+import formatTime from 'helpers/fomatTime';
 
 function DayDashboard() {
   const diaryProducts = useSelector(selectProducts);
@@ -76,13 +77,13 @@ function DayDashboard() {
           title={'Sports remaining'}
           data={
             restOfSport > 0
-              ? `${restOfSport} min`
-              : `+${Math.abs(restOfSport)} min`
+              ? `${formatTime(restOfSport)}`
+              : `+${formatTime(restOfSport)}`
           }
         />
       </DayDashboardList>
       <Thumb>
-        <IconWarning>
+        <IconWarning aria-label="icon-warning">
           <use href={`${sprite}#icon-warning`} />
         </IconWarning>
         <TextWarning>

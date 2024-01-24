@@ -4,12 +4,14 @@ import sprite from '../../../images/sprite.svg';
 import BasicModalWindow from '../../Modal';
 import { AddExerciseForm } from '../../Modal/AddExerciseForm';
 import { SuccessExerciseModalWindow } from 'components/Modal/AddPExerciseSuccess';
+import addIdForPathname from 'helpers/addIdForPathname';
+import deleteIdForPathname from 'helpers/deleteIdForPathname';
 
 function ExercisesItem({ exerciseData }) {
   const [modal, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
-  const { bodyPart, name, target, burnedCalories } = exerciseData;
+  const { bodyPart, name, target, burnedCalories, idExercise } = exerciseData;
 
   const upFirst = string => {
     if (!string) return string;
@@ -17,29 +19,34 @@ function ExercisesItem({ exerciseData }) {
     return string[0].toUpperCase() + string.slice(1);
   };
 
-  const openModal = () => {
+  const tumblerModal = () => {
     setModal(preModal => {
       return !preModal;
     });
   };
 
-  const closeModal = () => {
-    setModal(false);
-  };
-
-  const closeSuccessModal = () => {
-    setSuccessModal(false);
+  const tumblerSuccessModal = () => {
+    setSuccessModal(preSuccessModal => {
+      return !preSuccessModal;
+    });
   };
 
   const handleSuccessModal = data => {
     setDataSuccess(data);
-    setSuccessModal(true);
+    tumblerSuccessModal();
+    deleteIdForPathname(idExercise);
   };
 
   return (
     <ExercisesItemStyled>
       <p className="workout">WORKOUT</p>
-      <button className="btn-box" onClick={openModal}>
+      <button
+        className="btn-box"
+        onClick={() => {
+          tumblerModal();
+          addIdForPathname(idExercise);
+        }}
+      >
         <span className="btn-text">Start</span>
         <svg className="btn-svg">
           <use href={`${sprite}#icon-next`} />
@@ -68,19 +75,29 @@ function ExercisesItem({ exerciseData }) {
         </li>
       </ul>
       {modal && (
-        <BasicModalWindow isOpenModalToggle={closeModal}>
+        <BasicModalWindow
+          isOpenModalToggle={() => {
+            tumblerModal();
+            deleteIdForPathname(idExercise);
+          }}
+        >
           <AddExerciseForm
             data={exerciseData}
-            onClick={openModal}
+            onClick={tumblerModal}
             openSuccess={handleSuccessModal}
           />
         </BasicModalWindow>
       )}
       {successModal && (
-        <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
+        <BasicModalWindow
+          isOpenModalToggle={() => {
+            tumblerSuccessModal();
+            deleteIdForPathname(idExercise);
+          }}
+        >
           <SuccessExerciseModalWindow
             data={dataSuccess}
-            closeModal={closeModal}
+            closeModal={tumblerSuccessModal}
           />
         </BasicModalWindow>
       )}

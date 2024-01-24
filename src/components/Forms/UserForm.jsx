@@ -14,7 +14,28 @@ import { notiflixMessage } from 'helpers/notiflixMessage';
 function UserForm() {
   const user = useSelector(selectUser);
   const userData = useSelector(selectUserParams);
-  const initState = { ...user, ...userData };
+
+  const { name, email, bodyData } = user;
+  const {
+    blood,
+    levelActivity,
+    height,
+    currentWeight,
+    desiredWeight,
+    sex,
+    birthday,
+  } = userData;
+  const initState = {
+    name,
+    email,
+    blood: blood || 0,
+    levelActivity: levelActivity || 0,
+    height: height || 0,
+    currentWeight: currentWeight || 0,
+    desiredWeight: desiredWeight || 0,
+    sex: sex || '',
+    birthday,
+  };
   const dispatch = useDispatch();
 
   return (
@@ -23,7 +44,7 @@ function UserForm() {
       onSubmit={values => {
         validationSchema
           .validate(values, { abortEarly: false })
-          .then(() => {
+          .then(async () => {
             values = {
               ...values,
               height: Number(values.height),
@@ -33,11 +54,11 @@ function UserForm() {
               levelActivity: Number(values.levelActivity),
             };
             values.bmr = bmr(values);
-            dispatch(updateProfile(values));
+            const req = await dispatch(updateProfile(values));
 
-            if (values.bodyData) {
+            if (req.meta.requestStatus === 'fulfilled' && bodyData) {
               notiflixMessage('ok', 'Data changed successfully.');
-            } else {
+            } else if (req.meta.requestStatus === 'fulfilled') {
               notiflixMessage('ok', 'Data added successfully.');
             }
           })

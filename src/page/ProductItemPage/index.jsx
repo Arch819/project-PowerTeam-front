@@ -6,32 +6,35 @@ import {
   Icon,
   LinkBack,
   LinkBox,
+  TitleBox,
 } from 'page/ExercisesListPage/ExercisesListPage.styled';
 import sprite from '../../images/sprite.svg';
 
 import BasicModalWindow from 'components/Modal';
-import { AddExerciseForm } from 'components/Modal/AddExerciseForm';
-import { SuccessExerciseModalWindow } from 'components/Modal/AddPExerciseSuccess';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectExercisesId } from 'store/exercises/exercisesSelector';
-import { getExercisesId } from 'store/exercises/exercisesOperations';
+import { selectProductsId } from 'store/products/productsSelector';
+import { getProductsId } from 'store/products/productsOperations';
+import AddProductForm from 'components/Modal/AddProductForm';
+import TitlePage from 'components/TitlePage';
+import { AddProductSuccess } from 'components/Modal/AddProductSuccess';
+import ProductItemPageStyled from './ProductItemPageStyled';
 
-function ExerciseItemPage() {
-  const { exId } = useParams();
+function ProductItemPage() {
+  const { prodId } = useParams();
   const dispatch = useDispatch();
-  const location = useLocation();
-  const newPath = location.pathname.replace(new RegExp(`/${exId}.*$`), '');
 
+  const location = useLocation();
+  const newPath = location.pathname.replace(new RegExp(`/${prodId}.*$`), '');
   const backLinkHref = location.state?.from ?? newPath;
   const ref = useRef(backLinkHref);
 
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
-  const exerciseData = useSelector(selectExercisesId);
+  const productData = useSelector(selectProductsId);
 
   useEffect(() => {
-    dispatch(getExercisesId(exId));
-  }, [exId, dispatch]);
+    dispatch(getProductsId(prodId));
+  }, [prodId, dispatch]);
 
   const tumblerSuccessModal = () => {
     setSuccessModal(preSuccessModal => {
@@ -44,8 +47,8 @@ function ExerciseItemPage() {
   };
 
   return (
-    <Section className="exercises-bg" use={'first'}>
-      {exerciseData && (
+    <Section className="exercises-bg" use={'secondary'}>
+      {productData && (
         <div className="container">
           <LinkBox>
             <LinkBack to={ref.current}>
@@ -55,15 +58,20 @@ function ExerciseItemPage() {
               Back
             </LinkBack>
           </LinkBox>
+          <TitleBox>
+            <TitlePage title={'Product'} />
+          </TitleBox>
 
-          <AddExerciseForm
-            data={exerciseData}
-            onClick={tumblerSuccessModal}
-            openSuccess={handleSuccessModal}
-          />
+          <ProductItemPageStyled>
+            <AddProductForm
+              eldata={productData}
+              onClick={tumblerSuccessModal}
+              openSuccess={handleSuccessModal}
+            />
+          </ProductItemPageStyled>
           {successModal && (
             <BasicModalWindow isOpenModalToggle={tumblerSuccessModal}>
-              <SuccessExerciseModalWindow
+              <AddProductSuccess
                 data={dataSuccess}
                 closeModal={tumblerSuccessModal}
               />
@@ -75,4 +83,4 @@ function ExerciseItemPage() {
   );
 }
 
-export default ExerciseItemPage;
+export default ProductItemPage;

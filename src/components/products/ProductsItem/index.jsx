@@ -4,12 +4,15 @@ import sprite from '../../../images/sprite.svg';
 import BasicModalWindow from '../../Modal';
 import { AddProductSuccess } from 'components/Modal/AddProductSuccess';
 import AddProductForm from 'components/Modal/AddProductForm';
+import addIdForPathname from 'helpers/addIdForPathname';
+import deleteIdForPathname from 'helpers/deleteIdForPathname';
 
 function ProductsItem({ productData }) {
   const [modal, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
-  const { title, category, calories, weight, recommend } = productData;
+  const { title, category, calories, weight, recommend, idProduct } =
+    productData;
 
   const upFirst = string => {
     if (!string) return string;
@@ -17,23 +20,22 @@ function ProductsItem({ productData }) {
     return string[0].toUpperCase() + string.slice(1);
   };
 
-  const openModal = () => {
+  const tumblerModal = () => {
     setModal(preModal => {
       return !preModal;
     });
   };
 
-  const closeModal = () => {
-    setModal(false);
-  };
-
-  const closeSuccessModal = () => {
-    setSuccessModal(false);
+  const tumblerSuccessModal = () => {
+    setSuccessModal(preSuccessModal => {
+      return !preSuccessModal;
+    });
   };
 
   const handleSuccessModal = data => {
     setDataSuccess(data);
-    setSuccessModal(true);
+    tumblerSuccessModal();
+    deleteIdForPathname(idProduct);
   };
 
   return (
@@ -48,7 +50,13 @@ function ProductsItem({ productData }) {
             {recommend ? 'Recommended' : 'Not recommended'}
           </p>
         </div>
-        <button className="btn-box" onClick={openModal}>
+        <button
+          className="btn-box"
+          onClick={() => {
+            tumblerModal();
+            addIdForPathname(idProduct);
+          }}
+        >
           <span className="btn-text">Add</span>
           <svg className="btn-svg">
             <use href={`${sprite}#icon-next`} />
@@ -78,17 +86,25 @@ function ProductsItem({ productData }) {
         </li>
       </ul>
       {modal && (
-        <BasicModalWindow isOpenModalToggle={closeModal}>
+        <BasicModalWindow
+          isOpenModalToggle={() => {
+            tumblerModal();
+            deleteIdForPathname(idProduct);
+          }}
+        >
           <AddProductForm
             eldata={productData}
-            onClick={openModal}
+            onClick={tumblerModal}
             openSuccess={handleSuccessModal}
           />
         </BasicModalWindow>
       )}
       {successModal && (
-        <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
-          <AddProductSuccess calories={dataSuccess} closeModal={closeModal} />
+        <BasicModalWindow isOpenModalToggle={tumblerSuccessModal}>
+          <AddProductSuccess
+            calories={dataSuccess}
+            closeModal={tumblerSuccessModal}
+          />
         </BasicModalWindow>
       )}
     </ProductsItemStyled>

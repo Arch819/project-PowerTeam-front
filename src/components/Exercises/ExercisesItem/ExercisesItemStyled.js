@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ExercisesItemStyled = styled.li`
   position: relative;
-  width: 335px;
+  width: 100%;
   max-height: 163px;
   padding: 16px;
 
@@ -83,14 +83,14 @@ const ExercisesItemStyled = styled.li`
       background: #efa082;
 
       .title-svg-person {
-        width: ${props => props.size || '14.07px'};
-        height: ${props => props.size || '16px'};
-        fill: ${props => props.color || '#ffffff'};
-        stroke: ${props => props.color || '#ffffff'};
+        width: 14.07px;
+        height: 16px;
+        fill: var(--color-text-white);
+        stroke: var(--color-text-white);
       }
     }
     .title-exercise {
-      max-width: 263px;
+      max-width: 220px;
       display: -webkit-box;
       overflow: hidden;
       -webkit-line-clamp: 1;
@@ -105,7 +105,7 @@ const ExercisesItemStyled = styled.li`
   }
 
   .categories-list {
-    width: 303px;
+    max-width: 303px;
 
     display: flex;
     flex-wrap: wrap;
@@ -125,6 +125,9 @@ const ExercisesItemStyled = styled.li`
         line-height: 150%;
       }
     }
+  }
+  @media screen and (min-width: 375px) {
+    width: 335px;
   }
 
   @media screen and (min-width: 768px) {
@@ -153,7 +156,6 @@ const ExercisesItemStyled = styled.li`
 
   @media screen and (min-width: 1440px) {
     width: 405px;
-    max-height: 141px;
 
     .workout {
       margin-bottom: 27px;

@@ -22,6 +22,17 @@ const DayExerciseItem = ({ exercises }) => {
       return;
     }
   };
+  const formatTime = minutes => {
+    const totalMinutes = Math.floor(minutes);
+    const seconds = Math.round((minutes - totalMinutes) * 60);
+    if (minutes < 0) {
+      return formatTime(Math.abs(minutes));
+    }
+    console.log(totalMinutes);
+    return `${totalMinutes.toString().padStart(2, '0')}:${seconds
+      .toString()
+      .padStart(2, '0')}`;
+  };
   return exercises.map(
     ({
       idExercise,
@@ -35,7 +46,7 @@ const DayExerciseItem = ({ exercises }) => {
         <TableTextName>{name}</TableTextName>
         <TableTextTarget>{target}</TableTextTarget>
         <TableTextCalories>{burnedCalories}</TableTextCalories>
-        <TableTextTime>{time}</TableTextTime>
+        <TableTextTime>{formatTime(time)}</TableTextTime>
         <td>
           <DeleteButton
             type="button"

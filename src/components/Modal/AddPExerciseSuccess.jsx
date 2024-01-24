@@ -1,4 +1,4 @@
-
+import formatTime from 'helpers/fomatTime';
 import like from '../../images/ModalImg/like-2x.png';
 import sprite from '../../images/sprite.svg';
 import {
@@ -32,7 +32,7 @@ export const SuccessExerciseModalWindow = ({ data, closeModal, pathBack='/' }) =
             </SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-          <SuccessModalWindowBtn to={pathBack} onClick={closeModal}>Next exercise</SuccessModalWindowBtn>
+          <SuccessModalWindowBtn to={pathBack}>Next exercise</SuccessModalWindowBtn>
         <StyledLink to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary

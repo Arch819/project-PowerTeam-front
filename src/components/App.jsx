@@ -19,6 +19,7 @@ import ExercisesListPage from 'page/ExercisesListPage';
 import ProfilePage from 'page/ProfilePage';
 import ExerciseItemPage from 'page/ExerciseItemPage';
 import { fetchCurrentUser } from 'store/auth/operations';
+import ProductItemPage from 'page/ProductItemPage';
 
 const LoginPage = lazy(() => import('page/SignInPage'));
 const RegistrationPage = lazy(() => import('page/SignUpPage'));
@@ -43,7 +44,12 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route
           index
-          element={<Navigate to={isLoggedIn ? '/diary' : '/welcome'} replace />}
+          element={
+            <Navigate
+              to={isLoggedIn ? (!bodyData ? '/profile' : '/diary') : '/welcome'}
+              replace
+            />
+          }
         />
         <Route
           path="/welcome"
@@ -73,6 +79,12 @@ export const App = () => {
         <Route
           path="/products"
           element={<PrivateRoute redirectTo="/" component={<ProductsPage />} />}
+        />
+        <Route
+          path="/products/:prodId"
+          element={
+            <PrivateRoute redirectTo="/" component={<ProductItemPage />} />
+          }
         />
         <Route
           path="/exercises"

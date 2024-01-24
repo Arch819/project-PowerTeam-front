@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-  //width: 335px;
   margin-bottom: 40px;
 
   @media screen and (min-width: 375px) {
@@ -9,9 +8,16 @@ export const Box = styled.div`
     margin-bottom: 0;
   }
 
+  @media screen and (max-width: 767px) {
+    padding-bottom: 40px;
+  }
+
   @media screen and (min-width: 768px) {
     width: 704px;
-    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 1399px) {
+    padding-bottom: 64px;
   }
 
   @media screen and (min-width: 1440px) {
