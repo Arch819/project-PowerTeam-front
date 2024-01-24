@@ -35,7 +35,6 @@ export const App = () => {
     if (isLoggedIn && !bodyData) {
       navigate('/');
     }
-    console.log('useEffect', bodyData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return isRefresh ? (
