@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ProductsItemStyled = styled.li`
   position: relative;
-  width: 335px;
+  width: 100%;
   max-height: 165px;
   padding: 16px;
 
@@ -119,7 +119,7 @@ const ProductsItemStyled = styled.li`
       }
     }
     .title-exercise {
-      max-width: 263px;
+      max-width: 220px;
       display: -webkit-box;
       overflow: hidden;
       -webkit-line-clamp: 1;
@@ -134,6 +134,8 @@ const ProductsItemStyled = styled.li`
   }
 
   .categories-list {
+    max-width: 303px;
+
     display: flex;
     flex-wrap: wrap;
     gap: 4px 16px;
@@ -152,6 +154,10 @@ const ProductsItemStyled = styled.li`
         line-height: 150%;
       }
     }
+  }
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
   }
 
   @media screen and (min-width: 768px) {
