@@ -4,12 +4,15 @@ import sprite from '../../../images/sprite.svg';
 import BasicModalWindow from '../../Modal';
 import { AddProductSuccess } from 'components/Modal/AddProductSuccess';
 import AddProductForm from 'components/Modal/AddProductForm';
+import addIdForPathname from 'helpers/addIdForPathname';
+import deleteIdForPathname from 'helpers/deleteIdForPathname';
 
 function ProductsItem({ productData }) {
   const [modal, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
-  const { title, category, calories, weight, recommend } = productData;
+  const { title, category, calories, weight, recommend, idProduct } =
+    productData;
 
   const upFirst = string => {
     if (!string) return string;
@@ -25,10 +28,12 @@ function ProductsItem({ productData }) {
 
   const closeModal = () => {
     setModal(false);
+    deleteIdForPathname(idProduct);
   };
 
   const closeSuccessModal = () => {
     setSuccessModal(false);
+    deleteIdForPathname(idProduct);
   };
 
   const handleSuccessModal = data => {
@@ -48,7 +53,13 @@ function ProductsItem({ productData }) {
             {recommend ? 'Recommended' : 'Not recommended'}
           </p>
         </div>
-        <button className="btn-box" onClick={openModal}>
+        <button
+          className="btn-box"
+          onClick={() => {
+            openModal();
+            addIdForPathname(idProduct);
+          }}
+        >
           <span className="btn-text">Add</span>
           <svg className="btn-svg">
             <use href={`${sprite}#icon-next`} />
@@ -88,7 +99,10 @@ function ProductsItem({ productData }) {
       )}
       {successModal && (
         <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
-          <AddProductSuccess calories={dataSuccess} closeModal={closeModal} />
+          <AddProductSuccess
+            calories={dataSuccess}
+            closeModal={closeSuccessModal}
+          />
         </BasicModalWindow>
       )}
     </ProductsItemStyled>
