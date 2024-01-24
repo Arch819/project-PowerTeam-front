@@ -27,13 +27,14 @@ const DaySwitch = ({ onChangeDate, dateRegister }) => {
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
       <CalendarWrapper>
-        <TitleWrapper onClick={onClick} ref={ref}>
+        <TitleWrapper aria-label="icon-calendar" onClick={onClick} ref={ref}>
           {format(selectedDate, 'dd/MM/yyyy')}
           <IconSvg width="24" height="24">
             <use href={`${sprite}#icon-calendar`}></use>
           </IconSvg>
         </TitleWrapper>
         <ChevronButton
+          aria-label="icon-calendar-left"
           onClick={() => handleDateChange(subDays(selectedDate, 1))}
         >
           <IconChevron>
@@ -41,6 +42,7 @@ const DaySwitch = ({ onChangeDate, dateRegister }) => {
           </IconChevron>
         </ChevronButton>
         <ChevronButton
+          aria-label="icon-calendar-right"
           onClick={() => handleDateChange(addDays(selectedDate, 1))}
         >
           <IconChevron>
