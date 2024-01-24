@@ -35,6 +35,7 @@ const DaySwitch = ({ onChangeDate, dateRegister }) => {
         </TitleWrapper>
         <ChevronButton
           onClick={() => handleDateChange(subDays(selectedDate, 1))}
+          aria-label="return one day back"
         >
           <IconChevron>
             <use href={`${sprite}#icon-calendar-left`}></use>
@@ -42,6 +43,7 @@ const DaySwitch = ({ onChangeDate, dateRegister }) => {
         </ChevronButton>
         <ChevronButton
           onClick={() => handleDateChange(addDays(selectedDate, 1))}
+          aria-label="move forward one day"
         >
           <IconChevron>
             <use href={`${sprite}#icon-calendar-right`}></use>

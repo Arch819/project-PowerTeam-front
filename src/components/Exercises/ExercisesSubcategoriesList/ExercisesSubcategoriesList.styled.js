@@ -3,13 +3,6 @@ import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
 
-// export const SwiperBox = styled(Swiper)`
-//   width: 100%;
-//   height: 100%;
-//   margin-left: auto;
-//   margin-right: auto;
-// `;
-
 export const Image = styled.img`
   object-fit: cover;
   height: auto;

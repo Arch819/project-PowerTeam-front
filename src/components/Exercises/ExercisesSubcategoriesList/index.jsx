@@ -65,8 +65,9 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
             <Link
               to={`/exercises/${category}/${encodeURIComponent(name)}`}
               state={{ from: location }}
+              aria-label="link to exercises by subcategory"
             >
-              <Image src={imgURL} alt="name"></Image>
+              <Image src={imgURL} alt={name}></Image>
               <TextContainer>
                 <h3>{capitalizedWord(name)}</h3>
                 <p>{filter}</p>

@@ -32,7 +32,7 @@ function ExercisesListPage() {
     <Section className="exercises-bg" use={'first'}>
       <div className="container">
         <LinkBox>
-          <LinkBack to={ref.current}>
+          <LinkBack aria-label="link to page back"  to={ref.current}>
             <Icon>
               <use href={`${sprite}#${'icon-back'}`} />
             </Icon>

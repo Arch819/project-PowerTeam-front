@@ -160,7 +160,7 @@ header .container {
   > .swiper-pagination .swiper-pagination-bullet {
     width: 14px;
     height: 14px;
-    background-color: rgba(239, 237, 232, 0.1);
+    background-color: rgba(239, 237, 232);
   }
 
   > .swiper-pagination .swiper-pagination-bullet-active {
@@ -181,15 +181,13 @@ header .container {
   cursor: pointer;
   overflow: hidden;
   border-radius: 12px;
-
   border: 1px solid rgba(239, 237, 232, 0.2);
 
   &:hover,
   &:focus {
     transition: var(--transition);
     border: 1px solid var(--bg-alert);
-    box-shadow: 10px 10px 10px 2px rgba(34, 60, 80, 0.2) inset,
-      8px 8px 8px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 8px 8px 8px 2px rgba(34, 60, 80, 0.2);
   }
   @media screen and (max-width: 767px) {
     margin-bottom: 4px;
