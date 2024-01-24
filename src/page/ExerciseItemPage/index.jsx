@@ -58,7 +58,7 @@ function ExerciseItemPage() {
             </LinkBack>
           </LinkBox>
           <TitleBox>
-            <TitlePage title={'Product'} />
+            <TitlePage title={'Exercise'} />
           </TitleBox>
 
           <AddExerciseForm
