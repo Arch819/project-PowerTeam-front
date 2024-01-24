@@ -57,6 +57,7 @@ const getCustomStyles = fontSize => ({
     },
     '::-webkit-scrollbar-track': {
       marginTop: '14px',
+      marginBottom: '14px',
     },
   }),
 });
