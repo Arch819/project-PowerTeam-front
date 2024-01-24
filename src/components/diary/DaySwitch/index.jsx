@@ -17,6 +17,9 @@ const DaySwitch = ({ onChangeDate, dateRegister }) => {
   const [selectedDate, setSelectedDate] = useState(Date.now());
 
   const handleDateChange = newDate => {
+    if (newDate <= dateRegister) {
+      return;
+    }
     setSelectedDate(newDate);
     onChangeDate(newDate);
   };
@@ -58,8 +61,7 @@ const DaySwitch = ({ onChangeDate, dateRegister }) => {
         showYearDropdown
         calendarStartDay={1}
         formatWeekDay={day => day.substr(0, 1)}
-        // minDate={dateRegister}
-        maxDate={Date.now()}
+        minDate={dateRegister}
         onChange={date => {
           setSelectedDate(date);
           onChangeDate(date);
