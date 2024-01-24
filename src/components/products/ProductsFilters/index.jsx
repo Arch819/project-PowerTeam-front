@@ -110,13 +110,18 @@ const ProductsFilters = () => {
                 type="button"
                 onClick={clearSearch}
                 $isVisible={inputValue.length > 0}
+                aria-label="Close"
               >
                 <ProductsSvgClose>
                   <use href={`${sprite}#icon-close`}></use>
                 </ProductsSvgClose>
               </ProductsBtnClose>
             )}
-            <ProductsBtnSearch type="submit" onClick={handleSubmit}>
+            <ProductsBtnSearch
+              type="submit"
+              onClick={handleSubmit}
+              aria-label="Search"
+            >
               <ProductsSvgSearch>
                 <use href={`${sprite}#icon-search`}></use>
               </ProductsSvgSearch>
@@ -131,6 +136,7 @@ const ProductsFilters = () => {
                 styles={customStyles}
                 placeholder="Categories"
                 options={categoriesList || []}
+                aria-label="Select a category"
                 theme={theme => ({
                   ...theme,
                   colors: {
@@ -154,6 +160,7 @@ const ProductsFilters = () => {
                 options={optionsRec}
                 styles={customStyles}
                 placeholder="All"
+                aria-label="Select recommendation status"
                 theme={theme => ({
                   ...theme,
                   colors: {
