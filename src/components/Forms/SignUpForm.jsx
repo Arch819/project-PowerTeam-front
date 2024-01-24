@@ -84,9 +84,11 @@ const SignUpForm = () => {
           name="name"
           type="text"
           placeholder=""
-          error={formik.errors.name && formik.touched.name}
+          error={formik.errors.name && formik.touched.name ? 'error' : ''}
           success={
             !formik.errors.name && formik.touched.name && formik.values.name
+              ? 'success'
+              : ''
           }
           value={formik.values.name}
           onChange={formik.handleChange}
@@ -116,9 +118,11 @@ const SignUpForm = () => {
           name="email"
           type="email"
           placeholder=""
-          error={formik.errors.email && formik.touched.email}
+          error={formik.errors.email && formik.touched.email ? 'error' : ''}
           success={
             !formik.errors.email && formik.touched.email && formik.values.email
+              ? 'success'
+              : ''
           }
           value={formik.values.email}
           onChange={formik.handleChange}
@@ -148,11 +152,15 @@ const SignUpForm = () => {
           name="password"
           type={showPassword ? 'text' : 'password'}
           placeholder=""
-          error={formik.errors.password && formik.touched.password}
+          error={
+            formik.errors.password && formik.touched.password ? 'error' : ''
+          }
           success={
             !formik.errors.password &&
             formik.touched.password &&
             formik.values.password
+              ? 'success'
+              : ''
           }
           value={formik.values.password}
           onChange={formik.handleChange}
