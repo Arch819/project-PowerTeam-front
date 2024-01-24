@@ -34,7 +34,6 @@ function UserForm() {
               levelActivity: Number(values.levelActivity),
             };
             values.bmr = bmr(values);
-            console.log(values);
             dispatch(updateProfile(values));
 
             if (values.bodyData) {

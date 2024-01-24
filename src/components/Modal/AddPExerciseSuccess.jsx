@@ -1,4 +1,4 @@
-
+import formatTime from 'helpers/fomatTime';
 import like from '../../images/ModalImg/like-2x.png';
 import sprite from '../../images/sprite.svg';
 import {
@@ -23,7 +23,9 @@ export const SuccessExerciseModalWindow = ({ data, closeModal }) => {
           <SuccessModalWindowTitle>Well done</SuccessModalWindowTitle>
           <SuccessModalWindowText>
             Your time:
-            <SuccessModalWindowSpan>{data.time}</SuccessModalWindowSpan>
+            <SuccessModalWindowSpan>
+              {formatTime(data.time)}
+            </SuccessModalWindowSpan>
           </SuccessModalWindowText>
           <SuccessModalWindowText>
             Burned calories:
@@ -32,7 +34,9 @@ export const SuccessExerciseModalWindow = ({ data, closeModal }) => {
             </SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-          <SuccessModalWindowBtn onClick={closeModal}>Next exercise</SuccessModalWindowBtn>
+        <SuccessModalWindowBtn onClick={closeModal}>
+          Next exercise
+        </SuccessModalWindowBtn>
         <StyledLink to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary
