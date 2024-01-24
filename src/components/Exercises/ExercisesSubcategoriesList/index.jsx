@@ -1,11 +1,7 @@
 import React from 'react';
-import {
-  Image,
-  SwiperBox,
-  SwiperItem,
-  TextContainer,
-} from './ExercisesSubcategoriesList.styled';
-
+import { Image, TextContainer } from './ExercisesSubcategoriesList.styled';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
@@ -22,38 +18,48 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
 
   return (
     <div style={{ height: '444px' }}>
-      <SwiperBox
-        slidesPerView={1}
-        grid={{
-          rows: 10,
-        }}
-        slidesPerGroup={1}
+      <Swiper
+        spaceBetween={5}
         pagination={{
           clickable: true,
         }}
         breakpoints={{
+          375: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            grid: {
+              rows: 10,
+              fill: 'row',
+            },
+          },
           768: {
             slidesPerView: 3,
             slidesPerGroup: 3,
             grid: {
               rows: 3,
+              fill: 'row',
             },
-            spaceBetween: 16,
           },
           1440: {
             slidesPerView: 5,
             slidesPerGroup: 5,
             grid: {
               rows: 2,
+              fill: 'row',
             },
-            spaceBetween: 16,
           },
         }}
         modules={[Grid, Pagination]}
-        className="mySwiper"
+        style={{
+          '--swiper-pagination-bullet-inactive-color':
+            ' rgba(239, 237, 232, 1)',
+          '--swiper-pagination-color': 'rgba(230, 83, 60, 1)',
+          '--swiper-pagination-bullet-size': '14px',
+          '--swiper-pagination-bullet-horizontal-gap': '8px',
+        }}
       >
         {subcategoriesList.map(({ idFilter, filter, name, imgURL }) => (
-          <SwiperItem key={idFilter}>
+          <SwiperSlide key={idFilter}>
             <Link
               to={`/exercises/${category}/${encodeURIComponent(name)}`}
               state={{ from: location }}
@@ -64,9 +70,9 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
                 <p>{filter}</p>
               </TextContainer>
             </Link>
-          </SwiperItem>
+          </SwiperSlide>
         ))}
-      </SwiperBox>
+      </Swiper>
     </div>
   );
 };
