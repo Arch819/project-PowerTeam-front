@@ -20,7 +20,6 @@ import { AddProductSuccess } from 'components/Modal/AddProductSuccess';
 
 function ProductItemPage() {
   const { prodId } = useParams();
-  console.log(prodId);
   const dispatch = useDispatch();
 
   const location = useLocation();
@@ -28,11 +27,10 @@ function ProductItemPage() {
   const backLinkHref = location.state?.from ?? newPath;
   const ref = useRef(backLinkHref);
 
-  const [modal, setModal] = useState(false);
+  const [, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
   const productData = useSelector(selectProductsId);
-  console.log(productData);
 
   useEffect(() => {
     dispatch(getProductsId(prodId));
