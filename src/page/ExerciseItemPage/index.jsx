@@ -15,6 +15,7 @@ import { SuccessExerciseModalWindow } from 'components/Modal/AddPExerciseSuccess
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExercisesId } from 'store/exercises/exercisesSelector';
 import { getExercisesId } from 'store/exercises/exercisesOperations';
+import deleteIdForPathname from 'helpers/deleteIdForPathname';
 
 function ExerciseItemPage() {
   const { exId } = useParams();
@@ -25,7 +26,6 @@ function ExerciseItemPage() {
   const backLinkHref = location.state?.from ?? newPath;
   const ref = useRef(backLinkHref);
 
-  const [, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
   const exerciseData = useSelector(selectExercisesId);
@@ -34,19 +34,14 @@ function ExerciseItemPage() {
     dispatch(getExercisesId(exId));
   }, [exId, dispatch]);
 
-  const openModal = () => {
-    setModal(preModal => {
-      return !preModal;
+  const tumblerSuccessModal = () => {
+    setSuccessModal(preSuccessModal => {
+      return !preSuccessModal;
     });
-  };
-
-  const closeSuccessModal = () => {
-    setSuccessModal(false);
   };
 
   const handleSuccessModal = data => {
     setDataSuccess(data);
-    setSuccessModal(true);
   };
 
   return (
@@ -64,14 +59,14 @@ function ExerciseItemPage() {
 
           <AddExerciseForm
             data={exerciseData}
-            onClick={openModal}
+            onClick={tumblerSuccessModal}
             openSuccess={handleSuccessModal}
           />
           {successModal && (
-            <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
+            <BasicModalWindow isOpenModalToggle={tumblerSuccessModal}>
               <SuccessExerciseModalWindow
                 data={dataSuccess}
-                closeModal={closeSuccessModal}
+                closeModal={tumblerSuccessModal}
               />
             </BasicModalWindow>
           )}

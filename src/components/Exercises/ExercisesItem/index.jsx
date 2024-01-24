@@ -19,25 +19,22 @@ function ExercisesItem({ exerciseData }) {
     return string[0].toUpperCase() + string.slice(1);
   };
 
-  const openModal = () => {
+  const tumblerModal = () => {
     setModal(preModal => {
       return !preModal;
     });
   };
 
-  const closeModal = () => {
-    setModal(false);
-    deleteIdForPathname(idExercise);
-  };
-
-  const closeSuccessModal = () => {
-    setSuccessModal(false);
-    deleteIdForPathname(idExercise);
+  const tumblerSuccessModal = () => {
+    setSuccessModal(preSuccessModal => {
+      return !preSuccessModal;
+    });
   };
 
   const handleSuccessModal = data => {
     setDataSuccess(data);
-    setSuccessModal(true);
+    tumblerSuccessModal();
+    deleteIdForPathname(idExercise);
   };
 
   return (
@@ -46,7 +43,7 @@ function ExercisesItem({ exerciseData }) {
       <button
         className="btn-box"
         onClick={() => {
-          openModal();
+          tumblerModal();
           addIdForPathname(idExercise);
         }}
       >
@@ -78,19 +75,29 @@ function ExercisesItem({ exerciseData }) {
         </li>
       </ul>
       {modal && (
-        <BasicModalWindow isOpenModalToggle={closeModal}>
+        <BasicModalWindow
+          isOpenModalToggle={() => {
+            tumblerModal();
+            deleteIdForPathname(idExercise);
+          }}
+        >
           <AddExerciseForm
             data={exerciseData}
-            onClick={openModal}
+            onClick={tumblerModal}
             openSuccess={handleSuccessModal}
           />
         </BasicModalWindow>
       )}
       {successModal && (
-        <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
+        <BasicModalWindow
+          isOpenModalToggle={() => {
+            tumblerSuccessModal();
+            deleteIdForPathname(idExercise);
+          }}
+        >
           <SuccessExerciseModalWindow
             data={dataSuccess}
-            closeModal={closeSuccessModal}
+            closeModal={tumblerSuccessModal}
           />
         </BasicModalWindow>
       )}
