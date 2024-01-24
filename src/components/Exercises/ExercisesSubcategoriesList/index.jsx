@@ -17,9 +17,10 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
   };
 
   return (
-    <div style={{ height: '444px' }}>
+    <>
       <Swiper
-        spaceBetween={5}
+        className="swiper-box"
+        spaceBetween={16}
         pagination={{
           clickable: true,
         }}
@@ -56,10 +57,11 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
           '--swiper-pagination-color': 'rgba(230, 83, 60, 1)',
           '--swiper-pagination-bullet-size': '14px',
           '--swiper-pagination-bullet-horizontal-gap': '8px',
+          '--swiper-pagination-bullet-vertical-gap': '30px',
         }}
       >
         {subcategoriesList.map(({ idFilter, filter, name, imgURL }) => (
-          <SwiperSlide key={idFilter}>
+          <SwiperSlide className="swiper-slide" key={idFilter}>
             <Link
               to={`/exercises/${category}/${encodeURIComponent(name)}`}
               state={{ from: location }}
@@ -73,7 +75,7 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </>
   );
 };
 
