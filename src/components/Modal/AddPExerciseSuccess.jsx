@@ -31,7 +31,7 @@ export const SuccessExerciseModalWindow = ({ data, closeModal, pathBack='/' }) =
             </SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
-          <SuccessModalWindowBtn to={pathBack}>Next exercise</SuccessModalWindowBtn>
+          <SuccessModalWindowBtn to={pathBack} onClick={closeModal}>Next exercise</SuccessModalWindowBtn>
         <StyledLink to="/diary" onClick={closeModal}>
           <SuccessModalWindowText>
             To the diary
