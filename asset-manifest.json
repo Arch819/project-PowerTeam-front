@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project-PowerTeam-front/static/css/main.80f5f498.css",
-    "main.js": "/project-PowerTeam-front/static/js/main.fdbee008.js",
+    "main.css": "/project-PowerTeam-front/static/css/main.d6b88fb5.css",
+    "main.js": "/project-PowerTeam-front/static/js/main.641d54d2.js",
     "static/js/881.4a0947b3.chunk.js": "/project-PowerTeam-front/static/js/881.4a0947b3.chunk.js",
     "static/js/161.d8eea770.chunk.js": "/project-PowerTeam-front/static/js/161.d8eea770.chunk.js",
     "static/media/background-1-mobile@2x.jpg": "/project-PowerTeam-front/static/media/background-1-mobile@2x.87c01507cadde944a79c.jpg",
@@ -22,13 +22,13 @@
     "static/media/background-2-des.jpg": "/project-PowerTeam-front/static/media/background-2-des.d54f7b5608be85ca682f.jpg",
     "static/media/background-1-tablet.jpg": "/project-PowerTeam-front/static/media/background-1-tablet.1bae9f11a2c31cf1e521.jpg",
     "index.html": "/project-PowerTeam-front/index.html",
-    "main.80f5f498.css.map": "/project-PowerTeam-front/static/css/main.80f5f498.css.map",
-    "main.fdbee008.js.map": "/project-PowerTeam-front/static/js/main.fdbee008.js.map",
+    "main.d6b88fb5.css.map": "/project-PowerTeam-front/static/css/main.d6b88fb5.css.map",
+    "main.641d54d2.js.map": "/project-PowerTeam-front/static/js/main.641d54d2.js.map",
     "881.4a0947b3.chunk.js.map": "/project-PowerTeam-front/static/js/881.4a0947b3.chunk.js.map",
     "161.d8eea770.chunk.js.map": "/project-PowerTeam-front/static/js/161.d8eea770.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80f5f498.css",
-    "static/js/main.fdbee008.js"
+    "static/css/main.d6b88fb5.css",
+    "static/js/main.641d54d2.js"
   ]
 }
