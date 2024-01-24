@@ -83,7 +83,7 @@ function DayDashboard() {
         />
       </DayDashboardList>
       <Thumb>
-        <IconWarning>
+        <IconWarning aria-label="icon-warning">
           <use href={`${sprite}#icon-warning`} />
         </IconWarning>
         <TextWarning>
