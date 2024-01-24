@@ -25,7 +25,7 @@ const DayExercisesMobile = () => {
         </AddExerciseButton>
       </DayExercisesHeader>
       <ExerciseList>
-        {exercises && exercises?.length > 0 ? (
+        {exercises.length > 0 ? (
           <DayExerciseItemMobile exercises={exercises} />
         ) : (
           <DayExercisesPlug />

@@ -37,6 +37,15 @@ function DayDashboard() {
   const restOfCalories = dailyCalorieIntake - caloriesConsumed + caloriesBurned;
   const restOfSport = dailyNormOfSports - totalSportTime;
 
+  function formatTime(minutes) {
+    const totalMinutes = Math.floor(minutes);
+    const seconds = Math.round((minutes - totalMinutes) * 60);
+    if (minutes < 0) {
+      return formatTime(Math.abs(minutes));
+    }
+    return `${totalMinutes} min ${seconds} sec`;
+  }
+
   return (
     <Box>
       <DayDashboardList>
@@ -76,8 +85,8 @@ function DayDashboard() {
           title={'Sports remaining'}
           data={
             restOfSport > 0
-              ? `${restOfSport} min`
-              : `+${Math.abs(restOfSport)} min`
+              ? `${formatTime(restOfSport)}`
+              : `+${formatTime(restOfSport)}`
           }
         />
       </DayDashboardList>

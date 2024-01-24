@@ -6,18 +6,21 @@ import DayProducts from 'components/diary/DayProducts/DayProductsTable';
 import DaySwitch from 'components/diary/DaySwitch';
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDiaryByDateThunk } from 'store/diary/diaryThunk.js';
 import {
   CalendarMainContainer,
   ItemsContainer,
   MainContentContainer,
 } from './diaryPage.styled';
+import { selectUser } from 'store/auth/selector';
+import { parseISO } from 'date-fns';
 
 function DiaryPage() {
   const dispatch = useDispatch();
-
+  const userData = useSelector(selectUser);
   const [startDate, setStartDate] = useState(format(new Date(), 'yyyy-MM-dd'));
+  const registerDate = parseISO(userData.createdAt);
 
   const handleChangeDate = date => {
     const newDate = date.toISOString();
@@ -33,7 +36,10 @@ function DiaryPage() {
       <div className="container">
         <CalendarMainContainer>
           <TitlePage title={'Diary'}></TitlePage>
-          <DaySwitch onChangeDate={handleChangeDate}></DaySwitch>
+          <DaySwitch
+            onChangeDate={handleChangeDate}
+            dateRegister={registerDate}
+          ></DaySwitch>
         </CalendarMainContainer>
         <MainContentContainer>
           <DayDashboard></DayDashboard>
