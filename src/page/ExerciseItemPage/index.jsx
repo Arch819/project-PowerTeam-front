@@ -25,7 +25,7 @@ function ExerciseItemPage() {
   const backLinkHref = location.state?.from ?? newPath;
   const ref = useRef(backLinkHref);
 
-  const [modal, setModal] = useState(false);
+  const [, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
   const exerciseData = useSelector(selectExercisesId);
