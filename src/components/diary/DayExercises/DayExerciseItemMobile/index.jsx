@@ -25,6 +25,18 @@ const DayExerciseItemMobile = ({ exercises }) => {
       return;
     }
   };
+  const formatTime = minutes => {
+    const totalMinutes = Math.floor(minutes);
+    const seconds = Math.round((minutes - totalMinutes) * 60);
+    if (minutes < 0) {
+      return formatTime(Math.abs(minutes));
+    }
+    console.log(totalMinutes);
+    return `${totalMinutes.toString().padStart(2, '0')}:${seconds
+      .toString()
+      .padStart(2, '0')}`;
+  };
+
   return exercises.map(
     ({
       idExercise,
@@ -50,7 +62,7 @@ const DayExerciseItemMobile = ({ exercises }) => {
           </ExerciseItemContainer>
           <div>
             <ExercisesTitle>Time</ExercisesTitle>
-            <ExercisesTextTime>{time}</ExercisesTextTime>
+            <ExercisesTextTime>{formatTime(time)}</ExercisesTextTime>
           </div>
           <DeleteButton
             type="button"
