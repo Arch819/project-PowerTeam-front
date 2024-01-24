@@ -10,6 +10,7 @@ import {
   TextWarning,
   Thumb,
 } from './DayDashboard.styled';
+import formatTime from 'helpers/fomatTime';
 
 function DayDashboard() {
   const diaryProducts = useSelector(selectProducts);
@@ -36,15 +37,6 @@ function DayDashboard() {
   }
   const restOfCalories = dailyCalorieIntake - caloriesConsumed + caloriesBurned;
   const restOfSport = dailyNormOfSports - totalSportTime;
-
-  function formatTime(minutes) {
-    const totalMinutes = Math.floor(minutes);
-    const seconds = Math.round((minutes - totalMinutes) * 60);
-    if (minutes < 0) {
-      return formatTime(Math.abs(minutes));
-    }
-    return `${totalMinutes} min ${seconds} sec`;
-  }
 
   return (
     <Box>
