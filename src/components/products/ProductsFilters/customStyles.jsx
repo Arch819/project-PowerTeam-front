@@ -1,15 +1,13 @@
 const getCustomStyles = fontSize => ({
-  //control wrapper that surrounds the actual input field
   control: provided => ({
     ...provided,
     backgroundColor: 'transparent',
-    appearance: 'none', // Removes the default browser appearance
-    WebkitAppearance: 'none', // Removes the default browser appearance
-    MozAppearance: 'none', // Removes the default browser appearance
+    appearance: 'none',
+    WebkitAppearance: 'none',
+    MozAppearance: 'none',
     padding: '6px 10px',
     cursor: 'pointer',
   }),
-  //options within the dropdown menu
   option: (provided, { isFocused, isSelected }) => ({
     ...provided,
     backgroundColor: isSelected
@@ -26,7 +24,7 @@ const getCustomStyles = fontSize => ({
   }),
   singleValue: provided => ({
     ...provided,
-    color: '#EFEDE8', // color of active placeholder
+    color: '#EFEDE8',
   }),
 
   dropdownIndicator: provided => ({
@@ -41,7 +39,7 @@ const getCustomStyles = fontSize => ({
   }),
   valueContainer: provided => ({
     ...provided,
-    padding: '0', // Override padding inside the value container if necessary
+    padding: '0',
   }),
   placeholder: provided => ({
     ...provided,
@@ -49,13 +47,17 @@ const getCustomStyles = fontSize => ({
   }),
   menuList: base => ({
     ...base,
-    borderRadius: '12px', // border of dropdown menu
+    borderRadius: '12px',
     overflowY: 'scroll',
     paddingLeft: '6px',
     paddingTop: '6px',
     width: `calc(100% - 7px)`,
+    '& > div:last-child': {
+      paddingBottom: '14px',
+    },
     '::-webkit-scrollbar-track': {
       marginTop: '14px',
+      marginBottom: '14px',
     },
   }),
 });
