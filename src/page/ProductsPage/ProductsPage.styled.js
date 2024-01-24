@@ -1,6 +1,7 @@
+import TitlePage from 'components/TitlePage';
 import styled from 'styled-components';
 
-export const Title = styled.h1`
+export const LocalTitlePage = styled.div`
   @media screen and (min-width: 375px) {
     margin-bottom: 40px;
   }
