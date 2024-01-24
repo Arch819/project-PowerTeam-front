@@ -20,25 +20,22 @@ function ProductsItem({ productData }) {
     return string[0].toUpperCase() + string.slice(1);
   };
 
-  const openModal = () => {
+  const tumblerModal = () => {
     setModal(preModal => {
       return !preModal;
     });
   };
 
-  const closeModal = () => {
-    setModal(false);
-    deleteIdForPathname(idProduct);
-  };
-
-  const closeSuccessModal = () => {
-    setSuccessModal(false);
-    deleteIdForPathname(idProduct);
+  const tumblerSuccessModal = () => {
+    setSuccessModal(preSuccessModal => {
+      return !preSuccessModal;
+    });
   };
 
   const handleSuccessModal = data => {
     setDataSuccess(data);
-    setSuccessModal(true);
+    tumblerSuccessModal();
+    deleteIdForPathname(idProduct);
   };
 
   return (
@@ -56,7 +53,7 @@ function ProductsItem({ productData }) {
         <button
           className="btn-box"
           onClick={() => {
-            openModal();
+            tumblerModal();
             addIdForPathname(idProduct);
           }}
         >
@@ -89,19 +86,24 @@ function ProductsItem({ productData }) {
         </li>
       </ul>
       {modal && (
-        <BasicModalWindow isOpenModalToggle={closeModal}>
+        <BasicModalWindow
+          isOpenModalToggle={() => {
+            tumblerModal();
+            deleteIdForPathname(idProduct);
+          }}
+        >
           <AddProductForm
             eldata={productData}
-            onClick={openModal}
+            onClick={tumblerModal}
             openSuccess={handleSuccessModal}
           />
         </BasicModalWindow>
       )}
       {successModal && (
-        <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
+        <BasicModalWindow isOpenModalToggle={tumblerSuccessModal}>
           <AddProductSuccess
             calories={dataSuccess}
-            closeModal={closeSuccessModal}
+            closeModal={tumblerSuccessModal}
           />
         </BasicModalWindow>
       )}
