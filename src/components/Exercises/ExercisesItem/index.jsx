@@ -6,13 +6,15 @@ import { AddExerciseForm } from '../../Modal/AddExerciseForm';
 import { SuccessExerciseModalWindow } from 'components/Modal/AddPExerciseSuccess';
 import addIdForPathname from 'helpers/addIdForPathname';
 import deleteIdForPathname from 'helpers/deleteIdForPathname';
+import { useLocation } from 'react-router-dom';
 
 function ExercisesItem({ exerciseData }) {
+  const location = useLocation();
+
   const [modal, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
   const { bodyPart, name, target, burnedCalories, idExercise } = exerciseData;
-
   const upFirst = string => {
     if (!string) return string;
 
@@ -46,6 +48,7 @@ function ExercisesItem({ exerciseData }) {
           tumblerModal();
           addIdForPathname(idExercise);
         }}
+        aria-label="Add exercise to diary"
       >
         <span className="btn-text">Start</span>
         <svg className="btn-svg">
@@ -98,6 +101,7 @@ function ExercisesItem({ exerciseData }) {
           <SuccessExerciseModalWindow
             data={dataSuccess}
             closeModal={tumblerSuccessModal}
+            pathBack={location.pathname}
           />
         </BasicModalWindow>
       )}
