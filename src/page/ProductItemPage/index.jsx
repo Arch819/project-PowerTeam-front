@@ -51,7 +51,7 @@ function ProductItemPage() {
       {productData && (
         <div className="container">
           <LinkBox>
-            <LinkBack to={ref.current}>
+            <LinkBack to={ref.current} aria-label="Go to products` list">
               <Icon>
                 <use href={`${sprite}#${'icon-back'}`} />
               </Icon>
@@ -74,6 +74,7 @@ function ProductItemPage() {
               <AddProductSuccess
                 data={dataSuccess}
                 closeModal={tumblerSuccessModal}
+                pathBack={newPath}
               />
             </BasicModalWindow>
           )}

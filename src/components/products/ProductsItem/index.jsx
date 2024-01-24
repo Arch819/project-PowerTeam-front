@@ -6,8 +6,11 @@ import { AddProductSuccess } from 'components/Modal/AddProductSuccess';
 import AddProductForm from 'components/Modal/AddProductForm';
 import addIdForPathname from 'helpers/addIdForPathname';
 import deleteIdForPathname from 'helpers/deleteIdForPathname';
+import { useLocation } from 'react-router-dom';
 
 function ProductsItem({ productData }) {
+  const location = useLocation();
+
   const [modal, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
@@ -56,6 +59,7 @@ function ProductsItem({ productData }) {
             tumblerModal();
             addIdForPathname(idProduct);
           }}
+          aria-label="Add product to diary"
         >
           <span className="btn-text">Add</span>
           <svg className="btn-svg">
@@ -100,10 +104,16 @@ function ProductsItem({ productData }) {
         </BasicModalWindow>
       )}
       {successModal && (
-        <BasicModalWindow isOpenModalToggle={tumblerSuccessModal}>
+        <BasicModalWindow
+          isOpenModalToggle={() => {
+            tumblerSuccessModal();
+            deleteIdForPathname(idProduct);
+          }}
+        >
           <AddProductSuccess
             calories={dataSuccess}
             closeModal={tumblerSuccessModal}
+            pathBack={location.pathname}
           />
         </BasicModalWindow>
       )}
