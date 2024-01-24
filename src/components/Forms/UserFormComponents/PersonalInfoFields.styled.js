@@ -161,8 +161,11 @@ export const TitleWrapper = styled.button`
   text-align: start;
   font-family: 'Roboto';
   font-size: 16px;
-  line-height: 24px;
+  line-height: 18px;
   padding: 14px;
+  @media (min-width: 768px) {
+    line-height: 24px;
+  }
 `;
 
 export const SelectProfile = styled.select`
