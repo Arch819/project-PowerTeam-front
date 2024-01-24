@@ -24,6 +24,7 @@ export const MainContentContainer = styled.div`
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    margin-bottom: 68px;
   }
 `;
 
