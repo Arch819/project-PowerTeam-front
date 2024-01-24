@@ -35,6 +35,7 @@ export const App = () => {
     if (isLoggedIn && !bodyData) {
       navigate('/');
     }
+    console.log('useEffect', bodyData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return isRefresh ? (
@@ -44,7 +45,12 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route
           index
-          element={<Navigate to={isLoggedIn ? '/diary' : '/welcome'} replace />}
+          element={
+            <Navigate
+              to={isLoggedIn ? (!bodyData ? '/profile' : '/diary') : '/welcome'}
+              replace
+            />
+          }
         />
         <Route
           path="/welcome"
