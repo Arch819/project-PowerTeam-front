@@ -1,4 +1,3 @@
-import formatTime from 'helpers/fomatTime';
 import like from '../../images/ModalImg/like-2x.png';
 import sprite from '../../images/sprite.svg';
 import {
