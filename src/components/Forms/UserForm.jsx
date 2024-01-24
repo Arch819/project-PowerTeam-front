@@ -54,11 +54,11 @@ function UserForm() {
               levelActivity: Number(values.levelActivity),
             };
             values.bmr = bmr(values);
-            await dispatch(updateProfile(values));
+            const req = await dispatch(updateProfile(values));
 
-            if (bodyData) {
+            if (req.meta.requestStatus === 'fulfilled' && bodyData) {
               notiflixMessage('ok', 'Data changed successfully.');
-            } else {
+            } else if (req.meta.requestStatus === 'fulfilled') {
               notiflixMessage('ok', 'Data added successfully.');
             }
           })
