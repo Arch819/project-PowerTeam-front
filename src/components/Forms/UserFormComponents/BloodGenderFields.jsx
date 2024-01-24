@@ -22,7 +22,7 @@ const BloodGenderFields = ({ blood, sex }) => {
               type="radio"
               name="blood"
               value="1"
-              checked={blood ? blood.toString() === '1' : 0}
+              checked={blood.toString() === '1'}
             />
             1
           </RadioLabel>
@@ -32,7 +32,7 @@ const BloodGenderFields = ({ blood, sex }) => {
               type="radio"
               name="blood"
               value="2"
-              checked={blood ? blood.toString() === '2' : 0}
+              checked={blood.toString() === '2'}
             />
             2
           </RadioLabel>
@@ -42,7 +42,7 @@ const BloodGenderFields = ({ blood, sex }) => {
               type="radio"
               name="blood"
               value="3"
-              checked={blood ? blood.toString() === '3' : 0}
+              checked={blood.toString() === '3'}
             />
             3
           </RadioLabel>
@@ -52,7 +52,7 @@ const BloodGenderFields = ({ blood, sex }) => {
               type="radio"
               name="blood"
               value="4"
-              checked={blood ? blood.toString() === '4' : 0}
+              checked={blood.toString() === '4'}
             />
             4
           </RadioLabel>
