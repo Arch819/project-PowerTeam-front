@@ -17,6 +17,7 @@ import { getProductsId } from 'store/products/productsOperations';
 import AddProductForm from 'components/Modal/AddProductForm';
 import TitlePage from 'components/TitlePage';
 import { AddProductSuccess } from 'components/Modal/AddProductSuccess';
+import ProductItemPageStyled from './ProductItemPageStyled';
 
 function ProductItemPage() {
   const { prodId } = useParams();
@@ -27,7 +28,6 @@ function ProductItemPage() {
   const backLinkHref = location.state?.from ?? newPath;
   const ref = useRef(backLinkHref);
 
-  const [, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [dataSuccess, setDataSuccess] = useState(null);
   const productData = useSelector(selectProductsId);
@@ -36,19 +36,14 @@ function ProductItemPage() {
     dispatch(getProductsId(prodId));
   }, [prodId, dispatch]);
 
-  const openModal = () => {
-    setModal(preModal => {
-      return !preModal;
+  const tumblerSuccessModal = () => {
+    setSuccessModal(preSuccessModal => {
+      return !preSuccessModal;
     });
-  };
-
-  const closeSuccessModal = () => {
-    setSuccessModal(false);
   };
 
   const handleSuccessModal = data => {
     setDataSuccess(data);
-    setSuccessModal(true);
   };
 
   return (
@@ -67,16 +62,18 @@ function ProductItemPage() {
             <TitlePage title={'Product'} />
           </TitleBox>
 
-          <AddProductForm
-            eldata={productData}
-            onClick={openModal}
-            openSuccess={handleSuccessModal}
-          />
+          <ProductItemPageStyled>
+            <AddProductForm
+              eldata={productData}
+              onClick={tumblerSuccessModal}
+              openSuccess={handleSuccessModal}
+            />
+          </ProductItemPageStyled>
           {successModal && (
-            <BasicModalWindow isOpenModalToggle={closeSuccessModal}>
+            <BasicModalWindow isOpenModalToggle={tumblerSuccessModal}>
               <AddProductSuccess
                 data={dataSuccess}
-                closeModal={closeSuccessModal}
+                closeModal={tumblerSuccessModal}
               />
             </BasicModalWindow>
           )}
