@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import 'swiper/css';
-import 'swiper/css/grid';
-import 'swiper/css/pagination';
 
 export const Image = styled.img`
   object-fit: cover;
@@ -9,18 +6,18 @@ export const Image = styled.img`
   max-width: 334px;
 
   @media screen and (min-width: 375px) {
-    width: 333px;
-    height: 204px;
+    width: 335px;
+    height: 205px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 222px;
-    height: 204px;
+    width: 223px;
+    height: 205px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 235px;
-    height: 204px;
+    height: 205px;
   }
 `;
 

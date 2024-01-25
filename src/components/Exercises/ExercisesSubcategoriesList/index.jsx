@@ -57,14 +57,6 @@ const ExercisesSubcategoriesList = ({ subcategoriesList, category }) => {
           },
         }}
         modules={[Grid, Pagination]}
-        style={{
-          '--swiper-pagination-bullet-inactive-color':
-            ' rgba(239, 237, 232, 1)',
-          '--swiper-pagination-color': 'rgba(230, 83, 60, 1)',
-          '--swiper-pagination-bullet-size': '14px',
-          '--swiper-pagination-bullet-horizontal-gap': '8px',
-          '--swiper-pagination-bullet-vertical-gap': '30px',
-        }}
       >
         {subcategoriesList.map(({ idFilter, filter, name, imgURL }) => (
           <SwiperSlide className="swiper-slide" key={idFilter}>
