@@ -5,6 +5,7 @@ const ProductsListStyled = styled.ul`
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 20px;
+  padding-bottom: 40px;
 
   @media screen and (min-width: 375px) {
     max-width: 335px;
@@ -15,6 +16,7 @@ const ProductsListStyled = styled.ul`
     height: 660px;
     gap: 32px 16px;
     overflow: auto;
+    padding-bottom: 66px;
 
     &::-webkit-scrollbar {
       width: 8px;
@@ -28,6 +30,7 @@ const ProductsListStyled = styled.ul`
     max-width: 850px;
     height: 487px;
     gap: 30px 16px;
+    padding-bottom: 0px;
   }
 `;
 
