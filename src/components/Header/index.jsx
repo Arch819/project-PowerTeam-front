@@ -35,7 +35,7 @@ function Header() {
       <div className="container">
         <AllWrapper>
           <nav>
-            <Link to="/">
+            <Link aria-label="Welcome page" to="/">
               <Logo />
             </Link>
           </nav>
@@ -46,15 +46,24 @@ function Header() {
                   <MediaQuery minWidth={1440}>
                     {bodyData && (
                       <WrapperNavLinkStyled>
-                        <NavLinkStyled to="/diary">Diary</NavLinkStyled>
-                        <NavLinkStyled to="/products">Products</NavLinkStyled>
-                        <NavLinkStyled to="/exercises">Exercises</NavLinkStyled>
+                        <NavLinkStyled aria-label="Diary" to="/diary">
+                          Diary
+                        </NavLinkStyled>
+                        <NavLinkStyled aria-label="Products" to="/products">
+                          Products
+                        </NavLinkStyled>
+                        <NavLinkStyled aria-label="Exercises" to="/exercises">
+                          Exercises
+                        </NavLinkStyled>
                       </WrapperNavLinkStyled>
                     )}
                   </MediaQuery>
 
                   <WrapperNavLinkStyled>
-                    <LinkSettingsStyled to="/profile">
+                    <LinkSettingsStyled
+                      aria-label="Profile settings"
+                      to="/profile"
+                    >
                       <UserBar />
                     </LinkSettingsStyled>
 
@@ -63,7 +72,10 @@ function Header() {
                     </MediaQuery>
 
                     <MediaQuery maxWidth={1439}>
-                      <IconBurgerMenuStyled onClick={toggleMenu}>
+                      <IconBurgerMenuStyled
+                        aria-label="Menu"
+                        onClick={toggleMenu}
+                      >
                         <use href={`${sprite}#icon-burger-menu`} />
                       </IconBurgerMenuStyled>
                     </MediaQuery>
