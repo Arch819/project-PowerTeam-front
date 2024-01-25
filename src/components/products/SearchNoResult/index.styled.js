@@ -1,23 +1,24 @@
 import styled from 'styled-components';
 
 export const NoResultWrapper = styled.div`
-  @media screen and (min-width: 375px) {
-    display: inline-block;
+  display: inline-block;
+  padding-top: 24px;
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
   }
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
+    padding-top: 104px;
   }
 `;
 
 export const NoResultText = styled.p`
-  @media screen and (min-width: 375px) {
-    display: inline-block;
-    line-height: 1.3;
-    font-weight: 400;
-    margin-bottom: 16px;
-    color: rgba(239, 237, 232, 0.3);
-  }
+  display: inline-block;
+  line-height: 1.3;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: rgba(239, 237, 232, 0.3);
 
   @media screen and (min-width: 768px) {
     width: 580px;
@@ -27,12 +28,10 @@ export const NoResultText = styled.p`
 `;
 
 export const NoResultOrangeText = styled.span`
-  @media screen and (min-width: 375px) {
-    color: var(--color-btn-secondary);
-    font-size: 14px;
-    line-height: 18px;
-    display: inline-block;
-  }
+  color: var(--color-btn-secondary);
+  font-size: 14px;
+  line-height: 18px;
+  display: inline-block;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
