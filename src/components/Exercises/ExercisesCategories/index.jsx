@@ -12,6 +12,7 @@ const ExercisesCategories = ({ activeCategory }) => {
           <StyledLink
             to="/exercises/bodyPart"
             className={activeCategory === 'bodyPart' ? 'active' : ''}
+            aria-label="link to exercises by body part"
           >
             Body parts
           </StyledLink>
@@ -20,6 +21,7 @@ const ExercisesCategories = ({ activeCategory }) => {
           <StyledLink
             to="/exercises/target"
             className={activeCategory === 'target' ? 'active' : ''}
+            aria-label="link to exercises by muscles"
           >
             Muscles
           </StyledLink>
@@ -28,6 +30,7 @@ const ExercisesCategories = ({ activeCategory }) => {
           <StyledLink
             to="/exercises/equipment"
             className={activeCategory === 'equipment' ? 'active' : ''}
+            aria-label="link to exercises by equipment"
           >
             Equipment
           </StyledLink>
