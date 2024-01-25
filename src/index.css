@@ -150,7 +150,7 @@ header .container {
 /*  SWIPER  */
 
 .swiper-box {
-  padding-bottom: 40px !important;
+  padding: 0 15px 45px !important;
 }
 
 .swiper-box .swiper-pagination {
