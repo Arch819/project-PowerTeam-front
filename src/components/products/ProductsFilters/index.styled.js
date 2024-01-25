@@ -9,7 +9,12 @@ export const ProductsFilterLabel = styled.label`
 `;
 export const CategoryAll = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  gap: 16px;
+  @media screen and (min-width: 375px) {
+    flex-direction: row;
+  }
 `;
 
 export const ProductsFilterSearch = styled.input`
@@ -54,7 +59,7 @@ export const ProductsBtnSearch = styled.button`
   position: absolute;
   background: transparent;
   position: absolute;
-  top: calc(50% - 16px / 2);
+  top: calc(45% - 16px / 2);
   right: 14px;
   border: none;
 `;
@@ -70,57 +75,42 @@ export const ProductsSvgSearch = styled.svg`
 `;
 
 export const ProductsFilterList = styled.ul`
+  margin-bottom: 16px;
   @media screen and (min-width: 375px) {
-    margin-bottom: 64px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
   }
   @media screen and (min-width: 768px) {
-    margin-bottom: 132px;
+    margin-bottom: 32px;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    gap: 16px;
   }
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 28px;
   }
 `;
 
 export const SelectWrapperCategory = styled.div`
-  width: 146px;
-  margin-right: 16px;
-  @media screen and (min-width: 768px) {
-    width: 192px;
+  @media screen and (min-width: 375px) {
+    width: 146px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
     width: 192px;
   }
 `;
 
 export const SelectWrapperRec = styled.div`
-  width: 173px;
-  @media screen and (min-width: 768px) {
-    width: 204px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 204px;
-  }
-`;
-
-export const ProductTitle = styled.h2`
   @media screen and (min-width: 375px) {
-    font-size: 24px;
-    margin-bottom: 40px;
+    width: 173px;
   }
   @media screen and (min-width: 768px) {
-    font-size: 32px;
-    margin-bottom: 32px;
-  }
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 0px;
+    width: 204px;
   }
 `;
 
@@ -134,9 +124,14 @@ export const TitleFilter = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
+    padding-top: 68px;
   }
 `;
 export const ProductsContainer = styled.div`
   position: relative;
   align-items: center;
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+  }
 `;
