@@ -35,21 +35,20 @@ export const ExersiceModalWindowWrap = styled.div`
 `;
 
 export const RightWrapper = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-
-` ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 export const LeftWrapper = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
 
-@media screen and (min-width: 768px){
- margin-bottom: 0; 
-}
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const ExersiceModalImgWrapper = styled.div`
@@ -106,8 +105,8 @@ export const ExersiceModalWindowBtn = styled.button`
   border-color: transparent;
   background: #e6533c;
   align-self: flex-start;
-  
-  pointer-events: ${({isDisabled})=>(!isDisabled ? 'none' : 'all')};
+
+  pointer-events: ${({ $isDisabled }) => (!$isDisabled ? 'none' : 'all')};
   &:hover {
     background: #ef8964;
     color: #efede8;

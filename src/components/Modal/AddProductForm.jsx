@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getAddProductThunk } from '../../store/diary/diaryThunk';
 import Notiflix from 'notiflix';
@@ -22,7 +22,7 @@ const formatDate = date => {
   const year = date.getFullYear();
   return `${year}-${month}-${day}`;
 };
- 
+
 const AddProductForm = ({ eldata, onClick, openSuccess }) => {
   const dispatch = useDispatch();
   const { title, calories, idProduct: productId } = eldata;
@@ -39,19 +39,19 @@ const AddProductForm = ({ eldata, onClick, openSuccess }) => {
       Notiflix.Report.failure('Error', 'Must be greater than 0', 'OK');
       return;
     }
-    console.log('formattedDate', formattedDate);
     dispatch(
       getAddProductThunk({
         date: formattedDate,
         productId,
         amount: quantity,
         calories: caloriesEated,
-      }),
+      })
     ).then(() => {
       openSuccess(caloriesEated);
       setQuantity(1);
-      
-     onClick();    })
+
+      onClick();
+    });
   };
 
   const isCaloriesEntered = caloriesEated > 0;
@@ -81,10 +81,14 @@ const AddProductForm = ({ eldata, onClick, openSuccess }) => {
         </CaloriesTitle>
         <br />
         <BtnWrapper>
-          <BtnAdd type="button" onClick={handleAddToDiary} disabled={!isCaloriesEntered}>
+          <BtnAdd
+            type="button"
+            onClick={handleAddToDiary}
+            disabled={!isCaloriesEntered}
+          >
             Add to diary
           </BtnAdd>
-          <BtnCancel className='page-styled' type="button" onClick={onClick}>
+          <BtnCancel className="page-styled" type="button" onClick={onClick}>
             Cancel
           </BtnCancel>
         </BtnWrapper>

@@ -28,7 +28,6 @@ const DayExerciseItem = ({ exercises }) => {
     if (minutes < 0) {
       return formatTime(Math.abs(minutes));
     }
-    console.log(totalMinutes);
     return `${totalMinutes.toString().padStart(2, '0')}:${seconds
       .toString()
       .padStart(2, '0')}`;

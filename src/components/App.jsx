@@ -54,20 +54,26 @@ export const App = () => {
         <Route
           path="/welcome"
           element={
-            <RestrictedRoute redirectTo="/diary" component={<WelcomePage />} />
+            <RestrictedRoute
+              redirectTo={bodyData ? '/diary' : '/profile'}
+              component={<WelcomePage />}
+            />
           }
         />
         <Route
           path="/signin"
           element={
-            <RestrictedRoute redirectTo="/diary" component={<LoginPage />} />
+            <RestrictedRoute
+              redirectTo={bodyData ? '/diary' : '/profile'}
+              component={<LoginPage />}
+            />
           }
         />
         <Route
           path="/signup"
           element={
             <RestrictedRoute
-              redirectTo="/diary"
+              redirectTo={bodyData ? '/diary' : '/profile'}
               component={<RegistrationPage />}
             />
           }
