@@ -13,21 +13,21 @@ function UserBar() {
 
   return (
     <>
-      <IconSettings>
+      <IconSettings aria-label="Settings">
         <use href={`${sprite}#icon-settings`} />
       </IconSettings>
 
       <IconUserWrapper border={avatarURL}>
         {avatarURL ? (
           <>
-            <IconUser>
+            <IconUser aria-label="Avatar">
               <use href={`${sprite}#icon-user`} />
             </IconUser>
 
             <AvatarImg src={avatarURL} sizes="90px" loading="lazy" />
           </>
         ) : (
-          <IconUser>
+          <IconUser aria-label="Avatar">
             <use href={`${sprite}#icon-user`} />
           </IconUser>
         )}
