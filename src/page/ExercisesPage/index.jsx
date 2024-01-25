@@ -2,7 +2,7 @@ import Section from 'components/Section';
 import ExercisesCategories from 'components/Exercises/ExercisesCategories';
 import ExercisesSubcategoriesList from 'components/Exercises/ExercisesSubcategoriesList';
 import TitlePage from 'components/TitlePage';
-import { NavBox } from './ExercisesPage.styled';
+import { NavBox, SwiperContainer } from './ExercisesPage.styled';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,7 +36,7 @@ function ExercisesPage() {
 
   return (
     <Section>
-      <div className="container">
+      <SwiperContainer>
         <NavBox>
           <TitlePage title={'Exercises'} />
           <ExercisesCategories activeCategory={category} />
@@ -47,7 +47,7 @@ function ExercisesPage() {
             category={category}
           />
         )}
-      </div>
+      </SwiperContainer>
     </Section>
   );
 }
