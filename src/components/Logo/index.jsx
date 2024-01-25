@@ -4,10 +4,10 @@ import sprite from '../../images/sprite.svg';
 function Logo() {
   return (
     <div>
-      <LogoDumbbells>
+      <LogoDumbbells aria-label="Logo">
         <use href={`${sprite}#icon-logo`} />
       </LogoDumbbells>
-      <LogoPowerPulse>
+      <LogoPowerPulse aria-label="PowerPulse">
         <use href={`${sprite}#icon-power-pulse`} />
       </LogoPowerPulse>
     </div>

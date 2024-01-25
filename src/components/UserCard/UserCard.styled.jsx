@@ -24,7 +24,7 @@ export const AvatarFrame = styled.div`
 
 export const UserPhoto = styled.img`
   height: 100%;
-  width:  100%;
+  width: 100%;
   border-radius: 100px;
 `;
 
@@ -44,6 +44,11 @@ export const Button = styled.div`
   cursor: pointer;
   position: relative;
   top: -13px;
+  transition: var(--transition);
+
+  &:hover {
+    transform: scale(1.2);
+  }
 
   @media screen and (min-width: 768px) {
     width: 32px;

@@ -25,6 +25,7 @@ function BurgerMenu({ onClick }) {
     try {
       await notiflixConfirmLogout('logout');
       dispatch(logOutUser());
+      onClick();
     } catch (error) {
       return;
     }
@@ -52,31 +53,42 @@ function BurgerMenu({ onClick }) {
     }
   };
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   return (
     <>
       <BackdropBurgerMenuStyled onClick={handleBackdropClick}>
         <ContainerBurgerMenuStyled>
           <ContainerIconCloseStyled>
-            <IconCloseMenu onClick={handleCloseClick}>
+            <IconCloseMenu aria-label="Close menu" onClick={handleCloseClick}>
               <use href={`${sprite}#icon-close`} />
             </IconCloseMenu>
           </ContainerIconCloseStyled>
           {bodyData && (
             <NavContainerStyled onClick={handleCloseClick}>
-              <BurgerMenuNavLinkStyled to="/diary">
+              <BurgerMenuNavLinkStyled aria-label="Diary" to="/diary">
                 Diary
               </BurgerMenuNavLinkStyled>
-              <BurgerMenuNavLinkStyled to="/products">
+              <BurgerMenuNavLinkStyled aria-label="Products" to="/products">
                 Products
               </BurgerMenuNavLinkStyled>
-              <BurgerMenuNavLinkStyled to="/exercises">
+              <BurgerMenuNavLinkStyled aria-label="Exercises" to="/exercises">
                 Exercises
               </BurgerMenuNavLinkStyled>
             </NavContainerStyled>
           )}
-          <BurgerMenuLogOutStyled onClick={handleLogOutUser}>
+          <BurgerMenuLogOutStyled
+            aria-label="Logout"
+            onClick={handleLogOutUser}
+          >
             <span>Logout</span>
-            <BurgerMenuIconLogoutStyled>
+            <BurgerMenuIconLogoutStyled aria-label="Icon logout">
               <use href={`${sprite}#icon-logout`} />
             </BurgerMenuIconLogoutStyled>
           </BurgerMenuLogOutStyled>

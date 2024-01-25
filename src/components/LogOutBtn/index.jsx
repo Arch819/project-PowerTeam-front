@@ -18,9 +18,9 @@ function LogOutBtn() {
 
   return (
     <>
-      <LogoutStyled onClick={handleLogOut}>
+      <LogoutStyled aria-label="Logout" onClick={handleLogOut}>
         <span>Logout</span>
-        <IconLogoutStyled>
+        <IconLogoutStyled aria-label="Icon logout">
           <use href={`${sprite}#icon-logout`} />
         </IconLogoutStyled>
       </LogoutStyled>

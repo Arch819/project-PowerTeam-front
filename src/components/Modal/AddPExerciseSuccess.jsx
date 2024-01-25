@@ -22,7 +22,7 @@ export const SuccessExerciseModalWindow = ({ data, closeModal, pathBack='/' }) =
           <SuccessModalWindowTitle>Well done</SuccessModalWindowTitle>
           <SuccessModalWindowText>
             Your time:
-            <SuccessModalWindowSpan>{`${data.time} seconds`}</SuccessModalWindowSpan>
+            <SuccessModalWindowSpan>{`${data.time} minutes`}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
           <SuccessModalWindowText>
             Burned calories:
