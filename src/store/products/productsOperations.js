@@ -3,14 +3,9 @@ import api from 'api';
 
 const { getProducts, getProductsByCategories, getProductsById } =
   api.productsApi;
-
-export const handleGetAllProductsFulfilled = (state, { payload }) => {
-  state.products = payload;
-};
-
 export const getAllProducts = createAsyncThunk(
   'products/getProducts',
-  async ({ recommended, category, query }, { rejectWithValue }) => {
+  async ({ recommended, category, query, page }, { rejectWithValue }) => {
     try {
       const transformedRecommended =
         recommended === 'recommended'
@@ -18,12 +13,13 @@ export const getAllProducts = createAsyncThunk(
           : recommended === 'notRecommended'
           ? false
           : 'none';
-
       const data = await getProducts({
         title: query,
         category,
         filterType: transformedRecommended,
+        page,
       });
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

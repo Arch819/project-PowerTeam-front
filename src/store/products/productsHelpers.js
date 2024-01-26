@@ -1,7 +1,7 @@
 import { initialState } from './productsInitialState';
 
 export const handleGetAllProductsFulfilled = (state, { payload }) => {
-  state.products = payload;
+ state.products.push(...payload.results);
 };
 
 
