@@ -4,6 +4,10 @@ import api from 'api';
 const { getProducts, getProductsByCategories, getProductsById } =
   api.productsApi;
 
+export const handleGetAllProductsFulfilled = (state, { payload }) => {
+  state.products = payload;
+};
+
 export const getAllProducts = createAsyncThunk(
   'products/getProducts',
   async ({ recommended, category, query }, { rejectWithValue }) => {
@@ -26,6 +30,7 @@ export const getAllProducts = createAsyncThunk(
     }
   }
 );
+
 
 export const getProductsCategories = createAsyncThunk(
   'products/getCategories',
